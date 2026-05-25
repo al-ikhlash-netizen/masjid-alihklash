@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masjid Jami' Al-Ikhlash - Sangkanhurip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #AA7C11;
+            --light-gold: #F3E5AB;
+            --dark-brown: #2C1A04;
+            --medium-brown: #4A3511;
+            --bg-light: #FDFBF7;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--dark-brown);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Marcellus', serif;
+        }
+
+        /* 1. RUNNING TEXT (MARQUEE) */
+        .running-text-container {
+            background-color: var(--dark-brown);
+            color: var(--primary-gold);
+            border-bottom: 2px solid var(--primary-gold);
+            padding: 10px 0;
+            font-weight: 600;
+            font-size: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* 2. HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%);
+            color: var(--white);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--primary-gold);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--primary-gold);
+            background-color: var(--white);
+        }
+
+        .brand-text h1 {
+            font-size: 1.6rem;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+
+        .brand-text p {
+            font-size: 0.85rem;
+            color: var(--light-gold);
+        }
+
+        /* 3. HERO / UTAMA (FOTO MASJID) */
+        .hero {
+            position: relative;
+            height: 550px;
+            background: url('90069.png') center/cover no-repeat; /* Menggunakan mockup malam yang megah */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(44, 26, 4, 0.4), rgba(44, 26, 4, 0.85));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #f0e6d2;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            color: var(--dark-brown);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            color: var(--white);
+        }
+
+        /* 4. SLIDE ANIMASI / STRUKTUR LAYANAN (INFOGRAFIS) */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--medium-brown);
+            margin: 50px 0 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-gold);
+        }
+
+        .infografis-container {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .infografis-banner {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 3px solid var(--primary-gold);
+            transition: transform 0.3s;
+        }
+
+        .infografis-banner:hover {
+            transform: scale(1.02);
+        }
+
+        /* LAYANAN SOSIAL KEMATIAN / DIGITAL DONASI */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-gold);
+            padding: 30px;
+            flex: 1;
+            min-width: 300px;
+            max-width: 360px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(74, 53, 17, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--dark-gold);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-brown);
+        }
+
+        /* 5. STRUKTUR ORGANISASI DKM */
+        .dkm-section {
+            background-color: #F4EFE3;
+            padding: 60px 20px;
+        }
+
+        .dkm-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .dkm-card {
+            background: var(--white);
+            border: 1px solid var(--light-gold);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 280px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .dkm-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--medium-brown);
+            color: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-gold);
+        }
+
+        .dkm-card h3 {
+            font-size: 1.3rem;
+            color: var(--dark-brown);
+        }
+
+        .dkm-card p {
+            color: var(--dark-gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* 6. GALLERY FOTO REALISASI */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 220px;
+            border: 2px solid var(--light-gold);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 26, 4, 0.8);
+            color: var(--primary-gold);
+            padding: 10px;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* 7. FOOTER & KONTAK */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--white);
+            padding: 60px 5% 20px;
+            border-top: 4px solid var(--primary-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-info h3, .footer-contact h3, .footer-links h3 {
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--medium-brown);
+            padding-bottom: 10px;
+        }
+
+        .footer-info p {
+            font-size: 0.95rem;
+            color: #d1c7bd;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+
+        .contact-item a {
+            color: #d1c7bd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-box {
+            width: 40px;
+            height: 40px;
+            background-color: var(--medium-brown);
+            color: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .social-box:hover {
+            background-color: var(--primary-gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 5px;
+            padding-top: 20px;
+            border-top: 1px solid var(--medium-brown);
+            font-size: 0.85rem;
+            color: #8c7e74;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .logo-area {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="running-text-container">
+        <div class="marquee-text">
+            ✨ Selamat Datang di Website Resmi Masjid Jami' Al-Ikhlash — Kami Siap Melayani Sepenuh Hati — "Kami Sedang Bertransformasi Ramah Digital" ✨
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <img src="64416.png" alt="Logo Al-Ikhlash" class="logo-img">
+            <div class="brand-text">
+                <h1>MASJID JAMI' AL-IKHLASH</h1>
+                <p>Sangkanhurip, Katapang, Kabupaten Bandung</p>
+            </div>
+        </div>
+        <div>
+            <a href="#donasi" class="btn-gold"><i class="fa-solid fa-qrcode"></i> Scan Donasi</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Amanah, Transparan, Berkah</h2>
+            <p>Mewujudkan pusat ibadah yang modern, ramah jamaah, dan berbasis keterbukaan informasi publik secara digital.</p>
+            <a href="#layanan" class="btn-gold">Jelajahi Layanan DKM</a>
+        </div>
+    </section>
+
+    <section id="donasi">
+        <h2 class="section-title">Manajemen Donasi & Infaq Transparan</h2>
+        <div class="infografis-container">
+            <p style="margin-bottom: 20px; font-style: italic;">Kami telah memiliki NPWP resmi, pengelolaan keuangan tersistem lewat Public Financial Dashboard, serta penyaluran rekening aman melalui Bank Syariah Indonesia (BSI).</p>
+            <img src="97949.png" alt="Alur Transparansi Donasi" class="infografis-banner">
+        </div>
+    </section>
+
+    <section style="background-color: #2C1A04; color: white; padding: 50px 20px; text-align: center;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <h2 style="color: var(--primary-gold); font-family: 'Marcellus', serif; margin-bottom: 20px;">Sedekah Gak Pake Ribet</h2>
+            <p style="color: #f0e6d2; margin-bottom: 30px;">Gunakan aplikasi mobile banking atau e-wallet Anda untuk melakukan scan QRIS resmi Masjid Al-Ikhlash.</p>
+            <img src="63130.webp" alt="QRIS Bank Syariah Indonesia Masjid Al Ikhlash" style="width: 100%; max-width: 350px; border-radius: 15px; border: 4px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+        </div>
+    </section>
+
+    <section id="layanan" style="padding-top: 30px;">
+        <h2 class="section-title">Program Pelayanan Utama</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+                <h3>Sosial Kematian</h3>
+                <p>Pelayanan pengurusan jenazah, penyediaan fasilitas ambulans, dan santunan sosial kemaslahatan umat secara full transparan dan responsif.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+                <h3>Program Renovasi</h3>
+                <p>Pembangunan fisik berkala untuk kenyamanan ruang utama maupun pengembangan lantai 2 masjid.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Imarah Ramah Digital</h3>
+                <p>Pengembangan sistem informasi masjid, rekapitulasi iuran digital, monitor keuangan digital, dan sound system modern.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="dkm-section">
+        <h2 class="section-title">Pimpinan & Khidmah DKM</h2>
+        <div class="dkm-grid">
+            <div class="dkm-card">
+                <div class="dkm-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                <h3>Indra Aulia, A.Md.</h3>
+                <p>Ketua DKM</p>
+            </div>
+            <div class="dkm-card">
+                <div class="dkm-avatar"><i class="fa-solid fa-user-pen"></i></div>
+                <h3>A. Harya Rukmana</h3>
+                <p>Sekretaris</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding-top: 30px;">
+        <h2 class="section-title">Dokumentasi & Fasilitas Masjid</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="90052.png" alt="Tampak Depan Masjid Siang">
+                <div class="gallery-caption">Fasad Depan Masjid Jami' Al-Ikhlash</div>
+            </div>
+            <div class="gallery-item">
+                <img src="99403.jpg" alt="Ruang Utama Lantai 1">
+                <div class="gallery-caption">Ruang Utama Sholat Lantai 1</div>
+            </div>
+            <div class="gallery-item">
+                <img src="100271.jpg" alt="Progres Pembangunan Lantai 2">
+                <div class="gallery-caption">Progres Pembangunan Aula Lantai 2</div>
+            </div>
+            <div class="gallery-item">
+                <img src="99406.jpg" alt="Fasilitas Canopy Depan">
+                <div class="gallery-caption">Halaman Depan & Fasilitas Canopy</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <img src="94777.png" alt="Plang Masjid" style="width: 100%; max-width: 260px; border-radius: 6px; border: 1px solid var(--primary-gold); margin-bottom: 15px;">
+                <p><strong>Masjid Jami' Al-Ikhlash</strong> bertekad menjadi pelopor administrasi masjid yang bersih, akuntabel, serta responsif terhadap kebutuhan sosial keummatan di era digital.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Kontak Sekretariat</h3>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/6289530104144" target="_blank">0895-3010-4144 (DKM Center)</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/62895338675545" target="_blank">0895-3386-75545 (Info Layanan)</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:alikhlashmasjidjami@gmail.com">alikhlashmasjidjami@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Media Sosial & Alamat</h3>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Kp. Ciborerang RT 001 / RW 019, Sangkanhurip, Kec. Katapang, Kab. Bandung</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://instagram.com/masji.djamialikhlas" target="_blank" class="social-box" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-box" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Masjid Jami' Al-Ikhlash Katapang. All Rights Reserved. | Ramah Digital & Transparan</p>
+        </div>
+    </footer>
+
+</body>
+</html>
