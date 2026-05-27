@@ -188,7 +188,7 @@
             const sekarang = new Date();
             let j = sekarang.getHours().toString().padStart(2, '0');
             let m = sekarang.getMinutes().toString().padStart(2, '0');
-            let d = Thermal = sekarang.getSeconds().toString().padStart(2, '0');
+            let d = sekarang.getSeconds().toString().padStart(2, '0');
             document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
