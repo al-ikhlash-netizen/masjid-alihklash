@@ -147,7 +147,7 @@
                 <div>
                     <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
                     <h3>Kabar Duka & Ambulans</h3>
-                    <p>Pengurusan jenazah, fasilitas ambulans, serta koordinasi santunan jamaah secara cepat dan responsif.</p>
+                    <p>Pengurusan jenazah,serta koordinasi iuran dana sosial kematian untuk santunan keluarga duka secara cepat dan responsif.</p>
                 </div>
                 <a href="https://wa.me/6289530104144" class="btn-emergency" target="_blank">
                     <i class="fa-solid fa-phone-flip"></i> HUBUNGI LAYANAN DUKA
@@ -296,14 +296,20 @@
 
     <section class="sholat-section-bottom">
         <h2 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.8rem;">Jadwal Sholat Hari Ini</h2>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Wilayah Sangkanhurip, Katapang & Sekitarnya (Kab. Bandung)</p>
+        
+        <div style="margin: 15px auto; background: rgba(0,0,0,0.3); display: inline-block; padding: 10px 30px; border-radius: 50px; border: 1px solid var(--primary-gold);">
+            <span style="font-size: 0.85rem; color: var(--primary-gold); letter-spacing: 1px; display: block; text-transform: uppercase;">Waktu Saat Ini</span>
+            <span id="jam-digital" style="font-size: 2.2rem; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; letter-spacing: 2px;">00:00:00</span>
+        </div>
+        
+        <p style="font-size: 0.9rem; opacity: 0.8;">Wilayah Sangkanhurip, Katapang & Sekitarnya (Kab. Bandung)</p>
         
         <div class="sholat-cards-container" id="prayer-times-box">
-            <div class="sholat-card-item"><div class="sholat-name">Subuh</div><div class="sholat-time" id="subuh">-:-</div></div>
-            <div class="sholat-card-item"><div class="sholat-name">Dzuhur</div><div class="sholat-time" id="dzuhur">-:-</div></div>
-            <div class="sholat-card-item"><div class="sholat-name">Ashar</div><div class="sholat-time" id="ashar">-:-</div></div>
-            <div class="sholat-card-item"><div class="sholat-name">Maghrib</div><div class="sholat-time" id="maghrib">-:-</div></div>
-            <div class="sholat-card-item"><div class="sholat-name">Isya</div><div class="sholat-time" id="isya">-:-</div></div>
+            <div class="sholat-card-item" id="card-subuh"><div class="sholat-name">Subuh</div><div class="sholat-time" id="subuh">-:-</div></div>
+            <div class="sholat-card-item" id="card-dzuhur"><div class="sholat-name">Dzuhur</div><div class="sholat-time" id="dzuhur">-:-</div></div>
+            <div class="sholat-card-item" id="card-ashar"><div class="sholat-name">Ashar</div><div class="sholat-time" id="ashar">-:-</div></div>
+            <div class="sholat-card-item" id="card-maghrib"><div class="sholat-name">Maghrib</div><div class="sholat-time" id="maghrib">-:-</div></div>
+            <div class="sholat-card-item" id="card-isya"><div class="sholat-name">Isya</div><div class="sholat-time" id="isya">-:-</div></div>
         </div>
     </section>
 
@@ -328,30 +334,45 @@
     </footer>
 
     <script>
+        // 1. Fungsi Menjalankan Jam Digital secara Realtime (Detik Bergerak)
+        function jalankanJamDigital() {
+            const sekarang = new Date();
+            let jam = sekarang.getHours().toString().padStart(2, '0');
+            let menit = sekarang.getMinutes().toString().padStart(2, '0');
+            let detik = sekarang.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
+        }
+        // Perbarui jam setiap 1000 milidetik (1 detik)
+        setInterval(jalankanJamDigital, 1000);
+
+        // 2. Fungsi Ambil Jadwal Sholat Kemenag RI
         async function loadJadwalSholat() {
             try {
-                // Mengambil data resmi Bandung (ID Kota Kemenag: 1301 atau API Aladhan untuk koordinasi presisi)
-                const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=2');
+                const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
                 const data = await response.json();
                 const timings = data.data.timings;
                 
-                // Pasang ke masing-masing elemen dengan aman
                 document.getElementById('subuh').innerText = timings.Fajr;
                 document.getElementById('dzuhur').innerText = timings.Dhuhr;
                 document.getElementById('ashar').innerText = timings.Asr;
                 document.getElementById('maghrib').innerText = timings.Maghrib;
                 document.getElementById('isya').innerText = timings.Isha;
             } catch (error) {
-                // Cadangan waktu manual standar wilayah Kab. Bandung jika jaringan API luar terganggu
-                document.getElementById('subuh').innerText = "04:34";
+                // Cadangan jika server API gangguan
+                document.getElementById('subuh').innerText = "04:35";
                 document.getElementById('dzuhur').innerText = "11:51";
                 document.getElementById('ashar').innerText = "15:12";
-                document.getElementById('maghrib').innerText = "17:47";
+                document.getElementById('maghrib').innerText = "17:45";
                 document.getElementById('isya').innerText = "18:59";
             }
         }
-        window.onload = loadJadwalSholat;
-    </script>
 
+        // Jalankan semua fungsi saat halaman web pertama kali dibuka
+        window.onload = function() {
+            jalankanJamDigital();
+            loadJadwalSholat();
+        };
+    </script>
 </body>
 </html>
