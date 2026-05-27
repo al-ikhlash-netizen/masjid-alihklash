@@ -41,7 +41,7 @@
             font-family: 'Marcellus', serif;
         }
 
-        /* 1. RUNNING TEXT (MARQUEE) */
+        /* 1. RUNNING TEXT (PERLAMBAT) */
         .running-text-container {
             background-color: var(--dark-brown);
             color: var(--primary-gold);
@@ -56,7 +56,8 @@
         .marquee-text {
             display: inline-block;
             white-space: nowrap;
-            animation: marquee 25s linear infinite;
+            /* Perubahan: Durasi diperlambat dari 25s ke 40s */
+            animation: marquee 40s linear infinite;
             padding-left: 100%;
         }
 
@@ -65,7 +66,7 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        /* 2. HEADER & NAVIGATION */
+        /* 2. HEADER */
         header {
             background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%);
             color: var(--white);
@@ -108,12 +109,12 @@
             color: var(--light-gold);
         }
 
-        /* 3. HERO / UTAMA */
+        /* 3. HERO / VISUAL BARU DI ATAS */
         .hero {
             position: relative;
             height: 550px;
-            /* Menggunakan 'muka depan masjid.jpg' sebagai background utama */
-            background: url('muka%20depan%20masjid.jpg') center/cover no-repeat; 
+            /* Perubahan: Menggunakan 'Visual Masjid (2).png' */
+            background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; 
             background-color: var(--dark-brown);
             display: flex;
             align-items: center;
@@ -127,7 +128,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(44, 26, 4, 0.4), rgba(44, 26, 4, 0.85));
+            background: linear-gradient(to bottom, rgba(44, 26, 4, 0.3), rgba(44, 26, 4, 0.8));
         }
 
         .hero-content {
@@ -142,13 +143,14 @@
             font-size: 3rem;
             color: var(--primary-gold);
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             color: #f0e6d2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .btn-gold {
@@ -173,7 +175,7 @@
             color: var(--white);
         }
 
-        /* 4. STRUKTUR LAYANAN / PUBLIC FINANCIAL */
+        /* 4. TRANSPARANSI DAN DONASI */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -214,7 +216,7 @@
             transform: scale(1.02);
         }
 
-        /* LAYANAN SOSIAL KEMATIAN */
+        /* LAYANAN */
         .services-grid {
             display: flex;
             flex-wrap: wrap;
@@ -254,7 +256,7 @@
             color: var(--dark-brown);
         }
 
-        /* 5. STRUKTUR ORGANISASI DKM */
+        /* 5. KHIDMAH DKM (STRUKTUR ORGANISASI) */
         .dkm-section {
             background-color: #F4EFE3;
             padding: 60px 20px;
@@ -263,20 +265,26 @@
         .dkm-grid {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
             flex-wrap: wrap;
         }
 
         .dkm-card {
             background: var(--white);
             border: 1px solid var(--light-gold);
-            border-radius: 10px;
-            padding: 30px;
+            border-radius: 12px;
+            padding: 25px;
             text-align: center;
             width: 280px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .dkm-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
         .dkm-card-img {
@@ -305,20 +313,49 @@
         }
 
         .dkm-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             color: var(--dark-brown);
+            margin-bottom: 5px;
         }
 
         .dkm-card p {
             color: var(--dark-gold);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 5px;
+        }
+        
+        .khidmah-list {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--light-gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .khidmah-list h3 {
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-gold);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        .khidmah-item {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--medium-brown);
+        }
+        
+        .khidmah-item strong {
+            color: var(--dark-brown);
         }
 
-        /* 6. GALLERY FOTO REALISASI */
+        /* 6. GALERI */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -361,7 +398,7 @@
             font-weight: 600;
         }
 
-        /* 7. FOOTER & KONTAK */
+        /* 7. FOOTER */
         footer {
             background-color: var(--dark-brown);
             color: var(--white);
@@ -464,6 +501,9 @@
                 flex-direction: column;
                 gap: 10px;
             }
+            .hero {
+                height: 400px;
+            }
             .hero-content h2 {
                 font-size: 2rem;
             }
@@ -497,8 +537,8 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h2>Amanah, Transparan, Berkah</h2>
-            <p>Mewujudkan pusat ibadah yang modern, ramah jamaah, dan berbasis keterbukaan informasi publik secara digital.</p>
+            <h2>Mewujudkan Pusat Ibadah Modern & Ramah Jamaah Digital</h2>
+            <p>Amanah, Transparan, Berkah berbasis keterbukaan informasi publik.</p>
             <a href="#layanan" class="btn-gold">Jelajahi Layanan DKM</a>
         </div>
     </section>
@@ -549,9 +589,28 @@
                 <p>Ketua DKM</p>
             </div>
             <div class="dkm-card">
-                <div class="dkm-avatar"><i class="fa-solid fa-user-pen"></i></div>
+                <img src="fotosaya.jpg" alt="A. Harya Rukmana" class="dkm-card-img">
                 <h3>A. Harya Rukmana</h3>
                 <p>Sekretaris</p>
+            </div>
+        </div>
+        
+        <div class="khidmah-list">
+            <h3>Susunan Khidmah DKM Tambahan</h3>
+            <div class="khidmah-item">
+                <strong>Bendahara:</strong> Firman Risbaya
+            </div>
+            <div class="khidmah-item">
+                <strong>Bidang Imarah:</strong> Ust. Ede Rohidin S.h.i
+            </div>
+            <div class="khidmah-item">
+                <strong>Imam Tetap:</strong> Ust. Asep Junaedi
+            </div>
+            <div class="khidmah-item">
+                <strong>Bidang Riayah:</strong> Iyan Mulyana
+            </div>
+            <div class="khidmah-item">
+                <strong>Pembina:</strong> Ust. N. Abdul Hamid
             </div>
         </div>
     </section>
@@ -560,24 +619,32 @@
         <h2 class="section-title">Dokumentasi & Fasilitas Masjid</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="Fassad_masjid.png" alt="Fasad Utama Masjid">
-                <div class="gallery-caption">Fasad Utama Masjid Jami' Al-Ikhlash</div>
+                <img src="muka%20depan%20masjid.jpg" alt="Fasad Utama Masjid Siang">
+                <div class="gallery-caption">Fasad Depan Masjid Jami' Al-Ikhlash</div>
             </div>
             <div class="gallery-item">
-                <img src="Masjid_terkini.jpg" alt="Kondisi Masjid Terkini">
-                <div class="gallery-caption">Dokumentasi Kondisi Masjid Terkini</div>
+                <img src="Fassad_masjid.png" alt="Fasad Masjid Sore">
+                <div class="gallery-caption">Visual Fasad Masjid Sore Hari</div>
             </div>
             <div class="gallery-item">
-                <img src="Masjid1.png" alt="Fasilitas Ruang Sholat">
-                <div class="gallery-caption">Area Ruang Utama / Fasilitas Masjid</div>
+                <img src="Masjid_terkini.jpg" alt="Visual Masjid Malam">
+                <div class="gallery-caption">Kondisi Visual Masjid Terkini</div>
             </div>
             <div class="gallery-item">
-                <img src="Flyer_NPWP.png" alt="Sosialisasi Legalitas NPWP Resmi">
+                <img src="Masjid1.png" alt="Area Ruang Utama Lantai 1">
+                <div class="gallery-caption">Area Ruang Utama Sholat Lantai 1</div>
+            </div>
+            <div class="gallery-item">
+                <img src="Flyer_NPWP.png" alt="Legalitas NPWP Resmi Masjid">
                 <div class="gallery-caption">Legalitas NPWP Resmi Masjid</div>
             </div>
             <div class="gallery-item">
-                <img src="stempel%20masjid.png" alt="Keabsahan Administrasi Stempel DKM">
-                <div class="gallery-caption">Atribut Keabsahan Administrasi DKM</div>
+                <img src="Stiker%20donasi%20Masjid.jpg" alt="Visual Stiker Donasi Masjid">
+                <div class="gallery-caption">Media Visual Stiker Donasi Digital</div>
+            </div>
+            <div class="gallery-item">
+                <img src="stempel%20masjid.png" alt="Administrasi Stempel DKM">
+                <div class="gallery-caption">Keabsahan Administrasi Stempel DKM</div>
             </div>
         </div>
     </section>
@@ -592,11 +659,11 @@
                 <h3>Kontak Sekretariat</h3>
                 <div class="contact-item">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <a href="https://wa.me/6289530104144" target="_blank">6289530104144 (DKM Center)</a>
+                    <a href="https://wa.me/6289530104144" target="_blank">0895-3010-4144 (DKM Center)</a>
                 </div>
                 <div class="contact-item">
                     <i class="fa-brands fa-whatsapp"></i>
-                    <a href="https://wa.me/62895333475545" target="_blank">62895333475545 (Info Layanan)</a>
+                    <a href="https://wa.me/62895333475545" target="_blank">0895-3334-75545 (Info Layanan)</a>
                 </div>
                 <div class="contact-item">
                     <i class="fa-solid fa-envelope"></i>
