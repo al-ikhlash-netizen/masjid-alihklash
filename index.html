@@ -25,7 +25,7 @@
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--dark-brown); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Marcellus', serif; }
 
-        /* 1. RUNNING TEXT (DIPERLAMBAT) */
+        /* 1. RUNNING TEXT (TEMPO LAMBAT) */
         .marquee-container { background: var(--dark-brown); color: var(--primary-gold); padding: 12px 0; font-weight: 600; overflow: hidden; border-bottom: 2px solid var(--primary-gold); }
         .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 50s linear infinite; padding-left: 100%; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
@@ -36,13 +36,13 @@
         .logo-img { width: 65px; height: 65px; object-fit: contain; border-radius: 50%; border: 2px solid var(--primary-gold); background: #fff; }
         .brand-text h1 { font-size: 1.5rem; color: var(--primary-gold); line-height: 1.2; }
 
-        /* 3. HERO (VISUAL MASJID TERBARU) */
+        /* 3. HERO (VISUAL PALING ATAS) */
         .hero { position: relative; height: 550px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.3), rgba(44,26,4,0.85)); }
         .hero-content { position: relative; z-index: 2; color: #fff; max-width: 900px; padding: 0 20px; }
         .hero-content h2 { font-size: 3rem; color: var(--primary-gold); margin-bottom: 15px; text-shadow: 2px 2px 5px #000; }
 
-        /* 4. SEKSI LAYANAN & TRANSPARANSI (MENGEMBALIKAN VERSI AWAL) */
+        /* 4. SEKSI LAYANAN UTAMA */
         .section-title { text-align: center; font-size: 2.2rem; color: var(--medium-brown); margin: 50px 0 30px; position: relative; padding-bottom: 15px; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: var(--primary-gold); }
         
@@ -51,41 +51,39 @@
         .service-card:hover { transform: translateY(-5px); }
         .service-icon { font-size: 2.5rem; color: var(--dark-gold); margin-bottom: 15px; }
 
-        /* 5. DKM SECTION (KOTAK ELEGAN UNTUK KETUA & SEKRETARIS) */
+        /* 5. DKM SECTION (KOTAK UNTUK KETUA & SEKRETARIS) */
         .dkm-section { background: #F4EFE3; padding: 60px 5%; text-align: center; }
         .leaders-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px; }
         .leader-card { background: #fff; padding: 15px; border-radius: 10px; border: 1px solid var(--primary-gold); width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .leader-img { width: 100%; height: 320px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
         
-        /* STAFF GRID (CANTIK & RAPI) */
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        /* SUSUNAN PENGURUS LAIN (TAMPILAN CANTIK) */
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
         .staff-tile { background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary-gold); display: flex; align-items: center; gap: 15px; text-align: left; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
         .staff-tile i { font-size: 1.5rem; color: var(--dark-gold); }
         .staff-tile div h4 { font-size: 1rem; color: var(--dark-brown); }
         .staff-tile div p { font-size: 0.75rem; color: var(--dark-gold); font-weight: bold; text-transform: uppercase; }
 
-        /* 6. SUARA JAMAAH (UKURAN SECUKUPNYA) */
-        .feedback-section { padding: 50px 5%; background: var(--white); }
-        .feedback-box { max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 12px; border: 2px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .feedback-box input, .feedback-box textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
+        /* 6. SUARA JAMAAH (UKURAN TIDAK TERLALU BESAR) */
+        .feedback-section { padding: 40px 5%; background: var(--white); }
+        .feedback-box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; border: 2px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .feedback-box input, .feedback-box textarea { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
         .btn-send { background: var(--dark-brown); color: var(--primary-gold); padding: 10px 25px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
         .btn-send:hover { background: var(--medium-brown); color: #fff; }
 
-        /* 7. GALLERY */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; padding: 0 5% 50px; }
-        .gallery-item { height: 200px; border-radius: 8px; overflow: hidden; border: 2px solid var(--light-gold); position: relative; }
+        /* 7. GALLERY FASILITAS */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; padding: 0 5% 40px; }
+        .gallery-item { height: 180px; border-radius: 8px; overflow: hidden; border: 2px solid var(--light-gold); position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44,26,4,0.8); color: var(--primary-gold); font-size: 0.75rem; padding: 5px; text-align: center; }
 
-        /* 8. FOOTER DENGAN FOTO FASSAD */
+        /* 8. FOOTER DENGAN FOTO FASSAD DI BAWAH */
         footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 4px solid var(--primary-gold); }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-fassad { width: 100%; max-width: 300px; border-radius: 8px; border: 1px solid var(--primary-gold); margin-bottom: 15px; }
+        .footer-fassad { width: 100%; max-width: 260px; border-radius: 8px; border: 1px solid var(--primary-gold); margin-bottom: 15px; display: block; }
         .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
         .contact-item i { color: var(--primary-gold); }
-
-        @media (max-width: 768px) { .hero-content h2 { font-size: 2rem; } .leader-card { width: 100%; } }
     </style>
 </head>
 <body>
@@ -137,7 +135,7 @@
     </section>
 
     <section id="donasi" style="background: #2C1A04; color: #fff; padding: 60px 5%; text-align: center;">
-        <h2 class="section-title" style="color: var(--primary-gold);">Manajemen Infaq Transparan</h2>
+        <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Manajemen Infaq Transparan</h2>
         <div style="max-width: 900px; margin: 0 auto;">
             <img src="Laporan_kas_Progresif.png" style="width: 100%; border-radius: 12px; border: 3px solid var(--primary-gold); margin-bottom: 30px;">
             <p style="margin-bottom: 30px; color: #f0e6d2;">Scan QRIS di bawah ini untuk sedekah jariyah Anda:</p>
@@ -149,20 +147,20 @@
         <h2 class="section-title">Pimpinan & Khidmah DKM</h2>
         <div class="leaders-grid">
             <div class="leader-card">
-                <img src="profil_ketua_dkm.jpg" alt="Ketua DKM" class="leader-img">
+                <img src="Ketua_dkm.png" alt="Ketua DKM" class="leader-img">
                 <h3>Indra Aulia, A.Md.</h3>
-                <p>Ketua DKM</p>
+                <p style="color: var(--dark-gold); font-weight: bold;">Ketua DKM</p>
             </div>
             <div class="leader-card">
                 <img src="fotosaya.jpg" alt="Sekretaris DKM" class="leader-img">
                 <h3>A. Harya Rukmana</h3>
-                <p>Sekretaris</p>
+                <p style="color: var(--dark-gold); font-weight: bold;">Sekretaris</p>
             </div>
         </div>
 
         <div class="staff-grid">
             <div class="staff-tile"><i class="fa-solid fa-vault"></i><div><p>Bendahara</p><h4>Firman Risbaya</h4></div></div>
-            <div class="staff-tile"><i class="fa-solid fa- mosque"></i><div><p>Bidang Imarah</p><h4>Ust. Ede Rohidin S.h.i</h4></div></div>
+            <div class="staff-tile"><i class="fa-solid fa-mosque"></i><div><p>Bidang Imarah</p><h4>Ust. Ede Rohidin S.h.i</h4></div></div>
             <div class="staff-tile"><i class="fa-solid fa-microphone"></i><div><p>Imam Tetap</p><h4>Ust. Asep Junaedi</h4></div></div>
             <div class="staff-tile"><i class="fa-solid fa-hand-holding-hand"></i><div><p>Bidang Riayah</p><h4>Iyan Mulyana</h4></div></div>
             <div class="staff-tile"><i class="fa-solid fa-graduation-cap"></i><div><p>Pembina</p><h4>Ust. N. Abdul Hamid</h4></div></div>
@@ -171,11 +169,11 @@
 
     <section class="feedback-section" id="saran">
         <div class="feedback-box">
-            <h3 style="text-align: center; margin-bottom: 20px;">Suara Jamaah (Kritik & Saran)</h3>
+            <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik & Saran)</h3>
             <form action="https://formspree.io/f/alikhlashmasjidjami@gmail.com" method="POST">
                 <input type="text" name="nama" placeholder="Nama Lengkap..." required>
                 <input type="text" name="kontak" placeholder="WhatsApp / Email..." required>
-                <textarea name="pesan" rows="4" placeholder="Tulis aspirasi Anda di sini..." required></textarea>
+                <textarea name="pesan" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
                 <button type="submit" class="btn-send">KIRIM PESAN <i class="fa-solid fa-paper-plane"></i></button>
             </form>
         </div>
@@ -196,12 +194,12 @@
     <footer>
         <div class="footer-content">
             <div>
-                <h3>Sekretariat</h3>
+                <h3>Sekretariat Masjid</h3>
                 <img src="Fassad_masjid.png" class="footer-fassad" alt="Fasad Masjid">
                 <p style="font-size: 0.85rem; color: #d1c7bd;">Kp. Ciborerang RT 001 RW 019, Sangkanhurip, Katapang, Kab. Bandung 40971</p>
             </div>
             <div>
-                <h3>Kontak & Media</h3>
+                <h3>Kontak & Media Resmi</h3>
                 <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/6289530104144" style="color: inherit; text-decoration: none;">0895-3010-4144 (DKM Center)</a></div>
                 <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/62895333475545" style="color: inherit; text-decoration: none;">0895-3334-75545 (Layanan)</a></div>
                 <div class="contact-item"><i class="fa-regular fa-envelope"></i><span>alikhlashmasjidjami@gmail.com</span></div>
