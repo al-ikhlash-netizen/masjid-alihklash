@@ -338,18 +338,17 @@
             &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital & Transparan.
         </div>
     </footer>
-
-  <script>
+<script>
         let jadwalSholatHariIni = {};
 
         // 1. Fungsi Jam Digital & Hitung Mundur Adzan
         function updateWaktuDanCountdown() {
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
-            let menit = secretaries = sekarang.getMinutes().toString().padStart(2, '0');
+            let menit = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = sekarang.getSeconds().toString().padStart(2, '0');
             
-            // Update Tampilan Jam Utama
+            // Update Tampilan Jam Utama (Sekarang Dijamin Normal Jam:Menit:Detik)
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
 
             // Jika jadwal sholat sudah dimuat, hitung countdown-nya
@@ -430,7 +429,6 @@
                 const data = await response.json();
                 const timings = data.data.timings;
                 
-                // Simpan ke variabel global untuk dihitung mesin countdown
                 jadwalSholatHariIni = {
                     'Subuh': timings.Fajr,
                     'Dzuhur': timings.Dhuhr,
@@ -446,7 +444,7 @@
                 document.getElementById('maghrib').innerText = timings.Maghrib;
                 document.getElementById('isya').innerText = timings.Isha;
             } catch (error) {
-                // Cadangan waktu statis jika kuota API atau internet terputus
+                // Cadangan waktu statis jika kuota API terputus
                 jadwalSholatHariIni = { 'Subuh': "04:35", 'Dzuhur': "11:51", 'Ashar': "15:12", 'Maghrib': "17:45", 'Isya': "18:59" };
                 document.getElementById('subuh').innerText = "04:35";
                 document.getElementById('dzuhur').innerText = "11:51";
