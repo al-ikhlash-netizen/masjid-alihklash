@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -38,14 +38,10 @@
         .brand-text h1 { font-size: 1.5rem; color: var(--primary-gold); line-height: 1.2; }
 
         /* 3. HERO (VISUAL ATAS) */
-        .hero { position: relative; height: 500px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero { position: relative; height: 450px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.3), rgba(44,26,4,0.85)); }
         .hero-content { position: relative; z-index: 2; color: #fff; max-width: 900px; padding: 0 20px; }
         .hero-content h2 { font-size: 3rem; color: var(--primary-gold); margin-bottom: 15px; text-shadow: 2px 2px 5px #000; }
-
-        /* JADWAL SHOLAT EMBED SYSTEM */
-        .sholat-container { max-width: 900px; margin: -40px auto 40px; position: relative; z-index: 10; padding: 0 20px; }
-        .sholat-box { background: #fff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--primary-gold); overflow: hidden; padding: 10px; }
 
         /* 4. SEKSI LAYANAN UTAMA & EMERGENCY */
         .section-title { text-align: center; font-size: 2.2rem; color: var(--medium-brown); margin: 50px 0 30px; position: relative; padding-bottom: 15px; }
@@ -99,14 +95,22 @@
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44,26,4,0.8); color: var(--primary-gold); font-size: 0.8rem; padding: 6px; text-align: center; }
 
+        /* CUSTOM DESIGN JADWAL SHOLAT DI BAWAH GALLERY */
+        .sholat-section-bottom { background: linear-gradient(135deg, var(--dark-brown) 0%, #170e02 100%); padding: 50px 5%; border-top: 3px solid var(--primary-gold); text-align: center; color: #fff; }
+        .sholat-cards-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; max-width: 1000px; margin: 25px auto 0; }
+        .sholat-card-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); padding: 15px 20px; border-radius: 10px; min-width: 130px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .sholat-card-item.active-time { border: 2px solid var(--primary-gold); background: rgba(212,175,55,0.1); }
+        .sholat-name { font-size: 0.85rem; color: var(--primary-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .sholat-time { font-size: 1.4rem; font-family: 'Marcellus', serif; font-weight: bold; }
+
         /* 10. FOOTER */
-        footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 4px solid var(--primary-gold); }
+        footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 2px solid var(--primary-gold); }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-fassad { width: 100%; max-width: 260px; border-radius: 8px; border: 1px solid var(--primary-gold); margin-bottom: 15px; display: block; }
         .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
         .contact-item i { color: var(--primary-gold); }
 
-        @media (max-width: 768px) { .hero-content h2 { font-size: 2rem; } .leader-card { width: 100%; } }
+        @media (max-width: 768px) { .hero-content h2 { font-size: 2rem; } .leader-card { width: 100%; } .sholat-card-item { min-width: 45%; } }
     </style>
 </head>
 <body>
@@ -136,12 +140,6 @@
         </div>
     </section>
 
-    <div class="sholat-container">
-        <div class="sholat-box">
-            <iframe src="https://jadwalsholat.org/adzan/ajax.row.php?id=309" style="width:100%; height:85px; border:none; overflow:hidden;" scrolling="no"></iframe>
-        </div>
-    </div>
-
     <section>
         <h2 class="section-title">Program Pelayanan Utama</h2>
         <div class="services-grid">
@@ -149,16 +147,16 @@
                 <div>
                     <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
                     <h3>Kabar Duka & Ambulans</h3>
-                    <p>Pengurusan jenazah,serta koordinasi santunan jamaah secara cepat dan responsif.</p>
+                    <p>Pengurusan jenazah, fasilitas ambulans, serta koordinasi santunan jamaah secara cepat dan responsif.</p>
                 </div>
-                <a href="https://wa.me/62895333475545" class="btn-emergency" target="_blank">
+                <a href="https://wa.me/6289530104144" class="btn-emergency" target="_blank">
                     <i class="fa-solid fa-phone-flip"></i> HUBUNGI LAYANAN DUKA
                 </a>
             </div>
             <div class="service-card">
                 <div>
                     <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3>Imarah Digital</h3>
+                    <h3>Idarah Digital</h3>
                     <p>Sistem informasi masjid, transparansi data iuran, dan monitor keuangan umat secara terbuka.</p>
                 </div>
             </div>
@@ -271,7 +269,7 @@
                     <h3>Membangun Kebersamaan Lewat Gotong Royong</h3>
                     <p>Kekuatan umat Islam terletak pada shaf sholat yang rapat dan kesatuan hatinya. Kebersamaan memakmurkan masjid adalah cerminan ukhuwah nyata di Sangkanhurip.</p>
                 </div>
-                <div class="dakwah-author">Oleh: Ust. Indra Aulia. A.md.</div>
+                <div class="dakwah-author">Oleh: Ust. Indra Aulia, A.md.)</div>
             </div>
         </div>
     </section>
@@ -279,21 +277,33 @@
     <section>
         <h2 class="section-title">Dokumentasi & Kegiatan Masjid</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="0e115b65-51ef-465c-95fc-c55fdbe36e72"><div class="gallery-cap">Pengajian Anak & Remaja Masjid</div></div>
             
             <div class="gallery-item"><img src="Mihrob.jpg"><div class="gallery-cap">Mihrob Masjid</div></div>
             <div class="gallery-item"><img src="MT.jpeg"><div class="gallery-cap">Majelis Taklim Jamaah</div></div>
             <div class="gallery-item"><img src="Nampak%20sudut.jpg"><div class="gallery-cap">Sudut Ruang Utama</div></div>
-            <div class="gallery-item"><img src="taklim%20ibu2.jpeg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
-            <div class="gallery-item"><img src="taklim%20ngawayuh.jpeg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
-            <div class="gallery-item"><img src="taklim%20rumasa.jpeg"><div class="gallery-cap">Taklim Rumasa</div></div>
+            <div class="gallery-item"><img src="taklim%20ibu2.jpg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
+            <div class="gallery-item"><img src="taklim%20ngawayuh.jpg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
+            <div class="gallery-item"><img src="taklim%20rumasa.jpg"><div class="gallery-cap">Taklim Rumasa</div></div>
             
-            <div class="gallery-item"><img src="muka%20depan%20masjid.jpg"><div class="gallery-cap">Fasad Depan</div></div>
+            <div class="gallery-item"><img src="muka%20depan%20masjid.jpg"><div class="gallery-cap">Fasad Depan Lama</div></div>
             <div class="gallery-item"><img src="Masjid_terkini.jpg"><div class="gallery-cap">Kondisi Terkini</div></div>
             <div class="gallery-item"><img src="Masjid1.png"><div class="gallery-cap">Ruang Utama Dalam</div></div>
             <div class="gallery-item"><img src="Stiker%20donasi%20Masjid.jpg"><div class="gallery-cap">Stiker Informasi Donasi</div></div>
             <div class="gallery-item"><img src="Flyer_NPWP.png"><div class="gallery-cap">NPWP Resmi Masjid</div></div>
             <div class="gallery-item"><img src="stempel%20masjid.png"><div class="gallery-cap">Stempel Administrasi</div></div>
+        </div>
+    </section>
+
+    <section class="sholat-section-bottom">
+        <h2 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.8rem;">Jadwal Sholat Hari Ini</h2>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 5px;">Wilayah Sangkanhurip, Katapang & Sekitarnya (Kab. Bandung)</p>
+        
+        <div class="sholat-cards-container" id="prayer-times-box">
+            <div class="sholat-card-item"><div class="sholat-name">Subuh</div><div class="sholat-time" id="subuh">-:-</div></div>
+            <div class="sholat-card-item"><div class="sholat-name">Dzuhur</div><div class="sholat-time" id="dzuhur">-:-</div></div>
+            <div class="sholat-card-item"><div class="sholat-name">Ashar</div><div class="sholat-time" id="ashar">-:-</div></div>
+            <div class="sholat-card-item"><div class="sholat-name">Maghrib</div><div class="sholat-time" id="maghrib">-:-</div></div>
+            <div class="sholat-card-item"><div class="sholat-name">Isya</div><div class="sholat-time" id="isya">-:-</div></div>
         </div>
     </section>
 
@@ -307,7 +317,7 @@
             <div>
                 <h3>Kontak & Media Resmi</h3>
                 <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/6289530104144" style="color: inherit; text-decoration: none;">0895-3010-4144 (DKM Center)</a></div>
-                <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/62895333475545" style="color: inherit; text-decoration: none;">0895-3334-75545 (Layanan)</a></div>
+                <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/62895333477373" style="color: inherit; text-decoration: none;">0895-3334-75545 (Layanan)</a></div>
                 <div class="contact-item"><i class="fa-regular fa-envelope"></i><span>alikhlashmasjidjami@gmail.com</span></div>
                 <div class="contact-item"><i class="fa-brands fa-instagram"></i><a href="https://instagram.com/masji.djamialikhlas" style="color: inherit; text-decoration: none;">@masji.djamialikhlas</a></div>
             </div>
@@ -316,6 +326,32 @@
             &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital & Transparan.
         </div>
     </footer>
+
+    <script>
+        async function loadJadwalSholat() {
+            try {
+                // Mengambil data resmi Bandung (ID Kota Kemenag: 1301 atau API Aladhan untuk koordinasi presisi)
+                const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=2');
+                const data = await response.json();
+                const timings = data.data.timings;
+                
+                // Pasang ke masing-masing elemen dengan aman
+                document.getElementById('subuh').innerText = timings.Fajr;
+                document.getElementById('dzuhur').innerText = timings.Dhuhr;
+                document.getElementById('ashar').innerText = timings.Asr;
+                document.getElementById('maghrib').innerText = timings.Maghrib;
+                document.getElementById('isya').innerText = timings.Isha;
+            } catch (error) {
+                // Cadangan waktu manual standar wilayah Kab. Bandung jika jaringan API luar terganggu
+                document.getElementById('subuh').innerText = "04:34";
+                document.getElementById('dzuhur').innerText = "11:51";
+                document.getElementById('ashar').innerText = "15:12";
+                document.getElementById('maghrib').innerText = "17:47";
+                document.getElementById('isya').innerText = "18:59";
+            }
+        }
+        window.onload = loadJadwalSholat;
+    </script>
 
 </body>
 </html>
