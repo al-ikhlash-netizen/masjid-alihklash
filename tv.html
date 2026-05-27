@@ -27,7 +27,7 @@
             padding: 1.5vh 2vw;
         }
 
-        /* HEADER RESONSIVE BERBASIS VIEWPORT HEIGHT (vh) */
+        /* HEADER */
         .tv-header { 
             display: flex; 
             justify-content: space-between; 
@@ -47,7 +47,7 @@
         #tv-jam { font-size: 4.5vh; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; line-height: 1; }
         #tv-tgl { font-size: 1.6vh; color: var(--primary-gold); font-weight: 600; margin-top: 0.3vh; }
 
-        /* BODY KONTEN AUTO-FIT */
+        /* BODY KONTEN SLIDE */
         .tv-content-body { 
             height: 66vh; 
             display: flex; 
@@ -60,41 +60,36 @@
         .slide-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* ADJUSTMENT HURUF JUMBO ADZAN BINGKAI HP/TV */
+        /* SLIDE 1: JADWAL SHOLAT */
         .countdown-title { font-size: 2.2vh; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-gold); }
         #tv-countdown { font-size: 5.5vh; font-weight: bold; font-family: 'Marcellus', serif; margin: 1vh 0; text-shadow: 0 0 15px rgba(214,175,55,0.4); }
         
-        /* GRID KOTAK JADWAL SHOLAT */
         .sholat-tv-grid { display: flex; gap: 1vw; width: 100%; justify-content: center; margin-top: 1vh; }
         .sholat-tv-card { background: var(--bg-box); border: 2px solid rgba(212,175,55,0.2); padding: 1.5vh 1.5vw; border-radius: 10px; flex: 1; max-width: 15vw; text-align: center; }
         .sholat-tv-card.active-now { border-color: var(--primary-gold); background: rgba(212,175,55,0.2); box-shadow: 0 0 15px var(--primary-gold); }
         .sholat-tv-card h3 { font-size: 1.8vh; color: var(--primary-gold); text-transform: uppercase; }
         .sholat-tv-card p { font-size: 3.5vh; font-family: 'Marcellus', serif; font-weight: bold; margin-top: 0.5vh; }
 
-        /* SLIDE KEUANGAN & DAKWAH */
+        /* LAYOUT FULLSCREEN FOTO/IMAGE SLIDE */
         .slide-title-info { font-family: 'Marcellus', serif; font-size: 3vh; color: var(--primary-gold); margin-bottom: 1.5vh; }
         .img-tv-fullscreen { height: 56vh; max-width: 100%; object-fit: contain; border: 2px solid var(--primary-gold); border-radius: 10px; background: #000; }
         
-        .box-text-dakwah { background: var(--bg-box); border-left: 8px solid var(--primary-gold); padding: 4vh; border-radius: 0 15px 15px 0; max-width: 85%; text-align: left; }
-        .box-text-dakwah p { font-size: 3.2vh; line-height: 1.5; font-style: italic; }
-        .box-text-dakwah .ustadz { font-size: 2vh; color: var(--primary-gold); margin-top: 2vh; font-weight: bold; font-style: normal; text-align: right; }
-
         /* SLIDE QRIS */
         .qris-wrapper { display: flex; gap: 3vw; align-items: center; justify-content: center; background: var(--bg-box); padding: 3vh; border-radius: 15px; border: 1px solid var(--primary-gold); height: 56vh; }
         .qris-img { height: 48vh; border-radius: 8px; border: 4px solid #fff; }
 
         /* RUNNING TEXT FOOTER */
-        .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2vh; font-weight: 600; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 5vh; display: flex; align-items: center; }
-        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 40s linear infinite; }
+        .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2.2vh; font-weight: 600; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 5vh; display: flex; align-items: center; }
+        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 45s linear infinite; }
         @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        /* SCREEN LOCK ADZAN JUMBO */
+        /* SCREEN LOCK ADZAN */
         .lock-screen { position: fixed; inset: 0; background: radial-gradient(circle, #aa1c1c 0%, #4a0505 100%); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
         .lock-screen h1 { font-family: 'Marcellus', serif; font-size: 8vh; color: var(--primary-gold); animation: pulse 1.5s infinite; }
         .lock-screen p { font-size: 4vh; color: #fff; margin-top: 2vh; font-weight: 600; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
-        /* TOMBOL LAYAR PENUH DISKRET (UNTUK HP) */
+        /* FULLSCREEN BUTTON FOR MOBILE TEST */
         .fullscreen-btn { position: fixed; bottom: 8vh; right: 3vw; background: rgba(214,175,55,0.3); color: #fff; border: 1px solid var(--primary-gold); padding: 8px 15px; border-radius: 20px; font-size: 1.4vh; cursor: pointer; z-index: 1000; font-weight: bold; opacity: 0.6; transition: 0.3s; }
         .fullscreen-btn:hover { opacity: 1; background: var(--primary-gold); color: #000; }
     </style>
@@ -141,15 +136,12 @@
 
             <div class="slide-page" id="slide2">
                 <div class="slide-title-info"><i class="fa-solid fa-scale-balanced"></i> Transparansi Laporan Kas Masjid</div>
-                <img src="Laporan_kas_Progresif.png" class="img-tv-fullscreen" onerror="this.src='https://placehold.co/1200x700/2c1a04/d4af37?text=Laporan+Kas+Masjid'">
+                <img src="Laporan_kas_Progresif.png" class="img-tv-fullscreen" onerror="this.src='https://placehold.co/1200x700/2c1a04/d4af37?text=Laporan+Kas+Masjid+Al-Ikhlash'">
             </div>
 
             <div class="slide-page" id="slide3">
-                <div class="slide-title-info"><i class="fa-solid fa-book-quran"></i> Tuntunan & Ilmu Hari Ini</div>
-                <div class="box-text-dakwah">
-                    <p>"Sesungguhnya amalan itu tergantung pada niatnya, dan setiap orang akan mendapatkan sesuai dengan apa yang ia niatkan."</p>
-                    <div class="ustadz">HR. Bukhari & Muslim — Kultum Masjid Al-Ikhlash</div>
-                </div>
+                <div class="slide-title-info"><i class="fa-solid fa-images"></i> Dokumentasi Kegiatan Jamaah</div>
+                <img src="taklim%20ngawayuh.jpg" class="img-tv-fullscreen" id="foto-galeri-rotasi" onerror="this.src='taklim%20ibu2.jpg'">
             </div>
 
             <div class="slide-page" id="slide4">
@@ -168,7 +160,7 @@
 
         <div class="tv-footer">
             <div class="tv-marquee">
-                📢 MAJELIS TAKLIM RUTIN TIAP HARI MINGGU SUBUH BERJAMAAH • LAYANAN AMBULANS & PENGURUSAN JENAZAH HUBUNGI NOMOR SEKRETARIAT (0895-3334-75545) • REKENING RESMI INFAQ MASJID TERSEDIA PADA MENU UTAMA WEBSITE • MARI BERSAMA-SAMA MENJAGA KEBERSIHAN DAN KEKHUSYUKAN MASJID KITA •
+                📢 JADWAL PENGAJIAN: NGAWAYUH (NGAJI WAKTU SUBUH) SETIAP HARI AHAD BA'DA SUBUH • RUMASA (RUTIN MALAM SELASA) SETIAP HARI SENIN MALAM BA'DA ISYA • REKENING RESMI INFAQ MASJID TERSEDIA PADA MENU UTAMA WEBSITE • LAYANAN NOMOR DARURAT SEKRETARIAT DKM: 0895-3010-4144 DAN 0895-3334-77373 • MARI BERSAMA-SAMA MENJAGA KEBERSIHAN DAN KEKHUSYUKAN MASJID KITA •
             </div>
         </div>
     </div>
@@ -179,7 +171,10 @@
         const totalSlide = 4;
         let sistemTerkunciAdzan = false;
 
-        // FUNGSI LAYAR PENUH (FORCE FULLSCREEN BY CLICK)
+        // Daftar array foto kegiatan agar foto di slide 3 bisa berganti-ganti secara internal
+        const daftarFotoGaleri = ['taklim%20ngawayuh.jpg', 'taklim%20rumasa.jpg', 'taklim%20ibu2.jpg'];
+        let indexFotoInternal = 0;
+
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => {
@@ -192,13 +187,13 @@
 
         function perbaruiJamDanMesin() {
             const sekarang = new Date();
-            let j = sekarang.getHours().toString().padStart(2, '0');
+            let j = window.jamGlobalText = sekarang.getHours().toString().padStart(2, '0');
             let m = sekarang.getMinutes().toString().padStart(2, '0');
             let d = sekarang.getSeconds().toString().padStart(2, '0');
             document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
+            document.getElementById('tv-tgl').innerText = Clinical = sekarang.toLocaleDateString('id-ID', opsiTgl);
 
             if (Object.keys(jadwalSholatTV).length > 0) {
                 hitungMundurTV(sekarang);
@@ -245,7 +240,7 @@
 
             const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
 
-            // Jika pas adzan tiba, kunci layar penuh merah selama 15 menit
+            // Kunci layar penuh merah selama 15 menit jika waktu sholat tiba
             if (selisihDetik <= 0 && selisihDetik > -900) { 
                 document.getElementById('layar-adzan-lock').style.display = 'flex';
                 sistemTerkunciAdzan = true;
@@ -269,9 +264,20 @@
 
         function gantiSlideOtomatis() {
             if (sistemTerkunciAdzan) return;
+            
+            // Sembunyikan slide lama
             document.getElementById('slide' + indexSlideAktif).classList.remove('active');
+            
             indexSlideAktif++;
             if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
+            
+            // Jika masuk ke slide nomor 3 (Galeri), putar foto internalnya secara bergantian
+            if (indexSlideAktif === 3) {
+                indexFotoInternal = (indexFotoInternal + 1) % daftarFotoGaleri.length;
+                document.getElementById('foto-galeri-rotasi').src = daftarFotoGaleri[indexFotoInternal];
+            }
+            
+            // Tampilkan slide baru
             document.getElementById('slide' + indexSlideAktif).classList.add('active');
         }
 
@@ -302,7 +308,7 @@
             muatJadwalKemenag();
             perbaruiJamDanMesin();
             setInterval(perbaruiJamDanMesin, 1000);
-            setInterval(gantiSlideOtomatis, 15000); // Geser slide tiap 15 detik
+            setInterval(gantiSlideOtomatis, 15000); // Putar halaman tiap 15 detik
         };
     </script>
 </body>
