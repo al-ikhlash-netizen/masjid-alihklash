@@ -26,6 +26,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-light);
@@ -71,6 +75,9 @@
             justify-content: space-between;
             border-bottom: 3px solid var(--primary-gold);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo-area {
@@ -92,6 +99,8 @@
             font-size: 1.6rem;
             color: var(--primary-gold);
             letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 4px;
         }
 
         .brand-text p {
@@ -99,12 +108,13 @@
             color: var(--light-gold);
         }
 
-        /* 3. HERO / UTAMA (FOTO MASJID) */
+        /* 3. HERO / UTAMA */
         .hero {
             position: relative;
             height: 550px;
-            /* DISESUAIKAN: Menggunakan nama file kode unik panjang yang ada di GitHub Anda */
-            background: url('6b1a36f0-1606-40e9-b6b5-e0e0ef6a76bd.png') center/cover no-repeat; 
+            /* Menggunakan 'muka depan masjid.jpg' sebagai background utama */
+            background: url('muka%20depan%20masjid.jpg') center/cover no-repeat; 
+            background-color: var(--dark-brown);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -153,6 +163,8 @@
             letter-spacing: 1px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .btn-gold:hover {
@@ -161,7 +173,7 @@
             color: var(--white);
         }
 
-        /* 4. SLIDE ANIMASI / STRUKTUR LAYANAN (INFOGRAFIS) */
+        /* 4. STRUKTUR LAYANAN / PUBLIC FINANCIAL */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
@@ -202,7 +214,7 @@
             transform: scale(1.02);
         }
 
-        /* LAYANAN SOSIAL KEMATIAN / DIGITAL DONASI */
+        /* LAYANAN SOSIAL KEMATIAN */
         .services-grid {
             display: flex;
             flex-wrap: wrap;
@@ -267,9 +279,20 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
+        .dkm-card-img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--primary-gold);
+            display: block;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
         .dkm-avatar {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             background-color: var(--medium-brown);
             color: var(--primary-gold);
             border-radius: 50%;
@@ -310,7 +333,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            height: 220px;
+            height: 240px;
             border: 2px solid var(--light-gold);
         }
 
@@ -330,7 +353,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: rgba(44, 26, 4, 0.8);
+            background: rgba(44, 26, 4, 0.85);
             color: var(--primary-gold);
             padding: 10px;
             font-size: 0.85rem;
@@ -370,7 +393,7 @@
 
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
             margin-bottom: 15px;
             font-size: 0.95rem;
@@ -380,6 +403,7 @@
             color: var(--primary-gold);
             font-size: 1.2rem;
             width: 25px;
+            margin-top: 4px;
         }
 
         .contact-item a {
@@ -421,7 +445,7 @@
 
         .copyright {
             text-align: center;
-            margin-top: 5px;
+            margin-top: 25px;
             padding-top: 20px;
             border-top: 1px solid var(--medium-brown);
             font-size: 0.85rem;
@@ -434,6 +458,7 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 15px;
+                position: relative;
             }
             .logo-area {
                 flex-direction: column;
@@ -458,7 +483,7 @@
 
     <header>
         <div class="logo-area">
-            <img src="64416.png" alt="Logo Al-Ikhlash" class="logo-img">
+            <img src="Logo%20masjid.png" alt="Logo Al-Ikhlash" class="logo-img">
             <div class="brand-text">
                 <h1>MASJID JAMI' AL-IKHLASH</h1>
                 <p>Sangkanhurip, Katapang, Kabupaten Bandung</p>
@@ -481,16 +506,16 @@
     <section id="donasi">
         <h2 class="section-title">Manajemen Donasi & Infaq Transparan</h2>
         <div class="infografis-container">
-            <p style="margin-bottom: 20px; font-style: italic;">Kami telah memiliki NPWP resmi, pengelolaan keuangan tersistem lewat Public Financial Dashboard, serta penyaluran rekening aman melalui Bank Syariah Indonesia (BSI).</p>
-            <img src="97949.jpg" alt="Alur Transparansi Donasi" class="infografis-banner">
+            <p style="margin-bottom: 25px; font-style: italic; padding: 0 10px;">Kami telah memiliki NPWP resmi, pengelolaan keuangan tersistem lewat Public Financial Dashboard, serta penyaluran rekening aman melalui Bank Syariah Indonesia (BSI).</p>
+            <img src="Laporan_kas_Progresif.png" alt="Laporan Kas Progresif Keuangan Masjid" class="infografis-banner">
         </div>
     </section>
 
-    <section style="background-color: #2C1A04; color: white; padding: 50px 20px; text-align: center;">
+    <section style="background-color: #2C1A04; color: white; padding: 60px 20px; text-align: center;">
         <div style="max-width: 600px; margin: 0 auto;">
             <h2 style="color: var(--primary-gold); font-family: 'Marcellus', serif; margin-bottom: 20px;">Sedekah Gak Pake Ribet</h2>
             <p style="color: #f0e6d2; margin-bottom: 30px;">Gunakan aplikasi mobile banking atau e-wallet Anda untuk melakukan scan QRIS resmi Masjid Al-Ikhlash.</p>
-            <img src="63130.webp" onerror="this.src='90052.png';" alt="QRIS Bank Syariah Indonesia" style="width: 100%; max-width: 350px; border-radius: 15px; border: 4px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+            <img src="Qris.jpg" alt="QRIS Bank Syariah Indonesia Masjid Al-Ikhlash" style="width: 100%; max-width: 350px; border-radius: 15px; border: 4px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
         </div>
     </section>
 
@@ -519,7 +544,7 @@
         <h2 class="section-title">Pimpinan & Khidmah DKM</h2>
         <div class="dkm-grid">
             <div class="dkm-card">
-                <div class="dkm-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                <img src="profil_ketua_dkm.jpg" alt="Indra Aulia, A.Md." class="dkm-card-img">
                 <h3>Indra Aulia, A.Md.</h3>
                 <p>Ketua DKM</p>
             </div>
@@ -535,20 +560,24 @@
         <h2 class="section-title">Dokumentasi & Fasilitas Masjid</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="90052.png" alt="Tampak Depan Masjid Siang">
-                <div class="gallery-caption">Fasad Depan Masjid Jami' Al-Ikhlash</div>
+                <img src="Fassad_masjid.png" alt="Fasad Utama Masjid">
+                <div class="gallery-caption">Fasad Utama Masjid Jami' Al-Ikhlash</div>
             </div>
             <div class="gallery-item">
-                <img src="99403.jpg" onerror="this.src='90052.png';" alt="Ruang Utama Lantai 1">
-                <div class="gallery-caption">Ruang Utama Sholat Lantai 1</div>
+                <img src="Masjid_terkini.jpg" alt="Kondisi Masjid Terkini">
+                <div class="gallery-caption">Dokumentasi Kondisi Masjid Terkini</div>
             </div>
             <div class="gallery-item">
-                <img src="100271.jpg" onerror="this.src='90052.png';" alt="Progres Pembangunan Lantai 2">
-                <div class="gallery-caption">Progres Pembangunan Aula Lantai 2</div>
+                <img src="Masjid1.png" alt="Fasilitas Ruang Sholat">
+                <div class="gallery-caption">Area Ruang Utama / Fasilitas Masjid</div>
             </div>
             <div class="gallery-item">
-                <img src="99406.jpg" onerror="this.src='90052.png';" alt="Fasilitas Canopy Depan">
-                <div class="gallery-caption">Halaman Depan & Fasilitas Canopy</div>
+                <img src="Flyer_NPWP.png" alt="Sosialisasi Legalitas NPWP Resmi">
+                <div class="gallery-caption">Legalitas NPWP Resmi Masjid</div>
+            </div>
+            <div class="gallery-item">
+                <img src="stempel%20masjid.png" alt="Keabsahan Administrasi Stempel DKM">
+                <div class="gallery-caption">Atribut Keabsahan Administrasi DKM</div>
             </div>
         </div>
     </section>
@@ -556,18 +585,18 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-info">
-                <img src="94777.png" alt="Plang Masjid" style="width: 100%; max-width: 260px; border-radius: 6px; border: 1px solid var(--primary-gold); margin-bottom: 15px;">
+                <h3>Tentang Kami</h3>
                 <p><strong>Masjid Jami' Al-Ikhlash</strong> bertekad menjadi pelopor administrasi masjid yang bersih, akuntabel, serta responsif terhadap kebutuhan sosial keummatan di era digital.</p>
             </div>
             <div class="footer-contact">
                 <h3>Kontak Sekretariat</h3>
                 <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="https://wa.me/6289530104144" target="_blank">0895-3010-4144 (DKM Center)</a>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <a href="https://wa.me/6289530104144" target="_blank">6289530104144 (DKM Center)</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="https://wa.me/62895338675545" target="_blank">0895-3386-75545 (Info Layanan)</a>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <a href="https://wa.me/62895333475545" target="_blank">62895333475545 (Info Layanan)</a>
                 </div>
                 <div class="contact-item">
                     <i class="fa-solid fa-envelope"></i>
@@ -578,11 +607,10 @@
                 <h3>Media Sosial & Alamat</h3>
                 <div class="contact-item">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>Kp. Ciborerang RT 001 / RW 019, Sangkanhurip, Kec. Katapang, Kab. Bandung</span>
+                    <span>Kp. Ciborerang RT 001 RW 019, Sangkanhurip, Katapang, Kabupaten Bandung 40971</span>
                 </div>
                 <div class="social-links">
-                    <a href="https://instagram.com/masji.djamialikhlas" target="_blank" class="social-box" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="social-box" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com/masji.djamialikhlas" target="_blank" class="social-box" title="Instagram Resmi"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </div>
