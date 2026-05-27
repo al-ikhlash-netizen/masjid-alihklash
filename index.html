@@ -18,6 +18,7 @@
             --medium-brown: #4A3511;
             --bg-light: #FDFBF7;
             --white: #FFFFFF;
+            --danger-red: #A61C1C;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,7 +26,7 @@
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--dark-brown); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Marcellus', serif; }
 
-        /* 1. RUNNING TEXT (TEMPO LAMBAT) */
+        /* 1. RUNNING TEXT */
         .marquee-container { background: var(--dark-brown); color: var(--primary-gold); padding: 12px 0; font-weight: 600; overflow: hidden; border-bottom: 2px solid var(--primary-gold); }
         .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 50s linear infinite; padding-left: 100%; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
@@ -37,19 +38,26 @@
         .brand-text h1 { font-size: 1.5rem; color: var(--primary-gold); line-height: 1.2; }
 
         /* 3. HERO (VISUAL ATAS) */
-        .hero { position: relative; height: 550px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero { position: relative; height: 500px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.3), rgba(44,26,4,0.85)); }
         .hero-content { position: relative; z-index: 2; color: #fff; max-width: 900px; padding: 0 20px; }
         .hero-content h2 { font-size: 3rem; color: var(--primary-gold); margin-bottom: 15px; text-shadow: 2px 2px 5px #000; }
 
-        /* 4. SEKSI LAYANAN UTAMA */
+        /* JADWAL SHOLAT EMBED SYSTEM */
+        .sholat-container { max-width: 900px; margin: -40px auto 40px; position: relative; z-index: 10; padding: 0 20px; }
+        .sholat-box { background: #fff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 2px solid var(--primary-gold); overflow: hidden; padding: 10px; }
+
+        /* 4. SEKSI LAYANAN UTAMA & EMERGENCY */
         .section-title { text-align: center; font-size: 2.2rem; color: var(--medium-brown); margin: 50px 0 30px; position: relative; padding-bottom: 15px; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: var(--primary-gold); }
         
-        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 0 5% 50px; }
-        .service-card { background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-gold); padding: 30px; flex: 1; min-width: 300px; max-width: 380px; text-align: center; transition: 0.3s; }
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 0 5% 30px; }
+        .service-card { background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-gold); padding: 30px; flex: 1; min-width: 300px; max-width: 380px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .service-card:hover { transform: translateY(-5px); }
         .service-icon { font-size: 2.5rem; color: var(--dark-gold); margin-bottom: 15px; }
+
+        .btn-emergency { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--danger-red); color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; }
+        .btn-emergency:hover { background: #821212; box-shadow: 0 4px 12px rgba(166,28,28,0.3); }
 
         /* 5. LAPORAN KEUANGAN & QRIS */
         #donasi { background: #2C1A04; color: #fff; padding: 60px 5%; text-align: center; }
@@ -128,23 +136,38 @@
         </div>
     </section>
 
+    <div class="sholat-container">
+        <div class="sholat-box">
+            <iframe src="https://jadwalsholat.org/adzan/ajax.row.php?id=309" style="width:100%; height:85px; border:none; overflow:hidden;" scrolling="no"></iframe>
+        </div>
+    </div>
+
     <section>
         <h2 class="section-title">Program Pelayanan Utama</h2>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
-                <h3>Sosial Kematian</h3>
-                <p>Pengurusan jenazah, ambulans, dan santunan kemaslahatan yang responsif.</p>
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
+                    <h3>Kabar Duka & Ambulans</h3>
+                    <p>Pengurusan jenazah, fasilitas ambulans, serta koordinasi santunan jamaah secara cepat dan responsif.</p>
+                </div>
+                <a href="https://wa.me/62895333475545" class="btn-emergency" target="_blank">
+                    <i class="fa-solid fa-phone-flip"></i> HUBUNGI LAYANAN DUKA
+                </a>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                <h3>Imarah Digital</h3>
-                <p>Sistem informasi masjid, rekapitulasi iuran, dan monitor keuangan transparan.</p>
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Imarah Digital</h3>
+                    <p>Sistem informasi masjid, transparansi data iuran, dan monitor keuangan umat secara terbuka.</p>
+                </div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
-                <h3>Pembangunan</h3>
-                <p>Pemeliharaan fisik dan pengembangan fasilitas masjid secara berkala.</p>
+                <div>
+                    <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+                    <h3>Pembangunan</h3>
+                    <p>Pemeliharaan berkala infrastruktur fisik serta pengembangan jangka panjang fasilitas utama masjid.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -256,12 +279,14 @@
     <section>
         <h2 class="section-title">Dokumentasi & Kegiatan Masjid</h2>
         <div class="gallery-grid">
+            <div class="gallery-item"><img src="0e115b65-51ef-465c-95fc-c55fdbe36e72"><div class="gallery-cap">Pengajian Anak & Remaja Masjid</div></div>
+            
             <div class="gallery-item"><img src="Mihrob.jpg"><div class="gallery-cap">Mihrob Masjid</div></div>
             <div class="gallery-item"><img src="MT.jpeg"><div class="gallery-cap">Majelis Taklim Jamaah</div></div>
             <div class="gallery-item"><img src="Nampak%20sudut.jpg"><div class="gallery-cap">Sudut Ruang Utama</div></div>
-            <div class="gallery-item"><img src="taklim%20ibu2.jpeg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
-            <div class="gallery-item"><img src="taklim%20ngawayuh.jpeg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
-            <div class="gallery-item"><img src="taklim%20rumasa.jpeg"><div class="gallery-cap">Taklim Rumasa</div></div>
+            <div class="gallery-item"><img src="taklim%20ibu2.jpg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
+            <div class="gallery-item"><img src="taklim%20ngawayuh.jpg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
+            <div class="gallery-item"><img src="taklim%20rumasa.jpg"><div class="gallery-cap">Taklim Rumasa</div></div>
             
             <div class="gallery-item"><img src="muka%20depan%20masjid.jpg"><div class="gallery-cap">Fasad Depan Lama</div></div>
             <div class="gallery-item"><img src="Masjid_terkini.jpg"><div class="gallery-cap">Kondisi Terkini</div></div>
