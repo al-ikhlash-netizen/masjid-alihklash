@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>INFO TV - Masjid Jami' Al-Ikhlash</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
         :root {
             --primary-gold: #D4AF37;
             --dark-brown: #1a0f02;
-            --bg-box: rgba(0, 0, 0, 0.5);
+            --bg-box: rgba(0, 0, 0, 0.6);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -19,66 +19,94 @@
             background: linear-gradient(135deg, #1f1304 0%, #0d0600 100%); 
             color: #fff; 
             height: 100vh; 
+            width: 100vw;
             overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5vh 2vw;
         }
 
-        /* SUSUNAN LAYAR UTAMA TV (Digital Signage Layout) */
-        .tv-container { display: flex; flex-direction: column; height: 100vh; justify-content: space-between; padding: 20px; }
-        
-        /* HEADER TV */
-        .tv-header { display: flex; justify-content: space-between; align-items: center; background: var(--bg-box); padding: 15px 30px; border-radius: 15px; border-bottom: 3px solid var(--primary-gold); }
-        .logo-area { display: flex; align-items: center; gap: 20px; }
-        .logo-img { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--primary-gold); background: #fff; }
-        .logo-text h1 { font-family: 'Marcellus', serif; font-size: 2.3rem; color: var(--primary-gold); letter-spacing: 2px; }
+        /* HEADER RESONSIVE BERBASIS VIEWPORT HEIGHT (vh) */
+        .tv-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: var(--bg-box); 
+            padding: 1.5vh 2vw; 
+            border-radius: 12px; 
+            border-bottom: 3px solid var(--primary-gold);
+            height: 14vh;
+        }
+        .logo-area { display: flex; align-items: center; gap: 1.5vw; }
+        .logo-img { width: 8vh; height: 8vh; border-radius: 50%; border: 2px solid var(--primary-gold); background: #fff; }
+        .logo-text h1 { font-family: 'Marcellus', serif; font-size: 3.2vh; color: var(--primary-gold); letter-spacing: 1px; }
+        .logo-text p { color: #ccc; font-size: 1.6vh; }
 
-        /* JAM JUMBO KANAN ATAS */
         .jam-box { text-align: right; }
-        #tv-jam { font-size: 3.2rem; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; line-height: 1; }
-        #tv-tgl { font-size: 1.1rem; color: var(--primary-gold); font-weight: 600; margin-top: 5px; }
+        #tv-jam { font-size: 4.5vh; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; line-height: 1; }
+        #tv-tgl { font-size: 1.6vh; color: var(--primary-gold); font-weight: 600; margin-top: 0.3vh; }
 
-        /* AREA TENGAH / KONTEN SLIDE UTAMA */
-        .tv-content-body { flex-grow: 1; margin: 25px 0; display: flex; align-items: center; justify-content: center; position: relative; }
-        .slide-page { width: 100%; height: 100%; display: none; animation: fadeIn 0.8s ease-in-out forwards; }
+        /* BODY KONTEN AUTO-FIT */
+        .tv-content-body { 
+            height: 66vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative;
+            margin: 1.5vh 0;
+        }
+        .slide-page { width: 100%; height: 100%; display: none; animation: fadeIn 0.5s ease-in-out forwards; }
         .slide-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* GAYA MASING-MASING SLIDE */
-        /* Slide 1: Countdown jumbo */
-        .countdown-title { font-size: 1.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-gold); }
-        #tv-countdown { font-size: 4.5rem; font-weight: bold; font-family: 'Marcellus', serif; margin: 10px 0; text-shadow: 0 0 20px rgba(214,175,55,0.4); }
+        /* ADJUSTMENT HURUF JUMBO ADZAN BINGKAI HP/TV */
+        .countdown-title { font-size: 2.2vh; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-gold); }
+        #tv-countdown { font-size: 5.5vh; font-weight: bold; font-family: 'Marcellus', serif; margin: 1vh 0; text-shadow: 0 0 15px rgba(214,175,55,0.4); }
         
-        .sholat-tv-grid { display: flex; gap: 20px; margin-top: 25px; width: 100%; justify-content: center; }
-        .sholat-tv-card { background: var(--bg-box); border: 2px solid rgba(212,175,55,0.2); padding: 15px 30px; border-radius: 12px; min-width: 160px; text-align: center; }
-        .sholat-tv-card.active-now { border-color: var(--primary-gold); background: rgba(212,175,55,0.15); box-shadow: 0 0 15px var(--primary-gold); }
-        .sholat-tv-card h3 { font-size: 1.2rem; color: var(--primary-gold); text-transform: uppercase; }
-        .sholat-tv-card p { font-size: 2.2rem; font-family: 'Marcellus', serif; font-weight: bold; }
+        /* GRID KOTAK JADWAL SHOLAT */
+        .sholat-tv-grid { display: flex; gap: 1vw; width: 100%; justify-content: center; margin-top: 1vh; }
+        .sholat-tv-card { background: var(--bg-box); border: 2px solid rgba(212,175,55,0.2); padding: 1.5vh 1.5vw; border-radius: 10px; flex: 1; max-width: 15vw; text-align: center; }
+        .sholat-tv-card.active-now { border-color: var(--primary-gold); background: rgba(212,175,55,0.2); box-shadow: 0 0 15px var(--primary-gold); }
+        .sholat-tv-card h3 { font-size: 1.8vh; color: var(--primary-gold); text-transform: uppercase; }
+        .sholat-tv-card p { font-size: 3.5vh; font-family: 'Marcellus', serif; font-weight: bold; margin-top: 0.5vh; }
 
-        /* Slide 2 & 3: Info Keuangan / Gambar / Teks */
-        .slide-title-info { font-family: 'Marcellus', serif; font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 20px; }
-        .img-tv-fullscreen { height: 75vh; max-width: 90%; object-fit: contain; border: 3px solid var(--primary-gold); border-radius: 15px; background: #000; }
+        /* SLIDE KEUANGAN & DAKWAH */
+        .slide-title-info { font-family: 'Marcellus', serif; font-size: 3vh; color: var(--primary-gold); margin-bottom: 1.5vh; }
+        .img-tv-fullscreen { height: 56vh; max-width: 100%; object-fit: contain; border: 2px solid var(--primary-gold); border-radius: 10px; background: #000; }
         
-        .box-text-dakwah { background: var(--bg-box); border-left: 10px solid var(--primary-gold); padding: 40px; border-radius: 0 20px 20px 0; max-width: 85%; text-align: left; }
-        .box-text-dakwah p { font-size: 2.2rem; line-height: 1.5; font-style: italic; font-weight: 400; }
-        .box-text-dakwah .ustadz { font-size: 1.4rem; color: var(--primary-gold); margin-top: 25px; font-weight: bold; font-style: normal; text-align: right; }
+        .box-text-dakwah { background: var(--bg-box); border-left: 8px solid var(--primary-gold); padding: 4vh; border-radius: 0 15px 15px 0; max-width: 85%; text-align: left; }
+        .box-text-dakwah p { font-size: 3.2vh; line-height: 1.5; font-style: italic; }
+        .box-text-dakwah .ustadz { font-size: 2vh; color: var(--primary-gold); margin-top: 2vh; font-weight: bold; font-style: normal; text-align: right; }
 
-        /* STATUS SHOLAT TIBA (LOCK OUT SCREEN) */
-        .lock-screen { position: fixed; inset: 0; background: radial-gradient(circle, #aa1c1c 0%, #4a0505 100%); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px; }
-        .lock-screen h1 { font-family: 'Marcellus', serif; font-size: 5rem; color: var(--primary-gold); text-shadow: 3px 3px 10px #000; animation: pulse 1.5s infinite; }
-        .lock-screen p { font-size: 2.5rem; color: #fff; margin-top: 20px; font-weight: 600; }
+        /* SLIDE QRIS */
+        .qris-wrapper { display: flex; gap: 3vw; align-items: center; justify-content: center; background: var(--bg-box); padding: 3vh; border-radius: 15px; border: 1px solid var(--primary-gold); height: 56vh; }
+        .qris-img { height: 48vh; border-radius: 8px; border: 4px solid #fff; }
+
+        /* RUNNING TEXT FOOTER */
+        .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2vh; font-weight: 600; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 5vh; display: flex; align-items: center; }
+        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 40s linear infinite; }
+        @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+
+        /* SCREEN LOCK ADZAN JUMBO */
+        .lock-screen { position: fixed; inset: 0; background: radial-gradient(circle, #aa1c1c 0%, #4a0505 100%); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .lock-screen h1 { font-family: 'Marcellus', serif; font-size: 8vh; color: var(--primary-gold); animation: pulse 1.5s infinite; }
+        .lock-screen p { font-size: 4vh; color: #fff; margin-top: 2vh; font-weight: 600; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
-        /* RUNNING TEXT ATAS ADZAN */
-        .tv-footer { background: #000; color: var(--primary-gold); padding: 12px; font-size: 1.4rem; font-weight: 600; border-radius: 10px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; }
-        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 35s linear infinite; }
-        @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+        /* TOMBOL LAYAR PENUH DISKRET (UNTUK HP) */
+        .fullscreen-btn { position: fixed; bottom: 8vh; right: 3vw; background: rgba(214,175,55,0.3); color: #fff; border: 1px solid var(--primary-gold); padding: 8px 15px; border-radius: 20px; font-size: 1.4vh; cursor: pointer; z-index: 1000; font-weight: bold; opacity: 0.6; transition: 0.3s; }
+        .fullscreen-btn:hover { opacity: 1; background: var(--primary-gold); color: #000; }
     </style>
 </head>
 <body>
 
+    <button class="fullscreen-btn" onclick="toggleFullscreen()"><i class="fa-solid fa-expand"></i> Ketuk Layar Penuh</button>
+
     <div id="layar-adzan-lock" class="lock-screen">
         <h1>ADZAN & SHOLAT</h1>
         <p>✨ Memasuki Waktu Sholat Jami' Al-Ikhlash ✨</p>
-        <p style="font-size: 1.8rem; opacity: 0.8; font-weight: normal; margin-top: 40px;">Mohon menonaktifkan atau meredam suara Handphone Anda.<br>Luruskan dan rapatkan shaf.</p>
+        <p style="font-size: 2.5vh; opacity: 0.8; font-weight: normal; margin-top: 4vh;">Mohon menonaktifkan atau meredam suara Handphone Anda.<br>Luruskan dan rapatkan shaf berjamaah.</p>
     </div>
 
     <div class="tv-container">
@@ -87,7 +115,7 @@
                 <img src="Logo%20masjid.png" class="logo-img" onerror="this.src='https://placehold.co/100?text=Masjid'">
                 <div class="logo-text">
                     <h1>MASJID JAMI' AL-IKHLASH</h1>
-                    <p style="color: #ccc; font-size: 1rem; letter-spacing: 1px;">Sangkanhurip, Katapang, Kabupaten Bandung</p>
+                    <p>Sangkanhurip, Katapang, Kabupaten Bandung</p>
                 </div>
             </div>
             <div class="jam-box">
@@ -126,12 +154,12 @@
 
             <div class="slide-page" id="slide4">
                 <div class="slide-title-info"><i class="fa-solid fa-qrcode"></i> Kotak Amal Digital Masjid Jami' Al-Ikhlash</div>
-                <div style="display: flex; gap: 50px; align-items: center; justify-content: center; background: var(--bg-box); padding: 25px; border-radius: 20px; border: 1px solid var(--primary-gold);">
-                    <img src="Qris.jpg" style="height: 50vh; border-radius: 10px; border: 5px solid #fff;" onerror="this.src='https://placehold.co/400?text=QRIS+MASJID'">
-                    <div style="text-align: left; max-width: 450px;">
-                        <h2 style="color: var(--primary-gold); font-size: 2rem; margin-bottom: 15px;">Infaq Mudah via HP</h2>
-                        <p style="font-size: 1.3rem; line-height: 1.6;">Silakan gunakan aplikasi perbankan m-Banking atau e-Wallet (Gopay, OVO, Dana, LinkAja) Anda untuk Sedekah Jariyah.</p>
-                        <p style="margin-top: 15px; font-weight: bold; font-size: 1.1rem; color: #a3ff9e;"><i class="fa-solid fa-circle-check"></i> Dana Masuk Otomatis Kas Masjid</p>
+                <div class="qris-wrapper">
+                    <img src="Qris.jpg" class="qris-img" onerror="this.src='https://placehold.co/400?text=QRIS+MASJID'">
+                    <div style="text-align: left; max-width: 45vw;">
+                        <h2 style="color: var(--primary-gold); font-size: 2.8vh; margin-bottom: 1vh;">Infaq Mudah via HP</h2>
+                        <p style="font-size: 2vh; line-height: 1.5;">Silakan gunakan aplikasi m-Banking atau e-Wallet (Gopay, OVO, Dana, LinkAja) Anda untuk Sedekah Jariyah.</p>
+                        <p style="margin-top: 1.5vh; font-weight: bold; font-size: 1.8vh; color: #a3ff9e;"><i class="fa-solid fa-circle-check"></i> Dana Masuk Otomatis Rekening Masjid</p>
                     </div>
                 </div>
             </div>
@@ -151,39 +179,42 @@
         const totalSlide = 4;
         let sistemTerkunciAdzan = false;
 
-        // 1. Fungsi Timer Jam, Tanggal & Pemicu Utama Loop
+        // FUNGSI LAYAR PENUH (FORCE FULLSCREEN BY CLICK)
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`Gagal mode layar penuh: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
         function perbaruiJamDanMesin() {
             const sekarang = new Date();
-            
-            // Format Jam Digital
             let j = sekarang.getHours().toString().padStart(2, '0');
             let m = sekarang.getMinutes().toString().padStart(2, '0');
             let d = sekarang.getSeconds().toString().padStart(2, '0');
             document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
 
-            // Format Hari & Tanggal Nasional Indonesia
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
 
-            // Jalankan hitung mundur jika jadwal sholat sudah siap ditarik
             if (Object.keys(jadwalSholatTV).length > 0) {
                 hitungMundurTV(sekarang);
             }
         }
 
-        // 2. Mesin Hitung Mundur & Deteksi Pemicu Layar Kunci Sholat
         function hitungMundurTV(waktuSekarang) {
             const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
             let namaTarget = "";
             let waktuTarget = null;
 
-            // Reset highlight tabel card sholat harian
             listSholat.forEach(s => {
                 const el = document.getElementById('card-' + s.toLowerCase());
                 if(el) el.classList.remove('active-now');
             });
 
-            // Cari target adzan selanjutnya yang akan masuk
             for (let i = 0; i < listSholat.length; i++) {
                 const nama = listSholat[i];
                 const jamMenitStr = jadwalSholatTV[nama];
@@ -202,7 +233,6 @@
                 }
             }
 
-            // Jika semua waktu sholat lewat hari ini, bidik waktu Subuh esok hari
             if (!waktuTarget) {
                 namaTarget = "Subuh (Besok)";
                 const [h, m] = jadwalSholatTV['Subuh'].split(':').map(Number);
@@ -215,8 +245,7 @@
 
             const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
 
-            // LOGIKA JIKA WAKTU SHOLAT TIBA ATAU SEDANG BERLANGSUNG
-            // Kunci layar jika waktu mendekati adzan sampai kisaran 15 menit ke depan (saat sholat berjamaah)
+            // Jika pas adzan tiba, kunci layar penuh merah selama 15 menit
             if (selisihDetik <= 0 && selisihDetik > -900) { 
                 document.getElementById('layar-adzan-lock').style.display = 'flex';
                 sistemTerkunciAdzan = true;
@@ -226,7 +255,6 @@
                 sistemTerkunciAdzan = false;
             }
 
-            // Format konversi sisa waktu ke string teks
             const sisaJam = Math.floor(selisihDetik / 3600);
             const sisaMenit = Math.floor((selisihDetik % 3600) / 60);
             const sisaDetik = selisihDetik % 60;
@@ -235,28 +263,18 @@
             if (sisaJam > 0) kalimat += sisaJam + " jam ";
             kalimat += sisaMenit + " menit " + sisaDetik + " detik lagi";
 
-            document.getElementById('judul-countdown').innerHTML = "Menuju Waktu <span style='color: #fff; font-weight: bold;'>" + namaTarget + "</span>";
+            document.getElementById('judul-countdown').innerHTML = "Menuju Waktu <span style='color: #fff; font-weight: bold;'> " + namaTarget + "</span>";
             document.getElementById('tv-countdown').innerText = kalimat;
         }
 
-        // 3. Mesin Pemindah Lembaran Slide Otomatis (Hanya jalan jika tidak terkunci adzan)
         function gantiSlideOtomatis() {
-            if (sistemTerkunciAdzan) return; // Kunci slide jangan berputar jika sedang waktu sholat
-
-            // Sembunyikan slide aktif saat ini
+            if (sistemTerkunciAdzan) return;
             document.getElementById('slide' + indexSlideAktif).classList.remove('active');
-
-            // Hitung nomor urutan slide selanjutnya
             indexSlideAktif++;
-            if (indexSlideAktif > totalSlide) {
-                indexSlideAktif = 1; // Putar balik lagi ke nomor 1
-            }
-
-            // Munculkan slide berikutnya
+            if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
             document.getElementById('slide' + indexSlideAktif).classList.add('active');
         }
 
-        // 4. Ambil Jadwal Resmi Kemenag Bandung
         async function muatJadwalKemenag() {
             try {
                 const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
@@ -271,7 +289,6 @@
                 document.getElementById('tv-maghrib').innerText = t.Maghrib;
                 document.getElementById('tv-isya').innerText = t.Isha;
             } catch (error) {
-                // Cadangan waktu jika internet lemot sewaktu loading awal luar server
                 jadwalSholatTV = { 'Subuh': "04:32", 'Dzuhur': "11:47", 'Ashar': "15:08", 'Maghrib': "17:39", 'Isya': "18:53" };
                 document.getElementById('tv-subuh').innerText = "04:32";
                 document.getElementById('tv-dzuhur').innerText = "11:47";
@@ -281,13 +298,11 @@
             }
         }
 
-        // Jalankan seluruh roda eksekusi TV sistem
         window.onload = function() {
             muatJadwalKemenag();
             perbaruiJamDanMesin();
-            
-            setInterval(perbaruiJamDanMesin, 1000); // Sinkronisasi hitungan jam per 1 detik
-            setInterval(gantiSlideOtomatis, 15000); // Lembaran slide otomatis berpindah bergantian setiap 15 detik
+            setInterval(perbaruiJamDanMesin, 1000);
+            setInterval(gantiSlideOtomatis, 15000); // Geser slide tiap 15 detik
         };
     </script>
 </body>
