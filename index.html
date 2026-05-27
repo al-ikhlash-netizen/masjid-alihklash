@@ -281,9 +281,9 @@
             <div class="gallery-item"><img src="Mihrob.jpg"><div class="gallery-cap">Mihrob Masjid</div></div>
             <div class="gallery-item"><img src="MT.jpeg"><div class="gallery-cap">Majelis Taklim Jamaah</div></div>
             <div class="gallery-item"><img src="Nampak%20sudut.jpg"><div class="gallery-cap">Sudut Ruang Utama</div></div>
-            <div class="gallery-item"><img src="taklim%20ibu2.jpg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
-            <div class="gallery-item"><img src="taklim%20ngawayuh.jpg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
-            <div class="gallery-item"><img src="taklim%20rumasa.jpg"><div class="gallery-cap">Taklim Rumasa</div></div>
+            <div class="gallery-item"><img src="taklim%20ibu2.jpeg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
+            <div class="gallery-item"><img src="taklim%20ngawayuh.jpeg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
+            <div class="gallery-item"><img src="taklim%20rumasa.jpeg"><div class="gallery-cap">Taklim Rumasa</div></div>
             
             <div class="gallery-item"><img src="muka%20depan%20masjid.jpg"><div class="gallery-cap">Fasad Depan Lama</div></div>
             <div class="gallery-item"><img src="Masjid_terkini.jpg"><div class="gallery-cap">Kondisi Terkini</div></div>
@@ -294,12 +294,18 @@
         </div>
     </section>
 
-    <section class="sholat-section-bottom">
+   <section class="sholat-section-bottom">
         <h2 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.8rem;">Jadwal Sholat Hari Ini</h2>
         
-        <div style="margin: 15px auto; background: rgba(0,0,0,0.3); display: inline-block; padding: 10px 30px; border-radius: 50px; border: 1px solid var(--primary-gold);">
-            <span style="font-size: 0.85rem; color: var(--primary-gold); letter-spacing: 1px; display: block; text-transform: uppercase;">Waktu Saat Ini</span>
-            <span id="jam-digital" style="font-size: 2.2rem; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; letter-spacing: 2px;">00:00:00</span>
+        <div style="margin: 15px auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div style="background: rgba(0,0,0,0.4); padding: 10px 30px; border-radius: 50px; border: 1px solid var(--primary-gold); min-width: 220px;">
+                <span style="font-size: 0.85rem; color: var(--primary-gold); letter-spacing: 1px; display: block; text-transform: uppercase;">Waktu Saat Ini</span>
+                <span id="jam-digital" style="font-size: 2.2rem; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; letter-spacing: 2px;">00:00:00</span>
+            </div>
+
+            <div style="background: rgba(212, 175, 55, 0.15); padding: 8px 25px; border-radius: 8px; border: 1px dashed var(--primary-gold); max-width: 400px; width: 100%;">
+                <span id="countdown-adzan" style="font-size: 1.1rem; font-weight: 600; color: #fff; letter-spacing: 0.5px;">Menghitung waktu sholat...</span>
+            </div>
         </div>
         
         <p style="font-size: 0.9rem; opacity: 0.8;">Wilayah Sangkanhurip, Katapang & Sekitarnya (Kab. Bandung)</p>
@@ -333,33 +339,115 @@
         </div>
     </footer>
 
-    <script>
-        // 1. Fungsi Menjalankan Jam Digital secara Realtime (Detik Bergerak)
-        function jalankanJamDigital() {
+  <script>
+        let jadwalSholatHariIni = {};
+
+        // 1. Fungsi Jam Digital & Hitung Mundur Adzan
+        function updateWaktuDanCountdown() {
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
-            let menit = sekarang.getMinutes().toString().padStart(2, '0');
+            let menit = secretaries = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = sekarang.getSeconds().toString().padStart(2, '0');
             
+            // Update Tampilan Jam Utama
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
-        }
-        // Perbarui jam setiap 1000 milidetik (1 detik)
-        setInterval(jalankanJamDigital, 1000);
 
-        // 2. Fungsi Ambil Jadwal Sholat Kemenag RI
+            // Jika jadwal sholat sudah dimuat, hitung countdown-nya
+            if (Object.keys(jadwalSholatHariIni).length > 0) {
+                hitungMundurAdzan(sekarang);
+            }
+        }
+
+        // 2. Mesin Logika Hitung Mundur ke Waktu Sholat Terdekat
+        function hitungMundurAdzan(waktuSekarang) {
+            const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
+            let targetNama = "";
+            let targetWaktu = null;
+
+            // Bersihkan tanda aktif di kartu sholat sebelumnya
+            listSholat.forEach(s => {
+                const elemenCard = document.getElementById('card-' + s.toLowerCase());
+                if(elemenCard) elemenCard.classList.remove('active-time');
+            });
+
+            // Cari waktu sholat berikutnya
+            for (let i = 0; i < listSholat.length; i++) {
+                const namaSholat = listSholat[i];
+                const stringWaktu = jadwalSholatHariIni[namaSholat];
+                if (!stringWaktu) continue;
+
+                const [targetJam, targetMenit] = stringWaktu.split(':').map(Number);
+                const objekTarget = new Date(waktuSekarang);
+                objekTarget.setHours(targetJam, targetMenit, 0, 0);
+
+                if (objekTarget > waktuSekarang) {
+                    targetNama = namaSholat;
+                    targetWaktu = objekTarget;
+                    // Sorot kartu sholat yang akan datang
+                    const elemenCard = document.getElementById('card-' + namaSholat.toLowerCase());
+                    if(elemenCard) elemenCard.classList.add('active-time');
+                    break;
+                }
+            }
+
+            // Jika semua waktu sholat hari ini sudah lewat, target berikutnya adalah Subuh besok hari
+            if (!targetWaktu) {
+                targetNama = "Subuh (Besok)";
+                const [targetJam, targetMenit] = jadwalSholatHariIni['Subuh'].split(':').map(Number);
+                targetWaktu = new Date(waktuSekarang);
+                targetWaktu.setDate(waktuSekarang.getDate() + 1);
+                targetWaktu.setHours(targetJam, targetMenit, 0, 0);
+                
+                const elemenCard = document.getElementById('card-subuh');
+                if(elemenCard) elemenCard.classList.add('active-time');
+            }
+
+            // Hitung selisih milidetik
+            const selisihMiliDetik = targetWaktu - waktuSekarang;
+            const totalDetik = Math.floor(selisihMiliDetik / 1000);
+
+            if (totalDetik <= 0) {
+                document.getElementById('countdown-adzan').innerHTML = "✨ <span style='color: #D4AF37;'>Memasuki Waktu Sholat!</span> ✨";
+                return;
+            }
+
+            const jamSisa = Math.floor(totalDetik / 3600);
+            const menitSisa = Math.floor((totalDetik % 3600) / 60);
+            const detikSisa = totalDetik % 60;
+
+            // Susun kalimat teks countdown agar cantik
+            let teksCountdown = "⏳ ";
+            if (jamSisa > 0) teksCountdown += jamSisa + " jam ";
+            teksCountdown += menitSisa + " menit " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
+
+            document.getElementById('countdown-adzan').innerHTML = teksCountdown;
+        }
+
+        // 3. Fungsi Mengambil Data Jadwal dari Server Kemenag RI
         async function loadJadwalSholat() {
             try {
                 const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
                 const data = await response.json();
                 const timings = data.data.timings;
                 
+                // Simpan ke variabel global untuk dihitung mesin countdown
+                jadwalSholatHariIni = {
+                    'Subuh': timings.Fajr,
+                    'Dzuhur': timings.Dhuhr,
+                    'Ashar': timings.Asr,
+                    'Maghrib': timings.Maghrib,
+                    'Isya': timings.Isha
+                };
+
+                // Tampilkan angka ke dalam tabel card
                 document.getElementById('subuh').innerText = timings.Fajr;
                 document.getElementById('dzuhur').innerText = timings.Dhuhr;
                 document.getElementById('ashar').innerText = timings.Asr;
                 document.getElementById('maghrib').innerText = timings.Maghrib;
                 document.getElementById('isya').innerText = timings.Isha;
             } catch (error) {
-                // Cadangan jika server API gangguan
+                // Cadangan waktu statis jika kuota API atau internet terputus
+                jadwalSholatHariIni = { 'Subuh': "04:35", 'Dzuhur': "11:51", 'Ashar': "15:12", 'Maghrib': "17:45", 'Isya': "18:59" };
                 document.getElementById('subuh').innerText = "04:35";
                 document.getElementById('dzuhur').innerText = "11:51";
                 document.getElementById('ashar').innerText = "15:12";
@@ -368,10 +456,11 @@
             }
         }
 
-        // Jalankan semua fungsi saat halaman web pertama kali dibuka
+        // Jalankan seluruh sistem pelacakan waktu
         window.onload = function() {
-            jalankanJamDigital();
             loadJadwalSholat();
+            updateWaktuDanCountdown();
+            setInterval(updateWaktuDanCountdown, 1000); // Bergerak live tiap 1 detik
         };
     </script>
 </body>
