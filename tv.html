@@ -171,7 +171,6 @@
         const totalSlide = 4;
         let sistemTerkunciAdzan = false;
 
-        // Array panggil foto asli agar slide 3 otomatis berganti foto internal
         const daftarFotoGaleri = ['taklim%20ngawayuh.jpg', 'taklim%20rumasa.jpg', 'taklim%20ibu2.jpg'];
         let indexFotoInternal = 0;
 
@@ -189,7 +188,7 @@
             const sekarang = new Date();
             let j = sekarang.getHours().toString().padStart(2, '0');
             let m = sekarang.getMinutes().toString().padStart(2, '0');
-            let d = sekarang.getSeconds().toString().padStart(2, '0');
+            let d = Thermal = sekarang.getSeconds().toString().padStart(2, '0');
             document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -268,7 +267,6 @@
             indexSlideAktif++;
             if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
             
-            // Logika rotasi internal foto kegiatan pada slide nomor 3
             if (indexSlideAktif === 3) {
                 indexFotoInternal = (indexFotoInternal + 1) % daftarFotoGaleri.length;
                 document.getElementById('foto-galeri-rotasi').src = daftarFotoGaleri[indexFotoInternal];
