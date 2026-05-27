@@ -54,11 +54,13 @@
         /* 5. LAPORAN KEUANGAN & QRIS */
         #donasi { background: #2C1A04; color: #fff; padding: 60px 5%; text-align: center; }
 
-        /* 6. DKM SECTION (PIMPINAN KOTAK FORMAL) */
+        /* 6. DKM & PEMBINA SECTION (SUSAHAN SESATU SESUPOH DI ATAS) */
         .dkm-section { background: #F4EFE3; padding: 60px 5%; text-align: center; }
-        .leaders-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 50px; }
-        .leader-card { background: #fff; padding: 15px; border-radius: 10px; border: 1px solid var(--primary-gold); width: 280px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .leader-img { width: 100%; height: 320px; object-fit: cover; border-radius: 5px; margin-bottom: 15px; }
+        .leaders-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+        .leader-card { background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--primary-gold); width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .leader-img { width: 100%; height: 240px; object-fit: cover; border-radius: 5px; margin-bottom: 12px; }
+        .leader-card h3 { font-size: 1.1rem; color: var(--dark-brown); }
+        .leader-card p { font-size: 0.8rem; }
         
         .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
         .staff-tile { background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary-gold); display: flex; align-items: center; gap: 15px; text-align: left; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
@@ -66,14 +68,14 @@
         .staff-tile div h4 { font-size: 1rem; color: var(--dark-brown); }
         .staff-tile div p { font-size: 0.75rem; color: var(--dark-gold); font-weight: bold; text-transform: uppercase; }
 
-        /* 7. SUARA JAMAAH (UKURAN SECUKUPNYA) */
+        /* 7. SUARA JAMAAH */
         .feedback-section { padding: 40px 5%; background: var(--white); }
         .feedback-box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; border: 2px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         .feedback-box input, .feedback-box textarea { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
         .btn-send { background: var(--dark-brown); color: var(--primary-gold); padding: 10px 25px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
         .btn-send:hover { background: var(--medium-brown); color: #fff; }
 
-        /* 8. SEKSI ARTIKEL & MUTIARA DAKWAH (GAYA KARTU ESTETIK) */
+        /* 8. SEKSI ARTIKEL & MUTIARA DAKWAH */
         .dakwah-section { padding: 50px 5%; background-color: #FDFBF7; }
         .dakwah-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
         .dakwah-card { background: #fff; border-radius: 12px; border: 1px solid var(--light-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--dark-brown); }
@@ -82,12 +84,12 @@
         .dakwah-card p { font-size: 0.95rem; color: #555; margin-bottom: 15px; flex-grow: 1; }
         .dakwah-author { font-size: 0.85rem; font-style: italic; color: var(--medium-brown); font-weight: 600; border-top: 1px dashed #eee; padding-top: 10px; }
 
-        /* 9. GALLERY */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; padding: 0 5% 40px; }
-        .gallery-item { height: 180px; border-radius: 8px; overflow: hidden; border: 2px solid var(--light-gold); position: relative; }
+        /* 9. GALLERY (UPDATE FOTO KEGIATAN BARU) */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; padding: 0 5% 40px; }
+        .gallery-item { height: 190px; border-radius: 8px; overflow: hidden; border: 2px solid var(--light-gold); position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44,26,4,0.8); color: var(--primary-gold); font-size: 0.75rem; padding: 5px; text-align: center; }
+        .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44,26,4,0.8); color: var(--primary-gold); font-size: 0.8rem; padding: 6px; text-align: center; }
 
         /* 10. FOOTER */
         footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 4px solid var(--primary-gold); }
@@ -132,11 +134,11 @@
             <div class="service-card">
                 <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
                 <h3>Sosial Kematian</h3>
-                <p>Pengurusan jenazah dan santunan kemaslahatan yang responsif.</p>
+                <p>Pengurusan jenazah, ambulans, dan santunan kemaslahatan yang responsif.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                <h3>Idarah Digital</h3>
+                <h3>Imarah Digital</h3>
                 <p>Sistem informasi masjid, rekapitulasi iuran, dan monitor keuangan transparan.</p>
             </div>
             <div class="service-card">
@@ -157,17 +159,47 @@
     </section>
 
     <section class="dkm-section">
-        <h2 class="section-title">Pimpinan & Khidmah DKM</h2>
+        
+        <h3 style="font-family: 'Marcellus', serif; font-size: 1.6rem; color: var(--dark-gold); margin-bottom: 20px;">Susunan Pembina (Sesepuh Masjid)</h3>
         <div class="leaders-grid">
+            <div class="leader-card">
+                <img src="pembina1.jpg" alt="Ust. N. Abdul Hamid" class="leader-img" onerror="this.src='https://placehold.co/200x240/4a3511/d4af37?text=Sesepuh'">
+                <h3>Ust. N. Abdul Hamid</h3>
+                <p style="color: var(--dark-gold); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Pembina / Sesepuh</p>
+            </div>
+            <div class="leader-card">
+                <img src="pembina2.jpg" alt="H. Dayat Sudaryat" class="leader-img" onerror="this.src='https://placehold.co/200x240/4a3511/d4af37?text=Sesepuh'">
+                <h3>H. Dayat Sudaryat</h3>
+                <p style="color: var(--dark-gold); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Pembina / Sesepuh</p>
+            </div>
+            <div class="leader-card">
+                <img src="pembina3.jpg" alt="Ust. Iya Gugun" class="leader-img" onerror="this.src='https://placehold.co/200x240/4a3511/d4af37?text=Sesepuh'">
+                <h3>Ust. Iya Gugun</h3>
+                <p style="color: var(--dark-gold); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Pembina / Sesepuh</p>
+            </div>
+            <div class="leader-card">
+                <img src="pembina4.jpg" alt="Bpk Ikin Sodikin" class="leader-img" onerror="this.src='https://placehold.co/200x240/4a3511/d4af37?text=Sesepuh'">
+                <h3>Bpk Ikin Sodikin</h3>
+                <p style="color: var(--dark-gold); font-weight: 0.6rem; font-size: 0.75rem; text-transform: uppercase;">Pembina (RW 18)</p>
+            </div>
+            <div class="leader-card">
+                <img src="pembina5.jpg" alt="Bpk Sutia" class="leader-img" onerror="this.src='https://placehold.co/200x240/4a3511/d4af37?text=Sesepuh'">
+                <h3>Bpk Sutia</h3>
+                <p style="color: var(--dark-gold); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">Pembina / Sesepuh</p>
+            </div>
+        </div>
+
+        <h3 style="font-family: 'Marcellus', serif; font-size: 1.6rem; color: var(--medium-brown); margin: 40px 0 20px;">Pelaksana Khidmah DKM</h3>
+        <div class="leaders-grid" style="margin-bottom: 50px;">
             <div class="leader-card">
                 <img src="Ketua_dkm.png" alt="Ketua DKM" class="leader-img">
                 <h3>Indra Aulia, A.Md.</h3>
-                <p style="color: var(--dark-gold); font-weight: bold;">Ketua DKM</p>
+                <p style="color: #c92, font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Ketua DKM</p>
             </div>
             <div class="leader-card">
-                <img src="fotosaya.png" alt="Sekretaris DKM" class="leader-img">
+                <img src="fotosaya.png" alt="Sekretaris DKM" class="leader-img" onerror="this.src='fotosaya.jpg'">
                 <h3>A. Harya Rukmana</h3>
-                <p style="color: var(--dark-gold); font-weight: bold;">Sekretaris</p>
+                <p style="color: #c92, font-weight: bold; text-transform: uppercase; font-size: 0.8rem;">Sekretaris</p>
             </div>
         </div>
 
@@ -176,7 +208,6 @@
             <div class="staff-tile"><i class="fa-solid fa-mosque"></i><div><p>Bidang Imarah</p><h4>Ust. Ede Rohidin S.h.i</h4></div></div>
             <div class="staff-tile"><i class="fa-solid fa-microphone"></i><div><p>Imam Tetap</p><h4>Ust. Asep Junaedi</h4></div></div>
             <div class="staff-tile"><i class="fa-solid fa-hand-holding-hand"></i><div><p>Bidang Riayah</p><h4>Iyan Mulyana</h4></div></div>
-            <div class="staff-tile"><i class="fa-solid fa-graduation-cap"></i><div><p>Pembina</p><h4>Ust. N. Abdul Hamid</h4></div></div>
         </div>
     </section>
 
@@ -195,46 +226,42 @@
     <section class="dakwah-section">
         <h2 class="section-title">Artikel & Mutiara Dakwah</h2>
         <div class="dakwah-grid">
-            
             <div class="dakwah-card">
                 <div>
                     <div class="dakwah-date">Mutiara Hadits</div>
                     <h3>Pentingnya Menjaga Niat yang Ikhlas</h3>
-                    <p>"Sesungguhnya amalan itu tergantung pada niatnya, dan setiap orang akan mendapatkan sesuai dengan apa yang ia niatkan." Mari kita luruskan niat dalam memakmurkan masjid tercinta ini.</p>
+                    <p>"Sesungguhnya amalan itu tergantung pada niatnya, dan setiap orang akan mendapatkan sesuai dengan apa yang ia niatkan." Mari luruskan niat memakmurkan masjid kita.</p>
                 </div>
                 <div class="dakwah-author">Oleh: Ust. Asep Junaedi (Imam Tetap)</div>
             </div>
-
             <div class="dakwah-card">
                 <div>
                     <div class="dakwah-date">Kultum Digital</div>
-                    <h3>Masjid Ramah Digital: Peluang atau Tantangan?</h3>
-                    <p>Pemanfaatan teknologi informasi dan sistem infaq QRIS di Masjid Al-Ikhlash adalah ikhtiar nyata untuk mempermudah jamaah dalam beribadah sekaligus menjaga akuntabilitas keuangan secara terbuka.</p>
+                    <h3>Masjid Ramah Digital: Peluang Kebaikan</h3>
+                    <p>Pemanfaatan sistem infaq digital QRIS di Masjid Al-Ikhlash adalah ikhtiar nyata untuk mempermudah jamaah sekaligus menjaga transparansi keuangan secara terbuka.</p>
                 </div>
                 <div class="dakwah-author">Oleh: DKM Al-Ikhlash</div>
             </div>
-
             <div class="dakwah-card">
                 <div>
                     <div class="dakwah-date">Fikih Kehidupan</div>
                     <h3>Membangun Kebersamaan Lewat Gotong Royong</h3>
-                    <p>Kekuatan umat Islam terletak pada shaf-shaf sholatnya yang rapat dan kesatuan hatinya. Kebersamaan dalam merenovasi lantai 2 masjid adalah cerminan ukhuwah Islamiyah di Ciborerang.</p>
+                    <p>Kekuatan umat Islam terletak pada shaf sholat yang rapat dan kesatuan hatinya. Kebersamaan memakmurkan masjid adalah cerminan ukhuwah nyata di Sangkanhurip.</p>
                 </div>
-                <div class="dakwah-author">Oleh: Ust.Indra Aulia</div>
+                <div class="dakwah-author">Oleh: Ust. N. Abdul Hamid (Pembina)</div>
             </div>
-
         </div>
     </section>
 
     <section>
-        <h2 class="section-title">Dokumentasi & Fasilitas</h2>
+        <h2 class="section-title">Dokumentasi & Kegiatan Masjid</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="muka%20depan%20masjid.jpg"><div class="gallery-cap">Fasad Depan</div></div>
-            <div class="gallery-item"><img src="Masjid_terkini.jpg"><div class="gallery-cap">Kondisi Terkini</div></div>
-            <div class="gallery-item"><img src="Masjid1.png"><div class="gallery-cap">Ruang Utama</div></div>
-            <div class="gallery-item"><img src="Stiker%20donasi%20Masjid.jpg"><div class="gallery-cap">Stiker Donasi</div></div>
-            <div class="gallery-item"><img src="Flyer_NPWP.png"><div class="gallery-cap">NPWP Resmi</div></div>
-            <div class="gallery-item"><img src="stempel%20masjid.png"><div class="gallery-cap">Stempel Administrasi</div></div>
+            <div class="gallery-item"><img src="Mihrob.jpg"><div class="gallery-cap">Mihrob Masjid</div></div>
+            <div class="gallery-item"><img src="MT.jpeg"><div class="gallery-cap">Majelis Taklim Jamaah</div></div>
+            <div class="gallery-item"><img src="Nampak%20sudut.jpg"><div class="gallery-cap">Sudut Ruang Utama</div></div>
+            <div class="gallery-item"><img src="taklim%20ibu2.jpg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
+            <div class="gallery-item"><img src="taklim%20ngawayuh.jpg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
+            <div class="gallery-item"><img src="taklim%20rumasa.jpg"><div class="gallery-cap">Taklim Rumasa</div></div>
         </div>
     </section>
 
