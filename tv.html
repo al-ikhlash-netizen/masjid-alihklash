@@ -70,7 +70,7 @@
         .sholat-tv-card h3 { font-size: 1.8vh; color: var(--primary-gold); text-transform: uppercase; }
         .sholat-tv-card p { font-size: 3.5vh; font-family: 'Marcellus', serif; font-weight: bold; margin-top: 0.5vh; }
 
-        /* LAYOUT FULLSCREEN FOTO/IMAGE SLIDE */
+        /* LAYOUT GAMBAR FULLSCREEN */
         .slide-title-info { font-family: 'Marcellus', serif; font-size: 3vh; color: var(--primary-gold); margin-bottom: 1.5vh; }
         .img-tv-fullscreen { height: 56vh; max-width: 100%; object-fit: contain; border: 2px solid var(--primary-gold); border-radius: 10px; background: #000; }
         
@@ -171,7 +171,7 @@
         const totalSlide = 4;
         let sistemTerkunciAdzan = false;
 
-        // Daftar array foto kegiatan agar foto di slide 3 bisa berganti-ganti secara internal
+        // Array panggil foto asli agar slide 3 otomatis berganti foto internal
         const daftarFotoGaleri = ['taklim%20ngawayuh.jpg', 'taklim%20rumasa.jpg', 'taklim%20ibu2.jpg'];
         let indexFotoInternal = 0;
 
@@ -187,13 +187,13 @@
 
         function perbaruiJamDanMesin() {
             const sekarang = new Date();
-            let j = window.jamGlobalText = sekarang.getHours().toString().padStart(2, '0');
+            let j = sekarang.getHours().toString().padStart(2, '0');
             let m = sekarang.getMinutes().toString().padStart(2, '0');
             let d = sekarang.getSeconds().toString().padStart(2, '0');
             document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('tv-tgl').innerText = Clinical = sekarang.toLocaleDateString('id-ID', opsiTgl);
+            document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
 
             if (Object.keys(jadwalSholatTV).length > 0) {
                 hitungMundurTV(sekarang);
@@ -240,7 +240,6 @@
 
             const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
 
-            // Kunci layar penuh merah selama 15 menit jika waktu sholat tiba
             if (selisihDetik <= 0 && selisihDetik > -900) { 
                 document.getElementById('layar-adzan-lock').style.display = 'flex';
                 sistemTerkunciAdzan = true;
@@ -265,19 +264,16 @@
         function gantiSlideOtomatis() {
             if (sistemTerkunciAdzan) return;
             
-            // Sembunyikan slide lama
             document.getElementById('slide' + indexSlideAktif).classList.remove('active');
-            
             indexSlideAktif++;
             if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
             
-            // Jika masuk ke slide nomor 3 (Galeri), putar foto internalnya secara bergantian
+            // Logika rotasi internal foto kegiatan pada slide nomor 3
             if (indexSlideAktif === 3) {
                 indexFotoInternal = (indexFotoInternal + 1) % daftarFotoGaleri.length;
                 document.getElementById('foto-galeri-rotasi').src = daftarFotoGaleri[indexFotoInternal];
             }
             
-            // Tampilkan slide baru
             document.getElementById('slide' + indexSlideAktif).classList.add('active');
         }
 
@@ -308,7 +304,7 @@
             muatJadwalKemenag();
             perbaruiJamDanMesin();
             setInterval(perbaruiJamDanMesin, 1000);
-            setInterval(gantiSlideOtomatis, 15000); // Putar halaman tiap 15 detik
+            setInterval(gantiSlideOtomatis, 15000); 
         };
     </script>
 </body>
