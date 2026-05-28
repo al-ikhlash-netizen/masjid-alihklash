@@ -26,17 +26,17 @@
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--dark-brown); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Marcellus', serif; }
 
-        /* --- ATURAN ANIMASI INTERAKTIF AMAN (CSS ONLY) --- */
-        @keyframes halusNaik {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        /* --- ANIMASI AMAN TIDAK MERUSAK JAM --- */
+.box-kas-umum, .box-renovasi-split, .box-soskem-split {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Efek saat kotak disentuh atau dilewati kursor */
+.box-kas-umum:hover, .box-renovasi-split:hover, .box-soskem-split:hover {
+    transform: translateY(-8px); /* Kotak otomatis naik ke atas sedikit */
+    box-shadow: 0 12px 30px rgba(44,26,4,0.15) !important; /* Bayangannya menebal mewah */
+    border-color: var(--primary-gold) !important;
+}
 
         /* 1. RUNNING TEXT */
         .marquee-container { background: var(--dark-brown); color: var(--primary-gold); padding: 12px 0; font-weight: 600; overflow: hidden; border-bottom: 2px solid var(--primary-gold); }
@@ -520,7 +520,7 @@
 
             let teksCountdown = "⏳ ";
             if (jamSisa > 0) teksCountdown += jamSisa + " jam ";
-            teksCountdown += menitSisa + " menu " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
+            teksCountdown += menitSisa + " menit " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
 
             document.getElementById('countdown-adzan').innerHTML = teksCountdown;
         }
