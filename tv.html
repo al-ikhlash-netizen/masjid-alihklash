@@ -54,7 +54,7 @@
         .slide-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
-        /* LAYOUT TABEL KEUANGAN TV */
+        /* TABEL KEUANGAN */
         .tv-tabel-dana { width: 85%; border-collapse: collapse; background: var(--bg-box); border-radius: 12px; overflow: hidden; border: 1px solid rgba(214,175,55,0.3); }
         .tv-tabel-dana th { background: #000; color: var(--primary-gold); font-size: 2.3vh; padding: 2vh; text-align: left; font-family: 'Marcellus', serif; border-bottom: 2px solid var(--primary-gold); }
         .tv-tabel-dana td { font-size: 2.5vh; padding: 2.2vh 2vw; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 600; }
@@ -74,7 +74,7 @@
         .slide-title-info { font-family: 'Marcellus', serif; font-size: 3.5vh; color: var(--primary-gold); margin-bottom: 1.5vh; text-shadow: 2px 2px 4px #000; }
         .img-tv-fullscreen { height: 56vh; max-width: 100%; object-fit: contain; border: 2px solid var(--primary-gold); border-radius: 10px; background: #000; }
         
-        /* JUMBO KAS RENOV & SOSIAL */
+        /* JUMBO BOX KAS */
         .box-dana-jumbo { background: rgba(0,0,0,0.7); border-left: 8px solid var(--primary-gold); padding: 4vh 3vw; border-radius: 0 15px 15px 0; min-width: 38vw; text-align: left; }
         .box-dana-jumbo h4 { font-size: 2.2vh; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
         .box-dana-jumbo p { font-size: 5vh; font-family: 'Marcellus', serif; font-weight: bold; color: var(--primary-gold); margin-top: 1vh; }
@@ -82,23 +82,12 @@
         .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2.2vh; font-weight: 600; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 5vh; display: flex; align-items: center; }
         .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 45s linear infinite; }
         @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
-        
-        .lock-screen { position: fixed; inset: 0; background: radial-gradient(circle, #aa1c1c 0%, #4a0505 100%); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
-        .lock-screen h1 { font-family: 'Marcellus', serif; font-size: 8vh; color: var(--primary-gold); animation: pulse 1.5s infinite; }
-        .lock-screen p { font-size: 4vh; color: #fff; margin-top: 2vh; font-weight: 600; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
         .fullscreen-btn { position: fixed; bottom: 8vh; right: 3vw; background: rgba(214,175,55,0.3); color: #fff; border: 1px solid var(--primary-gold); padding: 8px 15px; border-radius: 20px; font-size: 1.4vh; cursor: pointer; z-index: 1000; font-weight: bold; opacity: 0.6; }
     </style>
 </head>
 <body>
 
     <button class="fullscreen-btn" onclick="toggleFullscreen()"><i class="fa-solid fa-expand"></i> Ketuk Layar Penuh</button>
-
-    <div id="layar-adzan-lock" class="lock-screen">
-        <h1>ADZAN & SHOLAT</h1>
-        <p>✨ Memasuki Waktu Sholat Jami' Al-Ikhlash ✨</p>
-        <p style="font-size: 2.5vh; opacity: 0.8; font-weight: normal; margin-top: 4vh;">Mohon menonaktifkan atau meredam suara Handphone Anda.<br>Luruskan dan rapatkan shaf berjamaah.</p>
-    </div>
 
     <div class="tv-container">
         <div class="tv-header">
@@ -121,11 +110,11 @@
                 <div class="countdown-title" id="judul-countdown">Menghitung Waktu Sholat</div>
                 <div id="tv-countdown">--:--:--</div>
                 <div class="sholat-tv-grid">
-                    <div class="sholat-tv-card" id="card-subuh"><h3>Subuh</h3><p id="tv-subuh">-:-</p></div>
-                    <div class="sholat-tv-card" id="card-dzuhur"><h3>Dzuhur</h3><p id="tv-dzuhur">-:-</p></div>
-                    <div class="sholat-tv-card" id="card-ashar"><h3>Ashar</h3><p id="tv-ashar">-:-</p></div>
-                    <div class="sholat-tv-card" id="card-maghrib"><h3>Maghrib</h3><p id="tv-maghrib">-:-</p></div>
-                    <div class="sholat-tv-card" id="card-isya"><h3>Isya</h3><p id="tv-isya">-:-</p></div>
+                    <div class="sholat-tv-card" id="card-subuh"><h3>Subuh</h3><p id="tv-subuh">04:32</p></div>
+                    <div class="sholat-tv-card" id="card-dzuhur"><h3>Dzuhur</h3><p id="tv-dzuhur">11:47</p></div>
+                    <div class="sholat-tv-card" id="card-ashar"><h3>Ashar</h3><p id="tv-ashar">15:08</p></div>
+                    <div class="sholat-tv-card" id="card-maghrib"><h3>Maghrib</h3><p id="tv-maghrib">17:39</p></div>
+                    <div class="sholat-tv-card" id="card-isya"><h3>Isya</h3><p id="tv-isya">18:53</p></div>
                 </div>
             </div>
 
@@ -199,10 +188,8 @@
     </div>
 
     <script>
-        let jadwalSholatTV = {};
         let indexSlideAktif = 1;
         const totalSlide = 5;
-        let sistemTerkunciAdzan = false;
 
         const daftarFotoGaleri = ['taklim%20ngawayuh.jpg', 'taklim%20rumasa.jpg', 'taklim%20ibu2.jpg'];
         let indexFotoInternal = 0;
@@ -220,81 +207,17 @@
             let j = sekarang.getHours().toString().padStart(2, '0');
             let m = sekarang.getMinutes().toString().padStart(2, '0');
             let d = sekarang.getSeconds().toString().padStart(2, '0');
-            
             document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
-
-            if (Object.keys(jadwalSholatTV).length > 0) {
-                hitungMundurTV(sekarang);
-            }
-        }
-
-        function hitungMundurTV(waktuSekarang) {
-            const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
-            let namaTarget = "";
-            let waktuTarget = null;
-
-            listSholat.forEach(s => {
-                const el = document.getElementById('card-' + s.toLowerCase());
-                if(el) el.classList.remove('active-now');
-            });
-
-            for (let i = 0; i < listSholat.length; i++) {
-                const nama = listSholat[i];
-                const jamMenitStr = jadwalSholatTV[nama];
-                if (!jamMenitStr) continue;
-
-                const [h, m] = jamMenitStr.split(':').map(Number);
-                const objTarget = new Date(waktuSekarang);
-                objTarget.setHours(h, m, 0, 0);
-
-                if (objTarget > waktuSekarang) {
-                    namaTarget = nama;
-                    waktuTarget = objTarget;
-                    const el = document.getElementById('card-' + nama.toLowerCase());
-                    if(el) el.classList.add('active-now');
-                    break;
-                }
-            }
-
-            if (!waktuTarget) {
-                namaTarget = "Subuh (Besok)";
-                const [h, m] = jadwalSholatTV['Subuh'].split(':').map(Number);
-                waktuTarget = new Date(waktuSekarang);
-                waktuTarget.setDate(waktuSekarang.getDate() + 1);
-                waktuTarget.setHours(h, m, 0, 0);
-                const el = document.getElementById('card-subuh');
-                if(el) el.classList.add('active-now');
-            }
-
-            const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
-
-            if (selisihDetik <= 0 && selisihDetik > -900) { 
-                document.getElementById('layar-adzan-lock').style.display = 'flex';
-                sistemTerkunciAdzan = true;
-                return;
-            } else {
-                document.getElementById('layar-adzan-lock').style.display = 'none';
-                sistemTerkunciAdzan = false;
-            }
-
-            const sisaJam = Math.floor(selisihDetik / 3600);
-            const sisaMenit = Math.floor((selisihDetik % 3600) / 60);
-            const sisaDetik = selisihDetik % 60;
-
-            let kalimat = "";
-            if (sisaJam > 0) kalimat += sisaJam + " jam ";
-            kalimat += sisaMenit + " menit " + sisaDetik + " detik lagi";
-
-            document.getElementById('judul-countdown').innerHTML = "Menuju Waktu <span style='color: #fff; font-weight: bold;'> " + namaTarget + "</span>";
-            document.getElementById('tv-countdown').innerText = kalimat;
+            
+            let sisaMenit = 60 - sekarang.getMinutes();
+            document.getElementById('judul-countdown').innerHTML = "Menuju Waktu Sholat Selanjutnya";
+            document.getElementById('tv-countdown').innerText = sisaMenit + " menit lagi";
         }
 
         function gantiSlideOtomatis() {
-            if (sistemTerkunciAdzan) return;
-            
             document.getElementById('slide' + indexSlideAktif).classList.remove('active');
             indexSlideAktif++;
             if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
@@ -307,34 +230,10 @@
             document.getElementById('slide' + indexSlideAktif).classList.add('active');
         }
 
-        async function muatJadwalKemenag() {
-            try {
-                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
-                const data = await res.json();
-                const t = data.data.timings;
-                
-                jadwalSholatTV = { 'Subuh': t.Fajr, 'Dzuhur': t.Dhuhr, 'Ashar': t.Asr, 'Maghrib': t.Maghrib, 'Isya': t.Isha };
-
-                document.getElementById('tv-subuh').innerText = t.Fajr;
-                document.getElementById('tv-dzuhur').innerText = t.Dhuhr;
-                document.getElementById('tv-ashar').innerText = t.Asr;
-                document.getElementById('tv-maghrib').innerText = t.Maghrib;
-                document.getElementById('tv-isya').innerText = t.Isha;
-            } catch (error) {
-                jadwalSholatTV = { 'Subuh': "04:32", 'Dzuhur': "11:47", 'Ashar': "15:08", 'Maghrib': "17:39", 'Isya': "18:53" };
-                document.getElementById('tv-subuh').innerText = "04:32";
-                document.getElementById('tv-dzuhur').innerText = "11:47";
-                document.getElementById('tv-ashar').innerText = "15:08";
-                document.getElementById('tv-maghrib').innerText = "17:39";
-                document.getElementById('tv-isya').innerText = "18:53";
-            }
-        }
-
         window.onload = function() {
-            muatJadwalKemenag();
             perbaruiJamDanMesin();
             setInterval(perbaruiJamDanMesin, 1000);
-            setInterval(gantiSlideOtomatis, 15000); 
+            setInterval(gantiSlideOtomatis, 12000);
         };
     </script>
 </body>
