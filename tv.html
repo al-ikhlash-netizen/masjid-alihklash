@@ -63,6 +63,11 @@
         .sholat-tv-card h3 { font-size: 2.3vh; color: var(--primary-gold); font-weight: bold; text-transform: uppercase; }
         .sholat-tv-card p { font-size: 4.5vh; font-weight: bold; margin-top: 0.5vh; }
         
+        /* STYLE KHUSUS MODE ADZAN & IQOMAH */
+        .mode-adzan-box { background: #7a0000 !important; border: 4px solid #ff3333 !important; animation: blinkTv 1.5s infinite; padding: 5vh; border-radius: 20px; width: 90%; }
+        .mode-iqomah-box { background: #004d1a !important; border: 4px solid #26e600 !important; padding: 5vh; border-radius: 20px; width: 90%; }
+        @keyframes blinkTv { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
+
         /* SLIDE 2: TABEL KAS DKM JUMBO */
         .slide-title-info { font-size: 4vh; color: var(--primary-gold); margin-bottom: 2.5vh; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
         .tv-tabel-dana { width: 90%; border-collapse: collapse; background: var(--bg-box); border-radius: 12px; overflow: hidden; border: 1px solid rgba(214,175,55,0.3); }
@@ -87,11 +92,14 @@
         .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2.4vh; font-weight: bold; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 6vh; display: flex; align-items: center; }
         .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 45s linear infinite; }
         @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+
+        /* LAYAR LOCK KHUSYU (MATI TOTAL) */
+        #layar-khusyu { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #000000; z-index: 99999; justify-content: center; align-items: center; }
     </style>
 </head>
 <body>
 
-    <div class="tv-container">
+    <div id="konten-tv-utama" style="display: flex; flex-direction: column; justify-content: space-between; height: 100vh; width: 100%;">
         <div class="tv-header">
             <div class="logo-area">
                 <img src="Logo%20masjid.png" class="logo-img" onerror="this.src='https://placehold.co/100?text=Masjid'">
@@ -109,39 +117,27 @@
         <div class="tv-content-body">
             
             <div class="slide-page active" id="slide1">
-                <div class="countdown-title" id="judul-countdown">Menghitung Waktu Sholat</div>
-                <div id="tv-countdown">--:--:--</div>
-                <div class="sholat-tv-grid">
-                    <div class="sholat-tv-card" id="card-subuh"><h3>Subuh</h3><p id="tv-subuh">04:32</p></div>
-                    <div class="sholat-tv-card" id="card-dzuhur"><h3>Dzuhur</h3><p id="tv-dzuhur">11:47</p></div>
-                    <div class="sholat-tv-card" id="card-ashar"><h3>Ashar</h3><p id="tv-ashar">15:08</p></div>
-                    <div class="sholat-tv-card" id="card-maghrib"><h3>Maghrib</h3><p id="tv-maghrib">17:39</p></div>
-                    <div class="sholat-tv-card" id="card-isya"><h3>Isya</h3><p id="tv-isya">18:53</p></div>
+                <div id="wrapper-dinamis-sholat" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+                    <div class="countdown-title" id="judul-countdown">Menghitung Waktu Sholat</div>
+                    <div id="tv-countdown">--:--:--</div>
+                    <div class="sholat-tv-grid">
+                        <div class="sholat-tv-card" id="card-subuh"><h3>Subuh</h3><p id="tv-subuh">04:32</p></div>
+                        <div class="sholat-tv-card" id="card-dzuhur"><h3>Dzuhur</h3><p id="tv-dzuhur">11:47</p></div>
+                        <div class="sholat-tv-card" id="card-ashar"><h3>Ashar</h3><p id="tv-ashar">15:08</p></div>
+                        <div class="sholat-tv-card" id="card-maghrib"><h3>Maghrib</h3><p id="tv-maghrib">17:39</p></div>
+                        <div class="sholat-tv-card" id="card-isya"><h3>Isya</h3><p id="tv-isya">18:53</p></div>
+                    </div>
                 </div>
             </div>
 
             <div class="slide-page" id="slide2">
                 <div class="slide-title-info">✓ Transparansi Laporan Kas DKM Masjid</div>
                 <table class="tv-tabel-dana">
-                    <thead>
-                        <tr>
-                            <th>Uraian Agenda Keterangan Kas DKM</th>
-                            <th>Jumlah Saldo (Rupiah)</th>
-                        </tr>
-                    </thead>
+                    <thead><tr><th>Uraian Agenda Keterangan Kas DKM</th><th>Jumlah Saldo (Rupiah)</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>Saldo Awal (Per 22 Mei 2026)</td>
-                            <td>Rp 1.228.000</td>
-                        </tr>
-                        <tr>
-                            <td>Pemasukan Kencleng Idul Adha</td>
-                            <td class="text-hijau">+ Rp 1.500.000</td>
-                        </tr>
-                        <tr>
-                            <td>Pengeluaran Kafalah Sorban Idul Adha</td>
-                            <td class="text-merah">- Rp 150.000</td>
-                        </tr>
+                        <tr><td>Saldo Awal (Per 22 Mei 2026)</td><td>Rp 1.228.000</td></tr>
+                        <tr><td>Pemasukan Kencleng Idul Adha</td><td class="text-hijau">+ Rp 1.500.000</td></tr>
+                        <tr><td>Pengeluaran Kafalah Sorban Idul Adha</td><td class="text-merah">- Rp 150.000</td></tr>
                         <tr style="background: rgba(214,175,55,0.2); font-weight: bold; border-top: 3px solid var(--primary-gold);">
                             <td style="color: var(--primary-gold);">TOTAL SALDO AKHIR OPERASIONAL DKM</td>
                             <td style="color: var(--primary-gold); font-size: 3.2vh;">Rp 2.578.000</td>
@@ -153,14 +149,8 @@
             <div class="slide-page" id="slide3">
                 <div class="slide-title-info">✓ Status Anggaran Saldo Kas Khusus</div>
                 <div class="wrapper-jumbo-kas">
-                    <div class="box-dana-jumbo">
-                        <h4>• Saldo Kas Renovasi</h4>
-                        <p>Rp 19.800.000</p>
-                    </div>
-                    <div class="box-dana-jumbo" style="border-left-color: #58cc5c;">
-                        <h4>• Dana Sosial Kematian</h4>
-                        <p style="color: #58cc5c;">Rp 24.390.500</p>
-                    </div>
+                    <div class="box-dana-jumbo"><h4>• Saldo Kas Renovasi</h4><p>Rp 19.800.000</p></div>
+                    <div class="box-dana-jumbo" style="border-left-color: #58cc5c;"><h4>• Dana Sosial Kematian</h4><p style="color: #58cc5c;">Rp 24.390.500</p></div>
                 </div>
             </div>
 
@@ -189,83 +179,165 @@
         </div>
     </div>
 
+    <div id="layar-khusyu">
+        <h1 style="color: #222; font-size: 3vh;">MODE SHOLAT BERLANGSUNG</h1>
+    </div>
+
+    <audio id="suara-beep" src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA=="></audio>
+
     <script>
         let indexSlideAktif = 1;
         const totalSlide = 5;
+        let isLayarTerkunci = false; // Jika true, rotasi slide akan berhenti otomatis
 
-        // Jadwal Sholat Baku Wilayah Kab. Bandung
         const jadwalBaku = { 'Subuh': '04:32', 'Dzuhur': '11:47', 'Ashar': '15:08', 'Maghrib': '17:39', 'Isya': '18:53' };
-        
-        // Daftar nama file foto resmi di repo
         const daftarFotoGaleri = ['taklim%20ngawayuh.jpeg', 'taklim%20rumasa.jpeg', 'taklim%20ibu2.jpeg'];
         let indexFotoInternal = 0;
 
-        // FIX TOTAL: Perbaikan Variabel Menit yang Typo Kemarin
         function perbaruiJamDanMesin() {
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
             let menit = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = sekarang.getSeconds().toString().padStart(2, '0');
             
-            // Masukkan teks ke dalam HTML secara live
             document.getElementById('tv-jam').innerText = jam + ":" + menit + ":" + detik;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
+            document.getElementById('tv-tgl').innerText = Clinical = sekarang.toLocaleDateString('id-ID', opsiTgl);
             
-            hitungMundurTV(sekarang);
+            kontrolStatusWaktuMasjid(sekarang);
         }
 
-        function hitungMundurTV(waktuSekarang) {
+        function kontrolStatusWaktuMasjid(waktuSekarang) {
             const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
-            let namaTarget = "";
-            let waktuTarget = null;
+            let sholatSaatIni = null;
+            let statusFase = "NORMAL"; // NORMAL, ADZAN, IQOMAH, SHOLAT
+            let sisaDetikFase = 0;
 
-            listSholat.forEach(s => {
-                const el = document.getElementById('card-' + s.toLowerCase());
-                if(el) el.classList.remove('active-now');
-            });
+            // Cek status kecocokan menit demi menit terhadap waktu sholat baku
+            for (let s of listSholat) {
+                const [h, m] = jadwalBaku[s].split(':').map(Number);
+                
+                // Buat objek waktu adzan hari ini
+                const waktuAdzan = new Date();
+                waktuAdzan.setHours(h, m, 0, 0);
 
-            for (let i = 0; i < listSholat.length; i++) {
-                const nama = listSholat[i];
-                const [h, m] = jadwalBaku[nama].split(':').map(Number);
-                const objTarget = new Date();
-                objTarget.setHours(h, m, 0, 0);
+                // Batas Fase Menit Masuk Waktu
+                const waktuAdzanSelesai = new Date(waktuAdzan.getTime() + 3 * 60 * 1000);   // +3 Menit Adzan
+                const waktuIqomahSelesai = new Date(waktuAdzanSelesai.getTime() + 10 * 60 * 1000); // +10 Menit Iqomah
+                const waktuSholatSelesai = new Date(waktuIqomahSelesai.getTime() + 15 * 60 * 1000); // +15 Menit Gelap Khusyu
 
-                if (objTarget > waktuSekarang) {
-                    namaTarget = nama;
-                    waktuTarget = objTarget;
-                    const el = document.getElementById('card-' + nama.toLowerCase());
-                    if(el) el.classList.add('active-now');
+                if (waktuSekarang >= waktuAdzan && waktuSekarang < waktuSholatSelesai) {
+                    sholatSaatIni = s;
+                    if (waktuSekarang < waktuAdzanSelesai) {
+                        statusFase = "ADZAN";
+                        sisaDetikFase = Math.floor((waktuAdzanSelesai - waktuSekarang) / 1000);
+                    } else if (waktuSekarang < waktuIqomahSelesai) {
+                        statusFase = "IQOMAH";
+                        sisaDetikFase = Math.floor((waktuIqomahSelesai - waktuSekarang) / 1000);
+                    } else {
+                        statusFase = "SHOLAT";
+                    }
                     break;
                 }
             }
 
-            if (!waktuTarget) {
-                namaTarget = "Subuh (Besok)";
-                const [h, m] = jadwalBaku['Subuh'].split(':').map(Number);
-                waktuTarget = new Date();
-                waktuTarget.setDate(waktuSekarang.getDate() + 1);
-                waktuTarget.setHours(h, m, 0, 0);
-                const el = document.getElementById('card-subuh');
-                if(el) el.classList.add('active-now');
+            const wrapperDinami = document.getElementById('wrapper-dinamis-sholat');
+
+            // EKSEKUSI FASING SYSTEM LOGIC
+            if (statusFase === "ADZAN") {
+                isLayarTerkunci = true;
+                bukaSlideKhususKesatu();
+                document.getElementById('layar-khusyu').style.display = 'none';
+                wrapperDinami.className = "mode-adzan-box";
+                document.getElementById('judul-countdown').innerHTML = "📢 ADZAN SHOLAT " + sholatSaatIni.toUpperCase() + " BERKUMANDANG";
+                document.getElementById('tv-countdown').innerText = "Memasuki Waktu Iqomah Segera";
+                
+            } else if (statusFase === "IQOMAH") {
+                isLayarTerkunci = true;
+                bukaSlideKhususKesatu();
+                document.getElementById('layar-khusyu').style.display = 'none';
+                wrapperDinami.className = "mode-iqomah-box";
+                
+                let iqMins = Math.floor(sisaDetikFase / 60);
+                let iqSecs = sisaDetikFase % 60;
+                document.getElementById('judul-countdown').innerHTML = "⏳ HITUNG MUNDUR IQOMAH SHOLAT " + sholatSaatIni.toUpperCase();
+                document.getElementById('tv-countdown').innerText = iqMins.toString().padStart(2,'0') + ":" + iqSecs.toString().padStart(2,'0');
+                
+                // Bunyikan beep pengingat di 10 detik terakhir iqomah
+                if (sisaDetikFase <= 10 && iqSecs % 2 === 0) { 
+                    try { document.getElementById('suara-beep').play(); } catch(e){} 
+                }
+
+            } else if (statusFase === "SHOLAT") {
+                isLayarTerkunci = true;
+                document.getElementById('layar-khusyu').style.display = 'flex'; // TV Gelap Gulita total
+                
+            } else {
+                // KONDISI NORMAL: Hitung mundur biasa ke sholat berikutnya
+                isLayarTerkunci = false;
+                document.getElementById('layar-khusyu').style.display = 'none';
+                wrapperDinami.className = ""; // Reset border warna merah/hijau kembalikan normal
+
+                // Hitung pencarian target normal sholat selanjutnya
+                let namaTarget = "";
+                let waktuTarget = null;
+
+                listSholat.forEach(s => {
+                    const el = document.getElementById('card-' + s.toLowerCase());
+                    if(el) el.classList.remove('active-now');
+                });
+
+                for (let i = 0; i < listSholat.length; i++) {
+                    const nama = listSholat[i];
+                    const [h, m] = jadwalBaku[nama].split(':').map(Number);
+                    const objTarget = new Date();
+                    objTarget.setHours(h, m, 0, 0);
+
+                    if (objTarget > waktuSekarang) {
+                        namaTarget = nama;
+                        waktuTarget = objTarget;
+                        const el = document.getElementById('card-' + nama.toLowerCase());
+                        if(el) el.classList.add('active-now');
+                        break;
+                    }
+                }
+
+                if (!waktuTarget) {
+                    namaTarget = "Subuh (Besok)";
+                    const [h, m] = jadwalBaku['Subuh'].split(':').map(Number);
+                    waktuTarget = new Date();
+                    waktuTarget.setDate(waktuSekarang.getDate() + 1);
+                    waktuTarget.setHours(h, m, 0, 0);
+                    const el = document.getElementById('card-subuh');
+                    if(el) el.classList.add('active-now');
+                }
+
+                const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
+                const sisaJam = Math.floor(selisihDetik / 3600);
+                const sisaMenit = Math.floor((selisihDetik % 3600) / 60);
+                const sisaDetik = selisihDetik % 60;
+
+                let kalimat = "";
+                if (sisaJam > 0) kalimat += sisaJam + " jam ";
+                kalimat += sisaMenit + " menit " + sisaDetik + " detik lagi";
+
+                document.getElementById('judul-countdown').innerHTML = "Menuju Waktu Sholat <span style='color: var(--primary-gold); font-weight: bold;'> " + namaTarget + "</span>";
+                document.getElementById('tv-countdown').innerText = kalimat;
             }
-
-            const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
-            const sisaJam = Math.floor(selisihDetik / 3600);
-            const sisaMenit = Math.floor((selisihDetik % 3600) / 60);
-            const sisaDetik = selisihDetik % 60;
-
-            let kalimat = "";
-            if (sisaJam > 0) kalimat += sisaJam + " jam ";
-            kalimat += sisaMenit + " menit " + sisaDetik + " detik lagi";
-
-            document.getElementById('judul-countdown').innerHTML = "Menuju Waktu Sholat <span style='color: var(--primary-gold); font-weight: bold;'> " + namaTarget + "</span>";
-            document.getElementById('tv-countdown').innerText = kalimat;
         }
 
-        // Fungsi Rotasi Lempar Halaman Menggunakan Display Flex-None
+        function bukaSlideKhususKesatu() {
+            for(let s=1; s<=totalSlide; s++){
+                document.getElementById('slide' + s).style.display = (s === 1) ? 'flex' : 'none';
+            }
+            indexSlideAktif = 1;
+        }
+
+        // Fungsi Rotasi Lempar Halaman Slide Otomatis
         function gantiSlideOtomatis() {
+            if (isLayarTerkunci) return; // Jika sedang adzan/iqomah/sholat, slide tidak boleh berputar!
+
             const slideLama = document.getElementById('slide' + indexSlideAktif);
             if (slideLama) slideLama.style.display = 'none';
             
@@ -285,7 +357,7 @@
         window.onload = function() {
             perbaruiJamDanMesin();
             setInterval(perbaruiJamDanMesin, 1000);
-            setInterval(gantiSlideOtomatis, 12000); // Kunci: Otomatis oper halaman tiap 12 detik
+            setInterval(gantiSlideOtomatis, 12000); // Rotasi normal tiap 12 detik sekali
         };
     </script>
 </body>
