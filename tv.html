@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TV INFO - Al-Ikhlash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --bg-box: rgba(0, 0, 0, 0.6);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #1f1304 0%, #0d0600 100%); 
+            color: #fff; 
+            height: 100vh; 
+            width: 100vw;
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5vh 2vw;
+        }
+        .tv-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: var(--bg-box); 
+            padding: 1.5vh 2vw; 
+            border-radius: 12px; 
+            border-bottom: 3px solid var(--primary-gold);
+            height: 14vh;
+        }
+        .logo-area { display: flex; align-items: center; gap: 1.5vw; }
+        .logo-img { width: 8vh; height: 8vh; border-radius: 50%; border: 2px solid var(--primary-gold); background: #fff; }
+        .logo-text h1 { font-family: 'Marcellus', serif; font-size: 3.2vh; color: var(--primary-gold); letter-spacing: 1px; }
+        .logo-text p { color: #ccc; font-size: 1.6vh; }
+        .jam-box { text-align: right; }
+        #tv-jam { font-size: 4.5vh; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; line-height: 1; }
+        #tv-tgl { font-size: 1.6vh; color: var(--primary-gold); font-weight: 600; margin-top: 0.3vh; }
+        
+        .tv-content-body { 
+            height: 66vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            position: relative;
+            margin: 1.5vh 0;
+        }
+        .slide-page { width: 100%; height: 100%; display: none; animation: fadeIn 0.5s ease-in-out forwards; }
+        .slide-page.active { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* LAYOUT TABEL KEUANGAN TV */
+        .tv-tabel-dana { width: 85%; border-collapse: collapse; background: var(--bg-box); border-radius: 12px; overflow: hidden; border: 1px solid rgba(214,175,55,0.3); }
+        .tv-tabel-dana th { background: #000; color: var(--primary-gold); font-size: 2.3vh; padding: 2vh; text-align: left; font-family: 'Marcellus', serif; border-bottom: 2px solid var(--primary-gold); }
+        .tv-tabel-dana td { font-size: 2.5vh; padding: 2.2vh 2vw; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: 600; }
+        .tv-tabel-dana tr:last-child td { border-bottom: none; }
+        .text-hijau { color: #87ff8b; }
+        .text-merah { color: #ff7c7c; }
+
+        /* JADWAL SHOLAT GRID */
+        .countdown-title { font-size: 2.2vh; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-gold); }
+        #tv-countdown { font-size: 5.5vh; font-weight: bold; font-family: 'Marcellus', serif; margin: 1vh 0; text-shadow: 0 0 15px rgba(214,175,55,0.4); }
+        .sholat-tv-grid { display: flex; gap: 1vw; width: 100%; justify-content: center; margin-top: 1vh; }
+        .sholat-tv-card { background: var(--bg-box); border: 2px solid rgba(212,175,55,0.2); padding: 1.5vh 1.5vw; border-radius: 10px; flex: 1; max-width: 15vw; text-align: center; }
+        .sholat-tv-card.active-now { border-color: var(--primary-gold); background: rgba(212,175,55,0.2); box-shadow: 0 0 15px var(--primary-gold); }
+        .sholat-tv-card h3 { font-size: 1.8vh; color: var(--primary-gold); text-transform: uppercase; }
+        .sholat-tv-card p { font-size: 3.5vh; font-family: 'Marcellus', serif; font-weight: bold; margin-top: 0.5vh; }
+        
+        .slide-title-info { font-family: 'Marcellus', serif; font-size: 3.5vh; color: var(--primary-gold); margin-bottom: 1.5vh; text-shadow: 2px 2px 4px #000; }
+        .img-tv-fullscreen { height: 56vh; max-width: 100%; object-fit: contain; border: 2px solid var(--primary-gold); border-radius: 10px; background: #000; }
+        
+        /* JUMBO KAS RENOV & SOSIAL */
+        .box-dana-jumbo { background: rgba(0,0,0,0.7); border-left: 8px solid var(--primary-gold); padding: 4vh 3vw; border-radius: 0 15px 15px 0; min-width: 38vw; text-align: left; }
+        .box-dana-jumbo h4 { font-size: 2.2vh; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+        .box-dana-jumbo p { font-size: 5vh; font-family: 'Marcellus', serif; font-weight: bold; color: var(--primary-gold); margin-top: 1vh; }
+
+        .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2.2vh; font-weight: 600; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 5vh; display: flex; align-items: center; }
+        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 45s linear infinite; }
+        @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+        
+        .lock-screen { position: fixed; inset: 0; background: radial-gradient(circle, #aa1c1c 0%, #4a0505 100%); z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
+        .lock-screen h1 { font-family: 'Marcellus', serif; font-size: 8vh; color: var(--primary-gold); animation: pulse 1.5s infinite; }
+        .lock-screen p { font-size: 4vh; color: #fff; margin-top: 2vh; font-weight: 600; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        .fullscreen-btn { position: fixed; bottom: 8vh; right: 3vw; background: rgba(214,175,55,0.3); color: #fff; border: 1px solid var(--primary-gold); padding: 8px 15px; border-radius: 20px; font-size: 1.4vh; cursor: pointer; z-index: 1000; font-weight: bold; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <button class="fullscreen-btn" onclick="toggleFullscreen()"><i class="fa-solid fa-expand"></i> Ketuk Layar Penuh</button>
+
+    <div id="layar-adzan-lock" class="lock-screen">
+        <h1>ADZAN & SHOLAT</h1>
+        <p>✨ Memasuki Waktu Sholat Jami' Al-Ikhlash ✨</p>
+        <p style="font-size: 2.5vh; opacity: 0.8; font-weight: normal; margin-top: 4vh;">Mohon menonaktifkan atau meredam suara Handphone Anda.<br>Luruskan dan rapatkan shaf berjamaah.</p>
+    </div>
+
+    <div class="tv-container">
+        <div class="tv-header">
+            <div class="logo-area">
+                <img src="Logo%20masjid.png" class="logo-img" onerror="this.src='https://placehold.co/100?text=Masjid'">
+                <div class="logo-text">
+                    <h1>MASJID JAMI' AL-IKHLASH</h1>
+                    <p>Sangkanhurip, Katapang, Kabupaten Bandung</p>
+                </div>
+            </div>
+            <div class="jam-box">
+                <div id="tv-jam">00:00:00</div>
+                <div id="tv-tgl">Memuat Tanggal...</div>
+            </div>
+        </div>
+
+        <div class="tv-content-body">
+            
+            <div class="slide-page active" id="slide1">
+                <div class="countdown-title" id="judul-countdown">Menghitung Waktu Sholat</div>
+                <div id="tv-countdown">--:--:--</div>
+                <div class="sholat-tv-grid">
+                    <div class="sholat-tv-card" id="card-subuh"><h3>Subuh</h3><p id="tv-subuh">-:-</p></div>
+                    <div class="sholat-tv-card" id="card-dzuhur"><h3>Dzuhur</h3><p id="tv-dzuhur">-:-</p></div>
+                    <div class="sholat-tv-card" id="card-ashar"><h3>Ashar</h3><p id="tv-ashar">-:-</p></div>
+                    <div class="sholat-tv-card" id="card-maghrib"><h3>Maghrib</h3><p id="tv-maghrib">-:-</p></div>
+                    <div class="sholat-tv-card" id="card-isya"><h3>Isya</h3><p id="tv-isya">-:-</p></div>
+                </div>
+            </div>
+
+            <div class="slide-page" id="slide2">
+                <div class="slide-title-info"><i class="fa-solid fa-scale-balanced"></i> Transparansi Laporan Kas DKM Masjid</div>
+                <table class="tv-tabel-dana">
+                    <thead>
+                        <tr>
+                            <th>Uraian Keterangan Kas DKM</th>
+                            <th>Jumlah Saldo (Rupiah)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Saldo Awal (Per 22 Mei 2026)</td>
+                            <td>Rp 1.228.000</td>
+                        </tr>
+                        <tr>
+                            <td>Pemasukan Kencleng Idul Adha</td>
+                            <td class="text-hijau">+ Rp 1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td>Pengeluaran Kafalah Sorban Idul Adha</td>
+                            <td class="text-merah">- Rp 150.000</td>
+                        </tr>
+                        <tr style="background: rgba(214,175,55,0.15); font-weight: bold; border-top: 2px solid var(--primary-gold);">
+                            <td style="color: var(--primary-gold);">TOTAL SALDO AKHIR KAS DKM</td>
+                            <td style="color: var(--primary-gold); font-size: 2.8vh;">Rp 2.578.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="slide-page" id="slide3">
+                <div class="slide-title-info"><i class="fa-solid fa-vault"></i> Status Saldo Kas Khusus Masjid</div>
+                <div style="display: flex; gap: 4vw; justify-content: center; align-items: center; width: 85%;">
+                    <div class="box-dana-jumbo">
+                        <h4><i class="fa-solid fa-hammer"></i> Saldo Kas Renovasi</h4>
+                        <p>Rp 19.800.000</p>
+                    </div>
+                    <div class="box-dana-jumbo" style="border-left-color: #58cc5c;">
+                        <h4><i class="fa-solid fa-heart-pulse"></i> Dana Sosial Kematian</h4>
+                        <p style="color: #58cc5c;">Rp 24.390.500</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-page" id="slide4">
+                <div class="slide-title-info"><i class="fa-solid fa-images"></i> Dokumentasi Kegiatan Pengajian Jamaah</div>
+                <img src="taklim%20ngawayuh.jpg" class="img-tv-fullscreen" id="foto-galeri-rotasi" onerror="this.src='taklim%20ibu2.jpg'">
+            </div>
+
+            <div class="slide-page" id="slide5">
+                <div class="slide-title-info"><i class="fa-solid fa-qrcode"></i> Kotak Amal Digital Masjid Jami' Al-Ikhlash</div>
+                <div class="qris-wrapper">
+                    <img src="Qris.jpg" class="qris-img" onerror="this.src='https://placehold.co/400?text=QRIS+MASJID'">
+                    <div style="text-align: left; max-width: 45vw;">
+                        <h2 style="color: var(--primary-gold); font-size: 2.8vh; margin-bottom: 1vh;">Infaq Mudah via HP</h2>
+                        <p style="font-size: 2vh; line-height: 1.5;">Silakan gunakan aplikasi m-Banking atau e-Wallet Anda untuk Sedekah Jariyah.</p>
+                        <p style="margin-top: 1.5vh; font-weight: bold; font-size: 1.8vh; color: #a3ff9e;"><i class="fa-solid fa-circle-check"></i> Dana Masuk Otomatis Rekening Kas Masjid</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tv-footer">
+            <div class="tv-marquee">
+                📢 JADWAL PENGAJIAN: NGAWAYUH (NGAJI WAKTU SUBUH) SETIAP HARI AHAD BA'DA SUBUH • RUMASA (RUTIN MALAM SELASA) SETIAP HARI SENIN MALAM BA'DA ISYA • REKENING RESMI INFAQ MASJID TERSEDIA PADA MENU UTAMA WEBSITE • LAYANAN NOMOR DARURAT SEKRETARIAT DKM: 0895-3010-4144 DAN 0895-3334-77373 • MARI BERSAMA-SAMA MENJAGA KEBERSIHAN DAN KEKHUSYUKAN MASJID KITA •
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let jadwalSholatTV = {};
+        let indexSlideAktif = 1;
+        const totalSlide = 5;
+        let sistemTerkunciAdzan = false;
+
+        const daftarFotoGaleri = ['taklim%20ngawayuh.jpg', 'taklim%20rumasa.jpg', 'taklim%20ibu2.jpg'];
+        let indexFotoInternal = 0;
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {});
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function perbaruiJamDanMesin() {
+            const sekarang = new Date();
+            let j = sekarang.getHours().toString().padStart(2, '0');
+            let m = sekarang.getMinutes().toString().padStart(2, '0');
+            let d = sekarang.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
+
+            const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
+
+            if (Object.keys(jadwalSholatTV).length > 0) {
+                hitungMundurTV(sekarang);
+            }
+        }
+
+        function hitungMundurTV(waktuSekarang) {
+            const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
+            let namaTarget = "";
+            let waktuTarget = null;
+
+            listSholat.forEach(s => {
+                const el = document.getElementById('card-' + s.toLowerCase());
+                if(el) el.classList.remove('active-now');
+            });
+
+            for (let i = 0; i < listSholat.length; i++) {
+                const nama = listSholat[i];
+                const jamMenitStr = jadwalSholatTV[nama];
+                if (!jamMenitStr) continue;
+
+                const [h, m] = jamMenitStr.split(':').map(Number);
+                const objTarget = new Date(waktuSekarang);
+                objTarget.setHours(h, m, 0, 0);
+
+                if (objTarget > waktuSekarang) {
+                    namaTarget = nama;
+                    waktuTarget = objTarget;
+                    const el = document.getElementById('card-' + nama.toLowerCase());
+                    if(el) el.classList.add('active-now');
+                    break;
+                }
+            }
+
+            if (!waktuTarget) {
+                namaTarget = "Subuh (Besok)";
+                const [h, m] = jadwalSholatTV['Subuh'].split(':').map(Number);
+                waktuTarget = new Date(waktuSekarang);
+                waktuTarget.setDate(waktuSekarang.getDate() + 1);
+                waktuTarget.setHours(h, m, 0, 0);
+                const el = document.getElementById('card-subuh');
+                if(el) el.classList.add('active-now');
+            }
+
+            const selisihDetik = Math.floor((waktuTarget - waktuSekarang) / 1000);
+
+            if (selisihDetik <= 0 && selisihDetik > -900) { 
+                document.getElementById('layar-adzan-lock').style.display = 'flex';
+                sistemTerkunciAdzan = true;
+                return;
+            } else {
+                document.getElementById('layar-adzan-lock').style.display = 'none';
+                sistemTerkunciAdzan = false;
+            }
+
+            const sisaJam = Math.floor(selisihDetik / 3600);
+            const sisaMenit = Math.floor((selisihDetik % 3600) / 60);
+            const sisaDetik = selisihDetik % 60;
+
+            let kalimat = "";
+            if (sisaJam > 0) kalimat += sisaJam + " jam ";
+            kalimat += sisaMenit + " menit " + sisaDetik + " detik lagi";
+
+            document.getElementById('judul-countdown').innerHTML = "Menuju Waktu <span style='color: #fff; font-weight: bold;'> " + namaTarget + "</span>";
+            document.getElementById('tv-countdown').innerText = kalimat;
+        }
+
+        function gantiSlideOtomatis() {
+            if (sistemTerkunciAdzan) return;
+            
+            document.getElementById('slide' + indexSlideAktif).classList.remove('active');
+            indexSlideAktif++;
+            if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
+            
+            if (indexSlideAktif === 4) {
+                indexFotoInternal = (indexFotoInternal + 1) % daftarFotoGaleri.length;
+                document.getElementById('foto-galeri-rotasi').src = daftarFotoGaleri[indexFotoInternal];
+            }
+            
+            document.getElementById('slide' + indexSlideAktif).classList.add('active');
+        }
+
+        async function muatJadwalKemenag() {
+            try {
+                const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
+                const data = await res.json();
+                const t = data.data.timings;
+                
+                jadwalSholatTV = { 'Subuh': t.Fajr, 'Dzuhur': t.Dhuhr, 'Ashar': t.Asr, 'Maghrib': t.Maghrib, 'Isya': t.Isha };
+
+                document.getElementById('tv-subuh').innerText = t.Fajr;
+                document.getElementById('tv-dzuhur').innerText = t.Dhuhr;
+                document.getElementById('tv-ashar').innerText = t.Asr;
+                document.getElementById('tv-maghrib').innerText = t.Maghrib;
+                document.getElementById('tv-isya').innerText = t.Isha;
+            } catch (error) {
+                jadwalSholatTV = { 'Subuh': "04:32", 'Dzuhur': "11:47", 'Ashar': "15:08", 'Maghrib': "17:39", 'Isya': "18:53" };
+                document.getElementById('tv-subuh').innerText = "04:32";
+                document.getElementById('tv-dzuhur').innerText = "11:47";
+                document.getElementById('tv-ashar').innerText = "15:08";
+                document.getElementById('tv-maghrib').innerText = "17:39";
+                document.getElementById('tv-isya').innerText = "18:53";
+            }
+        }
+
+        window.onload = function() {
+            muatJadwalKemenag();
+            perbaruiJamDanMesin();
+            setInterval(perbaruiJamDanMesin, 1000);
+            setInterval(gantiSlideOtomatis, 15000); 
+        };
+    </script>
+</body>
+</html>
