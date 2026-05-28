@@ -56,9 +56,9 @@
         
         /* SLIDE 1: DISPLAY JADWAL SHOLAT & COUNTDOWN */
         .countdown-title { font-size: 2.6vh; text-transform: uppercase; color: var(--primary-gold); font-weight: bold; letter-spacing: 1px; }
-        #tv-countdown { font-size: 6.5vh; font-weight: bold; margin: 1vh 0; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+        #tv-countdown { font-size: 6.5vh; font-weight: bold; margin: 1vh 0; color: #fff; }
         .sholat-tv-grid { display: flex; gap: 1.5vw; width: 95%; justify-content: center; margin-top: 2.5vh; }
-        .sholat-tv-card { background: var(--bg-box); border: 2px solid rgba(212,175,55,0.2); padding: 2.5vh 1.5vw; border-radius: 12px; flex: 1; text-align: center; transition: 0.3s; }
+        .sholat-tv-card { background: var(--bg-box); border: 2px solid rgba(212,175,55,0.2); padding: 2.5vh 1.5vw; border-radius: 12px; flex: 1; text-align: center; }
         .sholat-tv-card.active-now { border-color: var(--primary-gold); background: rgba(212,175,55,0.25); box-shadow: 0 0 20px var(--primary-gold); }
         .sholat-tv-card h3 { font-size: 2.3vh; color: var(--primary-gold); font-weight: bold; text-transform: uppercase; }
         .sholat-tv-card p { font-size: 4.5vh; font-weight: bold; margin-top: 0.5vh; }
@@ -72,20 +72,20 @@
         .text-hijau { color: #87ff8b; }
         .text-merah { color: #ff7c7c; }
 
-        /* SLIDE 3 & 4: KAS RENOVASI & SOSKEM (TAMPILAN KHUSUS TV) */
+        /* SLIDE 3: KAS RENOVASI & SOSKEM JUMBO */
         .wrapper-jumbo-kas { display: flex; gap: 4vw; justify-content: center; align-items: center; width: 90%; }
-        .box-dana-jumbo { background: var(--bg-box); border-left: 12px solid var(--primary-gold); padding: 6vh 4vw; border-radius: 0 15px 15px 0; flex: 1; text-align: left; border-top: 1px solid rgba(214,175,55,0.1); border-right: 1px solid rgba(214,175,55,0.1); border-bottom: 1px solid rgba(214,175,55,0.1); }
+        .box-dana-jumbo { background: var(--bg-box); border-left: 12px solid var(--primary-gold); padding: 6vh 4vw; border-radius: 0 15px 15px 0; flex: 1; text-align: left; border: 1px solid rgba(214,175,55,0.1); }
         .box-dana-jumbo h4 { font-size: 2.8vh; color: #ccc; text-transform: uppercase; font-weight: bold; }
         .box-dana-jumbo p { font-size: 6.5vh; font-weight: bold; color: var(--primary-gold); margin-top: 1.5vh; }
         .img-tv-fullscreen { height: 54vh; max-width: 90%; object-fit: contain; border: 3px solid var(--primary-gold); border-radius: 12px; background: #000; }
         
-        /* SLIDE 5: DISPLAY QRIS AMAL TV Jumbo */
+        /* SLIDE 4 & 5: QRIS AMAL TV DIGITAL */
         .qris-tv-wrapper { display: flex; gap: 5vw; align-items: center; justify-content: center; background: var(--bg-box); padding: 4vh 5vw; border-radius: 15px; border: 2px solid var(--primary-gold); width: 85%; height: 56vh; }
         .qris-tv-img { height: 48vh; border-radius: 10px; border: 5px solid #fff; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
 
         /* FOOTER RUNNING TEXT */
         .tv-footer { background: #000; color: var(--primary-gold); padding: 1vh; font-size: 2.4vh; font-weight: bold; border-radius: 8px; border: 1px solid var(--primary-gold); overflow: hidden; white-space: nowrap; height: 6vh; display: flex; align-items: center; }
-        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 40s linear infinite; }
+        .tv-marquee { display: inline-block; padding-left: 100%; animation: marqueeTV 45s linear infinite; }
         @keyframes marqueeTV { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
     </style>
 </head>
@@ -166,7 +166,7 @@
 
             <div class="slide-page" id="slide4">
                 <div class="slide-title-info">✓ Dokumentasi Kegiatan Pengajian Jamaah</div>
-                <img src="taklim%20ngawayuh.jpg" class="img-tv-fullscreen" id="foto-galeri-rotasi" onerror="this.src='taklim%20ibu2.jpg'">
+                <img src="taklim%20ngawayuh.jpeg" class="img-tv-fullscreen" id="foto-galeri-rotasi" onerror="this.src='taklim%20ibu2.jpeg'">
             </div>
 
             <div class="slide-page" id="slide5">
@@ -193,43 +193,39 @@
         let indexSlideAktif = 1;
         const totalSlide = 5;
 
-        // Kunci Data Waktu Sholat Sangkanhurip (Baku Tanpa Loading Internet)
+        // Jadwal Sholat Baku Wilayah Kab. Bandung
         const jadwalBaku = { 'Subuh': '04:32', 'Dzuhur': '11:47', 'Ashar': '15:08', 'Maghrib': '17:39', 'Isya': '18:53' };
         
-        // Daftar Foto Taklim Rutin Masjid
-        const daftarFotoGaleri = ['taklim%20ngawayuh.jpg', 'taklim%20rumasa.jpg', 'taklim%20ibu2.jpg'];
+        // Daftar nama file foto resmi di repo
+        const daftarFotoGaleri = ['taklim%20ngawayuh.jpeg', 'taklim%20rumasa.jpeg', 'taklim%20ibu2.jpeg'];
         let indexFotoInternal = 0;
 
-        // Mesin 1: Update Jam Digital Top Header & Trigger Hitung Mundur
+        // FIX TOTAL: Perbaikan Variabel Menit yang Typo Kemarin
         function perbaruiJamDanMesin() {
             const sekarang = new Date();
-            let j = sekarang.getHours().toString().padStart(2, '0');
-            let m = sewing = sekarang.getMinutes().toString().padStart(2, '0');
-            let d = sekarang.getSeconds().toString().padStart(2, '0');
+            let jam = sekarang.getHours().toString().padStart(2, '0');
+            let menit = sekarang.getMinutes().toString().padStart(2, '0');
+            let detik = sekarang.getSeconds().toString().padStart(2, '0');
             
-            // Cetak ke layar pojok kanan atas
-            document.getElementById('tv-jam').innerText = j + ":" + m + ":" + d;
+            // Masukkan teks ke dalam HTML secara live
+            document.getElementById('tv-jam').innerText = jam + ":" + menit + ":" + detik;
 
             const opsiTgl = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('tv-tgl').innerText = sekarang.toLocaleDateString('id-ID', opsiTgl);
             
-            // Hitung mundur adzan live detik demi detik
             hitungMundurTV(sekarang);
         }
 
-        // Mesin 2: Hitung Mundur Waktu Adzan Akurat
         function hitungMundurTV(waktuSekarang) {
             const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
             let namaTarget = "";
             let waktuTarget = null;
 
-            // Bersihkan warna aktif lama di kartu sholat
             listSholat.forEach(s => {
                 const el = document.getElementById('card-' + s.toLowerCase());
                 if(el) el.classList.remove('active-now');
             });
 
-            // Cari waktu sholat terdekat berikutnya
             for (let i = 0; i < listSholat.length; i++) {
                 const nama = listSholat[i];
                 const [h, m] = jadwalBaku[nama].split(':').map(Number);
@@ -245,7 +241,6 @@
                 }
             }
 
-            // Jika Isya terlewat, targetnya Subuh besok subuh
             if (!waktuTarget) {
                 namaTarget = "Subuh (Besok)";
                 const [h, m] = jadwalBaku['Subuh'].split(':').map(Number);
@@ -269,26 +264,28 @@
             document.getElementById('tv-countdown').innerText = kalimat;
         }
 
-        // Mesin 3: Otomatis Geser Halaman Slide (Tiap 12 Detik Lancar)
+        // Fungsi Rotasi Lempar Halaman Menggunakan Display Flex-None
         function gantiSlideOtomatis() {
-            document.getElementById('slide' + indexSlideAktif).style.display = 'none';
+            const slideLama = document.getElementById('slide' + indexSlideAktif);
+            if (slideLama) slideLama.style.display = 'none';
+            
             indexSlideAktif++;
             if (indexSlideAktif > totalSlide) { indexSlideAktif = 1; }
             
-            // Khusus halaman galeri foto, ganti fotonya bergantian
             if (indexSlideAktif === 4) {
                 indexFotoInternal = (indexFotoInternal + 1) % daftarFotoGaleri.length;
-                document.getElementById('foto-galeri-rotasi').src = daftarFotoGaleri[indexFotoInternal];
+                const elFoto = document.getElementById('foto-galeri-rotasi');
+                if (elFoto) elFoto.src = daftarFotoGaleri[indexFotoInternal];
             }
             
-            document.getElementById('slide' + indexSlideAktif).style.display = 'flex';
+            const slideBaru = document.getElementById('slide' + indexSlideAktif);
+            if (slideBaru) slideBaru.style.display = 'flex';
         }
 
-        // Eksekusi Semua Fungsi Utama Saat Layar TV Nyala
         window.onload = function() {
             perbaruiJamDanMesin();
             setInterval(perbaruiJamDanMesin, 1000);
-            setInterval(gantiSlideOtomatis, 12000); // Ganti halaman otomatis berputar mulus tiap 12 detik
+            setInterval(gantiSlideOtomatis, 12000); // Kunci: Otomatis oper halaman tiap 12 detik
         };
     </script>
 </body>
