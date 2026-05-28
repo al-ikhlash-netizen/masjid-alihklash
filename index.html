@@ -334,18 +334,34 @@
         </div>
     </section>
 
-    <section class="feedback-section" id="saran">
-        <div class="feedback-box">
+    <div class="feedback-box">
             <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik & Saran)</h3>
-            <div>
+            <div style="font-family: inherit;">
                 <input type="text" id="saran-nama" placeholder="Nama Lengkap..." required>
                 <input type="text" id="saran-kontak" placeholder="WhatsApp / Email..." required>
                 <textarea id="saran-pesan" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
-                <button type="button" onclick="kirimSaranWA()" class="btn-send">KIRIM PESAN <i class="fa-solid fa-paper-plane"></i></button>
+                <button type="button" onclick="kirimSaranWA()" class="btn-send">KIRIM PESAN VIA WHATSAPP <i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
-    </section>
 
+        <script>
+        function kirimSaranWA() {
+            const nama = document.getElementById('saran-nama').value;
+            const kontak = document.getElementById('saran-kontak').value;
+            const pesan = document.getElementById('saran-pesan').value;
+
+            if(!nama || !kontak || !pesan) {
+                alert('Mohon isi semua kolom kritik dan saran terlebih dahulu, Pak!');
+                return;
+            }
+
+            // Otomatis meracik teks chat WA masuk
+            const teksFormat = `*KRITIK & SARAN JAMAAH*%0A------------------------------------%0A*Nama:* ${nama}%0A*Kontak:* ${kontak}%0A*Pesan/Aspirasi:* ${pesan}`;
+            
+            // Menembak langsung ke nomor WA DKM Center milik Bapak
+            window.open(`https://wa.me/6289530104144?text=${teksFormat}`, '_blank');
+        }
+        </script>
     <section class="dakwah-section">
         <h2 class="section-title">Artikel & Mutiara Dakwah</h2>
         <div class="dakwah-grid">
