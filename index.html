@@ -21,6 +21,23 @@
             --danger-red: #A61C1C;
         }
 
+        /* --- ANIMASI GAYA BARU UNTUK KEUANGAN WEBSITE --- */
+        @keyframes munculKeAtas {
+            from {
+                opacity: 0;
+                transform: translateY(40px); /* Memancing kotak dari bawah */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Kembali ke posisi semula */
+            }
+        }
+
+        /* Tembak otomatis ke 3 blok kas yang sudah kita pisah */
+        .box-kas-umum, .box-renovasi-split, .box-soskem-split {
+            animation: munculKeAtas 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--dark-brown); line-height: 1.6; }
