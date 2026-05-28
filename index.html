@@ -337,12 +337,12 @@
     <section class="feedback-section" id="saran">
         <div class="feedback-box">
             <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik & Saran)</h3>
-            <form action="https://formspree.io/f/alikhlashmasjidjami@gmail.com" method="POST">
-                <input type="text" name="nama" placeholder="Nama Lengkap..." required>
-                <input type="text" name="kontak" placeholder="WhatsApp / Email..." required>
-                <textarea name="pesan" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
-                <button type="submit" class="btn-send">KIRIM PESAN <i class="fa-solid fa-paper-plane"></i></button>
-            </form>
+            <div>
+                <input type="text" id="saran-nama" placeholder="Nama Lengkap..." required>
+                <input type="text" id="saran-kontak" placeholder="WhatsApp / Email..." required>
+                <textarea id="saran-pesan" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
+                <button type="button" onclick="kirimSaranWA()" class="btn-send">KIRIM PESAN <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
         </div>
     </section>
 
