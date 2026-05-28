@@ -26,17 +26,15 @@
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--dark-brown); line-height: 1.6; }
         h1, h2, h3 { font-family: 'Marcellus', serif; }
 
-        /* --- ANIMASI AMAN TIDAK MERUSAK JAM --- */
-.box-kas-umum, .box-renovasi-split, .box-soskem-split {
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* Efek saat kotak disentuh atau dilewati kursor */
-.box-kas-umum:hover, .box-renovasi-split:hover, .box-soskem-split:hover {
-    transform: translateY(-8px); /* Kotak otomatis naik ke atas sedikit */
-    box-shadow: 0 12px 30px rgba(44,26,4,0.15) !important; /* Bayangannya menebal mewah */
-    border-color: var(--primary-gold) !important;
-}
+        /* --- CSS HOVER ANIMASI RINGAN & AMAN --- */
+        .box-kas-umum, .box-renovasi-split, .box-soskem-split {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .box-kas-umum:hover, .box-renovasi-split:hover, .box-soskem-split:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(44,26,4,0.12) !important;
+            border-color: var(--primary-gold) !important;
+        }
 
         /* 1. RUNNING TEXT */
         .marquee-container { background: var(--dark-brown); color: var(--primary-gold); padding: 12px 0; font-weight: 600; overflow: hidden; border-bottom: 2px solid var(--primary-gold); }
@@ -67,11 +65,11 @@
         .btn-emergency { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--danger-red); color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; }
         .btn-emergency:hover { background: #821212; box-shadow: 0 4px 12px rgba(166,28,28,0.3); }
 
-        /* STYLE EDITAN KEUANGAN MANDIRI TERPISAH + EFEK ANIMASI MASUK */
+        /* STYLE EDITAN KEUANGAN MANDIRI TERPISAH */
         .container-keuangan-gabungan { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
         
         /* Blok Kas Umum DKM */
-        .box-kas-umum { background: #fff; border-radius: 12px; border: 1px solid var(--primary-gold); overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; animation: halusNaik 1.2s ease-out forwards; }
+        .box-kas-umum { background: #fff; border-radius: 12px; border: 1px solid var(--primary-gold); overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; }
         .header-kas-umum { background: var(--dark-brown); color: var(--primary-gold); padding: 18px 25px; font-size: 1.3rem; font-weight: bold; display: flex; align-items: center; gap: 12px; }
         .table-kas-umum { width: 100%; border-collapse: collapse; text-align: left; }
         .table-kas-umum th { background: #fdfaf4; padding: 15px 25px; color: var(--medium-brown); font-weight: bold; border-bottom: 2px solid #eedeb7; }
@@ -82,7 +80,7 @@
         .baris-total-dkm { background: #fffbe6; font-weight: bold; border-top: 2px solid var(--primary-gold); font-size: 1.15rem; }
 
         /* Blok Kas Pembangunan/Renovasi Samping-Sampingan */
-        .box-renovasi-split { background: #fff; border-radius: 12px; border: 1px solid var(--dark-gold); padding: 35px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; animation: halusNaik 1.4s ease-out forwards; }
+        .box-renovasi-split { background: #fff; border-radius: 12px; border: 1px solid var(--dark-gold); padding: 35px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
         .info-renovasi-teks { flex: 1; min-width: 300px; text-align: left; }
         .label-kas-mini { color: #666; text-transform: uppercase; font-size: 0.9rem; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px; }
         .angka-kas-jumbo { font-size: 3.2rem; font-family: 'Marcellus', serif; color: var(--dark-brown); font-weight: bold; line-height: 1.1; margin-bottom: 15px; border-bottom: 2px solid var(--primary-gold); padding-bottom: 10px; }
@@ -92,7 +90,7 @@
         .qris-renovasi-img { width: 100%; max-width: 240px; border-radius: 6px; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         /* Blok Kas Sosial Kematian Jumbo Visual */
-        .box-soskem-split { background: #fff; border-radius: 12px; border: 1px solid #2e7d32; padding: 35px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 25px; text-align: left; animation: halusNaik 1.6s ease-out forwards; }
+        .box-soskem-split { background: #fff; border-radius: 12px; border: 1px solid #2e7d32; padding: 35px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 25px; text-align: left; }
         .header-soskem-flex { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid #2e7d32; padding-bottom: 10px; margin-bottom: 20px; }
         .angka-soskem-jumbo { font-size: 3rem; font-family: 'Marcellus', serif; color: #2e7d32; font-weight: bold; }
         .infografis-soskem-img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 15px; }
@@ -159,7 +157,7 @@
 
     <div class="marquee-container">
         <div class="marquee-text">
-            ✨ Selamat Datang di Website Resmi Masjid Jami' Al-Ikhlash Katapang — "Amanah, Transparan, Berkah" — Transformasi Ramah Digital Untuk Kemaslahalan Ummat ✨
+            ✨ Selamat Datang di Website Resmi Masjid Jami' Al-Ikhlash Katapang — "Amanah, Transparan, Berkah" — Transformasi Ramah Digital Untuk Kemaslahatan Ummat ✨
         </div>
     </div>
 
@@ -171,7 +169,10 @@
                 <p style="font-size: 0.8rem; color: var(--light-gold);">Sangkanhurip, Kab. Bandung</p>
             </div>
         </div>
-        <a href="#laporan-keuangan-section" class="btn-gold" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem;">LAPORAN KAS</a>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <a href="#laporan-keuangan-section" style="background: transparent; color: var(--primary-gold); padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary-gold); transition: 0.3s;">LAPORAN KAS</a>
+            <a href="#donasi" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;">SCAN DONASI</a>
+        </div>
     </header>
 
     <section class="hero">
@@ -252,7 +253,7 @@
                     <div class="label-kas-mini">Kas Khusus Alokasi Fisik</div>
                     <h3 style="font-size: 1.5rem; color: var(--medium-brown); margin-bottom: 5px;">II. Dana Pembangunan & Renovasi</h3>
                     <div class="angka-kas-jumbo">Rp 19.800.000</div>
-                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 15px;">Alokasi dana ini dikhususkan sepenuhnya untuk pemeliharaan fasilitas utama, perluasan area ibadah, and renovasi fisik Masjid Jami' Al-Ikhlash.</p>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 15px;">Alokasi dana ini dikhususkan sepenuhnya untuk pemeliharaan fasilitas utama, perluasan area ibadah, dan renovasi fisik Masjid Jami' Al-Ikhlash.</p>
                     
                     <div class="label-kas-mini" style="font-size: 0.8rem; margin:0;">Progres Target Pendanaan Tahap Ini:</div>
                     <div class="progress-renovasi-container">
@@ -346,15 +347,17 @@
         </div>
     </section>
 
-    <div class="feedback-box" id="saran">
-        <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik & Saran)</h3>
-        <div style="font-family: inherit;">
-            <input type="text" id="saran-nama" placeholder="Nama Lengkap..." required>
-            <input type="text" id="saran-kontak" placeholder="WhatsApp / Email..." required>
-            <textarea id="saran-pesan" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
-            <button type="button" onclick="kirimSaranWA()" class="btn-send">KIRIM PESAN VIA WHATSAPP <i class="fa-solid fa-paper-plane"></i></button>
+    <section class="feedback-section" id="saran" style="padding: 40px 5%; background: var(--white);">
+        <div class="feedback-box">
+            <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik & Saran)</h3>
+            <div style="font-family: inherit;">
+                <input type="text" id="saran-nama" placeholder="Nama Lengkap..." required>
+                <input type="text" id="saran-kontak" placeholder="WhatsApp / Email..." required>
+                <textarea id="saran-pesan" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
+                <button type="button" onclick="kirimSaranWA()" class="btn-send">KIRIM PESAN VIA WHATSAPP <i class="fa-solid fa-paper-plane"></i></button>
+            </div>
         </div>
-    </div>
+    </section>
 
     <section class="dakwah-section">
         <h2 class="section-title">Artikel & Mutiara Dakwah</h2>
@@ -482,7 +485,7 @@
                 if (!stringWaktu) continue;
 
                 const [targetJam, targetMenit] = stringWaktu.split(':').map(Number);
-                const objekTarget = new Date(waktuSekarang);
+                const objekTarget = new Date();
                 objekTarget.setHours(targetJam, targetMenit, 0, 0);
 
                 if (objekTarget > waktuSekarang) {
@@ -498,7 +501,7 @@
             if (!targetWaktu) {
                 targetNama = "Subuh (Besok)";
                 const [targetJam, targetMenit] = jadwalSholatHariIni['Subuh'].split(':').map(Number);
-                targetWaktu = new Date(waktuSekarang);
+                targetWaktu = new Date();
                 targetWaktu.setDate(waktuSekarang.getDate() + 1);
                 targetWaktu.setHours(targetJam, targetMenit, 0, 0);
                 
@@ -518,6 +521,7 @@
             const menitSisa = Math.floor((totalDetik % 3600) / 60);
             const detikSisa = totalDetik % 60;
 
+            // KATA "MENU" SUDAH RESMI DIKOREKSI MENJADI "MENIT"
             let teksCountdown = "⏳ ";
             if (jamSisa > 0) teksCountdown += jamSisa + " jam ";
             teksCountdown += menitSisa + " menit " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
@@ -554,7 +558,7 @@
             }
         }
 
-        // FUNGSI SEND WHATSAPP SAKTI TERINTEGRASI NOMOR BAPAK
+        // FUNGSI SEND DIRECT WHATSAPP TERINTEGRASI NOMOR BAPAK
         function kirimSaranWA() {
             const nama = document.getElementById('saran-nama').value;
             const kontak = document.getElementById('saran-kontak').value;
