@@ -55,26 +55,37 @@
         .btn-emergency { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--danger-red); color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; }
         .btn-emergency:hover { background: #821212; box-shadow: 0 4px 12px rgba(166,28,28,0.3); }
 
-        /* 5. SEKSI LAPORAN KEUANGAN BARU WEBSITE */
-        #laporan-kas { background: var(--white); padding: 60px 5%; text-align: center; }
-        .kas-grid-container { max-width: 1100px; margin: 0 auto; }
-        .tabel-wrapper { background: #fff; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid var(--primary-gold); overflow: hidden; margin-bottom: 35px; text-align: left; }
-        .tabel-title { background: var(--dark-brown); color: var(--primary-gold); padding: 15px 25px; font-size: 1.25rem; font-weight: bold; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary-gold); }
-        .web-table { width: 100%; border-collapse: collapse; }
-        .web-table th { background: #f9f6f0; padding: 15px 25px; font-weight: bold; color: var(--medium-brown); border-bottom: 2px solid #eee; }
-        .web-table td { padding: 15px 25px; border-bottom: 1px solid #eee; font-size: 1rem; color: var(--dark-brown); }
-        .web-table tr:last-child td { border-bottom: none; }
-        .kas-hijau { color: #2e7d32; font-weight: 600; }
-        .kas-merah { color: #c62828; font-weight: 600; }
-        .kas-total { background: #fffdf3; font-weight: bold; border-top: 2px solid var(--primary-gold); font-size: 1.1rem; }
+        /* STYLE EDITAN KEUANGAN MANDIRI TERPISAH */
+        .container-keuangan-gabungan { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
         
-        .kas-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 25px; }
-        .kas-card-item { background: #fff; border-radius: 12px; border-left: 6px solid var(--primary-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.06); padding: 25px; display: flex; justify-content: space-between; align-items: center; text-align: left; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
-        .kas-card-item h4 { color: #666; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-        .kas-card-item p { font-size: 1.9rem; font-weight: bold; color: var(--dark-brown); font-family: 'Marcellus', serif; }
-        .kas-card-icon { font-size: 2.5rem; color: var(--primary-gold); opacity: 0.4; }
+        /* Blok Kas Umum DKM */
+        .box-kas-umum { background: #fff; border-radius: 12px; border: 1px solid var(--primary-gold); overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; }
+        .header-kas-umum { background: var(--dark-brown); color: var(--primary-gold); padding: 18px 25px; font-size: 1.3rem; font-weight: bold; display: flex; align-items: center; gap: 12px; }
+        .table-kas-umum { width: 100%; border-collapse: collapse; text-align: left; }
+        .table-kas-umum th { background: #fdfaf4; padding: 15px 25px; color: var(--medium-brown); font-weight: bold; border-bottom: 2px solid #eedeb7; }
+        .table-kas-umum td { padding: 16px 25px; border-bottom: 1px solid #eee; font-size: 1.05rem; }
+        .table-kas-umum tr:last-child td { border-bottom: none; }
+        .warna-pemasukan { color: #2e7d32; font-weight: 600; }
+        .warna-pengeluaran { color: #c62828; font-weight: 600; }
+        .baris-total-dkm { background: #fffbe6; font-weight: bold; border-top: 2px solid var(--primary-gold); font-size: 1.15rem; }
 
-        /* 6. SCAN DONASI QRIS */
+        /* Blok Kas Pembangunan/Renovasi Samping-Sampingan */
+        .box-renovasi-split { background: #fff; border-radius: 12px; border: 1px solid var(--dark-gold); padding: 35px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .info-renovasi-teks { flex: 1; min-width: 300px; text-align: left; }
+        .label-kas-mini { color: #666; text-transform: uppercase; font-size: 0.9rem; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px; }
+        .angka-kas-jumbo { font-size: 3.2rem; font-family: 'Marcellus', serif; color: var(--dark-brown); font-weight: bold; line-height: 1.1; margin-bottom: 15px; border-bottom: 2px solid var(--primary-gold); padding-bottom: 10px; }
+        .progress-renovasi-container { background: #eee; width: 100%; height: 12px; border-radius: 20px; overflow: hidden; margin: 10px 0; }
+        .progress-bar-isi { background: linear-gradient(to right, var(--dark-gold), var(--primary-gold)); height: 100%; width: 40%; border-radius: 20px; }
+        .qris-renovasi-box { background: #fdfaf4; border: 2px dashed var(--primary-gold); border-radius: 12px; padding: 20px; text-align: center; width: 320px; margin: 0 auto; }
+        .qris-renovasi-img { width: 100%; max-width: 240px; border-radius: 6px; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* Blok Kas Sosial Kematian Jumbo Visual */
+        .box-soskem-split { background: #fff; border-radius: 12px; border: 1px solid #2e7d32; padding: 35px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 25px; text-align: left; }
+        .header-soskem-flex { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 2px solid #2e7d32; padding-bottom: 10px; margin-bottom: 20px; }
+        .angka-soskem-jumbo { font-size: 3rem; font-family: 'Marcellus', serif; color: #2e7d32; font-weight: bold; }
+        .infografis-soskem-img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 15px; }
+
+        /* 6. SCAN DONASI QRIS LAMA */
         #donasi { background: #2C1A04; color: #fff; padding: 60px 5%; text-align: center; }
 
         /* 7. STRUKTUR ORGANISASI MASJID */
@@ -129,7 +140,7 @@
         .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
         .contact-item i { color: var(--primary-gold); }
 
-        @media (max-width: 768px) { .hero-content h2 { font-size: 2rem; } .leader-card { width: 100%; } .sholat-card-item { min-width: 45%; } }
+        @media (max-width: 768px) { .hero-content h2 { font-size: 2rem; } .leader-card { width: 100%; } .sholat-card-item { min-width: 45%; } .box-renovasi-split { flex-direction: column; text-align: center; } .info-renovasi-teks { text-align: center; } }
     </style>
 </head>
 <body>
@@ -148,7 +159,7 @@
                 <p style="font-size: 0.8rem; color: var(--light-gold);">Sangkanhurip, Kab. Bandung</p>
             </div>
         </div>
-        <a href="#donasi" class="btn-gold" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem;">SCAN DONASI</a>
+        <a href="#laporan-keuangan-section" class="btn-gold" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem;">LAPORAN KAS</a>
     </header>
 
     <section class="hero">
@@ -189,17 +200,18 @@
         </div>
     </section>
 
-    <section id="laporan-kas">
-        <h2 class="section-title">Laporan Keuangan Masjid</h2>
-        <div class="kas-grid-container">
+    <section id="laporan-keuangan-section" style="padding: 60px 0; background: #faf8f4;">
+        <h2 class="section-title">Transparansi Keuangan Masjid</h2>
+        
+        <div class="container-keuangan-gabungan">
             
-            <div class="tabel-wrapper">
-                <div class="tabel-title"><i class="fa-solid fa-scale-balanced"></i> I. Laporan Kas Operasional DKM</div>
-                <table class="web-table">
+            <div class="box-kas-umum">
+                <div class="header-kas-umum"><i class="fa-solid fa-scale-balanced"></i> I. Laporan Kas Operasional DKM</div>
+                <table class="table-kas-umum">
                     <thead>
                         <tr>
-                            <th>Uraian Uang Kas DKM</th>
-                            <th style="text-align: right;">Jumlah Saldo</th>
+                            <th>Uraian Agenda / Keterangan Transaksi</th>
+                            <th style="text-align: right;">Status Jumlah (Rupiah)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -209,45 +221,63 @@
                         </tr>
                         <tr>
                             <td>Pemasukan Kencleng Idul Adha</td>
-                            <td style="text-align: right;" class="kas-hijau">+ Rp 1.500.000</td>
+                            <td style="text-align: right;" class="warna-pemasukan">+ Rp 1.500.000</td>
                         </tr>
                         <tr>
                             <td>Pengeluaran Kafalah Sorban Idul Adha</td>
-                            <td style="text-align: right;" class="kas-merah">- Rp 150.000</td>
+                            <td style="text-align: right;" class="warna-pengeluaran">- Rp 150.000</td>
                         </tr>
-                        <tr class="kas-total">
-                            <td style="color: var(--medium-brown);">TOTAL SALDO AKHIR OPERASIONAL DKM</td>
-                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.2rem;">Rp 2.578.000</td>
+                        <tr class="baris-total-dkm">
+                            <td style="color: var(--dark-brown);">TOTAL SALDO AKHIR OPERASIONAL DKM</td>
+                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.3rem;">Rp 2.578.000</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="kas-cards-grid">
-                <div class="kas-card-item">
-                    <div>
-                        <h4>II. Kas Keuangan Renovasi</h4>
-                        <p>Rp 19.800.000</p>
+            <div class="box-renovasi-split" id="kas-renovasi">
+                <div class="info-renovasi-teks">
+                    <div class="label-kas-mini">Kas Khusus Alokasi Fisik</div>
+                    <h3 style="font-size: 1.5rem; color: var(--medium-brown); margin-bottom: 5px;">II. Dana Pembangunan & Renovasi</h3>
+                    <div class="angka-kas-jumbo">Rp 19.800.000</div>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 15px;">Alokasi dana ini dikhususkan sepenuhnya untuk pemeliharaan fasilitas utama, perluasan area ibadah, dan renovasi fisik Masjid Jami' Al-Ikhlash.</p>
+                    
+                    <div class="label-kas-mini" style="font-size: 0.8rem; margin:0;">Progres Target Pendanaan Tahap Ini:</div>
+                    <div class="progress-renovasi-container">
+                        <div class="progress-bar-isi"></div>
                     </div>
-                    <div class="kas-card-icon"><i class="fa-solid fa-hammer"></i></div>
+                    <span style="font-size: 0.85rem; font-weight: bold; color: var(--dark-gold);">⏳ Terkumpul 40% dari Target Kebutuhan Lapangan</span>
                 </div>
-                <div class="kas-card-item" style="border-left-color: #2e7d32;">
+                
+                <div class="qris-renovasi-box">
+                    <img src="Qris.jpg" class="qris-renovasi-img" alt="QRIS Renovasi">
+                    <p style="font-size: 0.85rem; font-weight: bold; color: var(--dark-brown); margin-top: 10px; letter-spacing: 0.5px;"><i class="fa-solid fa-qrcode"></i> SCAN QRIS KHUSUS RENOVASI</p>
+                    <span style="font-size: 0.75rem; color: #666; display: block;">Dana langsung masuk ke pos rekening pembangunan</span>
+                </div>
+            </div>
+
+            <div class="box-soskem-split" id="kas-soskem">
+                <div class="header-soskem-flex">
                     <div>
-                        <h4 style="color: #2e7d32;">III. Dana Sosial Kematian</h4>
-                        <p style="color: #2e7d32;">Rp 24.390.500</p>
+                        <div class="label-kas-mini" style="color:#2e7d32;">Dana Abadi Kemaslahatan Warga</div>
+                        <h3 style="font-size: 1.5rem; color: #2e7d32;">III. Dana Sosial Kematian (SOSKEM)</h3>
                     </div>
-                    <div class="kas-card-icon" style="color: #2e7d32;"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div class="angka-soskem-jumbo">Rp 24.390.500</div>
                 </div>
+                <p style="font-size: 0.95rem; color: #555; margin-bottom: 20px;">Pos anggaran mandiri yang dihimpun dari iuran berkala jamaah dikoordinasikan oleh Bidang Sosial DKM untuk penyediaan kain kafan, akomodasi, biaya penggali kubur, hingga santunan duka secara instan.</p>
+                
+                <div class="label-kas-mini" style="color:#2e7d32; border-top: 1px dashed #ccc; padding-top: 15px;"><i class="fa-solid fa-circle-info"></i> Panduan Alur Pelayanan & Sinkronisasi Dana SOSKEM:</div>
+                <img src="Soskem.png" class="infografis-soskem-img" alt="Alur Iuran Sosial Kematian Masjid Al-Ikhlash">
             </div>
 
         </div>
     </section>
 
     <section id="donasi">
-        <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Manajemen Infaq Transparan</h2>
+        <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Infaq Jariyah Umum</h2>
         <div style="max-width: 900px; margin: 0 auto;">
             <img src="Laporan_kas_Progresif.png" style="width: 100%; border-radius: 12px; border: 3px solid var(--primary-gold); margin-bottom: 30px;">
-            <p style="margin-bottom: 30px; color: #f0e6d2;">Scan QRIS di bawah ini untuk sedekah jariyah Anda:</p>
+            <p style="margin-bottom: 30px; color: #f0e6d2;">Scan QRIS di bawah ini untuk sedekah jariyah operasional umum DKM:</p>
             <img src="Qris.jpg" style="width: 280px; border-radius: 10px; border: 4px solid var(--white);">
         </div>
     </section>
@@ -417,7 +447,7 @@
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
             let menit = sekarang.getMinutes().toString().padStart(2, '0');
-            let detik = sekarang.getSeconds().toString().padStart(2, '0');
+            let detik = nanowat = sekarang.getSeconds().toString().padStart(2, '0');
             
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
 
