@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -55,10 +55,29 @@
         .btn-emergency { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--danger-red); color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; }
         .btn-emergency:hover { background: #821212; box-shadow: 0 4px 12px rgba(166,28,28,0.3); }
 
-        /* 5. LAPORAN KEUANGAN & QRIS */
+        /* 5. SEKSI LAPORAN KEUANGAN BARU WEBSITE */
+        #laporan-kas { background: var(--white); padding: 60px 5%; text-align: center; }
+        .kas-grid-container { max-width: 1100px; margin: 0 auto; }
+        .tabel-wrapper { background: #fff; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border: 1px solid var(--primary-gold); overflow: hidden; margin-bottom: 35px; text-align: left; }
+        .tabel-title { background: var(--dark-brown); color: var(--primary-gold); padding: 15px 25px; font-size: 1.25rem; font-weight: bold; letter-spacing: 0.5px; border-bottom: 2px solid var(--primary-gold); }
+        .web-table { width: 100%; border-collapse: collapse; }
+        .web-table th { background: #f9f6f0; padding: 15px 25px; font-weight: bold; color: var(--medium-brown); border-bottom: 2px solid #eee; }
+        .web-table td { padding: 15px 25px; border-bottom: 1px solid #eee; font-size: 1rem; color: var(--dark-brown); }
+        .web-table tr:last-child td { border-bottom: none; }
+        .kas-hijau { color: #2e7d32; font-weight: 600; }
+        .kas-merah { color: #c62828; font-weight: 600; }
+        .kas-total { background: #fffdf3; font-weight: bold; border-top: 2px solid var(--primary-gold); font-size: 1.1rem; }
+        
+        .kas-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 25px; }
+        .kas-card-item { background: #fff; border-radius: 12px; border-left: 6px solid var(--primary-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.06); padding: 25px; display: flex; justify-content: space-between; align-items: center; text-align: left; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .kas-card-item h4 { color: #666; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .kas-card-item p { font-size: 1.9rem; font-weight: bold; color: var(--dark-brown); font-family: 'Marcellus', serif; }
+        .kas-card-icon { font-size: 2.5rem; color: var(--primary-gold); opacity: 0.4; }
+
+        /* 6. SCAN DONASI QRIS */
         #donasi { background: #2C1A04; color: #fff; padding: 60px 5%; text-align: center; }
 
-        /* 6. STRUKTUR ORGANISASI MASJID */
+        /* 7. STRUKTUR ORGANISASI MASJID */
         .dkm-section { background: #F4EFE3; padding: 60px 5%; text-align: center; }
         .leaders-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
         .leader-card { background: #fff; padding: 12px; border-radius: 10px; border: 1px solid var(--primary-gold); width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
@@ -72,14 +91,14 @@
         .staff-tile div h4 { font-size: 1rem; color: var(--dark-brown); }
         .staff-tile div p { font-size: 0.75rem; color: var(--dark-gold); font-weight: bold; text-transform: uppercase; }
 
-        /* 7. SUARA JAMAAH */
+        /* 8. SUARA JAMAAH */
         .feedback-section { padding: 40px 5%; background: var(--white); }
         .feedback-box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; border: 2px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
         .feedback-box input, .feedback-box textarea { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; }
         .btn-send { background: var(--dark-brown); color: var(--primary-gold); padding: 10px 25px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
         .btn-send:hover { background: var(--medium-brown); color: #fff; }
 
-        /* 8. SEKSI ARTIKEL & MUTIARA DAKWAH */
+        /* 9. SEKSI ARTIKEL & MUTIARA DAKWAH */
         .dakwah-section { padding: 50px 5%; background-color: #FDFBF7; }
         .dakwah-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
         .dakwah-card { background: #fff; border-radius: 12px; border: 1px solid var(--light-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid var(--dark-brown); }
@@ -88,14 +107,14 @@
         .dakwah-card p { font-size: 0.95rem; color: #555; margin-bottom: 15px; flex-grow: 1; }
         .dakwah-author { font-size: 0.85rem; font-style: italic; color: var(--medium-brown); font-weight: 600; border-top: 1px dashed #eee; padding-top: 10px; }
 
-        /* 9. GALLERY GRID */
+        /* 10. GALLERY GRID */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; padding: 0 5% 40px; }
         .gallery-item { height: 190px; border-radius: 8px; overflow: hidden; border: 2px solid var(--light-gold); position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44,26,4,0.8); color: var(--primary-gold); font-size: 0.8rem; padding: 6px; text-align: center; }
 
-        /* CUSTOM DESIGN JADWAL SHOLAT DI BAWAH GALLERY */
+        /* JADWAL SHOLAT */
         .sholat-section-bottom { background: linear-gradient(135deg, var(--dark-brown) 0%, #170e02 100%); padding: 50px 5%; border-top: 3px solid var(--primary-gold); text-align: center; color: #fff; }
         .sholat-cards-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; max-width: 1000px; margin: 25px auto 0; }
         .sholat-card-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); padding: 15px 20px; border-radius: 10px; min-width: 130px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
@@ -103,7 +122,7 @@
         .sholat-name { font-size: 0.85rem; color: var(--primary-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .sholat-time { font-size: 1.4rem; font-family: 'Marcellus', serif; font-weight: bold; }
 
-        /* 10. FOOTER */
+        /* 11. FOOTER */
         footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 2px solid var(--primary-gold); }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-fassad { width: 100%; max-width: 260px; border-radius: 8px; border: 1px solid var(--primary-gold); margin-bottom: 15px; display: block; }
@@ -170,6 +189,60 @@
         </div>
     </section>
 
+    <section id="laporan-kas">
+        <h2 class="section-title">Laporan Keuangan Masjid</h2>
+        <div class="kas-grid-container">
+            
+            <div class="tabel-wrapper">
+                <div class="tabel-title"><i class="fa-solid fa-scale-balanced"></i> I. Laporan Kas Operasional DKM</div>
+                <table class="web-table">
+                    <thead>
+                        <tr>
+                            <th>Uraian Uang Kas DKM</th>
+                            <th style="text-align: right;">Jumlah Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Saldo Awal (Per 22 Mei 2026)</td>
+                            <td style="text-align: right; font-weight: 600;">Rp 1.228.000</td>
+                        </tr>
+                        <tr>
+                            <td>Pemasukan Kencleng Idul Adha</td>
+                            <td style="text-align: right;" class="kas-hijau">+ Rp 1.500.000</td>
+                        </tr>
+                        <tr>
+                            <td>Pengeluaran Kafalah Sorban Idul Adha</td>
+                            <td style="text-align: right;" class="kas-merah">- Rp 150.000</td>
+                        </tr>
+                        <tr class="kas-total">
+                            <td style="color: var(--medium-brown);">TOTAL SALDO AKHIR OPERASIONAL DKM</td>
+                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.2rem;">Rp 2.578.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="kas-cards-grid">
+                <div class="kas-card-item">
+                    <div>
+                        <h4>II. Kas Keuangan Renovasi</h4>
+                        <p>Rp 19.800.000</p>
+                    </div>
+                    <div class="kas-card-icon"><i class="fa-solid fa-hammer"></i></div>
+                </div>
+                <div class="kas-card-item" style="border-left-color: #2e7d32;">
+                    <div>
+                        <h4 style="color: #2e7d32;">III. Dana Sosial Kematian</h4>
+                        <p style="color: #2e7d32;">Rp 24.390.500</p>
+                    </div>
+                    <div class="kas-card-icon" style="color: #2e7d32;"><i class="fa-solid fa-heart-pulse"></i></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="donasi">
         <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Manajemen Infaq Transparan</h2>
         <div style="max-width: 900px; margin: 0 auto;">
@@ -180,7 +253,6 @@
     </section>
 
     <section class="dkm-section">
-        
         <h3 style="font-family: 'Marcellus', serif; font-size: 1.6rem; color: var(--dark-gold); margin-bottom: 20px;">Susunan Pembina (Sesepuh Masjid)</h3>
         <div class="leaders-grid">
             <div class="leader-card">
@@ -267,7 +339,7 @@
                 <div>
                     <div class="dakwah-date">Fikih Kehidupan</div>
                     <h3>Membangun Kebersamaan Lewat Gotong Royong</h3>
-                    <p>Kekuatan umat Islam terletak pada shaf sholat yang rapat dan kesatuan hatinya. Kebersamaan memakmurkan masjid adalah cerminan ukhuwah nyata di Sangkanhurip.</p>
+                    <p>Kekuatan umat Islam terletak pada shaf sholat yang rapat and kesatuan hatinya. Kebersamaan memakmurkan masjid adalah cerminan ukhuwah nyata di Sangkanhurip.</p>
                 </div>
                 <div class="dakwah-author">Oleh: Ust. Indra Aulia, A.md.</div>
             </div>
@@ -277,7 +349,6 @@
     <section>
         <h2 class="section-title">Dokumentasi & Kegiatan Masjid</h2>
         <div class="gallery-grid">
-            
             <div class="gallery-item"><img src="Mihrob.jpg"><div class="gallery-cap">Mihrob Masjid</div></div>
             <div class="gallery-item"><img src="MT.jpeg"><div class="gallery-cap">Majelis Taklim Jamaah</div></div>
             <div class="gallery-item"><img src="Nampak%20sudut.jpg"><div class="gallery-cap">Sudut Ruang Utama</div></div>
@@ -294,7 +365,7 @@
         </div>
     </section>
 
-   <section class="sholat-section-bottom">
+    <section class="sholat-section-bottom">
         <h2 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.8rem;">Jadwal Sholat Hari Ini</h2>
         
         <div style="margin: 15px auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
@@ -337,45 +408,41 @@
         <div style="text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.8rem; color: #8c7e74;">
             &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital & Transparan.
         </div>
-    </footer><script>
+    </footer>
+
+    <script>
         let jadwalSholatHariIni = {};
 
-        // 1. Fungsi Jam Digital Utama
         function updateWaktuDanCountdown() {
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
             let menit = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = sekarang.getSeconds().toString().padStart(2, '0');
             
-            // Tampilan Jam Digital Utama
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
 
-            // Jalankan hitung mundur jika data jadwal sudah siap
             if (Object.keys(jadwalSholatHariIni).length > 0) {
                 hitungMundurAdzan(sekarang);
             }
         }
 
-        // 2. Mesin Hitung Mundur Menit & Detik Menuju Adzan
         function hitungMundurAdzan(waktuSekarang) {
             const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
             let targetNama = "";
             let targetWaktu = null;
 
-            // Bersihkan efek bingkai emas aktif di semua kartu sebelum menghitung ulang
             listSholat.forEach(s => {
                 const elemenCard = document.getElementById('card-' + s.toLowerCase());
                 if(elemenCard) elemenCard.classList.remove('active-time');
             });
 
-            // Cari waktu sholat berikutnya yang belum terlewat
             for (let i = 0; i < listSholat.length; i++) {
                 const namaSholat = listSholat[i];
                 const stringWaktu = jadwalSholatHariIni[namaSholat];
                 if (!stringWaktu) continue;
 
                 const [targetJam, targetMenit] = stringWaktu.split(':').map(Number);
-                const objekTarget = new Date(waktuSekarang);
+                const objekTarget = new Date(waktuWaktu = waktuSekarang);
                 objekTarget.setHours(targetJam, targetMenit, 0, 0);
 
                 if (objekTarget > waktuSekarang) {
@@ -388,7 +455,6 @@
                 }
             }
 
-            // Jika semua waktu sholat hari ini sudah terlewat, target berikutnya adalah Subuh besok pagi
             if (!targetWaktu) {
                 targetNama = "Subuh (Besok)";
                 const [targetJam, targetMenit] = jadwalSholatHariIni['Subuh'].split(':').map(Number);
@@ -400,7 +466,6 @@
                 if(elemenCard) elemenCard.classList.add('active-time');
             }
 
-            // Hitung selisih detik secara realtime
             const selisihMiliDetik = targetWaktu - waktuSekarang;
             const totalDetik = Math.floor(selisihMiliDetik / 1000);
 
@@ -413,7 +478,6 @@
             const menitSisa = Math.floor((totalDetik % 3600) / 60);
             const detikSisa = totalDetik % 60;
 
-            // Meracik kalimat teks agar tampil dengan rapi dan teratur
             let teksCountdown = "⏳ ";
             if (jamSisa > 0) teksCountdown += jamSisa + " jam ";
             teksCountdown += menitSisa + " menit " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
@@ -421,7 +485,6 @@
             document.getElementById('countdown-adzan').innerHTML = teksCountdown;
         }
 
-        // 3. Ambil Data Waktu Sholat Standar Kemenag RI
         async function loadJadwalSholat() {
             try {
                 const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
@@ -436,14 +499,12 @@
                     'Isya': timings.Isha
                 };
 
-                // Cetak angka ke dalam tabel card jadwal sholat
                 document.getElementById('subuh').innerText = timings.Fajr;
                 document.getElementById('dzuhur').innerText = timings.Dhuhr;
                 document.getElementById('ashar').innerText = timings.Asr;
                 document.getElementById('maghrib').innerText = timings.Maghrib;
                 document.getElementById('isya').innerText = timings.Isha;
             } catch (error) {
-                // Angka cadangan jika koneksi API terputus
                 jadwalSholatHariIni = { 'Subuh': "04:32", 'Dzuhur': "11:47", 'Ashar': "15:08", 'Maghrib': "17:39", 'Isya': "18:53" };
                 document.getElementById('subuh').innerText = "04:32";
                 document.getElementById('dzuhur').innerText = "11:47";
@@ -453,7 +514,6 @@
             }
         }
 
-        // Jalankan program utama secara simultan
         window.onload = function() {
             loadJadwalSholat();
             updateWaktuDanCountdown();
