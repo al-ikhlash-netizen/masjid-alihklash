@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J1LBZ73CV1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-J1LBZ73CV1');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masjid Jami' Al-Ikhlash - Sangkanhurip</title>
@@ -108,7 +117,7 @@
         
         .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
         .staff-tile { background: #fff; padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary-gold); display: flex; align-items: center; gap: 15px; text-align: left; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
-        .staff-tile i { font-size: 1.5rem; color: var(--dark-gold); }
+        .staff-tile i { font-size: 1.5rem; color: var(--dark-gold); margin-bottom: 15px; }
         .staff-tile div h4 { font-size: 1rem; color: var(--dark-brown); }
         .staff-tile div p { font-size: 0.75rem; color: var(--dark-gold); font-weight: bold; text-transform: uppercase; }
 
@@ -143,12 +152,47 @@
         .sholat-name { font-size: 0.85rem; color: var(--primary-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .sholat-time { font-size: 1.4rem; font-family: 'Marcellus', serif; font-weight: bold; }
 
-        /* 11. FOOTER */
+        /* 11. FOOTER WITH ADVERTISEMENT SECTION */
         footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 2px solid var(--primary-gold); }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-fassad { width: 100%; max-width: 260px; border-radius: 8px; border: 1px solid var(--primary-gold); margin-bottom: 15px; display: block; }
         .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
         .contact-item i { color: var(--primary-gold); }
+
+        /* CSS KHUSUS IKLAN PROGRAMMER ADE HARYA (SOPAN & ELEGAN) */
+        .iklan-dev-box {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+        }
+        .iklan-dev-text {
+            font-size: 0.85rem;
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto 15px;
+            line-height: 1.5;
+        }
+        .btn-iklan-portofolio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--primary-gold);
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--primary-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-iklan-portofolio:hover {
+            background: var(--primary-gold);
+            color: #000;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
 
         @media (max-width: 768px) { .hero-content h2 { font-size: 2rem; } .leader-card { width: 100%; } .sholat-card-item { min-width: 45%; } .box-renovasi-split { flex-direction: column; text-align: center; } .info-renovasi-teks { text-align: center; } }
     </style>
@@ -448,8 +492,18 @@
                 <div class="contact-item"><i class="fa-brands fa-instagram"></i><a href="https://instagram.com/masji.djamialikhlas" style="color: inherit; text-decoration: none;">@masji.djamialikhlas</a></div>
             </div>
         </div>
+        
         <div style="text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.8rem; color: #8c7e74;">
             &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital & Transparan.
+        </div>
+
+        <div class="iklan-dev-box">
+            <p class="iklan-dev-text">
+                Website and sistem adzan otomatis digital ini dirancang & dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi and sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
+            </p>
+            <a href="http://adharya.github.io/flyer-jasa-programing-/" class="btn-iklan-portofolio" target="_blank">
+                <i class="fa-solid fa-laptop-code"></i> LIHAT JASA & PORTOFOLIO PROGRAMMING
+            </a>
         </div>
     </footer>
 
@@ -521,7 +575,6 @@
             const menitSisa = Math.floor((totalDetik % 3600) / 60);
             const detikSisa = totalDetik % 60;
 
-            // KATA "MENU" SUDAH RESMI DIKOREKSI MENJADI "MENIT"
             let teksCountdown = "⏳ ";
             if (jamSisa > 0) teksCountdown += jamSisa + " jam ";
             teksCountdown += menitSisa + " menit " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
