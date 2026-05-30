@@ -226,6 +226,7 @@
             <p>Mewujudkan transparansi informasi publik masjid berbasis digital.</p>
         </div>
     </section>
+
     <section style="padding: 25px 5% 5px; background: var(--bg-light);">
         <div style="max-width: 800px; margin: 0 auto; background: #fff; border-radius: 15px; border: 1px solid var(--light-gold); border-left: 6px solid var(--primary-gold); padding: 20px 25px; box-shadow: 0 4px 15px rgba(44,26,4,0.04); display: flex; align-items: flex-start; gap: 15px; transition: 0.3s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
             <div style="font-size: 1.8rem; color: var(--primary-gold); margin-top: -3px;">
@@ -238,41 +239,6 @@
             </div>
         </div>
     </section>
-    ```
-
----
-
-#### Langkah 2: Pasang Mesin Pengacaknya (JavaScript)
-Gulir ke bagian paling bawah file `index.html` Pak Ade, cari fungsi **`window.onload = function() { ... };`** di dalam tag `<script>`.
-
-Tambahkan fungsi pengacak ini tepat di atas `window.onload`:
-
-```javascript
-        // DATA & MESIN OTOMATIS PENYEGAR ROHANI ACAK
-        const daftarHikmah = [
-            { kat: "Ayat Al-Qur'an", teks: "“Maka sesungguhnya beserta kesulitan ada kemudahan. Sesungguhnya beserta kesulitan itu ada kemudahan.”", sum: "QS. Al-Insyirah: 5-6" },
-            { kat: "Ayat Al-Qur'an", teks: "“Cukuplah Allah bagi kami dan Dia adalah sebaik-baik pelindung.”", sum: "QS. Ali 'Imran: 173" },
-            { kat: "Ayat Al-Qur'an", teks: "“Dan barangsiapa bertawakal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya.”", sum: "QS. At-Talaq: 3" },
-            { kat: "Mutiara Hadits", teks: "“Barangsiapa yang melepaskan satu kesusahan seorang mukmin di dunia, Allah akan melepaskan satu kesusahan darinya pada hari kiamat.”", sum: "HR. Muslim" },
-            { kat: "Mutiara Hadits", teks: "“Tangan yang di atas (memberi) lebih baik daripada tangan yang di bawah (meminta).”", sum: "HR. Bukhari & Muslim" },
-            { kat: "Mutiara Hadits", teks: "“Senyummu di hadapan saudaramu adalah (bernilai) sedekah bagimu.”", sum: "HR. Tirmidzi" },
-            { kat: "Mutiara Hadits", teks: "“Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.”", sum: "HR. Thabrani" },
-            { kat: "Dzikir & Doa Kesembuhan", teks: "“Allahumma rabbannasi adzhibil ba'sa isyfi antasy-syafi la syifa'a illa syifa'uka syifa'an la yughadiru saqaman.” (Doa memohon kesembuhan keluarga/kerabat yang sakit)", sum: "HR. Bukhari" },
-            { kat: "Anjuran Sholawat", teks: "“Barangsiapa yang bershalawat kepadaku sekali, maka Allah akan bershalawat kepadanya sepuluh kali.”", sum: "HR. Muslim" },
-            { kat: "Mutiara Hikmah", teks: "“Niat yang ikhlas adalah kunci diterimanya amalan. Mari jaga kebersihan hati dalam memakmurkan Masjid Al-Ikhlash.”", sum: "DKM Al-Ikhlash Sangkanhurip" },
-            { kat: "Utamakan Sholat", teks: "“Amalan hamba yang pertama kali akan dihisab pada hari kiamat adalah sholatnya.”", sum: "HR. Abu Dawud" },
-            { kat: "Dzikir Pagi & Petang", teks: "“Subhanallahi wa bihamdihi, 'adada khalqihi, wa ridha nafsihi, wa zinata 'arsyihi, wa midada kalimatihi.”", sum: "HR. Muslim" }
-        ];
-
-        function acakPenyegarRohani() {
-            const indeksAcak = Math.floor(Math.random() * daftarHikmah.length);
-            const dataTerpilih = daftarHikmah[indeksAcak];
-            
-            document.getElementById('rohani-kategori').innerText = dataTerpilih.kat;
-            document.getElementById('rohani-teks').innerText = dataTerpilih.teks;
-            document.getElementById('rohani-sumber').innerText = dataTerpilih.sum;
-        }
-
     <section>
         <h2 class="section-title">Program Pelayanan Utama</h2>
         <div class="services-grid">
@@ -456,7 +422,7 @@ Tambahkan fungsi pengacak ini tepat di atas `window.onload`:
                 <div>
                     <div class="dakwah-date">Mutiara Hadits</div>
                     <h3>Pentingnya Menjaga Niat yang Ikhlas</h3>
-                    <p>"Sesungguhnya amalan itu tergantung pada niatnya, dan setiap orang akan mendapatkan sesuai dengan apa yang ia niatkan." Mari luruskan niat memakmurkan masjid kita.</p>
+                    <p>"Sesungguhnya amalan itu tergantung pada niatnya, and setiap orang akan mendapatkan sesuai dengan apa yang ia niatkan." Mari luruskan niat memakmurkan masjid kita.</p>
                 </div>
                 <div class="dakwah-author">Oleh: Ust. Asep Junaedi (Imam Tetap)</div>
             </div>
@@ -544,13 +510,13 @@ Tambahkan fungsi pengacak ini tepat di atas `window.onload`:
         </div>
 
         <div class="iklan-dev-box">
-    <p class="iklan-dev-text">
-        Website dan sistem adzan otomatis digital ini dirancang & dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi dan sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
-    </p>
-    <a href="https://adeharya.github.io/flyer-jasa-programing-" class="btn-iklan-portofolio" target="_blank">
-        <i class="fa-solid fa-laptop-code"></i> LIHAT JASA & PORTOFOLIO PROGRAMMING
-    </a>
-</div>
+            <p class="iklan-dev-text">
+                Website dan sistem adzan otomatis digital ini dirancang & dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi dan sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
+            </p>
+            <a href="https://adeharya.github.io/flyer-jasa-programing-" class="btn-iklan-portofolio" target="_blank">
+                <i class="fa-solid fa-laptop-code"></i> LIHAT JASA & PORTOFOLIO PROGRAMMING
+            </a>
+        </div>
     </footer>
 
     <script>
@@ -672,11 +638,36 @@ Tambahkan fungsi pengacak ini tepat di atas `window.onload`:
             window.open(`https://wa.me/6289530104144?text=${teksFormat}`, '_blank');
         }
 
-       window.onload = function() {
+        // DATA & MESIN OTOMATIS PENYEGAR ROHANI ACAK
+        const daftarHikmah = [
+            { kat: "Ayat Al-Qur'an", teks: "“Maka sesungguhnya beserta kesulitan ada kemudahan. Sesungguhnya beserta kesulitan itu ada kemudahan.”", sum: "QS. Al-Insyirah: 5-6" },
+            { kat: "Ayat Al-Qur'an", teks: "“Cukuplah Allah bagi kami dan Dia adalah sebaik-baik pelindung.”", sum: "QS. Ali 'Imran: 173" },
+            { kat: "Ayat Al-Qur'an", teks: "“Dan barangsiapa bertawakal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya.”", sum: "QS. At-Talaq: 3" },
+            { kat: "Mutiara Hadits", teks: "“Barangsiapa yang melepaskan satu kesusahan seorang mukmin di dunia, Allah akan melepaskan satu kesusahan darinya pada hari kiamat.”", sum: "HR. Muslim" },
+            { kat: "Mutiara Hadits", teks: "“Tangan yang di atas (memberi) lebih baik daripada tangan yang di bawah (meminta).”", sum: "HR. Bukhari & Muslim" },
+            { kat: "Mutiara Hadits", teks: "“Senyummu di hadapan saudaramu adalah (bernilai) sedekah bagimu.”", sum: "HR. Tirmidzi" },
+            { kat: "Mutiara Hadits", teks: "“Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.”", sum: "HR. Thabrani" },
+            { kat: "Dzikir & Doa Kesembuhan", teks: "“Allahumma rabbannasi adzhibil ba'sa isyfi antasy-syafi la syifa'a illa syifa'uka syifa'an la yughadiru saqaman.” (Doa memohon kesembuhan keluarga/kerabat yang sakit)", sum: "HR. Bukhari" },
+            { kat: "Anjuran Sholawat", teks: "“Barangsiapa yang bershalawat kepadaku sekali, maka Allah akan bershalawat kepadanya sepuluh kali.”", sum: "HR. Muslim" },
+            { kat: "Mutiara Hikmah", teks: "“Niat yang ikhlas adalah kunci diterimanya amalan. Mari jaga kebersihan hati dalam memakmurkan Masjid Al-Ikhlash.”", sum: "DKM Al-Ikhlash Sangkanhurip" },
+            { kat: "Utamakan Sholat", teks: "“Amalan hamba yang pertama kali akan dihisab pada hari kiamat adalah sholatnya.”", sum: "HR. Abu Dawud" },
+            { kat: "Dzikir Pagi & Petang", teks: "“Subhanallahi wa bihamdihi, 'adada khalqihi, wa ridha nafsihi, wa zinata 'arsyihi, wa midada kalimatihi.”", sum: "HR. Muslim" }
+        ];
+
+        function acakPenyegarRohani() {
+            const indeksAcak = Math.floor(Math.random() * daftarHikmah.length);
+            const dataTerpilih = daftarHikmah[indeksAcak];
+            
+            document.getElementById('rohani-kategori').innerText = dataTerpilih.kat;
+            document.getElementById('rohani-teks').innerText = dataTerpilih.teks;
+            document.getElementById('rohani-sumber').innerText = dataTerpilih.sum;
+        }
+
+        window.onload = function() {
             loadJadwalSholat();
             updateWaktuDanCountdown();
             setInterval(updateWaktuDanCountdown, 1000);
-            acakPenyegarRohani(); // <-- Tambahkan baris ini di sini, Pak!
+            acakPenyegarRohani();
         };
     </script>
 </body>
