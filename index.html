@@ -239,6 +239,7 @@
             </div>
         </div>
     </section>
+
     <section>
         <h2 class="section-title">Program Pelayanan Utama</h2>
         <div class="services-grid">
@@ -415,7 +416,7 @@
         </div>
     </section>
 
-   <section class="dakwah-section">
+    <section class="dakwah-section">
         <h2 class="section-title">Artikel & Mutiara Dakwah</h2>
         <div class="dakwah-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; align-items: stretch;">
             
@@ -442,18 +443,18 @@
             <div class="dakwah-card" style="border-top: 4px solid var(--dark-brown); background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
                     <div class="dakwah-date" style="color: var(--danger-red); font-weight: bold; font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px;">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Tantangan Generasi
+                        <i class="fa-solid fa-seedling"></i> Proses Riayah Generasi
                     </div>
                     <h3 style="font-size: 1.15rem; color: var(--dark-brown); margin-bottom: 15px; line-height: 1.4;">
                         Menyelamatkan Nafas Keimanan Gen Z di Era Gempuran Digital
                     </h3>
                     
                     <div style="width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--light-gold); margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
-                        <img src="flyer_promo_wa_masjid.png" alt="Visual Penyelamatan Gen Z" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                        <img src="edited-image.png" alt="Proses Pertumbuhan Pohon Gen Z" style="width: 100%; height: auto; display: block; object-fit: cover;">
                     </div>
                     
                     <p style="font-size: 0.9rem; color: #666; text-align: justify; line-height: 1.5; font-style: italic;">
-                        "Tugas terbesar kita hari ini bukan sekadar memfasilitasi teknologi, melainkan memastikan generasi muda tidak kehilangan kompas arah juang rohaninya di tengah derasnya arus globalisasi."
+                        "Tugas terbesar kita hari ini bukan sekadar memfasilitasi teknologi, melainkan memastikan generasi muda tumbuh secara bertahap dan kokoh dari akar keimanan yang paling dasar hingga menghasilkan buah peradaban yang bermanfaat."
                     </p>
                 </div>
                 <div class="dakwah-author" style="color: var(--medium-brown); font-weight: 600; border-top: 1px dashed #eee; padding-top: 12px; font-size: 0.85rem;">
@@ -463,15 +464,6 @@
 
         </div>
     </section>
-    ```
-
----
-
-### 💡 Catatan Penting untuk Pak Programmer:
-1. **Jumlah Kotak Berubah:** Kodenya sengaja saya ringkas menjadi **2 kotak besar berdampingan** (Kiri teks gagasan Ketua, Kanan visual infografis Gen Z) agar layout web di HP/Laptop terlihat seimbang, lapang, dan tidak sumpek, Pak.
-2. **Cara Memasang Gambar Terpilih:** Pada bagian `<img src="flyer_promo_wa_masjid.png" ...>`, Bapak tinggal ganti tulisan `flyer_promo_wa_masjid.png` dengan **link URL gambar** langsung yang Bapak temukan dari website lain di internet (misalnya link berakhiran `.jpg` atau `.png`), atau bisa juga menggunakan file gambar pohon tumbuh hasil kreasi Bapak yang sudah di-*upload* ke repository GitHub.
-
-Silakan dicoba disalin ke file `index.html`-nya ya, Pak Ade. Penampilan visual baru ini dijamin bakal bikin website kita terlihat makin berkelas dan berbobot!
 
     <section>
         <h2 class="section-title">Dokumentasi & Kegiatan Masjid</h2>
@@ -553,7 +545,7 @@ Silakan dicoba disalin ke file `index.html`-nya ya, Pak Ade. Penampilan visual b
         function updateWaktuDanCountdown() {
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
-            let menit = sekarang.getMinutes().toString().padStart(2, '0');
+            let menit = ultrasonic = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = sekarang.getSeconds().toString().padStart(2, '0');
             
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
@@ -651,7 +643,6 @@ Silakan dicoba disalin ke file `index.html`-nya ya, Pak Ade. Penampilan visual b
             }
         }
 
-        // FUNGSI SEND DIRECT WHATSAPP TERINTEGRASI NOMOR BAPAK
         function kirimSaranWA() {
             const nama = document.getElementById('saran-nama').value;
             const kontak = document.getElementById('saran-kontak').value;
@@ -666,7 +657,6 @@ Silakan dicoba disalin ke file `index.html`-nya ya, Pak Ade. Penampilan visual b
             window.open(`https://wa.me/6289530104144?text=${teksFormat}`, '_blank');
         }
 
-        // DATA & MESIN OTOMATIS PENYEGAR ROHANI ACAK
         const daftarHikmah = [
             { kat: "Ayat Al-Qur'an", teks: "“Maka sesungguhnya beserta kesulitan ada kemudahan. Sesungguhnya beserta kesulitan itu ada kemudahan.”", sum: "QS. Al-Insyirah: 5-6" },
             { kat: "Ayat Al-Qur'an", teks: "“Cukuplah Allah bagi kami dan Dia adalah sebaik-baik pelindung.”", sum: "QS. Ali 'Imran: 173" },
