@@ -876,5 +876,100 @@
         }
     </script>
     <!-- ========================================================================================================== -->
+    <!-- ================= FITUR MEWAH: FLOATING WHATSAPP CHAT MULTI-KONTAK DKM CENTER ================= -->
+    <!-- 1. Tombol Utama Mengapung di Kiri Bawah -->
+    <div id="wa-floating-button" onclick="toggleWaPopup()" style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #25D366; color: #fff; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 25px rgba(37,211,102,0.3); transition: all 0.3s ease; border: 2px solid #fff;">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i>
+        <!-- Notifikasi Badge Mini Biar Interaktif -->
+        <span style="position: absolute; top: -2px; right: -2px; background: #D4AF37; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; animation: pulseBadge 1.5s infinite;"></span>
+    </div>
+
+    <!-- 2. Kotak Pop-up Menu Pilihan Kontak -->
+    <div id="wa-popup-box" style="position: fixed; bottom: 95px; left: 25px; z-index: 9999; width: 320px; background: #fff; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; border: 1px solid rgba(44,26,4,0.1); animation: slideUpWa 0.3s ease-out;">
+        
+        <!-- Bagian Atas Pop-up (Header) -->
+        <div style="background: linear-gradient(135deg, #2C1A04 0%, #170e02 100%); color: #fff; padding: 20px; text-align: left; position: relative; border-bottom: 3px solid var(--primary-gold);">
+            <h4 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.1rem; margin-bottom: 4px;"><i class="fa-solid fa-comments"></i> DKM Layanan Center</h4>
+            <p style="font-size: 0.75rem; color: #eee; margin: 0; opacity: 0.9;">Silakan pilih bidang layanan atau ustadz kami untuk memulai konsultasi &amp; bertanya via WhatsApp:</p>
+            <!-- Tombol Close Silang -->
+            <button onclick="toggleWaPopup()" style="position: absolute; top: 15px; right: 15px; background: transparent; color: #fff; border: none; font-size: 1.1rem; cursor: pointer; opacity: 0.7;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Bagian Isi Pilihan Kontak (Body) -->
+        <div style="padding: 15px; display: flex; flex-direction: column; gap: 10px; max-height: 350px; overflow-y: auto; background: #FAF8F4;">
+            
+            <!-- LAYANAN 1: KONSULTASI AGAMA / FIQIH -->
+            <a href="https://wa.me/6289530104144?text=Assalamualaikum%20Ustadz%2C%20saya%20jamaah%20Masjid%20Al-Ikhlash%20ingin%20bertanya%20mengenai..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
+                <div style="background: #E8F5E9; color: #2e7d32; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div>
+                    <h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0 0 2px 0; font-weight: 600;">Ust. Ede Rohidin S.h.i</h5>
+                    <p style="color: #666; font-size: 0.7rem; margin: 0;">Bidang Imarah / Konsultasi Agama</p>
+                    <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> Online</span>
+                </div>
+            </a>
+
+            <!-- LAYANAN 2: SEKRETARIAT / ADMINISTRASI (PAK ADE) -->
+            <a href="https://wa.me/6289530104144?text=Assalamualaikum%20Pak%20Sekretaris%2C%20saya%20ingin%20bertanya%20mengenai%20administrasi%20masjid..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
+                <div style="background: #E3F2FD; color: #1565C0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                    <i class="fa-solid fa-file-pen"></i>
+                </div>
+                <div>
+                    <h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0 0 2px 0; font-weight: 600;">A. Harya Rukmana</h5>
+                    <p style="color: #666; font-size: 0.7rem; margin: 0;">Sekretaris / Layanan Administrasi</p>
+                    <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> Online</span>
+                </div>
+            </a>
+
+            <!-- LAYANAN 3: SOSIAL KEMATIAN / SOSKEM -->
+            <a href="https://wa.me/62895333477373?text=Assalamualaikum%20Pengurus%20SOSKEM%2C%20saya%20ingin%20melaporkan%20%2F%20bertanya%20terkait..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
+                <div style="background: #FFEBEE; color: #C62828; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                    <i class="fa-solid fa-hands-holding-heart"></i>
+                </div>
+                <div>
+                    <h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0 0 2px 0; font-weight: 600;">Unit SOSKEM Jami'</h5>
+                    <p style="color: #666; font-size: 0.7rem; margin: 0;">Pelayanan Duka &amp; Iuran RW</p>
+                    <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> 24 Jam Siaga</span>
+                </div>
+            </a>
+
+        </div>
+        
+        <!-- Catatan Kaki Pop-up -->
+        <div style="background: #fff; padding: 10px; text-align: center; font-size: 0.65rem; color: #999; border-top: 1px solid #eee;">
+            Masjid Resmi Jami' Al-Ikhlash Katapang
+        </div>
+    </div>
+
+    <!-- Gaya Animasi khusus untuk Pop-up & Badge -->
+    <style>
+        @keyframes pulseBadge {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideUpWa {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        #wa-floating-button:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: #20ba5a;
+        }
+    </style>
+
+    <!-- Logika Buka Tutup Menu Pop-up -->
+    <script>
+        function toggleWaPopup() {
+            const popup = document.getElementById('wa-popup-box');
+            if (popup.style.display === 'none' || popup.style.display === '') {
+                popup.style.display = 'flex';
+            } else {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+    <!-- ======================================================================================================= -->
 </body>
 </html>
