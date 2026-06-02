@@ -219,13 +219,57 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h2>Pusat Ibadah Modern & Ramah Jamaah</h2>
-            <p>Mewujudkan transparansi informasi publik masjid berbasis digital.</p>
+    <section class="hero" style="position: relative; height: 500px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;">
+        <!-- Overlay Gelap Sinematik -->
+        <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.4), rgba(23,14,2,0.85)); z-index: 1;"></div>
+        
+        <!-- Wadah Konten Utama -->
+        <div class="hero-content" style="position: relative; z-index: 2; max-width: 800px; padding: 0 20px; width: 100%;">
+            
+            <!-- KOTAK KACA PREMIUM (GLASSMORPHISM CARD) -->
+            <div style="background: rgba(255, 255, 255, 0.07); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.35); padding: 40px 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative; overflow: hidden; animation: fadeInUp 1s ease-out;">
+                
+                <!-- Ornamen Sudut Emas Khas Islami (Simpel & Minimalis) -->
+                <div style="position: absolute; top: 10px; left: 10px; width: 20px; height: 20px; border-top: 2px solid var(--primary-gold); border-left: 2px solid var(--primary-gold); opacity: 0.7;"></div>
+                <div style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; border-top: 2px solid var(--primary-gold); border-right: 2px solid var(--primary-gold); opacity: 0.7;"></div>
+                <div style="position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; border-bottom: 2px solid var(--primary-gold); border-left: 2px solid var(--primary-gold); opacity: 0.7;"></div>
+                <div style="position: absolute; bottom: 10px; right: 10px; width: 20px; height: 20px; border-bottom: 2px solid var(--primary-gold); border-right: 2px solid var(--primary-gold); opacity: 0.7;"></div>
+
+                <!-- Ikon Kubah/Masjid Pembuka -->
+                <div style="color: var(--primary-gold); font-size: 1.8rem; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(212,175,55,0.5));">
+                    <i class="fa-solid fa-mosque"></i>
+                </div>
+
+                <!-- Judul Utama Efek Emas Menyala -->
+                <h2 style="font-size: 2.8rem; color: #fff; margin-bottom: 15px; font-family: 'Marcellus', serif; font-weight: bold; letter-spacing: 1px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); line-height: 1.2;">
+                    Pusat Ibadah Modern <br><span style="color: var(--primary-gold);">&amp; Ramah Jamaah</span>
+                </h2>
+                
+                <!-- Garis Pembatas Aksen Tengah -->
+                <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 20px auto;"></div>
+
+                <!-- Sub-judul -->
+                <p style="font-size: 1.1rem; color: #fdfaf4; font-weight: 300; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.4); max-width: 600px; margin: 0 auto; letter-spacing: 0.5px;">
+                    Mewujudkan transparansi informasi publik masjid berbasis digital secara amanah dan terintegrasi.
+                </p>
+            </div>
+
         </div>
     </section>
+
+    <!-- Animasi CSS untuk Efek Muncul Halus (Fade In Up) -->
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
     <section style="padding: 25px 5% 5px; background: var(--bg-light);">
         <div style="max-width: 800px; margin: 0 auto; background: #fff; border-radius: 15px; border: 1px solid var(--light-gold); border-left: 6px solid var(--primary-gold); padding: 20px 25px; box-shadow: 0 4px 15px rgba(44,26,4,0.04); display: flex; align-items: flex-start; gap: 15px; transition: 0.3s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
