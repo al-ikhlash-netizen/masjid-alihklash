@@ -400,7 +400,153 @@
 
         </div>
     </section>
+<!-- ================= POIN 3: FITUR REVOLUSIONER - KOTAK TITIP DOA DIGITAL TRANSPARAN ================= -->
+    <section id="titip-doa-section" style="padding: 60px 5%; background: linear-gradient(180deg, #FAF8F4 0%, #F3EFE6 100%); text-align: center;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            
+            <!-- Header Seksi -->
+            <div style="margin-bottom: 30px;">
+                <span style="color: var(--dark-gold); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-hands-praying"></i> Saling Mendoakan Antar Jamaah</span>
+                <h2 style="font-family: 'Marcellus', serif; color: var(--dark-brown); font-size: 2rem; margin-top: 5px; margin-bottom: 10px;">Mading Digital: Ruang Titip Doa</h2>
+                <div style="width: 50px; height: 2px; background: var(--primary-gold); margin: 0 auto 15px auto;"></div>
+                <p style="font-size: 0.95rem; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                    Punya hajat mendesak, sedang sakit, atau tertimpa kesulitan? Titipkan doa Anda di bawah ini secara anonim agar bisa diaminkan bersama oleh jamaah Masjid Jami' Al-Ikhlash.
+                </p>
+            </div>
 
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: start;">
+                
+                <!-- FORM KIRI: INPUT TITIP DOA -->
+                <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(44,26,4,0.05); border-top: 4px solid var(--primary-gold); text-align: left;">
+                    <h3 style="font-size: 1.1rem; color: var(--dark-brown); font-weight: bold; margin-bottom: 15px;"><i class="fa-solid fa-pen-to-square"></i> Tulis Hajat / Doa Anda</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #555; margin-bottom: 5px;">Nama / Inisial (Bisa dikosongkan / Hamba Allah)</label>
+                        <input type="text" id="input-nama-doa" placeholder="Contoh: Hamba Allah / Keluarga RW 18" style="width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; outline: none; box-sizing: border-box; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary-gold)'">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #555; margin-bottom: 5px;">Isi Doa / Permohonan Anda</label>
+                        <textarea id="input-teks-doa" rows="4" placeholder="Tuliskan permohonan doa Anda secara tulus di sini..." style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; outline: none; box-sizing: border-box; resize: none; font-family: inherit; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary-gold)'"></textarea>
+                    </div>
+
+                    <button onclick="kirimDoaDigital()" style="width: 100%; background: var(--dark-brown); color: var(--primary-gold); border: 1px solid var(--primary-gold); padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" onmouseover="this.style.background='var(--medium-brown)', this.style.color='#fff'" onmouseout="this.style.background='var(--dark-brown)', this.style.color='var(--primary-gold)'">
+                        <i class="fa-solid fa-paper-plane"></i> TAYANGKAN DOA SAYA
+                    </button>
+                </div>
+
+                <!-- PAPAN KANAN: LIST DOA YANG BERGULIR NAIK HALUS -->
+                <div style="background: rgba(44, 26, 4, 0.03); border: 1px solid rgba(44,26,4,0.08); border-radius: 15px; padding: 20px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);">
+                    <h3 style="font-size: 1.05rem; color: var(--dark-brown); font-weight: bold; margin-bottom: 15px; text-align: left;"><i class="fa-solid fa-scroll"></i> Untaian Doa Terkini</h3>
+                    
+                    <!-- Container Alur Scroller Lembut -->
+                    <div id="container-papan-doa" style="display: flex; flex-direction: column; gap: 12px; max-height: 330px; overflow-y: auto; padding-right: 5px;">
+                        
+                        <!-- Doa Default 1 -->
+                        <div class="kartu-doa" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: left; border-left: 3px solid #2e7d32; transition: 0.3s;">
+                            <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"Mohon keikhlasan doanya dari para jamaah sekalian, orang tua kami di wilayah RW 19 sedang kritis di rumah sakit. Semoga diangkat penyakitnya. Amin."</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
+                                <span style="font-size: 0.7rem; font-weight: bold; color: var(--dark-gold);"><i class="fa-solid fa-user"></i> Hamba Allah (RW 19)</span>
+                                <button onclick="aminkanDoa(this)" style="background: #fdfaf4; border: 1px solid var(--primary-gold); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; color: var(--dark-brown); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: 0.2s;">
+                                    <i class="fa-solid fa-heart" style="color: #e64a19;"></i> Aamiinkan (<span class="count-amin">42</span>)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Doa Default 2 -->
+                        <div class="kartu-doa" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: left; border-left: 3px solid #2e7d32; transition: 0.3s;">
+                            <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"Ya Allah, mudahkanlah pembangunan menara and pelunasan area parkir Masjid Al-Ikhlash agar jamaah semakin nyaman beribadah."</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
+                                <span style="font-size: 0.7rem; font-weight: bold; color: var(--dark-gold);"><i class="fa-solid fa-user"></i> Jamaah Sangkanhurip</span>
+                                <button onclick="aminkanDoa(this)" style="background: #fdfaf4; border: 1px solid var(--primary-gold); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; color: var(--dark-brown); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: 0.2s;">
+                                    <i class="fa-solid fa-heart" style="color: #e64a19;"></i> Aamiinkan (<span class="count-amin">89</span>)
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGIKA JAVASCRIPT UNTUK MEMPROSES DOA SECARA INTERAKTIF -->
+    <script>
+        // Fungsi memproses aksi klik tombol "Aamiinkan"
+        function aminkanDoa(buttonElement) {
+            const spanHitung = buttonElement.querySelector('.count-amin');
+            let angkaSekarang = parseInt(spanHitung.innerText);
+            
+            // Naikkan angka +1
+            spanHitung.innerText = angkaSekarang + 1;
+            
+            // Efek mewah: kunci tombol and ubah warna tanda sudah mengaminkan
+            buttonElement.style.background = '#2e7d32';
+            buttonElement.style.color = '#fff';
+            buttonElement.style.borderColor = '#2e7d32';
+            buttonElement.disabled = true;
+            buttonElement.innerHTML = `<i class="fa-solid fa-check"></i> Sudah Diaminkan (${angkaSekarang + 1})`;
+
+            // Pemicu efek partikel mini di layar (Opsional)
+            alert("Syukron, Anda telah ikut mengaminkan doa jamaah ini. Semoga dikabulkan oleh Allah SWT.");
+        }
+
+        // Fungsi menambah kiriman doa baru ke mading tanpa database
+        function kirimDoaDigital() {
+            const namaInput = document.getElementById('input-nama-doa').value.trim();
+            const teksInput = document.getElementById('input-teks-doa').value.trim();
+            const containerPapan = document.getElementById('container-papan-doa');
+
+            if (teksInput === "") {
+                alert("Harap tuliskan isi permohonan doa Anda terlebih dahulu.");
+                return;
+            }
+
+            // Atur nama default jika dikosongkan
+            const namaFinal = (namaInput === "") ? "Hamba Allah" : namaInput;
+
+            // Racik struktur kartu doa baru
+            const kartuBaruHtml = `
+                <div class="kartu-doa" style="background: #fffdf5; padding: 15px; border-radius: 10px; box-shadow: 0 4px 12px rgba(212,175,55,0.1); text-align: left; border-left: 3px solid var(--primary-gold); animation: slideInDoa 0.4s ease-out;">
+                    <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"${teksInput}"</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
+                        <span style="font-size: 0.7rem; font-weight: bold; color: var(--dark-brown);"><i class="fa-solid fa-user"></i> ${namaFinal}</span>
+                        <button onclick="aminkanDoa(this)" style="background: #fdfaf4; border: 1px solid var(--primary-gold); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: bold; color: var(--dark-brown); cursor: pointer; display: flex; align-items: center; gap: 4px; transition: 0.2s;">
+                            <i class="fa-solid fa-heart" style="color: #e64a19;"></i> Aamiinkan (<span class="count-amin">1</span>)
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Masukkan doa baru ke baris paling atas papan scroller
+            containerPapan.insertAdjacentHTML('afterbegin', kartuBaruHtml);
+
+            // Bersihkan kolom form input setelah berhasil mengirim
+            document.getElementById('input-nama-doa').value = "";
+            document.getElementById('input-teks-doa').value = "";
+
+            // Beri feedback sejuk ke jamaah
+            alert("Masya Allah, doa Anda telah berhasil ditayangkan di mading digital masjid.");
+        }
+    </script>
+
+    <!-- Gaya Animasi khusus masuknya doa baru -->
+    <style>
+        @keyframes slideInDoa {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        /* Mempercantik scroller papan doa */
+        #container-papan-doa::-webkit-scrollbar {
+            width: 4px;
+        }
+        #container-papan-doa::-webkit-scrollbar-thumb {
+            background: rgba(44, 26, 4, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+    <!-- =================================================================================================== -->
     <section id="donasi">
         <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Scan Disini Untuk melihat laporan</h2>
         <div style="max-width: 900px; margin: 0 auto;">
