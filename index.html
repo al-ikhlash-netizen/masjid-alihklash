@@ -786,5 +786,95 @@
             acakPenyegarRohani();
         };
     </script>
+    <!-- ================= POIN 2: FLOATING MULTI-AUDIO PLAYER (YASIN, AR-RAHMAN, AL-WAQI'AH) ================= -->
+    <div id="audio-floating-box" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; align-items: center; gap: 12px; background: rgba(44, 26, 4, 0.95); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--primary-gold); padding: 10px 18px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: all 0.3s ease;">
+        
+        <!-- Player Audio Utama (Default awal memuat Surat Yasin) -->
+        <audio id="murattal-player" src="https://server11.mp3quran.net/yasser/036.mp3" preload="none" loop></audio>
+        
+        <!-- Gelombang Suara Animasi Bergerak -->
+        <div id="audio-wave" style="display: none; align-items: flex-end; gap: 3px; height: 16px; width: 18px; margin-right: 2px;">
+            <div class="bar-wave" style="width: 3px; height: 100%; background: var(--primary-gold); animation: bounceWave 0.6s ease-in-out infinite alternate;"></div>
+            <div class="bar-wave" style="width: 3px; height: 60%; background: var(--primary-gold); animation: bounceWave 0.4s ease-in-out infinite alternate 0.2s;"></div>
+            <div class="bar-wave" style="width: 3px; height: 80%; background: var(--primary-gold); animation: bounceWave 0.5s ease-in-out infinite alternate 0.1s;"></div>
+        </div>
+
+        <!-- MENU DROPDOWN PILIHAN SURAT MEWAH -->
+        <div style="text-align: left; display: flex; flex-direction: column;">
+            <span style="font-size: 0.6rem; color: var(--primary-gold); font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 2px;">Putar Murottal</span>
+            <select id="surat-selector" onchange="gantiSuratAudio()" style="background: transparent; color: #fff; border: none; font-size: 0.8rem; font-weight: 600; font-family: inherit; cursor: pointer; padding-right: 15px; outline: none;">
+                <option value="https://server11.mp3quran.net/yasser/036.mp3" style="background: var(--dark-brown); color: #fff;">Surat Yasin</option>
+                <option value="https://server11.mp3quran.net/yasser/055.mp3" style="background: var(--dark-brown); color: #fff;">Surat Ar-Rahman</option>
+                <option value="https://server11.mp3quran.net/yasser/056.mp3" style="background: var(--dark-brown); color: #fff;">Surat Al-Waqi'ah</option>
+            </select>
+        </div>
+
+        <!-- Tombol Utama Play / Pause -->
+        <button id="btn-audio-toggle" onclick="toggleMurattal()" style="background: var(--primary-gold); color: #2C1A04; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.3s; box-shadow: 0 0 10px rgba(212,175,55,0.4);">
+            <i id="icon-audio-control" class="fa-solid fa-play" style="margin-left: 2px;"></i>
+        </button>
+    </div>
+
+    <!-- Gaya Animasi Gelombang Suara -->
+    <style>
+        @keyframes bounceWave {
+            0% { height: 30%; }
+            100% { height: 100%; }
+        }
+        #audio-floating-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.2);
+            border-color: #fff;
+        }
+        /* Mempercantik panah dropdown kecil bawaan browser */
+        #surat-selector {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23D4AF37'><path d='M0 2l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+    </style>
+
+    <!-- Logika Javascript Interaktif Multi-Surat -->
+    <script>
+        const player = document.getElementById('murattal-player');
+        const icon = document.getElementById('icon-audio-control');
+        const wave = document.getElementById('audio-wave');
+        const selector = document.getElementById('surat-selector');
+
+        function toggleMurattal() {
+            if (player.paused) {
+                player.play();
+                icon.className = 'fa-solid fa-pause';
+                icon.style.marginLeft = '0px';
+                wave.style.display = 'flex';
+            } else {
+                player.pause();
+                icon.className = 'fa-solid fa-play';
+                icon.style.marginLeft = '2px';
+                wave.style.display = 'none';
+            }
+        }
+
+        function gantiSuratAudio() {
+            // Ambil URL file mp3 surat yang dipilih dari dropdown
+            const urlSuratBaru = selector.value;
+            
+            // Cek apakah posisi player sebelumnya sedang berbunyi atau tidak
+            const statusSedangPlay = !player.paused;
+
+            // Masukkan link musik baru ke dalam pemutar
+            player.src = urlSuratBaru;
+            player.load();
+
+            // Jika sebelumnya sedang berbunyi, langsung otomatis mainkan surat yang baru ganti
+            if (statusSedangPlay) {
+                player.play();
+            }
+        }
+    </script>
+    <!-- ========================================================================================================== -->
 </body>
 </html>
