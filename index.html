@@ -104,9 +104,6 @@
         .angka-soskem-jumbo { font-size: 3rem; font-family: 'Marcellus', serif; color: #2e7d32; font-weight: bold; }
         .infografis-soskem-img { width: 100%; height: auto; border-radius: 10px; border: 1px solid #ccc; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-top: 15px; }
 
-        /* 6. SCAN DONASI QRIS LAMA */
-        #donasi { background: #2C1A04; color: #fff; padding: 60px 5%; text-align: center; }
-
         /* 7. STRUKTUR ORGANISASI MASJID */
         .dkm-section { background: #F4EFE3; padding: 60px 5%; text-align: center; }
         .leaders-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
@@ -152,7 +149,7 @@
         .sholat-name { font-size: 0.85rem; color: var(--primary-gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
         .sholat-time { font-size: 1.4rem; font-family: 'Marcellus', serif; font-weight: bold; }
 
-        /* 11. FOOTER WITH ADVERTISEMENT SECTION */
+        /* 11. FOOTER ADVERTISEMENT */
         footer { background: var(--dark-brown); color: #fff; padding: 60px 5% 20px; border-top: 2px solid var(--primary-gold); }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
         .footer-fassad { width: 100%; max-width: 260px; border-radius: 8px; border: 1px solid var(--primary-gold); margin-bottom: 15px; display: block; }
@@ -215,7 +212,7 @@
         </div>
         <div style="display: flex; gap: 10px; align-items: center;">
             <a href="kas_mei2026.html" style="background: transparent; color: var(--primary-gold); padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary-gold); transition: 0.3s;">LAPORAN KAS</a>
-            <a href="#donasi" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;">SCAN DONASI</a>
+            <a href="#titip-doa-section" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;">TITIP DOA</a>
         </div>
     </header>
 
@@ -294,7 +291,6 @@
         </div>
     </section>
 
-    <!-- SEKSI TRANSPARANSI KEUANGAN YANG SUDAH DISESUAIKAN -->
     <section id="laporan-keuangan-section" style="padding: 60px 0; background: #faf8f4;">
         <h2 class="section-title">Transparansi Keuangan Masjid</h2>
         
@@ -311,26 +307,25 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Saldo Awal (Per 29 Mei 2026)</td>
-                            <td style="text-align: right; font-weight: 600;">Rp 2.578.000</td>
+                            <td>Saldo Awal (Per 22 Mei 2026)</td>
+                            <td style="text-align: right; font-weight: 600;">Rp 1.228.000</td>
                         </tr>
                         <tr>
-                            <td>Pemasukan Donatur Bulanan Tetap</td>
-                            <td style="text-align: right;" class="warna-pemasukan">+ Rp 1.400.000</td>
+                            <td>Pemasukan Kencleng Idul Adha</td>
+                            <td style="text-align: right;" class="warna-pemasukan">+ Rp 1.500.000</td>
                         </tr>
                         <tr>
-                            <td>Pengeluaran Sosial DKM dan Operasional</td>
-                            <td style="text-align: right;" class="warna-pengeluaran">- Rp 1.280.000 </td>
+                            <td>Pengeluaran Kafalah Sorban Idul Adha</td>
+                            <td style="text-align: right;" class="warna-pengeluaran">- Rp 150.000</td>
                         </tr>
                         <tr class="baris-total-dkm">
-                            <td style="color: var(--dark-brown);">TOTAL SALDO AKHIR EFEKTIF DKM</td>
-                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.3rem;">Rp 2.698.000</td>
+                            <td style="color: var(--dark-brown);">TOTAL SALDO AKHIR OPERASIONAL DKM</td>
+                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.3rem;">Rp 2.578.000</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- SUB-SEKSI UNDUH REKAPITULASI MENGGUNAKAN QR CODE DAN DESKRIPSI BARU -->
             <div style="background: #fff; border-radius: 12px; border: 1px solid var(--primary-gold); padding: 30px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; text-align: center;">
                 <h3 style="font-size: 1.4rem; color: var(--dark-brown); margin-bottom: 15px; font-weight: bold;">Download Rekapitulasi Keuangan</h3>
                 <div style="max-width: 250px; margin: 0 auto 15px auto; border: 4px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 10px; overflow: hidden;">
@@ -387,7 +382,6 @@
         </div>
     </section>
 
-    <!-- ================= PAPAN TITIP DOA DIGITAL ================= -->
     <section id="titip-doa-section" style="padding: 60px 5%; background: linear-gradient(180deg, #FAF8F4 0%, #F3EFE6 100%); text-align: center;">
         <div style="max-width: 900px; margin: 0 auto;">
             <div style="margin-bottom: 30px;">
@@ -488,16 +482,6 @@
         #container-papan-doa::-webkit-scrollbar { width: 4px; }
         #container-papan-doa::-webkit-scrollbar-thumb { background: rgba(44, 26, 4, 0.2); border-radius: 10px; }
     </style>
-    
-    <!-- SEKSI QR LAPORAN JARIYAH (KUNCI AMAN) -->
-    <section id="donasi">
-        <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Scan Disini Untuk melihat laporan</h2>
-        <div style="max-width: 900px; margin: 0 auto;">
-            <img src="RekapitulasiMEI.png" style="width: 100%; border-radius: 12px; border: 3px solid var(--primary-gold); margin-bottom: 30px;">
-            <p style="margin-bottom: 30px; color: #f0e6d2;">Scan QRIS di bawah ini untuk sedekah jariyah operasional umum DKM:</p>
-            <img src="Qris.jpg" style="width: 280px; border-radius: 10px; border: 4px solid var(--white);">
-        </div>
-    </section>
 
     <section class="dkm-section">
         <h3 style="font-family: 'Marcellus', serif; font-size: 1.6rem; color: var(--dark-gold); margin-bottom: 20px;">Susunan Pembina (Sesepuh Masjid)</h3>
@@ -563,7 +547,6 @@
         </div>
     </section>
 
-    <!-- ARTIKEL & DAKWAH -->
     <section class="dakwah-section">
         <h2 class="section-title">Artikel &amp; Mutiara Dakwah</h2>
         <div class="dakwah-grid">
@@ -628,13 +611,12 @@
                     </p>
                 </div>
                 <div class="dakwah-author" style="color: var(--primary-gold); font-weight: 600; border-top: 1px solid rgba(212,175,55,0.1); padding-top: 12px; font-size: 0.85rem; margin-top: 15px; font-style: normal;">
-                    <i class="fa-solid fa-calendar-days"></i> Fokus Gerakan: Riayah Pemuda &amp; Kajian Rut
+                    <i class="fa-solid fa-calendar-days"></i> Fokus Gerakan: Riayah Pemuda &amp; Kajian Rutin
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERI -->
     <section>
         <h2 class="section-title">Dokumentasi &amp; Kegiatan Masjid</h2>
         <div class="gallery-grid">
@@ -653,7 +635,6 @@
         </div>
     </section>
 
-    <!-- JADWAL SHOLAT -->
     <section class="sholat-section-bottom">
         <h2 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.8rem;">Jadwal Sholat Hari Ini</h2>
         <div style="margin: 15px auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
@@ -695,7 +676,7 @@
         </div>
         <div class="iklan-dev-box">
             <p class="iklan-dev-text">
-                Website dan sistem adzan otomatis digital ini dirancang &amp; dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi dan sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
+                Website dan sistem adzan otomatis digital ini dirancang &amp; dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi and sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
             </p>
             <a href="https://adeharya.github.io/flyer-jasa-programing-" class="btn-iklan-portofolio" target="_blank">
                 <i class="fa-solid fa-laptop-code"></i> LIHAT JASA &amp; PORTOFOLIO PROGRAMMING
@@ -785,7 +766,6 @@
         window.onload = function() { loadJadwalSholat(); updateWaktuDanCountdown(); setInterval(updateWaktuDanCountdown, 1000); acakPenyegarRohani(); };
     </script>
 
-    <!-- FLOATING MULTI-AUDIO PLAYER -->
     <div id="audio-floating-box" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; align-items: center; gap: 12px; background: rgba(44, 26, 4, 0.95); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--primary-gold); padding: 10px 18px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: all 0.3s ease;">
         <audio id="murattal-player" src="https://server11.mp3quran.net/yasser/036.mp3" preload="none" loop></audio>
         <div id="audio-wave" style="display: none; align-items: flex-end; gap: 3px; height: 16px; width: 18px; margin-right: 2px;">
@@ -815,7 +795,6 @@
         function gantiSuratAudio() { const urlSuratBaru = selector.value; const statusSedangPlay = !player.paused; player.src = urlSuratBaru; player.load(); if (statusSedangPlay) { player.play(); } }
     </script>
 
-    <!-- FLOATING WHATSAPP -->
     <div id="wa-floating-button" onclick="toggleWaPopup()" style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #25D366; color: #fff; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 25px rgba(37,211,102,0.3); transition: all 0.3s ease; border: 2px solid #fff;">
         <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i>
         <span style="position: absolute; top: -2px; right: -2px; background: #D4AF37; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; animation: pulseBadge 1.5s infinite;"></span>
