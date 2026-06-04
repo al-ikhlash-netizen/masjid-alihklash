@@ -50,19 +50,12 @@
         .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 50s linear infinite; padding-left: 100%; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        <header>
-        <div class="logo-area">
-            <img src="Logo%20masjid.png" alt="Logo" class="logo-img">
-            <div class="brand-text">
-                <h1>AL-IKHLASH</h1>
-                <p style="font-size: 0.8rem; color: var(--light-gold);">Sangkanhurip, Kab. Bandung</p>
-            </div>
-        </div>
-        <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="kas_mei2026.html" style="background: transparent; color: var(--primary-gold); padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary-gold); transition: 0.3s;">LAPORAN KAS</a>
-            <a href="#donasi" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;">SCAN DONASI</a>
-        </div>
-    </header>
+        /* 2. HEADER HEADER STYLE */
+        header { background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%); color: #fff; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--primary-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-img { width: 65px; height: 65px; object-fit: contain; border-radius: 50%; border: 2px solid var(--primary-gold); background: #fff; }
+        .brand-text h1 { font-size: 1.5rem; color: var(--primary-gold); line-height: 1.2; }
+
         /* 3. HERO (VISUAL ATAS) */
         .hero { position: relative; height: 450px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; }
         .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.3), rgba(44,26,4,0.85)); }
@@ -221,41 +214,33 @@
             </div>
         </div>
         <div style="display: flex; gap: 10px; align-items: center;">
-            <a href="#laporan-keuangan-section" style="background: transparent; color: var(--primary-gold); padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary-gold); transition: 0.3s;">LAPORAN KAS</a>
+            <a href="kas_mei2026.html" style="background: transparent; color: var(--primary-gold); padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; border: 1px solid var(--primary-gold); transition: 0.3s;">LAPORAN KAS</a>
             <a href="#donasi" style="background: var(--primary-gold); color: #000; padding: 8px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;">SCAN DONASI</a>
         </div>
     </header>
 
     <section class="hero" style="position: relative; height: 500px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;">
-        <!-- Overlay Gelap Sinematik -->
         <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.4), rgba(23,14,2,0.85)); z-index: 1;"></div>
         
-        <!-- Wadah Konten Utama -->
         <div class="hero-content" style="position: relative; z-index: 2; max-width: 800px; padding: 0 20px; width: 100%;">
             
-            <!-- KOTAK KACA PREMIUM (GLASSMORPHISM CARD) -->
             <div style="background: rgba(255, 255, 255, 0.07); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.35); padding: 40px 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative; overflow: hidden; animation: fadeInUp 1s ease-out;">
                 
-                <!-- Ornamen Sudut Emas Khas Islami (Simpel & Minimalis) -->
                 <div style="position: absolute; top: 10px; left: 10px; width: 20px; height: 20px; border-top: 2px solid var(--primary-gold); border-left: 2px solid var(--primary-gold); opacity: 0.7;"></div>
                 <div style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; border-top: 2px solid var(--primary-gold); border-right: 2px solid var(--primary-gold); opacity: 0.7;"></div>
                 <div style="position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; border-bottom: 2px solid var(--primary-gold); border-left: 2px solid var(--primary-gold); opacity: 0.7;"></div>
                 <div style="position: absolute; bottom: 10px; right: 10px; width: 20px; height: 20px; border-bottom: 2px solid var(--primary-gold); border-right: 2px solid var(--primary-gold); opacity: 0.7;"></div>
 
-                <!-- Ikon Kubah/Masjid Pembuka -->
                 <div style="color: var(--primary-gold); font-size: 1.8rem; margin-bottom: 15px; filter: drop-shadow(0 0 8px rgba(212,175,55,0.5));">
                     <i class="fa-solid fa-mosque"></i>
                 </div>
 
-                <!-- Judul Utama Efek Emas Menyala -->
                 <h2 style="font-size: 2.8rem; color: #fff; margin-bottom: 15px; font-family: 'Marcellus', serif; font-weight: bold; letter-spacing: 1px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); line-height: 1.2;">
                     Pusat Ibadah Modern <br><span style="color: var(--primary-gold);">&amp; Ramah Jamaah</span>
                 </h2>
                 
-                <!-- Garis Pembatas Aksen Tengah -->
                 <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 20px auto;"></div>
 
-                <!-- Sub-judul -->
                 <p style="font-size: 1.1rem; color: #fdfaf4; font-weight: 300; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.4); max-width: 600px; margin: 0 auto; letter-spacing: 0.5px;">
                     Mewujudkan transparansi informasi publik masjid berbasis digital secara amanah dan terintegrasi.
                 </p>
@@ -264,7 +249,6 @@
         </div>
     </section>
 
-    <!-- Animasi CSS untuk Efek Muncul Halus (Fade In Up) -->
     <style>
         @keyframes fadeInUp {
             from {
@@ -359,9 +343,9 @@
             <div class="box-renovasi-split" id="kas-renovasi">
                 <div class="info-renovasi-teks">
                     <div class="label-kas-mini">Kas Khusus Alokasi Fisik</div>
-                    <h3 style="font-size: 1.5rem; color: var(--medium-brown); margin-bottom: 5px;">II. Dana Pembangunan & Renovasi</h3>
+                    <h3 style="font-size: 1.5rem; color: var(--medium-brown); margin-bottom: 5px;">II. Dana Pembangunan &amp; Renovasi</h3>
                     <div class="angka-kas-jumbo">Rp 19.800.000</div>
-                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 15px;">Alokasi dana ini dikhususkan sepenuhnya untuk pemeliharaan fasilitas utama, perluasan area ibadah, dan renovasi fisik Masjid Jami' Al-Ikhlash.</p>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 15px;">Alokasi dana ini dikhususkan sepenuhnya untuk pemeliharaan fasilitas utama, perluasan area ibadah, and renovasi fisik Masjid Jami' Al-Ikhlash.</p>
                     
                     <div class="label-kas-mini" style="font-size: 0.8rem; margin:0;">Progres Target Pendanaan Tahap Ini:</div>
                     <div class="progress-renovasi-container">
@@ -387,17 +371,14 @@
                 </div>
                 <p style="font-size: 0.95rem; color: #555; margin-bottom: 20px;">Pos anggaran mandiri yang dihimpun dari iuran berkala jamaah dikoordinasikan oleh Bidang Sosial DKM untuk penyediaan kain kafan, akomodasi, biaya penggali kubur, hingga santunan duka secara instan.</p>
                 
-                <div class="label-kas-mini" style="color:#2e7d32; border-top: 1px dashed #ccc; padding-top: 15px;"><i class="fa-solid fa-circle-info"></i> Panduan Alur Pelayanan & Sinkronisasi Dana SOSKEM:</div>
+                <div class="label-kas-mini" style="color:#2e7d32; border-top: 1px dashed #ccc; padding-top: 15px;"><i class="fa-solid fa-circle-info"></i> Panduan Alur Pelayanan &amp; Sinkronisasi Dana SOSKEM:</div>
                 <img src="Soskem.png" class="infografis-soskem-img" alt="Alur Iuran Sosial Kematian Masjid Al-Ikhlash">
-                <!-- AREA TOMBOL UNDUH REKAP IURAN PDF PER RW -->
                 <div style="border-top: 1px dashed #2e7d32; margin-top: 20px; padding-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
                     
-                    <!-- TOMBOL PDF RW 18 -->
                     <a href="REKAPITULASI-IURAN-SOSKEMRW18.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2e7d32; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; border: 1px solid #1e5220; transition: 0.3s; box-shadow: 0 4px 10px rgba(46,125,50,0.15);" onmouseover="this.style.background='#1e5220', this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#2e7d32', this.style.transform='translateY(0)'">
                         <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem; color: #ffdde0;"></i> REKAP IURAN SOSKEM RW 18 (PDF)
                     </a>
 
-                    <!-- TOMBOL PDF RW 19 -->
                     <a href="REKAPITULASI-IURAN-SOSKEMRW19.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2e7d32; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; border: 1px solid #1e5220; transition: 0.3s; box-shadow: 0 4px 10px rgba(46,125,50,0.15);" onmouseover="this.style.background='#1e5220', this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#2e7d32', this.style.transform='translateY(0)'">
                         <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem; color: #ffdde0;"></i> REKAP IURAN SOSKEM RW 19 (PDF)
                     </a>
@@ -407,11 +388,10 @@
 
         </div>
     </section>
-<!-- ================= POIN 3: FITUR REVOLUSIONER - KOTAK TITIP DOA DIGITAL TRANSPARAN ================= -->
+
     <section id="titip-doa-section" style="padding: 60px 5%; background: linear-gradient(180deg, #FAF8F4 0%, #F3EFE6 100%); text-align: center;">
         <div style="max-width: 900px; margin: 0 auto;">
             
-            <!-- Header Seksi -->
             <div style="margin-bottom: 30px;">
                 <span style="color: var(--dark-gold); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-hands-praying"></i> Saling Mendoakan Antar Jamaah</span>
                 <h2 style="font-family: 'Marcellus', serif; color: var(--dark-brown); font-size: 2rem; margin-top: 5px; margin-bottom: 10px;">Mading Digital: Ruang Titip Doa</h2>
@@ -423,7 +403,6 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: start;">
                 
-                <!-- FORM KIRI: INPUT TITIP DOA -->
                 <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(44,26,4,0.05); border-top: 4px solid var(--primary-gold); text-align: left;">
                     <h3 style="font-size: 1.1rem; color: var(--dark-brown); font-weight: bold; margin-bottom: 15px;"><i class="fa-solid fa-pen-to-square"></i> Tulis Hajat / Doa Anda</h3>
                     
@@ -442,14 +421,11 @@
                     </button>
                 </div>
 
-                <!-- PAPAN KANAN: LIST DOA YANG BERGULIR NAIK HALUS -->
                 <div style="background: rgba(44, 26, 4, 0.03); border: 1px solid rgba(44,26,4,0.08); border-radius: 15px; padding: 20px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);">
                     <h3 style="font-size: 1.05rem; color: var(--dark-brown); font-weight: bold; margin-bottom: 15px; text-align: left;"><i class="fa-solid fa-scroll"></i> Untaian Doa Terkini</h3>
                     
-                    <!-- Container Alur Scroller Lembut -->
                     <div id="container-papan-doa" style="display: flex; flex-direction: column; gap: 12px; max-height: 330px; overflow-y: auto; padding-right: 5px;">
                         
-                        <!-- Doa Default 1 -->
                         <div class="kartu-doa" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: left; border-left: 3px solid #2e7d32; transition: 0.3s;">
                             <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"Mohon keikhlasan doanya dari para jamaah sekalian, orang tua kami di wilayah RW 20 sedang kritis di rumah sakit. Semoga diangkat penyakitnya. Amin."</p>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
@@ -460,7 +436,6 @@
                             </div>
                         </div>
 
-                        <!-- Doa Default 2 -->
                         <div class="kartu-doa" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: left; border-left: 3px solid #2e7d32; transition: 0.3s;">
                             <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"Ya Allah, mudahkanlah pembangunan menara Masjid Al-Ikhlash agar jamaah semakin nyaman beribadah."</p>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
@@ -478,7 +453,6 @@
         </div>
     </section>
 
-    <!-- LOGIKA JAVASCRIPT UNTUK MEMPROSES DOA SECARA INTERAKTIF -->
     <script>
         // Fungsi memproses aksi klik tombol "Aamiinkan"
         function aminkanDoa(buttonElement) {
@@ -538,7 +512,6 @@
         }
     </script>
 
-    <!-- Gaya Animasi khusus masuknya doa baru -->
     <style>
         @keyframes slideInDoa {
             from { opacity: 0; transform: translateX(20px); }
@@ -553,7 +526,6 @@
             border-radius: 10px;
         }
     </style>
-    <!-- =================================================================================================== -->
     <section id="donasi">
         <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Scan Disini Untuk melihat laporan</h2>
         <div style="max-width: 900px; margin: 0 auto;">
@@ -617,7 +589,7 @@
 
     <section class="feedback-section" id="saran" style="padding: 40px 5%; background: var(--white);">
         <div class="feedback-box">
-            <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik & Saran)</h3>
+            <h3 style="text-align: center; margin-bottom: 15px;">Suara Jamaah (Kritik &amp; Saran)</h3>
             <div style="font-family: inherit;">
                 <input type="text" id="saran-nama" placeholder="Nama Lengkap..." required>
                 <input type="text" id="saran-kontak" placeholder="WhatsApp / Email..." required>
@@ -626,30 +598,25 @@
             </div>
         </div>
     </section>
-<!-- ================= SEKSI ARTIKEL & MUTIARA DAKWAH (YANG SUDAH DISELARASKAN) ================= -->
+
     <section class="dakwah-section">
         <h2 class="section-title">Artikel &amp; Mutiara Dakwah</h2>
         <div class="dakwah-grid">
             
-            <!-- KARTU ARTIKEL UST. INDRA (TIGA PILAR MANAJEMEN) -->
             <div class="dakwah-card" style="border-top: 4px solid var(--primary-gold);">
                 <div>
                     <div class="dakwah-date" style="background: var(--light-gold); color: var(--dark-brown); display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 10px; font-weight: bold; text-transform: none;">Gagasan &amp; Manajemen</div>
                     
-                    <!-- Judul Baru Sesuai Artikel Indra -->
                     <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; color: var(--dark-brown); line-height: 1.4;">Tiga Pilar Manajemen Langit: Komunikasi, Koordinasi, dan Transparansi dalam Organisasi Keagamaan</h3>
                     
-                    <!-- Ringkasan Paragraf 1 Baru -->
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px; text-align: justify; color: #555;">
                         Mengelola sebuah organisasi keagamaan—khususnya DKM Masjid—bukanlah sekadar urusan mengatur jadwal muadzin atau membersihkan karpet shalat. Lebih dari itu, ia adalah bentuk khidmah (pelayanan) kepada umat yang menuntut profesionalisme tertinggi. Ujung tombak keberhasilannya terletak pada tiga pilar utama: Komunikasi, Koordinasi, dan Transparansi.
                     </p>
                     
-                    <!-- Ringkasan Paragraf 2 Baru -->
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; text-align: justify; color: #555;">
                         Melalui keterbukaan komunikasi dengan jamaah, koordinasi yang solid antar-wilayah RW 18 &amp; RW 19, serta transparansi pelaporan dana iuran SOSKEM yang amanah, Masjid Jami' Al-Ikhlash kini bersiap menjelma menjadi pusat peradaban umat yang modern, akuntabel, dan penuh keberkahan melintasi generasi.
                     </p>
                     
-                    <!-- Link Mengarah ke File Artikel Indra Baru -->
                     <a href="artikel_indra.html" style="display: inline-flex; align-items: center; gap: 5px; color: var(--dark-gold); font-weight: 600; text-decoration: none; margin-bottom: 15px; font-size: 0.9rem;">
                         Baca Selengkapnya (Utuh) <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -659,7 +626,6 @@
                 </div>
             </div>
 
-            <!-- KARTU KEDUA (Mutiara Hadits / Kotak Cokelat Bapak yang Ada Tulisan ADA JUGA INI) -->
             <div class="dakwah-card" style="border-top: 4px solid var(--dark-brown); background: #2C1A04; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; flex-direction: column; justify-content: space-between; color: #fff; text-align: center; position: relative; overflow: hidden;">
                 <div>
                     
@@ -727,7 +693,7 @@
     </section>
 
     <section>
-        <h2 class="section-title">Dokumentasi & Kegiatan Masjid</h2>
+        <h2 class="section-title">Dokumentasi &amp; Kegiatan Masjid</h2>
         <div class="gallery-grid">
             <div class="gallery-item"><img src="Mihrob.jpg"><div class="gallery-cap">Mihrob Masjid</div></div>
             <div class="gallery-item"><img src="MT.jpeg"><div class="gallery-cap">Majelis Taklim Jamaah</div></div>
@@ -759,7 +725,7 @@
             </div>
         </div>
         
-        <p style="font-size: 0.9rem; opacity: 0.8;">Wilayah Sangkanhurip, Katapang & Sekitarnya (Kab. Bandung)</p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">Wilayah Sangkanhurip, Katapang &amp; Sekitarnya (Kab. Bandung)</p>
         
         <div class="sholat-cards-container" id="prayer-times-box">
             <div class="sholat-card-item" id="card-subuh"><div class="sholat-name">Subuh</div><div class="sholat-time" id="subuh">-:-</div></div>
@@ -778,7 +744,7 @@
                 <p style="font-size: 0.85rem; color: #d1c7bd;">Kp. Ciborerang RT 001 RW 019, Sangkanhurip, Katapang, Kab. Bandung 40971</p>
             </div>
             <div>
-                <h3>Kontak & Media Resmi</h3>
+                <h3>Kontak &amp; Media Resmi</h3>
                 <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/6289530104144" style="color: inherit; text-decoration: none;">0895-3010-4144 (DKM Center)</a></div>
                 <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/62895333477373" style="color: inherit; text-decoration: none;">0895-3334-77373 (Layanan)</a></div>
                 <div class="contact-item"><i class="fa-regular fa-envelope"></i><span>alikhlashmasjidjami@gmail.com</span></div>
@@ -787,27 +753,28 @@
         </div>
         
         <div style="text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.8rem; color: #8c7e74;">
-            &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital & Transparan.
+            &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital &amp; Transparan.
         </div>
 
         <div class="iklan-dev-box">
             <p class="iklan-dev-text">
-                Website dan sistem adzan otomatis digital ini dirancang & dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi dan sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
+                Website dan sistem adzan otomatis digital ini dirancang &amp; dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi dan sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
             </p>
             <a href="https://adeharya.github.io/flyer-jasa-programing-" class="btn-iklan-portofolio" target="_blank">
-                <i class="fa-solid fa-laptop-code"></i> LIHAT JASA & PORTOFOLIO PROGRAMMING
+                <i class="fa-solid fa-laptop-code"></i> LIHAT JASA &amp; PORTOFOLIO PROGRAMMING
             </a>
         </div>
     </footer>
-<!-- Ruang Bernapas Tambahan Agar Konten Tidak Tertutup Tombol Floating di HP -->
-<div style="height: 90px; background: #FAF8F4;"></div>
+
+    <div style="height: 90px; background: #FAF8F4;"></div>
+
     <script>
         let jadwalSholatHariIni = {};
 
-       function updateWaktuDanCountdown() {
+        function updateWaktuDanCountdown() {
             const sekarang = new Date();
             let jam = sekarang.getHours().toString().padStart(2, '0');
-            let menit = sekarang.getMinutes().toString().padStart(2, '0'); // Sudah dibersihkan dari kata 'ultrasonic'
+            let menit = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = window.ultrasonic = sekarang.getSeconds().toString().padStart(2, '0'); 
             
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
@@ -950,20 +917,16 @@
             acakPenyegarRohani();
         };
     </script>
-    <!-- ================= POIN 2: FLOATING MULTI-AUDIO PLAYER (YASIN, AR-RAHMAN, AL-WAQI'AH) ================= -->
+
     <div id="audio-floating-box" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; align-items: center; gap: 12px; background: rgba(44, 26, 4, 0.95); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--primary-gold); padding: 10px 18px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        
-        <!-- Player Audio Utama (Default awal memuat Surat Yasin) -->
         <audio id="murattal-player" src="https://server11.mp3quran.net/yasser/036.mp3" preload="none" loop></audio>
         
-        <!-- Gelombang Suara Animasi Bergerak -->
         <div id="audio-wave" style="display: none; align-items: flex-end; gap: 3px; height: 16px; width: 18px; margin-right: 2px;">
             <div class="bar-wave" style="width: 3px; height: 100%; background: var(--primary-gold); animation: bounceWave 0.6s ease-in-out infinite alternate;"></div>
             <div class="bar-wave" style="width: 3px; height: 60%; background: var(--primary-gold); animation: bounceWave 0.4s ease-in-out infinite alternate 0.2s;"></div>
             <div class="bar-wave" style="width: 3px; height: 80%; background: var(--primary-gold); animation: bounceWave 0.5s ease-in-out infinite alternate 0.1s;"></div>
         </div>
 
-        <!-- MENU DROPDOWN PILIHAN SURAT MEWAH -->
         <div style="text-align: left; display: flex; flex-direction: column;">
             <span style="font-size: 0.6rem; color: var(--primary-gold); font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 2px;">Putar Murottal</span>
             <select id="surat-selector" onchange="gantiSuratAudio()" style="background: transparent; color: #fff; border: none; font-size: 0.8rem; font-weight: 600; font-family: inherit; cursor: pointer; padding-right: 15px; outline: none;">
@@ -973,13 +936,11 @@
             </select>
         </div>
 
-        <!-- Tombol Utama Play / Pause -->
         <button id="btn-audio-toggle" onclick="toggleMurattal()" style="background: var(--primary-gold); color: #2C1A04; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.3s; box-shadow: 0 0 10px rgba(212,175,55,0.4);">
             <i id="icon-audio-control" class="fa-solid fa-play" style="margin-left: 2px;"></i>
         </button>
     </div>
 
-    <!-- Gaya Animasi Gelombang Suara -->
     <style>
         @keyframes bounceWave {
             0% { height: 30%; }
@@ -990,7 +951,6 @@
             box-shadow: 0 12px 30px rgba(212,175,55,0.2);
             border-color: #fff;
         }
-        /* Mempercantik panah dropdown kecil bawaan browser */
         #surat-selector {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -1001,7 +961,6 @@
         }
     </style>
 
-    <!-- Logika Javascript Interaktif Multi-Surat -->
     <script>
         const player = document.getElementById('murattal-player');
         const icon = document.getElementById('icon-audio-control');
@@ -1023,46 +982,28 @@
         }
 
         function gantiSuratAudio() {
-            // Ambil URL file mp3 surat yang dipilih dari dropdown
             const urlSuratBaru = selector.value;
-            
-            // Cek apakah posisi player sebelumnya sedang berbunyi atau tidak
             const statusSedangPlay = !player.paused;
-
-            // Masukkan link musik baru ke dalam pemutar
             player.src = urlSuratBaru;
             player.load();
-
-            // Jika sebelumnya sedang berbunyi, langsung otomatis mainkan surat yang baru ganti
             if (statusSedangPlay) {
                 player.play();
             }
         }
     </script>
-    <!-- ========================================================================================================== -->
-    <!-- ================= FITUR MEWAH: FLOATING WHATSAPP CHAT MULTI-KONTAK DKM CENTER ================= -->
-    <!-- 1. Tombol Utama Mengapung di Kiri Bawah -->
     <div id="wa-floating-button" onclick="toggleWaPopup()" style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #25D366; color: #fff; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 25px rgba(37,211,102,0.3); transition: all 0.3s ease; border: 2px solid #fff;">
         <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i>
-        <!-- Notifikasi Badge Mini Biar Interaktif -->
         <span style="position: absolute; top: -2px; right: -2px; background: #D4AF37; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; animation: pulseBadge 1.5s infinite;"></span>
     </div>
 
-    <!-- 2. Kotak Pop-up Menu Pilihan Kontak -->
     <div id="wa-popup-box" style="position: fixed; bottom: 95px; left: 25px; z-index: 9999; width: 320px; background: #fff; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); display: none; flex-direction: column; overflow: hidden; border: 1px solid rgba(44,26,4,0.1); animation: slideUpWa 0.3s ease-out;">
-        
-        <!-- Bagian Atas Pop-up (Header) -->
         <div style="background: linear-gradient(135deg, #2C1A04 0%, #170e02 100%); color: #fff; padding: 20px; text-align: left; position: relative; border-bottom: 3px solid var(--primary-gold);">
             <h4 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.1rem; margin-bottom: 4px;"><i class="fa-solid fa-comments"></i> DKM Layanan Center</h4>
             <p style="font-size: 0.75rem; color: #eee; margin: 0; opacity: 0.9;">Silakan pilih bidang layanan atau ustadz kami untuk memulai konsultasi &amp; bertanya via WhatsApp:</p>
-            <!-- Tombol Close Silang -->
             <button onclick="toggleWaPopup()" style="position: absolute; top: 15px; right: 15px; background: transparent; color: #fff; border: none; font-size: 1.1rem; cursor: pointer; opacity: 0.7;"><i class="fa-solid fa-xmark"></i></button>
         </div>
 
-        <!-- Bagian Isi Pilihan Kontak (Body) -->
         <div style="padding: 15px; display: flex; flex-direction: column; gap: 10px; max-height: 350px; overflow-y: auto; background: #FAF8F4;">
-            
-            <!-- LAYANAN 1: KONSULTASI AGAMA / FIQIH -->
             <a href="https://wa.me/6281296305543?text=Assalamualaikum%20Ustadz%2C%20saya%20jamaah%20Masjid%20Al-Ikhlash%20ingin%20bertanya%20mengenai..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
                 <div style="background: #E8F5E9; color: #2e7d32; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
                     <i class="fa-solid fa-user-tie"></i>
@@ -1074,7 +1015,6 @@
                 </div>
             </a>
 
-            <!-- LAYANAN 2: SEKRETARIAT / ADMINISTRASI (PAK ADE) -->
             <a href="https://wa.me/6289530104144?text=Assalamualaikum%20Pak%20Sekretaris%2C%20saya%20ingin%20bertanya%20mengenai%20administrasi%20masjid..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
                 <div style="background: #E3F2FD; color: #1565C0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
                     <i class="fa-solid fa-file-pen"></i>
@@ -1086,7 +1026,6 @@
                 </div>
             </a>
 
-            <!-- LAYANAN 3: SOSIAL KEMATIAN / SOSKEM (Pak Haji AJAT) -->
             <a href="https://wa.me/62895333477373?text=Assalamualaikum%20Pengurus%20SOSKEM%2C%20saya%20ingin%20melaporkan%20%2F%20bertanya%20terkait..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
                 <div style="background: #FFEBEE; color: #C62828; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
                     <i class="fa-solid fa-hands-holding-heart"></i>
@@ -1097,16 +1036,13 @@
                     <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> 24 Jam Siaga</span>
                 </div>
             </a>
-
         </div>
         
-        <!-- Catatan Kaki Pop-up -->
         <div style="background: #fff; padding: 10px; text-align: center; font-size: 0.65rem; color: #999; border-top: 1px solid #eee;">
             Masjid Resmi Jami' Al-Ikhlash Katapang
         </div>
     </div>
 
-    <!-- Gaya Animasi khusus untuk Pop-up & Badge -->
     <style>
         @keyframes pulseBadge {
             0% { transform: scale(1); opacity: 1; }
@@ -1123,7 +1059,6 @@
         }
     </style>
 
-    <!-- Logika Buka Tutup Menu Pop-up -->
     <script>
         function toggleWaPopup() {
             const popup = document.getElementById('wa-popup-box');
@@ -1134,6 +1069,5 @@
             }
         }
     </script>
-    <!-- ======================================================================================================= -->
-</body>
+    </body>
 </html>
