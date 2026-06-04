@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Kas Mei 2026 - Masjid Al-Ikhlash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-brown: #2C1A04;
+            --primary-gold: #D4AF37;
+            --bg-cream: #FAF8F4;
+            --debit-red: #c62828;
+            --kredit-green: #2e7d32;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-cream);
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: var(--dark-brown);
+            border-bottom: 3px solid var(--primary-gold);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-kembali {
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        .header-laporan {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header-laporan h1 {
+            font-family: 'Marcellus', serif;
+            color: var(--dark-brown);
+            margin: 5px 0;
+        }
+        /* Ringkasan Kotak Saldo */
+        .grid-saldo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .box-saldo {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+            border-top: 4px solid var(--dark-brown);
+        }
+        /* Tabel Responsif HP */
+        .table-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            overflow-x: auto;
+            border: 1px solid rgba(44,26,4,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        th {
+            background: var(--dark-brown);
+            color: var(--primary-gold);
+            padding: 15px;
+            font-weight: 600;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover {
+            background-color: #fdfbf7;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        .badge-debit { background-color: var(--debit-red); }
+        .badge-kredit { background-color: var(--kredit-green); }
+        
+        .tanda-tangan {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="btn-kembali"><i class="fa-solid fa-arrow-left"></i> Beranda</a>
+        <div style="color: #fff; font-family: 'Marcellus', serif; font-size: 1.1rem;">MASJID JAMI <span style="color:var(--primary-gold)">AL-IKHLASH</span></div>
+    </header>
+
+    <main class="container">
+        <div class="header-laporan">
+            <span style="color: var(--primary-gold); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px;">LAPORAN REKAPITULASI MUTASI MUTLAK</span>
+            <h1>Account Umum (Mei 2026)</h1>
+            <p style="font-size: 0.8rem; color: #777; margin: 0;">Ciborerang RT 001 RW 019, Desa Sangkanhurip, Kec. Katapang, Kab. Bandung<br>Waktu Sinkronisasi Cetak: 3/6/2026, 23.36.43 WIB</p>
+        </div>
+
+        <!-- Rangkuman Utama -->
+        <div class="grid-saldo">
+            <div class="box-saldo" style="border-top-color: var(--primary-gold);">
+                <div style="font-size: 0.8rem; color: #666; font-weight: bold;">SALDO EFEKTIF KAS</div>
+                <div style="font-size: 1.6rem; font-weight: 700; color: var(--dark-brown);">Rp 2.698.000</div>
+            </div>
+            <div class="box-saldo" style="border-top-color: var(--kredit-green);">
+                <div style="font-size: 0.8rem; color: #666; font-weight: bold;">TOTAL PEMASUKAN</div>
+                <div style="font-size: 1.6rem; font-weight: 700; color: var(--kredit-green);">Rp 7.328.000</div>
+            </div>
+            <div class="box-saldo" style="border-top-color: var(--debit-red);">
+                <div style="font-size: 0.8rem; color: #666; font-weight: bold;">TOTAL PENGELUARAN</div>
+                <div style="font-size: 1.6rem; font-weight: 700; color: var(--debit-red);">Rp 4.630.000</div>
+            </div>
+        </div>
+
+        <!-- Tabel Data -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Jenis</th>
+                        <th>Uraian Transaksi</th>
+                        <th>Nominal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>2026-05-30</td><td><span class="badge badge-debit">DEBIT</span></td><td>KHATIB-DLL IDUL ADHA</td><td style="color:var(--debit-red); font-weight:600;">Rp 500.000</td></tr>
+                    <tr><td>2026-05-29</td><td><span class="badge badge-kredit">KREDIT</span></td><td>DONATUR TETAP BULANAN</td><td style="color:var(--kredit-green); font-weight:600;">Rp 700.000</td></tr>
+                    <tr><td>2026-05-27</td><td><span class="badge badge-debit">DEBIT</span></td><td>TRANSPORT KHATIB</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>TAKJIL BUKBER SAUM ARAFAH</td><td style="color:var(--debit-red); font-weight:600;">Rp 190.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>KABEL SPEAKER TOA</td><td style="color:var(--debit-red); font-weight:600;">Rp 90.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>KUOTA IT</td><td style="color:var(--debit-red); font-weight:600;">Rp 50.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>PAKET CANVA (IT)</td><td style="color:var(--debit-red); font-weight:600;">Rp 95.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>KAFALAH KNCLENG @3ORANG</td><td style="color:var(--debit-red); font-weight:600;">Rp 150.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-kredit">KREDIT</span></td><td>KENCLENG GELAR SORBAN I'D</td><td style="color:var(--kredit-green); font-weight:600;">Rp 1.500.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>SEWA SOUND SYSTEM</td><td style="color:var(--debit-red); font-weight:600;">Rp 600.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>DAPUR MASJID</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL NGAWAYUH</td><td style="color:var(--debit-red); font-weight:600;">Rp 50.000</td></tr>
+                    <tr><td>2026-05-26</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL RUMASA</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-23</td><td><span class="badge badge-debit">DEBIT</span></td><td>BANNER IDUL ADHA</td><td style="color:var(--debit-red); font-weight:600;">Rp 25.000</td></tr>
+                    <tr><td>2026-05-22</td><td><span class="badge badge-kredit">KREDIT</span></td><td>KENCLENG JUM'AT</td><td style="color:var(--kredit-green); font-weight:600;">Rp 600.000</td></tr>
+                    <tr><td>2026-05-19</td><td><span class="badge badge-debit">DEBIT</span></td><td>PEMBELIAN STAND MIC MIMBAR</td><td style="color:var(--debit-red); font-weight:600;">Rp 130.000</td></tr>
+                    <tr><td>2026-05-19</td><td><span class="badge badge-debit">DEBIT</span></td><td>BANNER DONASI & STICKER</td><td style="color:var(--debit-red); font-weight:600;">Rp 40.000</td></tr>
+                    <tr><td>2026-05-17</td><td><span class="badge badge-debit">DEBIT</span></td><td>SERVICE MIC</td><td style="color:var(--debit-red); font-weight:600;">Rp 35.000</td></tr>
+                    <tr><td>2026-05-15</td><td><span class="badge badge-kredit">KREDIT</span></td><td>DONATUR TETAP BULANAN</td><td style="color:var(--kredit-green); font-weight:600;">Rp 700.000</td></tr>
+                    <tr><td>2026-05-15</td><td><span class="badge badge-debit">DEBIT</span></td><td>DAPUR MASJID</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-15</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL NGAWAYUH</td><td style="color:var(--debit-red); font-weight:600;">Rp 50.000</td></tr>
+                    <tr><td>2026-05-15</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL RUMASA</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-15</td><td><span class="badge badge-debit">DEBIT</span></td><td>TRANSPORT KHATIB</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-15</td><td><span class="badge badge-kredit">KREDIT</span></td><td>KENCLENG JUM'AT</td><td style="color:var(--kredit-green); font-weight:600;">Rp 650.000</td></tr>
+                    <tr><td>2026-05-10</td><td><span class="badge badge-debit">DEBIT</span></td><td>UP TAHLIL BU PUPU</td><td style="color:var(--debit-red); font-weight:600;">Rp 210.000</td></tr>
+                    <tr><td>2026-05-10</td><td><span class="badge badge-debit">DEBIT</span></td><td>PEMBUATAN TAPLAK MEJA</td><td style="color:var(--debit-red); font-weight:600;">Rp 150.000</td></tr>
+                    <tr><td>2026-05-10</td><td><span class="badge badge-debit">DEBIT</span></td><td>BAYAR KEKURANGAN TGL1-5-2026</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-10</td><td><span class="badge badge-debit">DEBIT</span></td><td>BELI LAMPU</td><td style="color:var(--debit-red); font-weight:600;">Rp 65.000</td></tr>
+                    <tr><td>2026-05-09</td><td><span class="badge badge-debit">DEBIT</span></td><td>BACK-UP TAHLIL BU PUPU</td><td style="color:var(--debit-red); font-weight:600;">Rp 150.000</td></tr>
+                    <tr><td>2026-05-09</td><td><span class="badge badge-debit">DEBIT</span></td><td>DAPUR MASJID</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-09</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL NGAWAYUH</td><td style="color:var(--debit-red); font-weight:600;">Rp 50.000</td></tr>
+                    <tr><td>2026-05-09</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL RUMASA</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-08</td><td><span class="badge badge-debit">DEBIT</span></td><td>TRANSPORT KHATIB</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-08</td><td><span class="badge badge-kredit">KREDIT</span></td><td>KENCLENG JUM'AT</td><td style="color:var(--kredit-green); font-weight:600;">Rp 650.000</td></tr>
+                    <tr><td>2026-05-03</td><td><span class="badge badge-debit">DEBIT</span></td><td>BACK-UP TAHLIL BU PUPU</td><td style="color:var(--debit-red); font-weight:600;">Rp 150.000</td></tr>
+                    <tr><td>2026-05-03</td><td><span class="badge badge-debit">DEBIT</span></td><td>DAPUR MASJID</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-03</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL RUMASA</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-02</td><td><span class="badge badge-debit">DEBIT</span></td><td>OPERASIONAL NGAWAYUH</td><td style="color:var(--debit-red); font-weight:600;">Rp 50.000</td></tr>
+                    <tr><td>2026-05-02</td><td><span class="badge badge-debit">DEBIT</span></td><td>TRANSPORT KHATIB JUM'AT</td><td style="color:var(--debit-red); font-weight:600;">Rp 100.000</td></tr>
+                    <tr><td>2026-05-01</td><td><span class="badge badge-kredit">KREDIT</span></td><td>SISA SALDO DONATUR TETAP APRIL</td><td style="color:var(--kredit-green); font-weight:600;">Rp 150.000</td></tr>
+                    <tr><td>2026-05-01</td><td><span class="badge badge-debit">DEBIT</span></td><td>KAFALAH MERBOT @2 ORG</td><td style="color:var(--debit-red); font-weight:600;">Rp 500.000</td></tr>
+                    <tr><td>2026-05-01</td><td><span class="badge badge-kredit">KREDIT</span></td><td>KENCLENG JU'MAT</td><td style="color:var(--kredit-green); font-weight:600;">Rp 650.000</td></tr>
+                    <tr><td>2026-05-01</td><td><span class="badge badge-kredit">KREDIT</span></td><td>SALDO BULAN APRIL</td><td style="color:var(--kredit-green); font-weight:600;">Rp 1.728.000</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tanda Tangan Pengurus -->
+        <div class="tanda-tangan">
+            <div>
+                <p>Sekretaris</p>
+                <br><br>
+                <p><strong>A. Harya Rukmana</strong></p>
+            </div>
+            <div>
+                <p>Bendahara</p>
+                <br><br>
+                <p><strong>Firman Risbaya</strong></p>
+            </div>
+            <div>
+                <p>Ketua DKM</p>
+                <br><br>
+                <p><strong>Indra Aulia, A.Md</strong></p>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background:var(--dark-brown); color:#fff; text-align:center; padding:15px; margin-top:5px; font-size:0.8rem; border-top:3px solid var(--primary-gold);">
+        &copy; DKM Masjid Jami' Al-Ikhlash Katapang 2026
+    </footer>
+</body>
+</html>
