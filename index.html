@@ -50,7 +50,7 @@
         .marquee-text { display: inline-block; white-space: nowrap; animation: marquee 50s linear infinite; padding-left: 100%; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        /* 2. HEADER HEADER STYLE */
+        /* 2. HEADER STYLE */
         header { background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%); color: #fff; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--primary-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; }
         .logo-area { display: flex; align-items: center; gap: 15px; }
         .logo-img { width: 65px; height: 65px; object-fit: contain; border-radius: 50%; border: 2px solid var(--primary-gold); background: #fff; }
@@ -74,7 +74,7 @@
         .btn-emergency { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--danger-red); color: #fff; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; }
         .btn-emergency:hover { background: #821212; box-shadow: 0 4px 12px rgba(166,28,28,0.3); }
 
-        /* STYLE EDITAN KEUANGAN MANDIRI TERPISAH */
+        /* STYLE KEUANGAN */
         .container-keuangan-gabungan { max-width: 1150px; margin: 0 auto; padding: 0 20px; }
         
         /* Blok Kas Umum DKM */
@@ -159,7 +159,7 @@
         .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
         .contact-item i { color: var(--primary-gold); }
 
-        /* CSS KHUSUS IKLAN PROGRAMMER ADE HARYA (SOPAN & ELEGAN) */
+        /* CSS IKLAN */
         .iklan-dev-box {
             margin-top: 30px;
             padding-top: 25px;
@@ -223,9 +223,7 @@
         <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(44,26,4,0.4), rgba(23,14,2,0.85)); z-index: 1;"></div>
         
         <div class="hero-content" style="position: relative; z-index: 2; max-width: 800px; padding: 0 20px; width: 100%;">
-            
             <div style="background: rgba(255, 255, 255, 0.07); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(212, 175, 55, 0.35); padding: 40px 30px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative; overflow: hidden; animation: fadeInUp 1s ease-out;">
-                
                 <div style="position: absolute; top: 10px; left: 10px; width: 20px; height: 20px; border-top: 2px solid var(--primary-gold); border-left: 2px solid var(--primary-gold); opacity: 0.7;"></div>
                 <div style="position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; border-top: 2px solid var(--primary-gold); border-right: 2px solid var(--primary-gold); opacity: 0.7;"></div>
                 <div style="position: absolute; bottom: 10px; left: 10px; width: 20px; height: 20px; border-bottom: 2px solid var(--primary-gold); border-left: 2px solid var(--primary-gold); opacity: 0.7;"></div>
@@ -238,27 +236,18 @@
                 <h2 style="font-size: 2.8rem; color: #fff; margin-bottom: 15px; font-family: 'Marcellus', serif; font-weight: bold; letter-spacing: 1px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); line-height: 1.2;">
                     Pusat Ibadah Modern <br><span style="color: var(--primary-gold);">&amp; Ramah Jamaah</span>
                 </h2>
-                
                 <div style="width: 60px; height: 2px; background: var(--primary-gold); margin: 20px auto;"></div>
-
                 <p style="font-size: 1.1rem; color: #fdfaf4; font-weight: 300; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.4); max-width: 600px; margin: 0 auto; letter-spacing: 0.5px;">
                     Mewujudkan transparansi informasi publik masjid berbasis digital secara amanah dan terintegrasi.
                 </p>
             </div>
-
         </div>
     </section>
 
     <style>
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 
@@ -305,6 +294,7 @@
         </div>
     </section>
 
+    <!-- SEKSI TRANSPARANSI KEUANGAN YANG SUDAH DISESUAIKAN -->
     <section id="laporan-keuangan-section" style="padding: 60px 0; background: #faf8f4;">
         <h2 class="section-title">Transparansi Keuangan Masjid</h2>
         
@@ -338,6 +328,17 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- SUB-SEKSI UNDUH REKAPITULASI MENGGUNAKAN QR CODE DAN DESKRIPSI BARU -->
+            <div style="background: #fff; border-radius: 12px; border: 1px solid var(--primary-gold); padding: 30px; box-shadow: 0 6px 18px rgba(0,0,0,0.05); margin-bottom: 45px; text-align: center;">
+                <h3 style="font-size: 1.4rem; color: var(--dark-brown); margin-bottom: 15px; font-weight: bold;">Download Rekapitulasi Keuangan</h3>
+                <div style="max-width: 250px; margin: 0 auto 15px auto; border: 4px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-radius: 10px; overflow: hidden;">
+                    <img src="image_c3d06f.png" alt="QR Code Download Rekapitulasi" style="width: 100%; display: block;">
+                </div>
+                <p style="font-size: 0.95rem; color: var(--dark-brown); max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 500;">
+                    Silahkan di-scan untuk mendownload file Rekapitulasi bulan Mei 2026. Jika hanya ingin melihat langsung di web, silahkan klik tombol <a href="kas_mei2026.html" style="color: var(--dark-gold); font-weight: bold; text-decoration: underline;">Laporan Kas</a> di paling atas navbar halaman ini.
+                </p>
             </div>
 
             <div class="box-renovasi-split" id="kas-renovasi">
@@ -374,24 +375,21 @@
                 <div class="label-kas-mini" style="color:#2e7d32; border-top: 1px dashed #ccc; padding-top: 15px;"><i class="fa-solid fa-circle-info"></i> Panduan Alur Pelayanan &amp; Sinkronisasi Dana SOSKEM:</div>
                 <img src="Soskem.png" class="infografis-soskem-img" alt="Alur Iuran Sosial Kematian Masjid Al-Ikhlash">
                 <div style="border-top: 1px dashed #2e7d32; margin-top: 20px; padding-top: 20px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
-                    
                     <a href="REKAPITULASI-IURAN-SOSKEMRW18.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2e7d32; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; border: 1px solid #1e5220; transition: 0.3s; box-shadow: 0 4px 10px rgba(46,125,50,0.15);" onmouseover="this.style.background='#1e5220', this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#2e7d32', this.style.transform='translateY(0)'">
                         <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem; color: #ffdde0;"></i> REKAP IURAN SOSKEM RW 18 (PDF)
                     </a>
-
                     <a href="REKAPITULASI-IURAN-SOSKEMRW19.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #2e7d32; color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: bold; border: 1px solid #1e5220; transition: 0.3s; box-shadow: 0 4px 10px rgba(46,125,50,0.15);" onmouseover="this.style.background='#1e5220', this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#2e7d32', this.style.transform='translateY(0)'">
                         <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem; color: #ffdde0;"></i> REKAP IURAN SOSKEM RW 19 (PDF)
                     </a>
-
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- ================= PAPAN TITIP DOA DIGITAL ================= -->
     <section id="titip-doa-section" style="padding: 60px 5%; background: linear-gradient(180deg, #FAF8F4 0%, #F3EFE6 100%); text-align: center;">
         <div style="max-width: 900px; margin: 0 auto;">
-            
             <div style="margin-bottom: 30px;">
                 <span style="color: var(--dark-gold); font-weight: bold; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;"><i class="fa-solid fa-hands-praying"></i> Saling Mendoakan Antar Jamaah</span>
                 <h2 style="font-family: 'Marcellus', serif; color: var(--dark-brown); font-size: 2rem; margin-top: 5px; margin-bottom: 10px;">Mading Digital: Ruang Titip Doa</h2>
@@ -402,20 +400,16 @@
             </div>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: start;">
-                
                 <div style="background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(44,26,4,0.05); border-top: 4px solid var(--primary-gold); text-align: left;">
                     <h3 style="font-size: 1.1rem; color: var(--dark-brown); font-weight: bold; margin-bottom: 15px;"><i class="fa-solid fa-pen-to-square"></i> Tulis Hajat / Doa Anda</h3>
-                    
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #555; margin-bottom: 5px;">Nama / Inisial (Bisa dikosongkan / Hamba Allah)</label>
                         <input type="text" id="input-nama-doa" placeholder="Contoh: Hamba Allah / Keluarga RW 18" style="width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; outline: none; box-sizing: border-box; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary-gold)'">
                     </div>
-
                     <div style="margin-bottom: 20px;">
                         <label style="display: block; font-size: 0.8rem; font-weight: bold; color: #555; margin-bottom: 5px;">Isi Doa / Permohonan Anda</label>
                         <textarea id="input-teks-doa" rows="4" placeholder="Tuliskan permohonan doa Anda secara tulus di sini..." style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; outline: none; box-sizing: border-box; resize: none; font-family: inherit; transition: 0.3s;" onfocus="this.style.borderColor='var(--primary-gold)'"></textarea>
                     </div>
-
                     <button onclick="kirimDoaDigital()" style="width: 100%; background: var(--dark-brown); color: var(--primary-gold); border: 1px solid var(--primary-gold); padding: 12px; border-radius: 8px; font-weight: bold; font-size: 0.9rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);" onmouseover="this.style.background='var(--medium-brown)', this.style.color='#fff'" onmouseout="this.style.background='var(--dark-brown)', this.style.color='var(--primary-gold)'">
                         <i class="fa-solid fa-paper-plane"></i> TAYANGKAN DOA SAYA
                     </button>
@@ -423,9 +417,7 @@
 
                 <div style="background: rgba(44, 26, 4, 0.03); border: 1px solid rgba(44,26,4,0.08); border-radius: 15px; padding: 20px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);">
                     <h3 style="font-size: 1.05rem; color: var(--dark-brown); font-weight: bold; margin-bottom: 15px; text-align: left;"><i class="fa-solid fa-scroll"></i> Untaian Doa Terkini</h3>
-                    
                     <div id="container-papan-doa" style="display: flex; flex-direction: column; gap: 12px; max-height: 330px; overflow-y: auto; padding-right: 5px;">
-                        
                         <div class="kartu-doa" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: left; border-left: 3px solid #2e7d32; transition: 0.3s;">
                             <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"Mohon keikhlasan doanya dari para jamaah sekalian, orang tua kami di wilayah RW 20 sedang kritis di rumah sakit. Semoga diangkat penyakitnya. Amin."</p>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
@@ -435,7 +427,6 @@
                                 </button>
                             </div>
                         </div>
-
                         <div class="kartu-doa" style="background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); text-align: left; border-left: 3px solid #2e7d32; transition: 0.3s;">
                             <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"Ya Allah, mudahkanlah pembangunan menara Masjid Al-Ikhlash agar jamaah semakin nyaman beribadah."</p>
                             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed #eee; padding-top: 8px;">
@@ -445,35 +436,25 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <script>
-        // Fungsi memproses aksi klik tombol "Aamiinkan"
         function aminkanDoa(buttonElement) {
             const spanHitung = buttonElement.querySelector('.count-amin');
             let angkaSekarang = parseInt(spanHitung.innerText);
-            
-            // Naikkan angka +1
             spanHitung.innerText = angkaSekarang + 1;
-            
-            // Efek mewah: kunci tombol and ubah warna tanda sudah mengaminkan
             buttonElement.style.background = '#2e7d32';
             buttonElement.style.color = '#fff';
             buttonElement.style.borderColor = '#2e7d32';
             buttonElement.disabled = true;
             buttonElement.innerHTML = `<i class="fa-solid fa-check"></i> Sudah Diaminkan (${angkaSekarang + 1})`;
-
-            // Pemicu efek partikel mini di layar (Opsional)
             alert("Syukron, Anda telah ikut mengaminkan doa jamaah ini. Semoga dikabulkan oleh Allah SWT.");
         }
 
-        // Fungsi menambah kiriman doa baru ke mading tanpa database
         function kirimDoaDigital() {
             const namaInput = document.getElementById('input-nama-doa').value.trim();
             const teksInput = document.getElementById('input-teks-doa').value.trim();
@@ -483,11 +464,7 @@
                 alert("Harap tuliskan isi permohonan doa Anda terlebih dahulu.");
                 return;
             }
-
-            // Atur nama default jika dikosongkan
             const namaFinal = (namaInput === "") ? "Hamba Allah" : namaInput;
-
-            // Racik struktur kartu doa baru
             const kartuBaruHtml = `
                 <div class="kartu-doa" style="background: #fffdf5; padding: 15px; border-radius: 10px; box-shadow: 0 4px 12px rgba(212,175,55,0.1); text-align: left; border-left: 3px solid var(--primary-gold); animation: slideInDoa 0.4s ease-out;">
                     <p style="font-size: 0.88rem; color: #444; line-height: 1.5; margin: 0 0 10px 0; font-style: italic;">"${teksInput}"</p>
@@ -499,33 +476,20 @@
                     </div>
                 </div>
             `;
-
-            // Masukkan doa baru ke baris paling atas papan scroller
             containerPapan.insertAdjacentHTML('afterbegin', kartuBaruHtml);
-
-            // Bersihkan kolom form input setelah berhasil mengirim
             document.getElementById('input-nama-doa').value = "";
             document.getElementById('input-teks-doa').value = "";
-
-            // Beri feedback sejuk ke jamaah
             alert("Masya Allah, doa Anda telah berhasil ditayangkan di mading digital masjid.");
         }
     </script>
 
     <style>
-        @keyframes slideInDoa {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        /* Mempercantik scroller papan doa */
-        #container-papan-doa::-webkit-scrollbar {
-            width: 4px;
-        }
-        #container-papan-doa::-webkit-scrollbar-thumb {
-            background: rgba(44, 26, 4, 0.2);
-            border-radius: 10px;
-        }
+        @keyframes slideInDoa { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+        #container-papan-doa::-webkit-scrollbar { width: 4px; }
+        #container-papan-doa::-webkit-scrollbar-thumb { background: rgba(44, 26, 4, 0.2); border-radius: 10px; }
     </style>
+    
+    <!-- SEKSI QR LAPORAN JARIYAH (KUNCI AMAN) -->
     <section id="donasi">
         <h2 class="section-title" style="color: var(--primary-gold); margin-top: 0;">Scan Disini Untuk melihat laporan</h2>
         <div style="max-width: 900px; margin: 0 auto;">
@@ -599,24 +563,20 @@
         </div>
     </section>
 
+    <!-- ARTIKEL & DAKWAH -->
     <section class="dakwah-section">
         <h2 class="section-title">Artikel &amp; Mutiara Dakwah</h2>
         <div class="dakwah-grid">
-            
             <div class="dakwah-card" style="border-top: 4px solid var(--primary-gold);">
                 <div>
                     <div class="dakwah-date" style="background: var(--light-gold); color: var(--dark-brown); display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 10px; font-weight: bold; text-transform: none;">Gagasan &amp; Manajemen</div>
-                    
                     <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; color: var(--dark-brown); line-height: 1.4;">Tiga Pilar Manajemen Langit: Komunikasi, Koordinasi, dan Transparansi dalam Organisasi Keagamaan</h3>
-                    
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 12px; text-align: justify; color: #555;">
                         Mengelola sebuah organisasi keagamaan—khususnya DKM Masjid—bukanlah sekadar urusan mengatur jadwal muadzin atau membersihkan karpet shalat. Lebih dari itu, ia adalah bentuk khidmah (pelayanan) kepada umat yang menuntut profesionalisme tertinggi. Ujung tombak keberhasilannya terletak pada tiga pilar utama: Komunikasi, Koordinasi, dan Transparansi.
                     </p>
-                    
                     <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; text-align: justify; color: #555;">
                         Melalui keterbukaan komunikasi dengan jamaah, koordinasi yang solid antar-wilayah RW 18 &amp; RW 19, serta transparansi pelaporan dana iuran SOSKEM yang amanah, Masjid Jami' Al-Ikhlash kini bersiap menjelma menjadi pusat peradaban umat yang modern, akuntabel, dan penuh keberkahan melintasi generasi.
                     </p>
-                    
                     <a href="artikel_indra.html" style="display: inline-flex; align-items: center; gap: 5px; color: var(--dark-gold); font-weight: 600; text-decoration: none; margin-bottom: 15px; font-size: 0.9rem;">
                         Baca Selengkapnya (Utuh) <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -628,7 +588,6 @@
 
             <div class="dakwah-card" style="border-top: 4px solid var(--dark-brown); background: #2C1A04; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; flex-direction: column; justify-content: space-between; color: #fff; text-align: center; position: relative; overflow: hidden;">
                 <div>
-                    
                     <div style="background: #D4AF37; color: #2C1A04; margin: -25px -25px 20px -25px; padding: 8px 0; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.2); position: relative;">
                         <div style="display: inline-block; padding-left: 100%; animation: runningJadwal 25s linear infinite; font-weight: bold; font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase;">
                             📢 JADWAL RUMASA (RUTIN MALAM SELASA) Setiap Senin malam Ba'da Isya &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -636,14 +595,6 @@
                             📢 PENGAJIAN MAJELIS TAKLIM IBU-IBU Setiap Jum'at Ba'da Solat Jum'at &nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                     </div>
-
-                    <style>
-                        @keyframes runningJadwal {
-                            0% { transform: translate3d(0, 0, 0); }
-                            100% { transform: translate3d(-100%, 0, 0); }
-                        }
-                    </style>
-
                     <div style="color: rgba(212, 175, 55, 0.8); font-weight: bold; font-size: 0.8rem; margin-top: 10px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px;">
                         <i class="fa-solid fa-quote-left"></i> Mutiara Hikmah &amp; Riayah Generasi
                     </div>
@@ -652,46 +603,38 @@
                     </h3>
                     
                     <div style="background: linear-gradient(180deg, rgba(74,53,17,0.4) 0%, rgba(23,14,2,0.8) 100%); border-radius: 15px; padding: 25px 15px; margin-bottom: 20px; border: 1px solid rgba(212,175,55,0.2); display: flex; flex-direction: column; align-items: center; gap: 12px;">
-                        
                         <div style="display: flex; align-items: center; gap: 10px; color: #4caf50;">
                             <i class="fa-solid fa-tree" style="font-size: 2.8rem; filter: drop-shadow(0 0 8px rgba(76,175,80,0.4));"></i>
                             <span style="font-size: 0.7rem; color: #fff; background: #2e7d32; padding: 1px 8px; border-radius: 10px; font-weight: bold;">Tahap 4: Pohon Rindang</span>
                         </div>
-                        
                         <i class="fa-solid fa-chevron-up" style="color: var(--primary-gold); font-size: 0.7rem; opacity: 0.5;"></i>
-                        
                         <div style="display: flex; align-items: center; gap: 10px; color: #81c784;">
                             <i class="fa-solid fa-seedling" style="font-size: 1.8rem;"></i>
                             <span style="font-size: 0.65rem; color: #fff; background: #4caf50; padding: 1px 8px; border-radius: 10px;">Tahap 3: Tunas Muda</span>
                         </div>
-                        
                         <i class="fa-solid fa-chevron-up" style="color: var(--primary-gold); font-size: 0.7rem; opacity: 0.4;"></i>
-                        
                         <div style="display: flex; align-items: center; gap: 10px; color: #a5d6a7;">
                             <i class="fa-solid fa-spa" style="font-size: 1.3rem;"></i>
                             <span style="font-size: 0.65rem; color: #fff; background: #81c784; padding: 1px 8px; border-radius: 10px;">Tahap 2: Kecambah</span>
                         </div>
-                        
                         <i class="fa-solid fa-chevron-up" style="color: var(--primary-gold); font-size: 0.7rem; opacity: 0.3;"></i>
-                        
                         <div style="display: flex; align-items: center; gap: 10px; color: var(--primary-gold);">
                             <i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i>
                             <span style="font-size: 0.6rem; color: #ccc; letter-spacing: 0.5px;">Tahap 1: Benih Iman Dasar</span>
                         </div>
                     </div>
-                    
                     <p style="font-size: 0.85rem; color: #ddd; text-align: justify; line-height: 1.6; font-style: italic; max-width: 320px; margin: 0 auto;">
                         "Tugas terbesar kita hari ini bukan sekadar memfasilitasi teknologi, melainkan memastikan generasi muda tumbuh kokoh secara bertahap dari akar keimanan paling dasar."
                     </p>
                 </div>
                 <div class="dakwah-author" style="color: var(--primary-gold); font-weight: 600; border-top: 1px solid rgba(212,175,55,0.1); padding-top: 12px; font-size: 0.85rem; margin-top: 15px; font-style: normal;">
-                    <i class="fa-solid fa-calendar-days"></i> Fokus Gerakan: Riayah Pemuda &amp; Kajian Rutin
+                    <i class="fa-solid fa-calendar-days"></i> Fokus Gerakan: Riayah Pemuda &amp; Kajian Rut
                 </div>
             </div>
-
         </div>
     </section>
 
+    <!-- GALERI -->
     <section>
         <h2 class="section-title">Dokumentasi &amp; Kegiatan Masjid</h2>
         <div class="gallery-grid">
@@ -701,7 +644,6 @@
             <div class="gallery-item"><img src="taklim%20ibu2.jpeg"><div class="gallery-cap">Taklim Ibu-Ibu</div></div>
             <div class="gallery-item"><img src="taklim%20ngawayuh.jpeg"><div class="gallery-cap">Kegiatan Taklim Ngawayuh</div></div>
             <div class="gallery-item"><img src="taklim%20rumasa.jpeg"><div class="gallery-cap">Taklim Rumasa</div></div>
-            
             <div class="gallery-item"><img src="muka%20depan%20masjid.jpg"><div class="gallery-cap">Fasad Depan Lama</div></div>
             <div class="gallery-item"><img src="Masjid_terkini.jpg"><div class="gallery-cap">Kondisi Terkini</div></div>
             <div class="gallery-item"><img src="Masjid1.png"><div class="gallery-cap">Ruang Utama Dalam</div></div>
@@ -711,22 +653,19 @@
         </div>
     </section>
 
+    <!-- JADWAL SHOLAT -->
     <section class="sholat-section-bottom">
         <h2 style="font-family: 'Marcellus', serif; color: var(--primary-gold); font-size: 1.8rem;">Jadwal Sholat Hari Ini</h2>
-        
         <div style="margin: 15px auto; display: flex; flex-direction: column; align-items: center; gap: 10px;">
             <div style="background: rgba(0,0,0,0.4); padding: 10px 30px; border-radius: 50px; border: 1px solid var(--primary-gold); min-width: 220px;">
                 <span style="font-size: 0.85rem; color: var(--primary-gold); letter-spacing: 1px; display: block; text-transform: uppercase;">Waktu Saat Ini</span>
                 <span id="jam-digital" style="font-size: 2.2rem; font-weight: bold; font-family: 'Marcellus', serif; color: #fff; letter-spacing: 2px;">00:00:00</span>
             </div>
-
             <div style="background: rgba(212, 175, 55, 0.15); padding: 8px 25px; border-radius: 8px; border: 1px dashed var(--primary-gold); max-width: 400px; width: 100%;">
                 <span id="countdown-adzan" style="font-size: 1.1rem; font-weight: 600; color: #fff; letter-spacing: 0.5px;">Menghitung waktu sholat...</span>
             </div>
         </div>
-        
         <p style="font-size: 0.9rem; opacity: 0.8;">Wilayah Sangkanhurip, Katapang &amp; Sekitarnya (Kab. Bandung)</p>
-        
         <div class="sholat-cards-container" id="prayer-times-box">
             <div class="sholat-card-item" id="card-subuh"><div class="sholat-name">Subuh</div><div class="sholat-time" id="subuh">-:-</div></div>
             <div class="sholat-card-item" id="card-dzuhur"><div class="sholat-name">Dzuhur</div><div class="sholat-time" id="dzuhur">-:-</div></div>
@@ -751,11 +690,9 @@
                 <div class="contact-item"><i class="fa-brands fa-instagram"></i><a href="https://instagram.com/masji.djamialikhlas" style="color: inherit; text-decoration: none;">@masji.djamialikhlas</a></div>
             </div>
         </div>
-        
         <div style="text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.8rem; color: #8c7e74;">
             &copy; 2026 Masjid Jami' Al-Ikhlash. Ramah Digital &amp; Transparan.
         </div>
-
         <div class="iklan-dev-box">
             <p class="iklan-dev-text">
                 Website dan sistem adzan otomatis digital ini dirancang &amp; dikembangkan sepenuhnya oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda, pengurus DKM, sekolah, atau instansi yang berminat ingin membuat aplikasi dan sistem visual interaktif kustom seperti ini, kami siap membantu khidmah digital Anda.
@@ -776,157 +713,86 @@
             let jam = sekarang.getHours().toString().padStart(2, '0');
             let menit = sekarang.getMinutes().toString().padStart(2, '0');
             let detik = window.ultrasonic = sekarang.getSeconds().toString().padStart(2, '0'); 
-            
             document.getElementById('jam-digital').innerText = jam + ":" + menit + ":" + detik;
-
-            if (Object.keys(jadwalSholatHariIni).length > 0) {
-                hitungMundurAdzan(sekarang);
-            }
+            if (Object.keys(jadwalSholatHariIni).length > 0) { hitungMundurAdzan(sekarang); }
         }
 
         function hitungMundurAdzan(waktuSekarang) {
             const listSholat = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya'];
             let targetNama = "";
             let targetWaktu = null;
-
             listSholat.forEach(s => {
                 const elemenCard = document.getElementById('card-' + s.toLowerCase());
                 if(elemenCard) elemenCard.classList.remove('active-time');
             });
-
             for (let i = 0; i < listSholat.length; i++) {
                 const namaSholat = listSholat[i];
                 const stringWaktu = jadwalSholatHariIni[namaSholat];
                 if (!stringWaktu) continue;
-
                 const [targetJam, targetMenit] = stringWaktu.split(':').map(Number);
                 const objekTarget = new Date();
                 objekTarget.setHours(targetJam, targetMenit, 0, 0);
-
                 if (objekTarget > waktuSekarang) {
-                    targetNama = namaSholat;
-                    targetWaktu = objekTarget;
-                    
+                    targetNama = namaSholat; targetWaktu = objekTarget;
                     const elemenCard = document.getElementById('card-' + namaSholat.toLowerCase());
                     if(elemenCard) elemenCard.classList.add('active-time');
                     break;
                 }
             }
-
             if (!targetWaktu) {
                 targetNama = "Subuh (Besok)";
                 const [targetJam, targetMenit] = jadwalSholatHariIni['Subuh'].split(':').map(Number);
-                targetWaktu = new Date();
-                targetWaktu.setDate(waktuSekarang.getDate() + 1);
-                targetWaktu.setHours(targetJam, targetMenit, 0, 0);
-                
+                targetWaktu = new Date(); targetWaktu.setDate(waktuSekarang.getDate() + 1); targetWaktu.setHours(targetJam, targetMenit, 0, 0);
                 const elemenCard = document.getElementById('card-subuh');
                 if(elemenCard) elemenCard.classList.add('active-time');
             }
-
             const selisihMiliDetik = targetWaktu - waktuSekarang;
             const totalDetik = Math.floor(selisihMiliDetik / 1000);
-
             if (totalDetik <= 0) {
                 document.getElementById('countdown-adzan').innerHTML = "✨ <span style='color: #D4AF37; font-weight: bold;'>Memasuki Waktu Sholat!</span> ✨";
                 return;
             }
-
-            const jamSisa = Math.floor(totalDetik / 3600);
-            const menitSisa = Math.floor((totalDetik % 3600) / 60);
-            const detikSisa = totalDetik % 60;
-
+            const jamSisa = Math.floor(totalDetik / 3600); const menitSisa = Math.floor((totalDetik % 3600) / 60); const detikSisa = totalDetik % 60;
             let teksCountdown = "⏳ ";
             if (jamSisa > 0) teksCountdown += jamSisa + " jam ";
             teksCountdown += menitSisa + " menit " + detikSisa + " detik lagi menuju <span style='color: #D4AF37; font-weight: bold;'>" + targetNama + "</span>";
-
             document.getElementById('countdown-adzan').innerHTML = teksCountdown;
         }
 
         async function loadJadwalSholat() {
             try {
                 const response = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=11');
-                const data = await response.json();
-                const timings = data.data.timings;
-                
-                jadwalSholatHariIni = {
-                    'Subuh': timings.Fajr,
-                    'Dzuhur': timings.Dhuhr,
-                    'Ashar': timings.Asr,
-                    'Maghrib': timings.Maghrib,
-                    'Isya': timings.Isha
-                };
-
-                document.getElementById('subuh').innerText = timings.Fajr;
-                document.getElementById('dzuhur').innerText = timings.Dhuhr;
-                document.getElementById('ashar').innerText = timings.Asr;
-                document.getElementById('maghrib').innerText = timings.Maghrib;
-                document.getElementById('isya').innerText = timings.Isha;
+                const data = await response.json(); const timings = data.data.timings;
+                jadwalSholatHariIni = { 'Subuh': timings.Fajr, 'Dzuhur': timings.Dhuhr, 'Ashar': timings.Asr, 'Maghrib': timings.Maghrib, 'Isya': timings.Isha };
+                document.getElementById('subuh').innerText = timings.Fajr; document.getElementById('dzuhur').innerText = timings.Dhuhr; document.getElementById('ashar').innerText = timings.Asr; document.getElementById('maghrib').innerText = timings.Maghrib; document.getElementById('isya').innerText = timings.Isha;
             } catch (error) {
                 jadwalSholatHariIni = { 'Subuh': "04:32", 'Dzuhur': "11:47", 'Ashar': "15:08", 'Maghrib': "17:39", 'Isya': "18:53" };
-                document.getElementById('subuh').innerText = "04:32";
-                document.getElementById('dzuhur').innerText = "11:47";
-                document.getElementById('ashar').innerText = "15:08";
-                document.getElementById('maghrib').innerText = "17:39";
-                document.getElementById('isya').innerText = "18:53";
+                document.getElementById('subuh').innerText = "04:32"; document.getElementById('dzuhur').innerText = "11:47"; document.getElementById('ashar').innerText = "15:08"; document.getElementById('maghrib').innerText = "17:39"; document.getElementById('isya').innerText = "18:53";
             }
-        }
-
-        function kirimSaranWA() {
-            const nama = document.getElementById('saran-nama').value;
-            const kontak = document.getElementById('saran-kontak').value;
-            const pesan = document.getElementById('saran-pesan').value;
-
-            if(!nama || !kontak || !pesan) {
-                alert('Mohon isi semua kolom kritik dan saran terlebih dahulu, Pak!');
-                return;
-            }
-
-            const teksFormat = `*KRITIK & SARAN JAMAAH*%0A------------------------------------%0A*Nama:* ${nama}%0A*Kontak:* ${kontak}%0A*Pesan/Aspirasi:* ${pesan}`;
-            window.open(`https://wa.me/6289530104144?text=${teksFormat}`, '_blank');
         }
 
         const daftarHikmah = [
             { kat: "Ayat Al-Qur'an", teks: "“Maka sesungguhnya beserta kesulitan ada kemudahan. Sesungguhnya beserta kesulitan itu ada kemudahan.”", sum: "QS. Al-Insyirah: 5-6" },
             { kat: "Ayat Al-Qur'an", teks: "“Cukuplah Allah bagi kami dan Dia adalah sebaik-baik pelindung.”", sum: "QS. Ali 'Imran: 173" },
-            { kat: "Ayat Al-Qur'an", teks: "“Dan barangsiapa bertawakal kepada Allah, niscaya Allah akan mencukupkan (keperluan)nya.”", sum: "QS. At-Talaq: 3" },
-            { kat: "Mutiara Hadits", teks: "“Barangsiapa yang melepaskan satu kesusahan seorang mukmin di dunia, Allah akan melepaskan satu kesusahan darinya pada hari kiamat.”", sum: "HR. Muslim" },
-            { kat: "Mutiara Hadits", teks: "“Tangan yang di atas (memberi) lebih baik daripada tangan yang di bawah (meminta).”", sum: "HR. Bukhari & Muslim" },
-            { kat: "Mutiara Hadits", teks: "“Senyummu di hadapan saudaramu adalah (bernilai) sedekah bagimu.”", sum: "HR. Tirmidzi" },
-            { kat: "Mutiara Hadits", teks: "“Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.”", sum: "HR. Thabrani" },
-            { kat: "Dzikir & Doa Kesembuhan", teks: "“Allahumma rabbannasi adzhibil ba'sa isyfi antasy-syafi la syifa'a illa syifa'uka syifa'an la yughadiru saqaman.” (Doa memohon kesembuhan keluarga/kerabat yang sakit)", sum: "HR. Bukhari" },
-            { kat: "Anjuran Sholawat", teks: "“Barangsiapa yang bershalawat kepadaku sekali, maka Allah akan bershalawat kepadanya sepuluh kali.”", sum: "HR. Muslim" },
-            { kat: "Mutiara Hikmah", teks: "“Niat yang ikhlas adalah kunci diterimanya amalan. Mari jaga kebersihan hati dalam memakmurkan Masjid Al-Ikhlash.”", sum: "DKM Al-Ikhlash Sangkanhurip" },
-            { kat: "Utamakan Sholat", teks: "“Amalan hamba yang pertama kali akan dihisab pada hari kiamat adalah sholatnya.”", sum: "HR. Abu Dawud" },
-            { kat: "Dzikir Pagi & Petang", teks: "“Subhanallahi wa bihamdihi, 'adada khalqihi, wa ridha nafsihi, wa zinata 'arsyihi, wa midada kalimatihi.”", sum: "HR. Muslim" }
+            { kat: "Mutiara Hadits", teks: "“Sebaik-baik manusia adalah yang paling bermanfaat bagi orang lain.”", sum: "HR. Thabrani" }
         ];
 
         function acakPenyegarRohani() {
-            const indeksAcak = Math.floor(Math.random() * daftarHikmah.length);
-            const dataTerpilih = daftarHikmah[indeksAcak];
-            
-            document.getElementById('rohani-kategori').innerText = dataTerpilih.kat;
-            document.getElementById('rohani-teks').innerText = dataTerpilih.teks;
-            document.getElementById('rohani-sumber').innerText = dataTerpilih.sum;
+            const indeksAcak = Math.floor(Math.random() * daftarHikmah.length); const dataTerpilih = daftarHikmah[indeksAcak];
+            document.getElementById('rohani-kategori').innerText = dataTerpilih.kat; document.getElementById('rohani-teks').innerText = dataTerpilih.teks; document.getElementById('rohani-sumber').innerText = dataTerpilih.sum;
         }
 
-        window.onload = function() {
-            loadJadwalSholat();
-            updateWaktuDanCountdown();
-            setInterval(updateWaktuDanCountdown, 1000);
-            acakPenyegarRohani();
-        };
+        window.onload = function() { loadJadwalSholat(); updateWaktuDanCountdown(); setInterval(updateWaktuDanCountdown, 1000); acakPenyegarRohani(); };
     </script>
 
+    <!-- FLOATING MULTI-AUDIO PLAYER -->
     <div id="audio-floating-box" style="position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; align-items: center; gap: 12px; background: rgba(44, 26, 4, 0.95); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--primary-gold); padding: 10px 18px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); transition: all 0.3s ease;">
         <audio id="murattal-player" src="https://server11.mp3quran.net/yasser/036.mp3" preload="none" loop></audio>
-        
         <div id="audio-wave" style="display: none; align-items: flex-end; gap: 3px; height: 16px; width: 18px; margin-right: 2px;">
             <div class="bar-wave" style="width: 3px; height: 100%; background: var(--primary-gold); animation: bounceWave 0.6s ease-in-out infinite alternate;"></div>
             <div class="bar-wave" style="width: 3px; height: 60%; background: var(--primary-gold); animation: bounceWave 0.4s ease-in-out infinite alternate 0.2s;"></div>
             <div class="bar-wave" style="width: 3px; height: 80%; background: var(--primary-gold); animation: bounceWave 0.5s ease-in-out infinite alternate 0.1s;"></div>
         </div>
-
         <div style="text-align: left; display: flex; flex-direction: column;">
             <span style="font-size: 0.6rem; color: var(--primary-gold); font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 2px;">Putar Murottal</span>
             <select id="surat-selector" onchange="gantiSuratAudio()" style="background: transparent; color: #fff; border: none; font-size: 0.8rem; font-weight: 600; font-family: inherit; cursor: pointer; padding-right: 15px; outline: none;">
@@ -935,62 +801,21 @@
                 <option value="https://server11.mp3quran.net/yasser/056.mp3" style="background: var(--dark-brown); color: #fff;">Surat Al-Waqi'ah</option>
             </select>
         </div>
-
         <button id="btn-audio-toggle" onclick="toggleMurattal()" style="background: var(--primary-gold); color: #2C1A04; border: none; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.3s; box-shadow: 0 0 10px rgba(212,175,55,0.4);">
             <i id="icon-audio-control" class="fa-solid fa-play" style="margin-left: 2px;"></i>
         </button>
     </div>
 
-    <style>
-        @keyframes bounceWave {
-            0% { height: 30%; }
-            100% { height: 100%; }
-        }
-        #audio-floating-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(212,175,55,0.2);
-            border-color: #fff;
-        }
-        #surat-selector {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23D4AF37'><path d='M0 2l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right center;
-        }
-    </style>
-
     <script>
-        const player = document.getElementById('murattal-player');
-        const icon = document.getElementById('icon-audio-control');
-        const wave = document.getElementById('audio-wave');
-        const selector = document.getElementById('surat-selector');
-
+        const player = document.getElementById('murattal-player'); const icon = document.getElementById('icon-audio-control'); const wave = document.getElementById('audio-wave'); const selector = document.getElementById('surat-selector');
         function toggleMurattal() {
-            if (player.paused) {
-                player.play();
-                icon.className = 'fa-solid fa-pause';
-                icon.style.marginLeft = '0px';
-                wave.style.display = 'flex';
-            } else {
-                player.pause();
-                icon.className = 'fa-solid fa-play';
-                icon.style.marginLeft = '2px';
-                wave.style.display = 'none';
-            }
+            if (player.paused) { player.play(); icon.className = 'fa-solid fa-pause'; wave.style.display = 'flex'; } 
+            else { player.pause(); icon.className = 'fa-solid fa-play'; wave.style.display = 'none'; }
         }
-
-        function gantiSuratAudio() {
-            const urlSuratBaru = selector.value;
-            const statusSedangPlay = !player.paused;
-            player.src = urlSuratBaru;
-            player.load();
-            if (statusSedangPlay) {
-                player.play();
-            }
-        }
+        function gantiSuratAudio() { const urlSuratBaru = selector.value; const statusSedangPlay = !player.paused; player.src = urlSuratBaru; player.load(); if (statusSedangPlay) { player.play(); } }
     </script>
+
+    <!-- FLOATING WHATSAPP -->
     <div id="wa-floating-button" onclick="toggleWaPopup()" style="position: fixed; bottom: 25px; left: 25px; z-index: 9999; display: flex; align-items: center; justify-content: center; background: #25D366; color: #fff; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; box-shadow: 0 10px 25px rgba(37,211,102,0.3); transition: all 0.3s ease; border: 2px solid #fff;">
         <i class="fa-brands fa-whatsapp" style="font-size: 1.8rem;"></i>
         <span style="position: absolute; top: -2px; right: -2px; background: #D4AF37; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; animation: pulseBadge 1.5s infinite;"></span>
@@ -1002,72 +827,21 @@
             <p style="font-size: 0.75rem; color: #eee; margin: 0; opacity: 0.9;">Silakan pilih bidang layanan atau ustadz kami untuk memulai konsultasi &amp; bertanya via WhatsApp:</p>
             <button onclick="toggleWaPopup()" style="position: absolute; top: 15px; right: 15px; background: transparent; color: #fff; border: none; font-size: 1.1rem; cursor: pointer; opacity: 0.7;"><i class="fa-solid fa-xmark"></i></button>
         </div>
-
         <div style="padding: 15px; display: flex; flex-direction: column; gap: 10px; max-height: 350px; overflow-y: auto; background: #FAF8F4;">
-            <a href="https://wa.me/6281296305543?text=Assalamualaikum%20Ustadz%2C%20saya%20jamaah%20Masjid%20Al-Ikhlash%20ingin%20bertanya%20mengenai..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
-                <div style="background: #E8F5E9; color: #2e7d32; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-                <div>
-                    <h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0 0 2px 0; font-weight: 600;">Ust. Ede Rohidin S.h.i</h5>
-                    <p style="color: #666; font-size: 0.7rem; margin: 0;">Bidang Imarah / Konsultasi Agama</p>
-                    <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> Online</span>
-                </div>
+            <a href="https://wa.me/6281296305543?text=Assalamualaikum..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee;">
+                <div style="background: #E8F5E9; color: #2e7d32; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"><i class="fa-solid fa-user-tie"></i></div>
+                <div><h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0;">Ust. Ede Rohidin S.h.i</h5><p style="color: #666; font-size: 0.7rem; margin: 0;">Bidang Imarah / Konsultasi Agama</p></div>
             </a>
-
-            <a href="https://wa.me/6289530104144?text=Assalamualaikum%20Pak%20Sekretaris%2C%20saya%20ingin%20bertanya%20mengenai%20administrasi%20masjid..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
-                <div style="background: #E3F2FD; color: #1565C0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
-                    <i class="fa-solid fa-file-pen"></i>
-                </div>
-                <div>
-                    <h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0 0 2px 0; font-weight: 600;">A. Harya Rukmana</h5>
-                    <p style="color: #666; font-size: 0.7rem; margin: 0;">Sekretaris / Layanan Administrasi</p>
-                    <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> Online</span>
-                </div>
-            </a>
-
-            <a href="https://wa.me/62895333477373?text=Assalamualaikum%20Pengurus%20SOSKEM%2C%20saya%20ingin%20melaporkan%20%2F%20bertanya%20terkait..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee; transition: 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.02);" onmouseover="this.style.borderColor='var(--primary-gold)', this.style.background='#fffdf7'" onmouseout="this.style.borderColor='#eee', this.style.background='#fff'">
-                <div style="background: #FFEBEE; color: #C62828; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
-                    <i class="fa-solid fa-hands-holding-heart"></i>
-                </div>
-                <div>
-                    <h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0 0 2px 0; font-weight: 600;">Unit SOSKEM Jami'</h5>
-                    <p style="color: #666; font-size: 0.7rem; margin: 0;">Pelayanan Duka &amp; Iuran RW</p>
-                    <span style="font-size: 0.6rem; color: #25D366; font-weight: bold;"><i class="fa-solid fa-circle" style="font-size: 0.4rem;"></i> 24 Jam Siaga</span>
-                </div>
+            <a href="https://wa.me/6289530104144?text=Assalamualaikum..." target="_blank" style="display: flex; align-items: center; gap: 12px; background: #fff; padding: 12px; border-radius: 10px; text-decoration: none; border: 1px solid #eee;">
+                <div style="background: #E3F2FD; color: #1565C0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;"><i class="fa-solid fa-file-pen"></i></div>
+                <div><h5 style="color: var(--dark-brown); font-size: 0.85rem; margin: 0;">A. Harya Rukmana</h5><p style="color: #666; font-size: 0.7rem; margin: 0;">Sekretaris / Layanan Administrasi</p></div>
             </a>
         </div>
-        
-        <div style="background: #fff; padding: 10px; text-align: center; font-size: 0.65rem; color: #999; border-top: 1px solid #eee;">
-            Masjid Resmi Jami' Al-Ikhlash Katapang
-        </div>
+        <div style="background: #fff; padding: 10px; text-align: center; font-size: 0.65rem; color: #999; border-top: 1px solid #eee;">Masjid Resmi Jami' Al-Ikhlash Katapang</div>
     </div>
 
-    <style>
-        @keyframes pulseBadge {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.4; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        @keyframes slideUpWa {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        #wa-floating-button:hover {
-            transform: scale(1.1) rotate(10deg);
-            background: #20ba5a;
-        }
-    </style>
-
     <script>
-        function toggleWaPopup() {
-            const popup = document.getElementById('wa-popup-box');
-            if (popup.style.display === 'none' || popup.style.display === '') {
-                popup.style.display = 'flex';
-            } else {
-                popup.style.display = 'none';
-            }
-        }
+        function toggleWaPopup() { const popup = document.getElementById('wa-popup-box'); if (popup.style.display === 'none' || popup.style.display === '') { popup.style.display = 'flex'; } else { popup.style.display = 'none'; } }
     </script>
-    </body>
+</body>
 </html>
