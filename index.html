@@ -105,7 +105,6 @@
         .recently-card { border: 1px solid rgba(44,26,4,0.08); padding: 14px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
         .badge-new { position: absolute; top: 12px; right: 12px; background: #2e7d32; color: #fff; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; z-index: 5; }
         .badge-update { position: absolute; top: 12px; right: 12px; background: #0288d1; color: #fff; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; z-index: 5; }
-        .video-container-kauny { width: 100%; height: 155px; margin-top: 10px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; background: #000; }
         
         /* STRUKTUR ORGANISASI */
         .dkm-section { background: #F4EFE3; padding: 35px 5%; text-align: center; }
@@ -120,6 +119,14 @@
         .staff-tile i { font-size: 1.1rem; color: var(--dark-gold); }
         .staff-tile div h4 { font-size: 0.8rem; color: var(--dark-brown); }
         .staff-tile div p { font-size: 0.65rem; color: var(--dark-gold); font-weight: bold; text-transform: uppercase; }
+
+        /* PERBAIKAN FORM SUARA JAMAAH (ANTI SQUISHED) */
+        .feedback-section { padding: 40px 5%; background: var(--bg-light); }
+        .feedback-box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; border: 2px solid var(--primary-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+        .feedback-input { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 0.9rem; box-sizing: border-box; display: block; background: #fafafa; transition: border-color 0.3s; }
+        .feedback-input:focus { outline: none; border-color: var(--primary-gold); background: #fff; }
+        .btn-send-feedback { background: var(--dark-brown); color: var(--primary-gold); padding: 12px 20px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; font-size: 0.9rem; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .btn-send-feedback:hover { background: var(--medium-brown); color: #fff; }
 
         /* GALERI DOKUMENTASI */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; padding: 0 5% 25px; }
@@ -246,20 +253,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Saldo Awal (Per 29 Mei 2026)</td>
-                            <td style="text-align: right; font-weight: 600;">Rp 2.578.000</td>
+                            <td>Saldo Awal (Per 22 Mei 2026)</td>
+                            <td style="text-align: right; font-weight: 600;">Rp 1.228.000</td>
                         </tr>
                         <tr>
-                            <td>Pemasukan Donatur Bulanan Tetap</td>
-                            <td style="text-align: right;" class="warna-pemasukan">+ Rp 1.400.000</td>
+                            <td>Pemasukan Kencleng Idul Adha</td>
+                            <td style="text-align: right;" class="warna-pemasukan">+ Rp 1.500.000</td>
                         </tr>
                         <tr>
-                            <td>Pengeluaran Sosial DKM & Operasional</td>
-                            <td style="text-align: right;" class="warna-pengeluaran">- Rp 1.280.000</td>
+                            <td>Pengeluaran Kafalah Sorban Idul Adha</td>
+                            <td style="text-align: right;" class="warna-pengeluaran">- Rp 150.000</td>
                         </tr>
                         <tr class="baris-total-dkm">
                             <td style="color: var(--dark-brown);">TOTAL SALDO AKHIR OPERASIONAL DKM</td>
-                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.05rem;">Rp 2.698.000</td>
+                            <td style="text-align: right; color: var(--dark-gold); font-size: 1.05rem;">Rp 2.578.000</td>
                         </tr>
                     </tbody>
                 </table>
@@ -371,11 +378,18 @@
                     <h4 style="font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 2px; font-weight: bold; padding-right: 80px;">Metode Kauny: Menghafal Semudah Tersenyum</h4>
                     <p style="font-size: 0.7rem; color: #666; margin-bottom: 6px;"><i class="fa-solid fa-video"></i> Trainer: Ustadz Indra Aulia</p>
                     <p style="font-size: 0.8rem; color: #444; text-align: justify; line-height: 1.3;">
-                        Metode menghafal Al-Qur'an kreatif secara kilat menggunakan visualisasi gerakan tangan beserta arti maknanya. Simak video pelatihannya di bawah:
+                        Metode menghafal Al-Qur'an kreatif secara kilat menggunakan visualisasi gerakan tangan. Simak kedua video pelatihannya di bawah ini:
                     </p>
-                    <div class="video-container-kauny">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/gEFGbtTmmao" title="Belajar Metode Kauny" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+                        <div style="width: 100%; height: 160px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; background: #000;">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/gEFGbtTmmao" title="Belajar Metode Kauny 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div style="width: 100%; height: 160px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; background: #000;">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MsluQLz7uZk" title="Belajar Metode Kauny 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
@@ -507,12 +521,12 @@
 
     <section class="feedback-section" id="saran">
         <div class="feedback-box">
-            <h3 style="text-align: center; margin-bottom: 12px; font-size: 1.1rem; font-weight: bold;">Suara Jamaah (Kritik &amp; Saran)</h3>
+            <h3 style="text-align: center; margin-bottom: 20px; font-size: 1.3rem; color: var(--dark-brown);">Suara Jamaah (Kritik &amp; Saran)</h3>
             <div>
-                <input type="text" id="saran-nama" placeholder="Nama Lengkap..." required>
-                <input type="text" id="saran-kontak" placeholder="WhatsApp / Email..." required>
-                <textarea id="saran-pesan" rows="2" placeholder="Tulis aspirasi atau saran Anda..." required></textarea>
-                <button type="button" onclick="kirimSaranWA()" class="btn-send">KIRIM VIA WHATSAPP <i class="fa-solid fa-paper-plane"></i></button>
+                <input type="text" id="saran-nama" class="feedback-input" placeholder="Nama Lengkap..." required>
+                <input type="text" id="saran-kontak" class="feedback-input" placeholder="WhatsApp / Email..." required>
+                <textarea id="saran-pesan" class="feedback-input" rows="3" placeholder="Tulis aspirasi atau saran Anda di sini..." required></textarea>
+                <button type="button" onclick="kirimSaranWA()" class="btn-send-feedback">KIRIM PESAN VIA WHATSAPP <i class="fa-solid fa-paper-plane"></i></button>
             </div>
         </div>
     </section>
