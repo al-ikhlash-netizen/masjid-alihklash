@@ -3,304 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SK Renovasi Tahap I - Masjid Al-Ikhlash</title>
+    <title>SK Renovasi Tahap I - Masjid Jami' Al-Ikhlash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body { 
-            font-family: 'Times New Roman', Times, serif; 
-            line-height: 1.5; 
-            background: #f4f4f4; 
-            color: #000;
-            margin: 0;
-            padding: 20px;
-        }
-        .kertas-a4 {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 40px 50px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .kop-surat { 
-            text-align: center; 
-            border-bottom: 3px double #000; 
-            margin-bottom: 25px; 
-            padding-bottom: 15px; 
-            position: relative;
-        }
-        .kop-surat h1 { margin: 0; font-size: 20px; letter-spacing: 1px; font-weight: bold; }
-        .kop-surat h2 { margin: 5px 0; font-size: 24px; font-weight: bold; }
-        .kop-surat p { margin: 2px 0; font-size: 13px; }
-        
-        .kop-detail {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            margin-top: 10px;
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-gold: #AA7C11;
+            --dark-brown: #2C1A04;
+            --medium-brown: #4A3511;
+            --bg-light: #FDFBF7;
         }
 
-        .judul-sk { text-align: center; margin-bottom: 30px; }
-        .judul-sk h3 { margin: 0; font-size: 16px; text-decoration: underline; }
-        .judul-sk p { margin: 5px 0 0 0; font-size: 14px; }
-        .judul-sk .tentang { font-weight: bold; margin-top: 15px; font-size: 14px; text-transform: uppercase; }
-
-        .isi-surat { text-align: justify; font-size: 14px; }
-        .isi-surat .pembuka { margin-bottom: 15px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--dark-brown); line-height: 1.6; }
         
-        .list-tata-letak {
-            display: table;
-            width: 100%;
-        }
-        .list-row {
-            display: table-row;
-        }
-        .list-label {
-            display: table-cell;
-            width: 120px;
-            font-weight: bold;
-            padding-bottom: 10px;
-            vertical-align: top;
-        }
-        .list-content {
-            display: table-cell;
-            padding-bottom: 10px;
-        }
-        .list-content ol, .list-content ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .list-content li {
-            margin-bottom: 5px;
-            text-align: justify;
-        }
+        /* HEADER (Sama seperti halaman utama) */
+        header { background: linear-gradient(135deg, var(--dark-brown) 0%, var(--medium-brown) 100%); color: #fff; padding: 10px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--primary-gold); position: sticky; top: 0; z-index: 100; height: 65px; }
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { width: 45px; height: 45px; object-fit: contain; border-radius: 50%; border: 1.5px solid var(--primary-gold); background: #fff; }
+        .brand-text h1 { font-family: 'Marcellus', serif; font-size: 1.2rem; color: var(--primary-gold); letter-spacing: 0.5px; margin: 0; }
+        .brand-text p { font-size: 0.65rem; color: #F3E5AB; margin: 0; }
 
-        .lampiran-judul { font-weight: bold; text-decoration: underline; font-size: 14px; margin-top: 40px; text-transform: uppercase; }
-        .lampiran-sub { font-size: 14px; margin-bottom: 10px; font-weight: bold;}
-        
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
+        /* WADAH ARTIKEL DOKUMEN */
+        .article-container { max-width: 850px; margin: 30px auto; padding: 0 15px; }
+        .document-card { background: #fff; border-radius: 8px; border-top: 4px solid var(--primary-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px 25px; font-family: 'Times New Roman', Times, serif; color: #000; font-size: 0.95rem; }
+
+        /* KOP SURAT RESPONSIVE */
+        .kop-surat { text-align: center; border-bottom: 3px double #000; margin-bottom: 25px; padding-bottom: 15px; }
+        .kop-surat h1 { font-size: 1.3rem; margin-bottom: 5px; text-transform: uppercase; font-family: 'Times New Roman', Times, serif; }
+        .kop-surat p { font-size: 0.85rem; margin-bottom: 2px; line-height: 1.3; }
+        .kop-detail { display: flex; justify-content: space-between; font-size: 0.8rem; margin-top: 10px; font-weight: bold; flex-wrap: wrap; gap: 5px; }
+
+        /* JUDUL & ISI DOKUMEN */
+        .judul-dokumen { text-align: center; margin-bottom: 25px; }
+        .judul-dokumen h3 { font-size: 1.1rem; text-decoration: underline; margin-bottom: 5px; font-family: 'Times New Roman', Times, serif; }
+        .judul-dokumen p { font-size: 0.9rem; margin-bottom: 10px; }
+        .judul-dokumen .tentang { font-weight: bold; font-size: 0.95rem; }
+
+        .list-tata-letak { display: flex; margin-bottom: 8px; }
+        .list-label { width: 110px; font-weight: bold; flex-shrink: 0; }
+        .list-content { flex-grow: 1; text-align: justify; }
+        .list-content ol, .list-content ul { padding-left: 15px; margin: 0; }
+        .list-content li { margin-bottom: 6px; }
+
+        .section-lampiran { margin-top: 40px; border-top: 1px dashed #ccc; padding-top: 20px; }
+        .lampiran-judul { font-weight: bold; text-decoration: underline; font-size: 1rem; margin-bottom: 5px; }
+
+        /* TABEL RESPONSIVE (BISA DI-SWIPE DI HP) */
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 15px 0; border: 1px solid #ddd; border-radius: 4px; }
+        table { width: 100%; min-width: 600px; border-collapse: collapse; font-size: 0.85rem; }
         table, th, td { border: 1px solid #000; }
-        th, td { padding: 8px; text-align: center; }
+        th { background: #f2f2f2; padding: 10px 8px; text-align: center; }
+        td { padding: 8px; text-align: center; }
         td:nth-child(2) { text-align: left; }
+
+        /* TANDA TANGAN RESPONSIVE GRID */
+        .ttd-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; text-align: center; font-size: 0.9rem; }
+        .ttd-box { display: flex; flex-direction: column; justify-content: space-between; min-height: 120px; }
+        .ttd-nama { font-weight: bold; text-decoration: underline; margin-top: auto; }
         
-        .ttd-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            text-align: center;
-            font-size: 14px;
-        }
-        .ttd-box { width: 30%; }
-        .ttd-nama { font-weight: bold; text-decoration: underline; margin-top: 70px; }
-        
-        .mengetahui { text-align: center; margin-top: 30px; font-size: 14px; }
-        .mengetahui-flex { display: flex; justify-content: center; gap: 100px; margin-top: 15px; text-align: center; }
-        
-        .page-break { page-break-after: always; margin-top: 40px; border-top: 1px dashed #ccc; padding-top: 40px; }
-        
-        @media print {
-            body { background: #fff; padding: 0; }
-            .kertas-a4 { box-shadow: none; padding: 0; max-width: 100%; }
-            .page-break { border-top: none; padding-top: 0; }
+        .mengetahui-section { margin-top: 40px; text-align: center; }
+        .mengetahui-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 20px; }
+
+        /* FOOTER */
+        footer { background: var(--dark-brown); color: #fff; padding: 25px 5%; border-top: 2px solid var(--primary-gold); font-size: 0.8rem; text-align: center; margin-top: 40px; }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 600px) {
+            .document-card { padding: 20px 15px; }
+            .kop-surat h1 { font-size: 1.1rem; }
+            .kop-detail { flex-direction: column; align-items: center; }
+            .list-tata-letak { flex-direction: column; }
+            .list-label { width: 100%; margin-bottom: 5px; }
         }
     </style>
 </head>
 <body>
-    <div class="kertas-a4">
-        <div class="kop-surat">
-            <h1>DKM MASJID JAMI AL IKHLASH</h1>
-            <p>CIBORERANG, RT 001 RW 019</p>
-            <p>SANGKANHURIP, KATAPANG, KAB.BANDUNG - 40971</p>
-            <div class="kop-detail">
-                <span>SK Nomor: 003/SK/PC/DMI/KEC-KATAPANG/11/2024</span>
-                <span>TLP/WA 0895-3334-773-73</span>
+
+    <header>
+        <a href="index.html" class="logo-area">
+            <img src="Logo%20masjid.png" alt="Logo" class="logo-img">
+            <div class="brand-text">
+                <h1>AL-IKHLASH</h1>
+                <p>Sangkanhurip, Kab. Bandung</p>
             </div>
+        </a>
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <a href="index.html" style="background: transparent; color: var(--primary-gold); padding: 6px 12px; text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 0.75rem; border: 1px solid var(--primary-gold); transition: 0.2s;"><i class="fa-solid fa-house"></i> KEMBALI</a>
+        </div>
+    </header>
+
+    <div class="article-container">
+        
+        <div style="margin-bottom: 15px;">
+            <a href="index.html" style="color: var(--dark-gold); text-decoration: none; font-size: 0.85rem; font-weight: 600;"><i class="fa-solid fa-arrow-left"></i> Kembali ke Halaman Utama</a>
         </div>
 
-        <div class="judul-sk">
-            <h3>SURAT KEPUTUSAN KETUA DKM MASJID JAMI AL-IKHLASH</h3>
-            <p>Nomor: 02/SK-RENOV/DKM-AL-IKHLASH/VI/2026</p>
-            <div class="tentang">
-                TENTANG: PELAKSANAAN RENOVASI TAHAP I (PHASE 1): PEMBONGKARAN<br>
-                KUBAH BETON BERTULANG GUNA PENYELAMATAN STRUKTUR<br>
-                BANGUNAN MASJID JAMI AL-IKHLASH
+        <div class="document-card">
+            
+            <div class="kop-surat">
+                <h1>DKM MASJID JAMI AL IKHLASH</h1>
+                <p>CIBORERANG, RT 001 RW 019</p>
+                <p>SANGKANHURIP, KATAPANG, KAB.BANDUNG - 40971</p>
+                <div class="kop-detail">
+                    <span>SK Nomor: 003/SK/PC/DMI/KEC-KATAPANG/11/2024</span>
+                    <span>TLP/WA: 0895-3334-773-73</span>
+                </div>
             </div>
-        </div>
 
-        <div class="isi-surat">
-            <p class="pembuka"><strong>KETUA DKM MASJID JAMI AL-IKHLASH,</strong></p>
+            <div class="judul-dokumen">
+                <h3>SURAT KEPUTUSAN KETUA DKM MASJID JAMI AL-IKHLASH</h3>
+                <p>Nomor: 02/SK-RENOV/DKM-AL-IKHLASH/VI/2026</p>
+                <div class="tentang">
+                    TENTANG: PELAKSANAAN RENOVASI TAHAP I (PHASE 1): PEMBONGKARAN KUBAH BETON BERTULANG GUNA PENYELAMATAN STRUKTUR BANGUNAN MASJID JAMI AL-IKHLASH
+                </div>
+            </div>
+
+            <div style="margin-bottom: 15px; font-weight: bold;">KETUA DKM MASJID JAMI AL-IKHLASH,</div>
             
             <div class="list-tata-letak">
-                <div class="list-row">
-                    <div class="list-label">Menimbang:</div>
-                    <div class="list-content">
-                        <ol>
-                            <li>Bahwa keselamatan dan kenyamanan jama'ah dalam beribadah adalah prioritas utama.</li>
-                            <li>Bahwa berdasarkan Surat Rekomendasi Teknis DPUTR Kabupaten Bandung Nomor: 500.10.29.15/271/Bid. BGPP tertanggal 6 April 2026, ditemukan indikasi kegagalan struktur akibat beban kubah beton.</li>
-                            <li>Bahwa kalkulasi teknis menunjukkan kubah beton menghasilkan beban mati &plusmn; 6 Ton yang membahayakan struktur di bawahnya.</li>
-                            <li>Bahwa diperlukan tata kelola administrasi dan keuangan yang transparan untuk penyaluran dana.</li>
-                        </ol>
+                <div class="list-label">Menimbang:</div>
+                <div class="list-content">
+                    <ol>
+                        <li>Bahwa keselamatan dan kenyamanan jama'ah dalam beribadah adalah prioritas utama.</li>
+                        <li>Bahwa berdasarkan Surat Rekomendasi Teknis DPUTR Kabupaten Bandung Nomor: 500.10.29.15/271/Bid. BGPP tertanggal 6 April 2026, ditemukan indikasi kegagalan struktur akibat beban kubah beton.</li>
+                        <li>Bahwa kalkulasi teknis menunjukkan kubah beton menghasilkan beban mati &plusmn; 6 Ton yang membahayakan struktur di bawahnya.</li>
+                        <li>Bahwa diperlukan tata kelola administrasi dan keuangan yang transparan untuk penyaluran dana.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div style="text-align: center; font-weight: bold; margin: 25px 0 15px 0; letter-spacing: 1px;">MEMUTUSKAN:</div>
+
+            <div class="list-tata-letak">
+                <div class="list-label">Menetapkan:</div>
+                <div class="list-content"></div>
+            </div>
+            <div class="list-tata-letak">
+                <div class="list-label">PERTAMA:</div>
+                <div class="list-content">Menyetujui Pelaksanaan Renovasi Masjid Tahap I (Phase 1), berfokus eksklusif pada pembongkaran total kubah beton di lantai 2.</div>
+            </div>
+            <div class="list-tata-letak">
+                <div class="list-label">KEDUA:</div>
+                <div class="list-content">Menginstruksikan pembongkaran dilakukan oleh tim pemborong khusus dengan nilai kontrak kerja borongan terlampir, di bawah pengawasan Ketua DKM.</div>
+            </div>
+            <div class="list-tata-letak">
+                <div class="list-label">KETIGA:</div>
+                <div class="list-content">Menugaskan Sekretaris DKM untuk administrasi proyek, dan Bendahara DKM untuk kontrol aliran dana sesuai Rencana Anggaran Biaya (RAB) terlampir.</div>
+            </div>
+
+            <div class="section-lampiran">
+                <div class="lampiran-judul">LAMPIRAN I: KEPUTUSAN KETUA DKM - TEKNIS STRUKTUR</div>
+                <p style="font-size: 0.85rem; margin-bottom: 15px;">Nomor: 02/SK-RENOV/DKM-AL-IKHLASH/VI/2026</p>
+                
+                <p style="font-weight: bold; margin-bottom: 5px;">Kalkulasi Matematis Estimasi Beban Mati Kubah Beton</p>
+                <p style="text-align: justify; margin-bottom: 10px;">Berdasarkan data dari surat DPUTR, kubah memiliki diameter 3,6 meter dan tinggi 4 meter. Karena dokumen tidak menyebutkan ketebalan beton, kita menggunakan standar minimal ketebalan kubah beton bertulang yaitu 10 cm (0,1 meter). Kita asumsikan bentuk kubah mendekati bentuk parabolik atau kerucut untuk menyederhanakan perhitungan luas permukaannya.</p>
+                
+                <p style="font-weight: bold; margin-top: 10px;">Diketahui Parameter Teknis:</p>
+                <ul style="padding-left: 20px; margin-bottom: 10px;">
+                    <li>Jari-jari alas kubah (r) = 3,6 m / 2 = 1,8 m</li>
+                    <li>Tinggi kubah (h) = 4 m</li>
+                    <li>Estimasi ketebalan beton (t) = 0,1 m</li>
+                    <li>Berat jenis beton bertulang (&rho;) &approx; 2400 kg/m&sup3;</li>
+                </ul>
+
+                <p style="text-align: justify; background: #fafafa; padding: 10px; border-left: 3px solid #ccc; margin-bottom: 15px;">
+                    <strong>Kesimpulan Teknis:</strong><br>
+                    Dari perhitungan teknis luas permukaan dan volume, kubah beton bertulang tersebut diperkirakan memberikan beban mati sebesar <strong>&approx; 5,95 Ton (hampir 6 Ton)</strong>. Membebani kolom berukuran kecil dengan beban terpusat seberat 6 Ton di bagian paling atas bangunan adalah penyebab utama kegagalan struktur yang disebutkan oleh DPUTR, sehingga pembongkaran mutlak diperlukan.
+                </p>
+            </div>
+
+            <div class="section-lampiran">
+                <div class="lampiran-judul">LAMPIRAN II: KEPUTUSAN KETUA DKM - RENCANA ANGGARAN BIAYA</div>
+                <p style="font-size: 0.85rem; margin-bottom: 15px;">Nomor: 02/SK-RENOV/DKM-AL-IKHLASH/VI/2026</p>
+                <p style="font-weight: bold; margin-bottom: 10px;">RENCANA ANGGARAN BIAYA (RAB) RENOVASI TAHAP I (PHASE 1)</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">No.</th>
+                                <th style="width: 45%;">Uraian Pekerjaan / Alokasi Dana</th>
+                                <th style="width: 10%;">Vol.</th>
+                                <th style="width: 10%;">Sat.</th>
+                                <th style="width: 15%;">Harga Satuan (Rp)</th>
+                                <th style="width: 15%;">Jumlah Harga (Rp)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Pekerjaan Persiapan Kerja &amp; Belanja Keperluan Pengamanan Kerja (K3 / APD)</td>
+                                <td>1</td>
+                                <td>Paket</td>
+                                <td>1.500.000</td>
+                                <td>1.500.000</td>
+                            </tr>
+                            <tr>
+                                <td>2.</td>
+                                <td>Jasa Kontrak Kerja Borongan Pembongkaran Struktur Kubah Beton (Nilai Kontrak Pemborong)</td>
+                                <td>1</td>
+                                <td>ls</td>
+                                <td>10.000.000</td>
+                                <td>10.000.000</td>
+                            </tr>
+                            <tr>
+                                <td>3.</td>
+                                <td>Alokasi Dana Operasional Darurat (Contingency Fund Proyek)</td>
+                                <td>1</td>
+                                <td>Paket</td>
+                                <td>1.000.000</td>
+                                <td>1.000.000</td>
+                            </tr>
+                            <tr style="font-weight: bold; background-color: #f9f9f9;">
+                                <td colspan="5">TOTAL KESELURUHAN ANGGARAN PHASE 1</td>
+                                <td>12.500.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p style="font-weight: bold; margin-top: 15px;">Catatan Anggaran:</p>
+                <ol style="padding-left: 20px; text-align: justify; margin-bottom: 20px;">
+                    <li><strong>Pekerjaan Persiapan:</strong> Mencakup pengadaan jaring pengaman (safety net), perancah (scaffolding), papan peringatan, dan alat pelindung diri (APD) mengingat risiko jatuhan material.</li>
+                    <li><strong>Nilai Kontrak Kerja:</strong> Sebesar Rp10.000.000,- bersifat mengikat (Lump Sum) diserahkan kepada pihak pemborong ahli dekonstruksi yang ditunjuk.</li>
+                    <li><strong>Dana Operasional Darurat:</strong> Sebesar Rp1.000.000,- dialokasikan sebagai dana tak terduga jika terjadi kendala teknis mendesak di lapangan.</li>
+                </ol>
+                
+                <p style="text-align: justify; margin-bottom: 25px;">Demikian Surat Keputusan ini diterbitkan dengan senantiasa mengharap taufik dan inayah dari Allah SWT. Semoga langkah penyelamatan dan renovasi Masjid Jami Al-Ikhlash ini dicatat sebagai amal jariyah bagi seluruh pengurus, panitia, jama'ah, dan para donatur. Kepada pihak-pihak yang telah ditunjuk, dan dilandasi niat ikhlas lillahi ta'ala demi keselamatan bersama diharap dapat menjalankan amanah ini dengan penuh dedikasi, transparan, dan rasa tanggung jawab.</p>
+            </div>
+
+            <div style="font-size: 0.9rem; margin-top: 20px;">
+                <p>Ditetapkan di: Katapang, Kabupaten Bandung<br>Pada tanggal: 8 Juni 2026</p>
+            </div>
+
+            <div class="ttd-container">
+                <div class="ttd-box">
+                    <span>Penanggung Jawab 1<br>(Ketua DKM)</span>
+                    <span class="ttd-nama">INDRA AULIA, A.Md.</span>
+                </div>
+                <div class="ttd-box">
+                    <span>Penanggung Jawab 2<br>(Bendahara DKM)</span>
+                    <span class="ttd-nama">FIRMAN RISBAYA</span>
+                </div>
+                <div class="ttd-box">
+                    <span>Pengawas<br>(Sekretaris DKM)</span>
+                    <span class="ttd-nama">A. HARYA RUKMANA</span>
+                </div>
+            </div>
+
+            <div class="mengetahui-section">
+                <p>Mengetahui dan Menyetujui,</p>
+                <div class="mengetahui-grid">
+                    <div class="ttd-box">
+                        <span>Nadzir 1</span>
+                        <span class="ttd-nama">UST. N. ABDUL HAMID</span>
+                    </div>
+                    <div class="ttd-box">
+                        <span>Nadzir 2</span>
+                        <span class="ttd-nama">H. DAYAT SUDARYAT</span>
                     </div>
                 </div>
             </div>
 
-            <p style="text-align: center; font-weight: bold; margin: 25px 0;">MEMUTUSKAN:</p>
-
-            <div class="list-tata-letak">
-                <div class="list-row">
-                    <div class="list-label">Menetapkan:</div>
-                    <div class="list-content"></div>
-                </div>
-                <div class="list-row">
-                    <div class="list-label">PERTAMA:</div>
-                    <div class="list-content">Menyetujui Pelaksanaan Renovasi Masjid Tahap I (Phase 1), berfokus eksklusif pada pembongkaran total kubah beton di lantai 2.</div>
-                </div>
-                <div class="list-row">
-                    <div class="list-label">KEDUA:</div>
-                    <div class="list-content">Menginstruksikan pembongkaran dilakukan oleh tim pemborong khusus dengan nilai kontrak kerja borongan terlampir, di bawah pengawasan Ketua DKM.</div>
-                </div>
-                <div class="list-row">
-                    <div class="list-label">KETIGA:</div>
-                    <div class="list-content">Menugaskan Sekretaris DKM untuk administrasi proyek, dan Bendahara DKM untuk kontrol aliran dana sesuai Rencana Anggaran Biaya (RAB) terlampir.</div>
-                </div>
-            </div>
         </div>
-
-        <div class="page-break"></div>
-
-        <div class="lampiran-judul">LAMPIRAN I: KEPUTUSAN KETUA DKM - TEKNIS STRUKTUR</div>
-        <p>Nomor: 02/SK-RENOV/DKM-AL-IKHLASH/VI/2026</p>
-        
-        <div class="isi-surat">
-            <p class="lampiran-sub">Kalkulasi Matematis Estimasi Beban Mati Kubah Beton</p>
-            <p>Berdasarkan data dari surat DPUTR, kubah memiliki diameter 3,6 meter dan tinggi 4 meter. Karena dokumen tidak menyebutkan ketebalan beton, kita menggunakan standar minimal ketebalan kubah beton bertulang yaitu 10 cm (0,1 meter). Kita asumsikan bentuk kubah mendekati bentuk parabolik atau kerucut untuk menyederhanakan perhitungan luas permukaannya.</p>
-            
-            <p><strong>Diketahui Parameter Teknis:</strong></p>
-            <ul>
-                <li>Jari-jari alas kubah (r) = 3,6 m / 2 = 1,8 m</li>
-                <li>Tinggi kubah (h) = 4 m</li>
-                <li>Estimasi ketebalan beton (t) = 0,1 m</li>
-                <li>Berat jenis beton bertulang (&rho;) &approx; 2400 kg/m&sup3;</li>
-            </ul>
-
-            <p><strong>1. Menghitung Estimasi Luas Permukaan (A):</strong></p>
-            <p style="margin-left: 20px;">
-                A &approx; &pi; &middot; r &middot; &radic;(r&sup2; + h&sup2;)<br>
-                A &approx; 3.14 &times; 1.8 &times; &radic;(1.8&sup2; + 4&sup2;)<br>
-                A &approx; 5.652 &times; &radic;(3.24 + 16)<br>
-                A &approx; 5.652 &times; &radic;(19.24)<br>
-                A &approx; 5.652 &times; 4.386 &approx; 24.79 m&sup2;
-            </p>
-
-            <p><strong>2. Menghitung Estimasi Volume Beton (V):</strong></p>
-            <p style="margin-left: 20px;">
-                V = A &times; t<br>
-                V = 24.79 m&sup2; &times; 0.1 m = 2.479 m&sup3;
-            </p>
-
-            <p><strong>3. Menghitung Total Estimasi Beban Mati (W):</strong></p>
-            <p style="margin-left: 20px;">
-                W = V &times; &rho;<br>
-                W = 2.479 m&sup3; &times; 2400 kg/m&sup3; &approx; 5949.6 kg
-            </p>
-
-            <p><strong>Kesimpulan Teknis:</strong></p>
-            <p>Kubah beton bertulang tersebut diperkirakan memberikan beban mati sebesar &approx; 5,95 Ton (hampir 6 Ton). Membebani kolom berukuran kecil dengan beban terpusat seberat 6 Ton di bagian paling atas bangunan adalah penyebab utama kegagalan struktur yang disebutkan oleh DPUTR, sehingga pembongkaran mutlak diperlukan.</p>
-        </div>
-
-        <div class="page-break"></div>
-
-        <div class="lampiran-judul">LAMPIRAN II: KEPUTUSAN KETUA DKM - RENCANA ANGGARAN BIAYA</div>
-        <p>Nomor: 02/SK-RENOV/DKM-AL-IKHLASH/VI/2026</p>
-
-        <div class="isi-surat">
-            <p class="lampiran-sub">RENCANA ANGGARAN BIAYA (RAB) RENOVASI TAHAP I (PHASE 1)</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 5%;">No.</th>
-                        <th style="width: 45%;">Uraian Pekerjaan / Alokasi Dana</th>
-                        <th style="width: 10%;">Vol.</th>
-                        <th style="width: 10%;">Sat.</th>
-                        <th style="width: 15%;">Harga Satuan (Rp)</th>
-                        <th style="width: 15%;">Jumlah Harga (Rp)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1.</td>
-                        <td>Pekerjaan Persiapan Kerja &amp; Belanja Keperluan Pengamanan Kerja (K3 / APD)</td>
-                        <td>1</td>
-                        <td>Paket</td>
-                        <td>1.500.000</td>
-                        <td>1.500.000</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Jasa Kontrak Kerja Borongan Pembongkaran Struktur Kubah Beton (Nilai Kontrak Pemborong)</td>
-                        <td>1</td>
-                        <td>ls</td>
-                        <td>10.000.000</td>
-                        <td>10.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>Alokasi Dana Operasional Darurat (Contingency Fund Proyek)</td>
-                        <td>1</td>
-                        <td>Paket</td>
-                        <td>1.000.000</td>
-                        <td>1.000.000</td>
-                    </tr>
-                    <tr style="font-weight: bold; background-color: #f9f9f9;">
-                        <td colspan="5">TOTAL KESELURUHAN ANGGARAN PHASE 1</td>
-                        <td>12.500.000</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p><strong>Catatan Anggaran:</strong></p>
-            <ol>
-                <li><strong>Pekerjaan Persiapan:</strong> Mencakup pengadaan jaring pengaman (safety net), perancah (scaffolding), papan peringatan, dan alat pelindung diri (APD) mengingat risiko jatuhan material.</li>
-                <li><strong>Nilai Kontrak Kerja:</strong> Sebesar Rp10.000.000,- bersifat mengikat (Lump Sum) diserahkan kepada pihak pemborong ahli dekonstruksi yang ditunjuk.</li>
-                <li><strong>Dana Operasional Darurat:</strong> Sebesar Rp1.000.000,- dialokasikan sebagai dana tak terduga jika terjadi kendala teknis mendesak di lapangan.</li>
-            </ol>
-            
-            <p>Demikian Surat Keputusan ini diterbitkan dengan senantiasa mengharap taufik dan inayah dari Allah SWT. Semoga langkah penyelamatan dan renovasi Masjid Jami Al-Ikhlash ini dicatat sebagai amal jariyah bagi seluruh pengurus, panitia, jama'ah, dan para donatur. Kepada pihak-pihak yang telah ditunjuk, dan dilandasi niat ikhlas lillahi ta'ala demi keselamatan bersama diharap dapat menjalankan amanah ini dengan penuh dedikasi, transparan, dan rasa tanggung jawab.</p>
-        </div>
-
-        <div style="margin-top: 30px; font-size: 14px;">
-            <p>Ditetapkan di: Katapang, Kabupaten Bandung<br>
-            Pada tanggal: 8 Juni 2026</p>
-        </div>
-
-        <div class="ttd-container">
-            <div class="ttd-box">
-                Penanggung Jawab 1<br>(Ketua DKM)
-                <div class="ttd-nama">INDRA AULIA, A.Md.</div>
-            </div>
-            <div class="ttd-box">
-                Penanggung Jawab 2<br>(Bendahara DKM)
-                <div class="ttd-nama">FIRMAN RISBAYA</div>
-            </div>
-            <div class="ttd-box">
-                Pengawas<br>(Sekretaris DKM)
-                <div class="ttd-nama">A. HARYA RUKMANA</div>
-            </div>
-        </div>
-
-        <div class="mengetahui">
-            <p>Mengetahui dan Menyetujui,</p>
-            <div class="mengetahui-flex">
-                <div class="ttd-box">
-                    Nadzir 1
-                    <div class="ttd-nama">UST. N. ABDUL HAMID</div>
-                </div>
-                <div class="ttd-box">
-                    Nadzir 2
-                    <div class="ttd-nama">H. DAYAT SUDARYAT</div>
-                </div>
-            </div>
-        </div>
-
     </div>
+
+    <footer>
+        <p>&copy; 2026 DKM Masjid Jami' Al-Ikhlash Katapang. Transformasi Digital untuk Kemaslahatan Ummat.</p>
+    </footer>
+
 </body>
 </html>
