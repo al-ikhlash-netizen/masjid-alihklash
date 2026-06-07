@@ -37,13 +37,13 @@
         /* --- LAYOUT PROPORSI PADAT --- */
         .container-keuangan-gabungan, .max-width-container { max-width: 1050px; margin: 0 auto; padding: 0 15px; }
 
-        .box-kas-umum, .box-renovasi-split, .box-soskem-split, .recently-card {
+        .box-kas-umum, .box-soskem-split, .recently-card {
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(44,26,4,0.04);
         }
-        .box-kas-umum:hover, .box-renovasi-split:hover, .box-soskem-split:hover, .recently-card:hover {
+        .box-kas-umum:hover, .box-soskem-split:hover, .recently-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 18px rgba(44,26,4,0.08) !important;
             border-color: var(--primary-gold) !important;
@@ -95,9 +95,6 @@
 
         .label-kas-mini { color: #666; text-transform: uppercase; font-size: 0.75rem; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 3px; }
         .angka-kas-jumbo { font-family: 'Marcellus', serif; color: var(--dark-brown); font-weight: bold; border-bottom: 1.5px solid var(--primary-gold); }
-        .progress-renovasi-container { background: #eee; width: 100%; border-radius: 10px; overflow: hidden; }
-        .progress-bar-isi { background: linear-gradient(to right, var(--dark-gold), var(--primary-gold)); height: 100%; width: 40%; border-radius: 10px; }
-        .qris-renovasi-box { background: #fdfaf4; border: 1.5px dashed var(--primary-gold); border-radius: 8px; text-align: center; margin: 0 auto; }
         .infografis-soskem-img { width: 100%; height: auto; border-radius: 6px; border: 1px solid #ccc; box-shadow: 0 3px 10px rgba(0,0,0,0.03); }
 
         /* RECENTLY CARD GRID */
@@ -133,7 +130,7 @@
         .gallery-item { height: 120px; border-radius: 6px; overflow: hidden; border: 1.5px solid var(--light-gold); position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
         .gallery-item:hover img { transform: scale(1.08); }
-        .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44,26,4,0.85); color: var(--primary-gold); font-size: 0.65rem; padding: 4px; text-align: center; }
+        .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44, 26, 4, 0.85); color: var(--primary-gold); font-size: 0.65rem; padding: 4px; text-align: center; }
 
         /* JADWAL SHOLAT */
         .sholat-section-bottom { background: linear-gradient(135deg, var(--dark-brown) 0%, #170e02 100%); padding: 35px 5%; border-top: 2px solid var(--primary-gold); text-align: center; color: #fff; }
@@ -152,7 +149,7 @@
         .btn-iklan-portofolio { display: inline-flex; align-items: center; gap: 6px; background: rgba(212, 175, 55, 0.08); color: var(--primary-gold); text-decoration: none; padding: 6px 15px; border-radius: 20px; border: 1px solid var(--primary-gold); font-size: 0.75rem; font-weight: 600; transition: 0.2s; }
         .btn-iklan-portofolio:hover { background: var(--primary-gold); color: #000; }
 
-        @media (max-width: 768px) { .hero-content h2 { font-size: 1.6rem; } .leader-card { width: 45%; } .sholat-card-item { min-width: 30%; } .box-renovasi-split { flex-direction: column; text-align: center; } }
+        @media (max-width: 768px) { .hero-content h2 { font-size: 1.6rem; } .leader-card { width: 45%; } .sholat-card-item { min-width: 30%; } }
     </style>
 </head>
 <body>
@@ -257,11 +254,11 @@
                             <td style="text-align: right; font-weight: 600;">Rp 2.578.000</td>
                         </tr>
                         <tr>
-                            <td>Pemasukan Donatur Bulanan Tetap</td>
+                            <td>Pemasukan Donatur BUlanan Tetap</td>
                             <td style="text-align: right;" class="warna-pemasukan">+ Rp 1.400.000</td>
                         </tr>
                         <tr>
-                            <td>Pengeluaran Sosial DKM dan Operasional</td>
+                            <td>Pengeluaran Sosial DKM & Operasional Masjid</td>
                             <td style="text-align: right;" class="warna-pengeluaran">- Rp 1.280.000</td>
                         </tr>
                         <tr class="baris-total-dkm">
@@ -282,34 +279,73 @@
                 </p>
             </div>
 
-            <div class="box-renovasi-split" id="kas-renovasi" style="padding: 20px; gap: 20px; margin-bottom: 30px; align-items: center;">
-                <div class="info-renovasi-teks" style="flex: 1;">
-                    <div class="label-kas-mini">Kas Khusus Alokasi Fisik</div>
-                    <h3 style="font-size: 1.15rem; color: var(--medium-brown); margin-bottom: 2px;">II. Dana Pembangunan &amp; Renovasi</h3>
-                    <div class="angka-kas-jumbo" style="font-size: 2rem; margin-bottom: 6px; padding-bottom: 4px;">Rp 19.800.000</div>
-                    <p style="font-size: 0.8rem; color: #555; margin-bottom: 8px;">Alokasi dana dikhususkan sepenuhnya untuk pemeliharaan fisik serta perluasan area Masjid Jami' Al-Ikhlash.</p>
-                    <div class="progress-renovasi-container" style="height: 7px; margin: 5px 0;">
-                        <div class="progress-bar-isi"></div>
-                    </div>
-                    <span style="font-size: 0.75rem; font-weight: bold; color: var(--dark-gold);">⏳ Terkumpul 40% dari Target Kebutuhan</span>
-                    
-                    <div style="margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 15px;">
-                        <h4 style="font-size: 0.9rem; color: var(--dark-brown); margin-bottom: 8px; font-weight: bold;"><i class="fa-solid fa-person-digging" style="color: var(--dark-gold);"></i> Progres Konstruksi &amp; Legalitas Tahap 1</h4>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px;">
-                            <img src="Konstruksi%20dudukan%20kubah.jpg" alt="Dudukan Kubah" style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid var(--primary-gold); box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                            <img src="Kubah%20atas%20dr%20dalam.jpg" alt="Kubah dari Dalam" style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid var(--primary-gold); box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                            <img src="Kubah%20atas.jpg" alt="Kubah Atas" style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid var(--primary-gold); box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                            <img src="kartu-danarenov.png" alt="Kartu Dana Renov" style="width: 80px; height: 80px; object-fit: cover; border-radius: 6px; border: 1px solid var(--primary-gold); box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                        </div>
-                        <a href="sk_renovasi.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--dark-brown); color: var(--primary-gold); text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; border: 1px solid var(--primary-gold); transition: 0.3s;">
-                            <i class="fa-solid fa-file-contract"></i> LIHAT DOKUMEN SK RENOVASI
-                        </a>
-                    </div>
+            <div class="box-docs-gallery" style="background: #fff; border-radius: 8px; box-shadow: 0 3px 10px rgba(44, 26, 4, 0.04); margin-bottom: 30px; overflow: hidden; border: 1px solid #eedeb7;">
+                <div class="docs-header" style="background: #fdfaf4; color: var(--dark-brown); padding: 12px 20px; font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 10px; font-family: 'Marcellus', serif; border-bottom: 1.5px solid var(--primary-gold);">
+                    <i class="fa-solid fa-person-digging" style="color: var(--dark-gold);"></i> II. Implementasi Program Renovasi &amp; Legalitas
                 </div>
                 
-                <div class="qris-renovasi-box" style="width: 230px; padding: 10px; flex-shrink: 0;">
-                    <img src="Qris.jpg" class="qris-renovasi-img" alt="QRIS Pembangunan" style="max-width: 140px; border-radius: 4px; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-                    <p style="font-size: 0.75rem; font-weight: bold; margin-top: 4px; color: var(--dark-brown);"><i class="fa-solid fa-qrcode"></i> SCAN QRIS RENOVASI</p>
+                <p style="font-size: 0.8rem; color: #555; padding: 15px 20px 0 20px; text-align: justify;">
+                    Bapak/Ibu Jamaah yang dirahmati Allah, berikut adalah dokumentasi terkini dari renovasi Masjid Jami' Al-Ikhlash Tahap I (Phase 1). Foto-foto ini menunjukkan kondisi kubah beton yang akan dibongkar sesuai instruksi teknis demi keselamatan jamaah. Mari kita jadikan jariyah yang terus mengalir dengan ikut serta dalam penyelesaian amanah pembangunan ini.
+                </p>
+
+                <div class="docs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; padding: 20px;">
+                    
+                    <div class="docs-item" style="position: relative; background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: 0.3s; overflow: hidden;">
+                        <img src="Konstruksi%20dudukan%20kubah.jpg" alt="Dudukan Kubah" class="docs-img" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div class="docs-caption" style="font-size: 0.7rem; color: #666; padding: 8px; text-align: center; background: #fdfaf4; border-top: 1px solid #eee;">Pemasangan konstruksi dudukan kubah utama</div>
+                    </div>
+
+                    <div class="docs-item" style="position: relative; background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: 0.3s; overflow: hidden;">
+                        <img src="Kubah%20atas%20dr%20dalam.jpg" alt="Kubah dari Dalam" class="docs-img" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div class="docs-caption" style="font-size: 0.7rem; color: #666; padding: 8px; text-align: center; background: #fdfaf4; border-top: 1px solid #eee;">Proses pengerjaan kubah tahap pertama (dari dalam)</div>
+                    </div>
+
+                    <div class="docs-item" style="position: relative; background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: 0.3s; overflow: hidden;">
+                        <img src="Kubah%20atas.jpg" alt="Kubah Atas" class="docs-img" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div class="docs-caption" style="font-size: 0.7rem; color: #666; padding: 8px; text-align: center; background: #fdfaf4; border-top: 1px solid #eee;">Tampilan kubah atas Phase 1</div>
+                    </div>
+
+                    <div class="docs-item" style="position: relative; background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: 0.3s; overflow: hidden;">
+                        <img src="Kubah%20dari%20dekat.jpg" alt="Kubah dari Dekat" class="docs-img" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div class="docs-caption" style="font-size: 0.7rem; color: #666; padding: 8px; text-align: center; background: #fdfaf4; border-top: 1px solid #eee;">Detail konstruksi kubah (Close-up 1)</div>
+                    </div>
+
+                    <div class="docs-item" style="position: relative; background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); transition: 0.3s; overflow: hidden;">
+                        <img src="Kubah%20dari%20dkt%202.jpg" alt="Kubah dari Dekat 2" class="docs-img" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div class="docs-caption" style="font-size: 0.7rem; color: #666; padding: 8px; text-align: center; background: #fdfaf4; border-top: 1px solid #eee;">Detail konstruksi kubah (Close-up 2)</div>
+                    </div>
+                </div>
+
+                <div class="legal-action-box" style="padding: 0 20px 20px 20px; text-align: center; border-top: 1px dashed #eee; margin-top: 5px; padding-top: 15px;">
+                    <h4 style="font-size: 0.9rem; color: var(--dark-brown); margin-bottom: 8px; font-weight: bold;"><i class="fa-solid fa-file-contract"></i> Legalitas Renovasi</h4>
+                    <p style="font-size: 0.75rem; color: #666; margin-bottom: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Dokumen SK Ketua DKM tentang Pelaksanaan Renovasi Tahap I (Phase 1). Pembongkaran total kubah beton guna penyelamatan struktur masjid.
+                    </p>
+                    <a href="sk_renovasi.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--dark-brown); color: var(--primary-gold); text-decoration: none; padding: 10px 20px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--primary-gold); transition: 0.3s; box-shadow: 0 4px 8px rgba(44,26,4,0.15);">
+                        <i class="fa-solid fa-file-contract"></i> LIHAT DOKUMEN SK RENOVASI
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="box-kas-umum" id="kas-renovasi" style="margin-bottom: 30px; border: 1.5px solid var(--primary-gold);">
+                <div class="header-kas-umum" style="background: linear-gradient(90deg, var(--dark-brown) 0%, var(--medium-brown) 100%); border-bottom: 1px solid var(--primary-gold);">
+                    <i class="fa-solid fa-trowel-bricks"></i> III. Pos Dana Renovasi (Financial)
+                </div>
+                <div style="padding: 20px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 280px;">
+                        <div class="label-kas-mini">Total Terkumpul</div>
+                        <div class="angka-kas-jumbo" style="font-size: 2.2rem; margin-bottom: 8px; color: var(--medium-brown);">Rp 19.800.000</div>
+                        <p style="font-size: 0.8rem; color: #555; margin-bottom: 8px; text-align: justify;">Pos dana khusus ini dialokasikan sepenuhnya untuk pemeliharaan fisik jangka panjang serta proyek perluasan Masjid Jami' Al-Ikhlash.</p>
+                        <div class="progress-renovasi-container" style="height: 10px; margin: 10px 0; background: #eee; border-radius: 20px;">
+                            <div class="progress-bar-isi" style="width: 40%; background: linear-gradient(90deg, var(--dark-gold) 0%, var(--primary-gold) 100%); border-radius: 20px; height: 100%;"></div>
+                        </div>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--dark-gold);"><i class="fa-solid fa-chart-line"></i> Terkumpul 40% dari Target Kebutuhan (Phase 1)</span>
+                    </div>
+                    <div class="qris-renovasi-box" style="width: 200px; padding: 10px; flex-shrink: 0; background: #fdfaf4; border: 1.5px dashed var(--primary-gold); border-radius: 8px; text-align: center;">
+                        <img src="Qris.jpg" class="qris-renovasi-img" alt="QRIS Pembangunan" style="max-width: 130px; border-radius: 4px; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+                        <p style="font-size: 0.75rem; font-weight: bold; margin-top: 4px; color: var(--dark-brown);"><i class="fa-solid fa-qrcode"></i> SCAN QRIS RENOVASI</p>
+                    </div>
                 </div>
             </div>
 
@@ -317,7 +353,7 @@
                 <div class="header-soskem-flex" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 1.5px solid #2e7d32; margin-bottom: 10px; padding-bottom: 5px;">
                     <div>
                         <div class="label-kas-mini" style="color:#2e7d32;">Dana Abadi Kemaslahatan Warga</div>
-                        <h3 style="font-size: 1.15rem; color: #2e7d32;">III. Dana Sosial Kematian (SOSKEM)</h3>
+                        <h3 style="font-size: 1.15rem; color: #2e7d32;">IV. Dana Sosial Kematian (SOSKEM)</h3>
                     </div>
                     <div class="angka-soskem-jumbo" style="font-size: 2rem; color: #2e7d32; font-weight: bold;">Rp 24.240.500</div>
                 </div>
