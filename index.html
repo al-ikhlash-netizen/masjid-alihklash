@@ -21,30 +21,35 @@
 
     <style>/* === APPLE & STRIPE DESIGN SYSTEM (EDISI "SEJUK & TEDUH") === */
         :root {
-            --primary: #0F766E; /* Hijau Tosca Tua (Sangat sejuk dan menenangkan) */
-            --primary-hover: #115E59;
-            --accent: #D4AF37; /* Emas Elegan */
-            
-            /* Warna Latar Ramah Mata (Anti Silau) */
-            --bg-page: #F4F7F6; /* Abu-abu kehijauan sangat muda (seperti embun) */
-            --bg-card: #FFFFFF; /* Latar card putih untuk memunculkan shadow halus */
-            
-            /* Warna Teks Teduh (Tidak Hitam Pekat) */
-            --text-main: #334155; /* Slate 700 - Abu-abu gelap yang tidak bikin mata lelah */
-            --text-muted: #64748B; /* Slate 500 */
-            --border: #E2E8F0;
-            
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-full: 9999px;
-            
-            /* Shadow dengan rona hijau tosca lembut, bukan hitam kotor */
-            --shadow-sm: 0 1px 2px 0 rgba(15, 118, 110, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(15, 118, 110, 0.05), 0 2px 4px -1px rgba(15, 118, 110, 0.03);
-            --shadow-lg: 0 10px 15px -3px rgba(15, 118, 110, 0.05), 0 4px 6px -2px rgba(15, 118, 110, 0.02);
-            --shadow-float: 0 12px 24px rgba(15, 118, 110, 0.15);
-        }
+    /* Palet Mewah: Gold, Brown, & Warm Beige */
+    --primary: #5D4037;       /* Brown Coffee (Sebagai pengganti Hijau) */
+    --primary-hover: #4E342E; 
+    --accent: #C5A059;        /* Soft Gold (Lebih elegan, tidak norak) */
+    
+    /* Background Teduh (Warm Beige - Bukan Putih) */
+    --bg-page: #FDFBF7;       /* Krem sangat muda, sangat sejuk di mata */
+    --bg-card: #FFFFFF;       
+    
+    /* Teks Espresso (Bukan Hitam Pekat) */
+    --text-main: #2D2523;     
+    --text-muted: #796E6B;    
+    --border: #EFEBE9;        /* Border lembut */
+    
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    /* Shadow lembut untuk kesan premium */
+    --shadow-md: 0 4px 12px rgba(93, 64, 55, 0.08);
+}
+
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    background-color: var(--bg-page); /* Ini akan membuat seluruh web adem */
+    color: var(--text-main); 
+    line-height: 1.6; 
+}
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -66,8 +71,9 @@
 
         /* === PREMIUM RUNNING TEXT (TOP BANNER) === */
 .top-banner { 
-    background: linear-gradient(90deg, #022c22 0%, var(--primary) 50%, #022c22 100%); 
-    color: var(--accent); /* Warna Emas */
+    .top-banner { 
+    background: linear-gradient(90deg, #4E342E 0%, #5D4037 50%, #4E342E 100%); 
+    color: var(--accent);
     font-size: 0.85rem; 
     font-weight: 600; 
     padding: 10px 0; 
