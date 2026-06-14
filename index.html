@@ -132,215 +132,130 @@
         .gallery-item:hover img { transform: scale(1.08); }
         .gallery-cap { position: absolute; bottom: 0; width: 100%; background: rgba(44, 26, 4, 0.85); color: var(--primary-gold); font-size: 0.65rem; padding: 4px; text-align: center; }
 
-        /* =========================================
-   JADWAL SHOLAT PREMIUM V3
+       /* =========================================
+   FIX JADWAL SHOLAT PREMIUM V3
+   GANTI CSS JAM SHOLAT YANG LAMA DENGAN INI
 ========================================= */
 
-.sholat-section-bottom{
+.prayer-premium-section{
+    padding:40px 5% 60px;
+    background:#faf7f1;
+}
 
-    padding:90px 5%;
+.prayer-premium-container{
+    max-width:1200px;
+    margin:auto;
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    border:1px solid rgba(212,175,55,.15);
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
 
-    background:
-    linear-gradient(
-        180deg,
-        #faf7f1,
-        #ffffff
-    );
-
+.prayer-premium-header{
+    background:linear-gradient(135deg,#064E3B,#0B3B2E);
+    color:#fff;
+    padding:30px;
     text-align:center;
 }
 
-.sholat-premium-wrap{
-
-    max-width:1300px;
-    margin:auto;
-
-    background:#fff;
-
-    border-radius:32px;
-
-    overflow:hidden;
-
-    border:1px solid rgba(212,175,55,.15);
-
-    box-shadow:
-    0 30px 70px rgba(0,0,0,.08);
-}
-
-.sholat-header{
-
-    padding:40px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #064E3B,
-        #0B3B2E
-    );
-
-    color:#fff;
-}
-
-.sholat-header h2{
-
-    color:#fff;
-
-    font-size:2rem;
-
-    margin-bottom:15px;
-
-    font-family:'Marcellus',serif;
-}
-
-.sholat-live-badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:8px 18px;
-
+.prayer-badge{
+    display:inline-block;
+    padding:8px 16px;
     border-radius:999px;
-
-    background:rgba(212,175,55,.12);
-
-    border:1px solid rgba(212,175,55,.25);
-
+    background:rgba(212,175,55,.15);
     color:#F3E5AB;
-
     font-size:.8rem;
-
-    font-weight:700;
-
     margin-bottom:15px;
 }
 
-#jam-digital{
-
-    font-size:4rem;
-
-    font-weight:700;
-
-    letter-spacing:3px;
-
-    margin-bottom:10px;
-}
-
-#kalender-hijriah{
-
-    color:#F3E5AB;
-
-    font-size:1rem;
-}
-
-.sholat-body{
-
-    padding:35px;
-}
-
-#countdown-adzan{
-
-    background:#FFF8E6;
-
-    border:1px solid rgba(212,175,55,.2);
-
-    border-radius:18px;
-
-    padding:18px;
-
-    margin-bottom:25px;
-
-    font-size:1.1rem;
-
-    color:#6B4E00;
-
-    font-weight:600;
-}
-
-.sholat-cards-container{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
-
-    gap:18px;
-}
-
-.sholat-card-item{
-
-    background:#faf7ef;
-
-    border:none;
-
-    border-radius:22px;
-
-    padding:25px 15px;
-
-    transition:.35s ease;
-}
-
-.sholat-card-item:hover{
-
-    transform:translateY(-5px);
-}
-
-.sholat-name{
-
-    font-size:.95rem;
-
-    color:#666;
-
-    margin-bottom:10px;
-}
-
-.sholat-time{
-
+.prayer-premium-header h2{
+    font-family:'Marcellus',serif;
     font-size:1.8rem;
+    margin:0 0 15px;
+}
 
+.premium-digital-clock{
+    font-size:2.2rem !important;
     font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:10px;
+    color:#fff;
+}
 
+.premium-hijri-date{
+    font-size:.9rem;
+    color:#F3E5AB;
+}
+
+.prayer-premium-body{
+    padding:25px;
+}
+
+.premium-countdown{
+    background:#FFF8E6;
+    border:1px solid rgba(212,175,55,.2);
+    padding:14px;
+    border-radius:14px;
+    text-align:center;
+    margin-bottom:20px;
+    font-size:.95rem;
+    font-weight:600;
+    color:#6B4E00;
+}
+
+.premium-prayer-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.premium-prayer-card{
+    background:#faf7ef;
+    border-radius:18px;
+    padding:18px 10px;
+    text-align:center;
+    transition:.3s;
+}
+
+.prayer-name{
+    font-size:.9rem;
+    color:#666;
+    margin-bottom:8px;
+}
+
+.prayer-time{
+    font-size:1.2rem !important;
+    font-weight:700;
     color:#AA7C11;
 }
 
-.sholat-card-item.active-time{
-
-    background:
-    linear-gradient(
-        135deg,
-        #D4AF37,
-        #E6C45A
-    );
-
-    box-shadow:
-    0 15px 35px rgba(212,175,55,.25);
+.premium-prayer-card.active-time{
+    background:linear-gradient(135deg,#D4AF37,#E6C45A);
 }
 
-.sholat-card-item.active-time .sholat-name,
-.sholat-card-item.active-time .sholat-time{
-
+.premium-prayer-card.active-time .prayer-name,
+.premium-prayer-card.active-time .prayer-time{
     color:#2C1A04;
 }
 
 @media(max-width:768px){
 
-    #jam-digital{
-
-        font-size:2.5rem;
+    .premium-digital-clock{
+        font-size:1.8rem !important;
     }
 
-    .sholat-header{
-
-        padding:25px;
+    .premium-prayer-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .sholat-body{
-
-        padding:25px;
+    .prayer-premium-header{
+        padding:22px;
     }
 
+    .prayer-premium-body{
+        padding:18px;
+    }
 }
         footer { background: var(--dark-brown); color: #fff; padding: 35px 5% 15px; border-top: 2px solid var(--primary-gold); font-size: 0.8rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
@@ -800,8 +715,7 @@
 
     </div>
 
-</section>
-    <section class="prayer-premium-section">
+<section class="prayer-premium-section">
 
     <div class="prayer-premium-container">
 
@@ -811,9 +725,7 @@
                 🕌 Jadwal Sholat Hari Ini
             </span>
 
-            <h2>
-                Waktu Sholat Jamaah
-            </h2>
+            <h2>Waktu Sholat Jamaah</h2>
 
             <div id="jam-digital" class="premium-digital-clock">
                 00:00:00
@@ -865,7 +777,6 @@
     </div>
 
 </section>
-
 <!-- ========================= -->
 <!-- PREMIUM NAVBAR V3 END -->
 <!-- ========================= -->
