@@ -154,46 +154,453 @@
 </head>
 <body>
 
-    <div class="marquee-container">
-        <div class="marquee-text">
-            ✨ Selamat Datang di Website Resmi Masjid Jami' Al-Ikhlash Katapang — "Amanah, Transparan, Berkah" — Transformasi Ramah Digital Untuk Kemaslahatan Ummat ✨
-        </div>
-    </div>
-<header style="background: #064e3b; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; color: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 10px;">
-    
-    <div style="display: flex; align-items: center; gap: 8px;">
-        <img src="Logo masjid.png" alt="Logo" style="width: 35px; height: 35px; border-radius: 50%;">
-        <div style="font-family: 'Marcellus', serif; font-size: 0.9rem;">AL-IKHLASH</div>
-    </div>
+<!-- ========================= -->
+<!-- PREMIUM NAVBAR V3 START  -->
+<!-- REPLACE DARI MARQUEE + HEADER + HERO -->
+<!-- ========================= -->
 
-    <nav>
-        <ul style="list-style: none; display: flex; gap: 12px; margin: 0; padding: 0;">
-            <li><a href="index.html" style="color: white; text-decoration: none; font-size: 0.75rem;">Beranda</a></li>
-            <li><a href="artikel.html" style="color: white; text-decoration: none; font-size: 0.75rem;">Artikel</a></li>
-            <li><a href="belajar-quran.html" style="color: white; text-decoration: none; font-size: 0.75rem;">Qur'an</a></li>
-        </ul>
+<style>
+/* =========================
+   PREMIUM NAVBAR V3
+========================= */
+
+:root{
+    --primary-gold:#D4AF37;
+    --dark-gold:#AA7C11;
+    --dark-green:#064E3B;
+    --dark-green-2:#0B3B2E;
+    --glass:rgba(255,255,255,.08);
+}
+
+.marquee-container{
+    background:linear-gradient(90deg,#2C1A04,#4A3511,#2C1A04);
+    color:#F3E5AB;
+    padding:10px 0;
+    font-size:.85rem;
+    font-weight:600;
+    border-bottom:1px solid rgba(212,175,55,.25);
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+}
+
+.marquee-text{
+    display:inline-block;
+    white-space:nowrap;
+    animation:marquee 40s linear infinite;
+    padding-left:100%;
+}
+
+@keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-100%);}
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.premium-navbar{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    background:rgba(6,78,59,.92);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(212,175,55,.25);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.15),
+        0 1px 0 rgba(255,255,255,.05) inset;
+}
+
+.navbar-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+}
+
+.navbar-logo{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    object-fit:cover;
+
+    background:#fff;
+
+    border:2px solid rgba(212,175,55,.9);
+
+    box-shadow:
+        0 0 0 5px rgba(212,175,55,.08),
+        0 8px 20px rgba(0,0,0,.18);
+}
+
+.navbar-title{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+
+.navbar-title span:first-child{
+    color:#fff;
+    font-family:'Marcellus',serif;
+    font-size:1.6rem;
+    letter-spacing:.8px;
+}
+
+.navbar-title span:last-child{
+    color:#D4AF37;
+    font-size:.72rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-menu a{
+    text-decoration:none;
+    color:#fff;
+
+    padding:10px 16px;
+
+    border-radius:12px;
+
+    font-size:.88rem;
+    font-weight:500;
+
+    transition:.3s ease;
+}
+
+.nav-menu a:hover{
+    background:rgba(255,255,255,.08);
+    color:#F3E5AB;
+}
+
+.nav-menu a.active{
+    background:rgba(212,175,55,.12);
+    border:1px solid rgba(212,175,55,.25);
+    color:#F3E5AB;
+}
+
+.nav-donasi{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    min-width:155px;
+
+    background:linear-gradient(135deg,#E6C45A,#D4AF37);
+
+    color:#2C1A04;
+
+    text-decoration:none;
+
+    padding:12px 18px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(0,0,0,.08);
+
+    box-shadow:
+        0 10px 24px rgba(212,175,55,.35),
+        inset 0 1px 0 rgba(255,255,255,.5);
+
+    transition:.3s ease;
+}
+
+.nav-donasi:hover{
+    transform:translateY(-2px);
+}
+
+.nav-donasi strong{
+    font-size:.95rem;
+}
+
+.nav-donasi span{
+    font-size:.78rem;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+
+    min-height:88vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.25),
+            rgba(0,0,0,.70)
+        ),
+        url('Visual%20Masjid%20(2).png');
+
+    background-size:cover;
+    background-position:center center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(212,175,55,.12),
+        transparent 65%
+    );
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(6,78,59,.25),
+        rgba(0,0,0,.72)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:1000px;
+
+    padding:0 24px;
+
+    text-align:center;
+}
+
+.hero-card{
+    max-width:860px;
+    margin:auto;
+
+    padding:50px 40px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:rgba(212,175,55,.12);
+
+    border:1px solid rgba(212,175,55,.35);
+
+    color:#F3E5AB;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    margin-bottom:24px;
+
+    font-size:.8rem;
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+.hero-title{
+    font-family:'Marcellus',serif;
+
+    font-size:4rem;
+    line-height:1.1;
+
+    color:#fff;
+
+    margin-bottom:12px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,.5);
+}
+
+.hero-title span{
+    color:#D4AF37;
+}
+
+.hero-divider{
+    width:90px;
+    height:4px;
+
+    border-radius:99px;
+
+    margin:24px auto;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #D4AF37,
+        transparent
+    );
+}
+
+.hero-desc{
+    max-width:700px;
+    margin:auto;
+
+    color:rgba(255,255,255,.92);
+
+    font-size:1.08rem;
+    line-height:1.9;
+}
+
+@media(max-width:900px){
+
+    .premium-navbar{
+        padding:0 15px;
+        flex-wrap:wrap;
+        height:auto;
+        gap:12px;
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+
+    .nav-menu{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .nav-donasi{
+        width:100%;
+    }
+
+    .hero{
+        min-height:78vh;
+    }
+
+    .hero-card{
+        padding:35px 24px;
+        border-radius:22px;
+    }
+
+    .hero-title{
+        font-size:2.6rem;
+    }
+
+    .hero-desc{
+        font-size:.95rem;
+    }
+
+    .navbar-title span:first-child{
+        font-size:1.25rem;
+    }
+}
+</style>
+
+<div class="marquee-container">
+    <div class="marquee-text">
+        ✨ Selamat Datang di Website Resmi Masjid Jami' Al-Ikhlash Katapang — "Amanah, Transparan, Berkah" — Transformasi Ramah Digital Untuk Kemaslahatan Ummat ✨
+    </div>
+</div>
+
+<header class="premium-navbar">
+
+    <a href="index.html" class="navbar-brand">
+        <img src="Logo masjid.png" alt="Logo Masjid" class="navbar-logo">
+
+        <div class="navbar-title">
+            <span>AL-IKHLASH</span>
+            <span>Masjid Jami' Sangkanhurip</span>
+        </div>
+    </a>
+
+    <nav class="nav-menu">
+        <a href="index.html" class="active">
+            <i class="fa-solid fa-house"></i> Beranda
+        </a>
+
+        <a href="artikel.html">
+            <i class="fa-solid fa-newspaper"></i> Artikel
+        </a>
+
+        <a href="belajar-quran.html">
+            <i class="fa-solid fa-book-quran"></i> Qur'an
+        </a>
     </nav>
 
-    <a href="#donasi-section" style="background: #D4AF37; color: #000; padding: 6px 10px; text-decoration: none; border-radius: 6px; font-weight: bold; border: 1px solid #AA7C11; text-align: center; line-height: 1.1;">
-        <div style="font-size: 0.7rem;">WAKAF ATAP</div>
-        <div style="font-size: 0.6rem; margin-top: 2px;">Rp 250.000 / m²</div>
+    <a href="#donasi-section" class="nav-donasi">
+        <strong>WAKAF ATAP</strong>
+        <span>Rp 250.000 / m²</span>
     </a>
+
 </header>
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div style="background: rgba(255, 255, 255, 0.06); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(212, 175, 55, 0.3); padding: 22px 18px; border-radius: 12px; box-shadow: 0 12px 28px rgba(0,0,0,0.35); position: relative;">
-                
-                <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 8px; font-weight: bold; text-shadow: 0 3px 6px rgba(0,0,0,0.5); line-height: 1.2;">
-                    Pusat Ibadah Modern <br><span style="color: var(--primary-gold);">&amp; Ramah Jama'ah</span>
-                </h2>
-                <div style="width: 35px; height: 1.5px; background: var(--primary-gold); margin: 8px auto;"></div>
-                <p style="font-size: 0.85rem; color: #fdfaf4; font-weight: 300; max-width: 520px; margin: 0 auto; letter-spacing: 0.3px; opacity: 0.95;">
-                    Mewujudkan transparansi informasi publik masjid berbasis digital secara amanah dan terintegrasi.
-                </p>
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-card">
+
+            <div class="hero-badge">
+                <i class="fa-solid fa-mosque"></i>
+                Transparan • Amanah • Profesional
             </div>
+
+            <h2 class="hero-title">
+                Pusat Ibadah Modern
+                <br>
+                <span>&amp; Ramah Jama'ah</span>
+            </h2>
+
+            <div class="hero-divider"></div>
+
+            <p class="hero-desc">
+                Mewujudkan transparansi informasi publik masjid berbasis digital
+                secara amanah, profesional, dan terintegrasi untuk melayani
+                kebutuhan jamaah dengan lebih terbuka, cepat, serta terpercaya.
+            </p>
+
         </div>
-    </section>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PREMIUM NAVBAR V3 END -->
+<!-- ========================= -->
 
     <section style="padding: 12px 0; background: var(--bg-light);">
         <div style="max-width: 750px; margin: 0 auto; background: #fff; border-radius: 8px; border: 1px solid var(--light-gold); border-left: 4px solid var(--primary-gold); padding: 10px 15px; box-shadow: 0 2px 8px rgba(44,26,4,0.02); display: flex; align-items: flex-start; gap: 10px;">
