@@ -1065,175 +1065,806 @@
 <!-- END TAHAP 2 -->
 <!-- ========================================= -->
 
-            <div class="box-docs-gallery" style="background: #fff; border-radius: 8px; box-shadow: 0 3px 10px rgba(44, 26, 4, 0.04); margin-bottom: 30px; overflow: hidden; border: 1px solid #eedeb7;">
-                <div class="docs-header" style="background: #fdfaf4; color: var(--dark-brown); padding: 12px 20px; font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 10px; font-family: 'Marcellus', serif; border-bottom: 1.5px solid var(--primary-gold);">
-                    <i class="fa-solid fa-person-digging" style="color: var(--dark-gold);"></i> II. Implementasi Program Renovasi &amp; Legalitas
-                </div>
-                
-                <p style="font-size: 0.8rem; color: #555; padding: 15px 20px 0 20px; text-align: justify;">
-                    Bapak/Ibu Jamaah yang dirahmati Allah, berikut adalah dokumentasi dari kondisi terkini kubah yang akan direnovasi dalam Tahap I (Phase 1). Foto-foto ini menunjukkan kondisi kubah beton yang akan dibongkar sesuai instruksi DPUTR Kabupaten Bandung, demi keselamatan jamaah. Mohon Do'a Restu dan dukungan jama'ah sekalian karena Implementasi Renovasi akan segera dimulai ,Mari kita jadikan jariyah yang terus mengalir dengan ikut serta dalam penyelesaian amanah pembangunan ini.
-                </p>
+            <!-- ========================================= -->
+<!-- TAHAP 3 PREMIUM UI -->
+<!-- REPLACE SECTION:
+     1. Dana Renovasi / Wakaf
+     2. Progress Pembangunan
+     3. SOSKEM Section
+     4. Recent Activity / Info Card
+-->
+<!-- ========================================= -->
 
-             <div class="docs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px;">
-    
-    <div class="docs-item" style="background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; flex-direction: column; height: 260px;">
-        <div style="height: 200px; padding: 10px; background: #fdfaf4; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <img src="KUBAH-PESANAN.jpg" alt="Kubah Pesanan" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-        <div style="font-size: 0.7rem; color: #666; padding: 10px; text-align: center; border-top: 1px solid #eee; flex-grow: 1;">Desain referensi kubah pesanan</div>
-    </div>
+<style>
 
-    <div class="docs-item" style="background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; flex-direction: column; height: 260px;">
-        <div style="height: 200px; padding: 10px; background: #fdfaf4; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <img src="Sketsakubah1.png" alt="Detail Sketsa Kubah" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-        <div style="font-size: 0.7rem; color: #666; padding: 10px; text-align: center; border-top: 1px solid #eee; flex-grow: 1;">Detail visual sketsa kubah Phase 1</div>
-    </div>
+/* ===================================
+   PREMIUM CAMPAIGN SECTION
+=================================== */
 
-    <div class="docs-item" style="background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; flex-direction: column; height: 260px;">
-        <div style="height: 200px; padding: 10px; background: #fdfaf4; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <img src="Kubah%20atas.jpg" alt="Kubah Atas" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-        <div style="font-size: 0.7rem; color: #666; padding: 10px; text-align: center; border-top: 1px solid #eee; flex-grow: 1;">Tampilan kubah atas Phase 1</div>
-    </div>
+.premium-campaign{
+    padding:90px 5%;
+    background:
+    linear-gradient(
+        180deg,
+        #faf7f1,
+        #ffffff
+    );
+}
 
-    <div class="docs-item" style="background: #fff; border-radius: 6px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.02); display: flex; flex-direction: column; height: 260px;">
-        <div style="height: 200px; padding: 10px; background: #fdfaf4; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-            <img src="Kubah%20atas%20dr%20dekat%203.jpg" alt="Detail Kubah Dekat" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-        </div>
-        <div style="font-size: 0.7rem; color: #666; padding: 10px; text-align: center; border-top: 1px solid #eee; flex-grow: 1;">Detail konstruksi kubah (Close-up)</div>
-    </div>
+.premium-container{
+    max-width:1300px;
+    margin:auto;
+}
+
+.premium-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:35px;
+}
+
+.premium-card{
+    background:#fff;
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    box-shadow:
+    0 25px 55px rgba(0,0,0,.07);
+}
+
+/* ===================================
+   WAKAF HERO
+=================================== */
+
+.wakaf-header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #064E3B,
+        #0B3B2E
+    );
+
+    padding:45px;
+    color:#fff;
+}
+
+.wakaf-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(212,175,55,.12);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    color:#F3E5AB;
+
+    font-size:.8rem;
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+.wakaf-header h2{
+
+    font-family:'Marcellus',serif;
+    font-size:2.4rem;
+
+    margin-bottom:15px;
+}
+
+.wakaf-header p{
+
+    line-height:1.9;
+    opacity:.92;
+}
+
+.wakaf-content{
+
+    padding:35px;
+}
+
+.wakaf-stats{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.wakaf-stat{
+
+    background:#faf7ef;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    text-align:center;
+}
+
+.wakaf-stat span{
+
+    display:block;
+
+    color:#888;
+
+    font-size:.8rem;
+
+    margin-bottom:8px;
+}
+
+.wakaf-stat strong{
+
+    display:block;
+
+    font-size:1.7rem;
+
+    color:#AA7C11;
+}
+
+.progress-wrap{
+
+    margin-top:30px;
+}
+
+.progress-info{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+    color:#444;
+}
+
+.progress-bar{
+
+    height:18px;
+
+    background:#ececec;
+
+    border-radius:999px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:72%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #D4AF37,
+        #F3E5AB,
+        #D4AF37
+    );
+
+    border-radius:999px;
+}
+
+.btn-wakaf{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-top:30px;
+
+    padding:16px 26px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #D4AF37,
+        #E6C45A
+    );
+
+    color:#2C1A04;
+
+    font-weight:700;
+
+    box-shadow:
+    0 12px 30px rgba(212,175,55,.25);
+}
+
+/* ===================================
+   SIDE INFO
+=================================== */
+
+.side-card{
+
+    padding:30px;
+}
+
+.side-title{
+
+    font-family:'Marcellus',serif;
+
+    font-size:1.4rem;
+
+    color:#2C1A04;
+
+    margin-bottom:20px;
+}
+
+.side-item{
+
+    display:flex;
+    align-items:flex-start;
+
+    gap:15px;
+
+    padding:18px 0;
+
+    border-bottom:1px solid #eee;
+}
+
+.side-item:last-child{
+    border-bottom:none;
+}
+
+.side-icon{
+
+    width:52px;
+    height:52px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#faf7ef;
+
+    color:#AA7C11;
+}
+
+.side-text h4{
+
+    margin-bottom:6px;
+
+    color:#2C1A04;
+}
+
+.side-text p{
+
+    color:#666;
+    line-height:1.7;
+    font-size:.92rem;
+}
+
+/* ===================================
+   SOSKEM PREMIUM
+=================================== */
+
+.soskem-premium{
+
+    padding:90px 5%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #FFFDF9,
+        #FAF7EF
+    );
+}
+
+.soskem-box{
+
+    max-width:1300px;
+    margin:auto;
+
+    background:#fff;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    box-shadow:
+    0 25px 55px rgba(0,0,0,.08);
+}
+
+.soskem-left{
+
+    background:
+    linear-gradient(
+        135deg,
+        #064E3B,
+        #0B3B2E
+    );
+
+    color:#fff;
+
+    padding:55px;
+}
+
+.soskem-left h2{
+
+    font-family:'Marcellus',serif;
+
+    font-size:2.4rem;
+
+    margin-bottom:18px;
+}
+
+.soskem-left p{
+
+    line-height:1.9;
+    opacity:.92;
+}
+
+.soskem-right{
+
+    padding:55px;
+}
+
+.soskem-feature{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:28px;
+}
+
+.soskem-feature i{
+
+    color:#D4AF37;
+    font-size:1.3rem;
+    margin-top:4px;
+}
+
+.soskem-feature h4{
+
+    margin-bottom:8px;
+    color:#2C1A04;
+}
+
+.soskem-feature p{
+
+    color:#666;
+    line-height:1.8;
+}
+
+.btn-soskem{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:16px 24px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #C62828,
+        #A61C1C
+    );
+
+    color:#fff;
+
+    font-weight:700;
+}
+
+/* ===================================
+   RECENT CARD
+=================================== */
+
+.recent-section{
+
+    padding:90px 5%;
+    background:#fff;
+}
+
+.recent-grid{
+
+    max-width:1300px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+}
+
+.recent-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.05);
+
+    transition:.3s;
+}
+
+.recent-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.recent-image{
+
+    height:220px;
+
+    background:#eee;
+
+    overflow:hidden;
+}
+
+.recent-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.recent-content{
+
+    padding:28px;
+}
+
+.recent-tag{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:#faf7ef;
+
+    color:#AA7C11;
+
+    font-size:.75rem;
+    font-weight:700;
+
+    margin-bottom:14px;
+}
+
+.recent-content h3{
+
+    color:#2C1A04;
+
+    margin-bottom:12px;
+
+    font-family:'Marcellus',serif;
+}
+
+.recent-content p{
+
+    color:#666;
+
+    line-height:1.8;
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:900px){
+
+    .premium-grid,
+    .soskem-box{
+
+        grid-template-columns:1fr;
+    }
+
+    .wakaf-header,
+    .wakaf-content,
+    .soskem-left,
+    .soskem-right{
+
+        padding:30px;
+    }
+
+    .wakaf-stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .wakaf-header h2,
+    .soskem-left h2{
+
+        font-size:2rem;
+    }
+
+}
+
+</style>
+
+<!-- ========================================= -->
+<!-- DANA RENOVASI / WAKAF -->
+<!-- ========================================= -->
+
+<section class="premium-campaign">
+
+<div class="premium-container">
+
+<div class="premium-grid">
+
+<div class="premium-card">
+
+<div class="wakaf-header">
+
+<div class="wakaf-badge">
+<i class="fa-solid fa-hand-holding-heart"></i>
+Program Wakaf Pembangunan
+</div>
+
+<h2>Gerakan Wakaf Atap Masjid</h2>
+
+<p>
+Mari ikut serta dalam penyelesaian pembangunan dan renovasi masjid sebagai investasi amal jariyah yang pahalanya terus mengalir.
+</p>
 
 </div>
-                    <div class="legal-action-box" style="padding: 0 20px 20px 20px; text-align: center; border-top: 1px dashed #eee; margin-top: 5px; padding-top: 15px;">
-                    <h4 style="font-size: 0.9rem; color: var(--dark-brown); margin-bottom: 8px; font-weight: bold;"><i class="fa-solid fa-file-contract"></i> Legalitas Renovasi</h4>
-                    <p style="font-size: 0.75rem; color: #666; margin-bottom: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                        Dokumen SK Ketua DKM tentang Pelaksanaan Renovasi Tahap I (Phase 1). Pembongkaran total kubah beton guna penyelamatan struktur masjid.
-                    </p>
-                    <a href="sk_renovasi.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: var(--dark-brown); color: var(--primary-gold); text-decoration: none; padding: 10px 20px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; border: 1px solid var(--primary-gold); transition: 0.3s; box-shadow: 0 4px 8px rgba(44,26,4,0.15);">
-                        <i class="fa-solid fa-file-contract"></i> LIHAT DOKUMEN SK RENOVASI
-                    </a>
-                </div>
 
-            </div>
+<div class="wakaf-content">
 
-            <div class="box-kas-umum" id="kas-renovasi" style="margin-bottom: 30px; border: 1.5px solid var(--primary-gold);">
-                <div class="header-kas-umum" style="background: linear-gradient(90deg, var(--dark-brown) 0%, var(--medium-brown) 100%); border-bottom: 1px solid var(--primary-gold);">
-                    <i class="fa-solid fa-trowel-bricks"></i> III. Pos Dana Renovasi (Financial)
-                </div>
-                <div style="padding: 20px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 280px;">
-                        <div class="label-kas-mini">Total Terkumpul</div>
-                        <div class="angka-kas-jumbo" style="font-size: 2.2rem; margin-bottom: 8px; color: var(--medium-brown);">Rp 30.750.000</div>
-                        <p style="font-size: 0.8rem; color: #555; margin-bottom: 8px; text-align: justify;">Pos dana khusus ini dialokasikan sepenuhnya untuk pemeliharaan fisik jangka panjang serta proyek perluasan Masjid Jami' Al-Ikhlash.</p>
-                        <div class="progress-renovasi-container" style="height: 10px; margin: 10px 0; background: #eee; border-radius: 20px;">
-                            <div class="progress-bar-isi" style="width: 40%; background: linear-gradient(90deg, var(--dark-gold) 0%, var(--primary-gold) 100%); border-radius: 20px; height: 100%;"></div>
-                        </div>
-                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--dark-gold);"><i class="fa-solid fa-chart-line"></i> Terkumpul 40% dari Target Kebutuhan (Phase 1)</span>
-                    </div>
-                    <div class="qris-renovasi-box" style="width: 200px; padding: 10px; flex-shrink: 0; background: #fdfaf4; border: 1.5px dashed var(--primary-gold); border-radius: 8px; text-align: center;">
-                        <img src="Qris.jpg" class="qris-renovasi-img" alt="QRIS Pembangunan" style="max-width: 130px; border-radius: 4px; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-                        <p style="font-size: 0.75rem; font-weight: bold; margin-top: 4px; color: var(--dark-brown);"><i class="fa-solid fa-qrcode"></i> SCAN QRIS RENOVASI</p>
-                    </div>
-                </div>
-            </div>
+<div class="wakaf-stats">
 
-            <div class="box-soskem-split" id="kas-soskem" style="padding: 20px;">
-                <div class="header-soskem-flex" style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; border-bottom: 1.5px solid #2e7d32; margin-bottom: 10px; padding-bottom: 5px;">
-                    <div>
-                        <div class="label-kas-mini" style="color:#2e7d32;">Dana Abadi Kemaslahatan Warga</div>
-                        <h3 style="font-size: 1.15rem; color: #2e7d32;">IV. Dana Sosial Kematian (SOSKEM)</h3>
-                    </div>
-                    <div class="angka-soskem-jumbo" style="font-size: 2rem; color: #2e7d32; font-weight: bold;">Rp 24.240.500</div>
-                </div>
+<div class="wakaf-stat">
+<span>Harga Wakaf</span>
+<strong>250K</strong>
+</div>
 
-                <div style="background: #fff5f5; border: 1.5px solid var(--danger-red); padding: 10px; border-radius: 6px; margin-bottom: 12px; text-align: center;">
-                    <span style="color: var(--danger-red); font-weight: bold; font-size: 0.75rem; text-transform: uppercase;">
-                        <i class="fa-solid fa-triangle-exclamation"></i> BAGI WARGA/JAMA'AH PESERTA IURAN SOSKEM YANG BELUM MENDAPATKAN KARTU IURAN SOSKEM, SEGERA HUBUNGI PETUGAS PENARIKAN IURAN PADA WILAYAH MASING-MASING, AGAR DATA DAPAT TERSINKRONISASI SECEPATNYA
-                    </span>
-                </div>
+<div class="wakaf-stat">
+<span>Terkumpul</span>
+<strong>72%</strong>
+</div>
 
-                <p style="font-size: 0.8rem; color: #555; margin-bottom: 10px;">Pos anggaran mandiri jamaah RW 18 &amp; RW 19 dan RW 20 untuk penyediaan kain kafan, akomodasi, biaya penggali kubur, hingga santunan duka.</p>
-                <img src="Soskem.png" class="infografis-soskem-img" alt="Alur SOSKEM" style="max-height: 200px; object-fit: contain; display: block; margin: 0 auto 10px auto;">
-                <div style="border-top: 1px dashed #2e7d32; padding-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
-                    <a href="REKAPITULASI-IURAN-SOSKEMRW18.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #2e7d32; color: #fff; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold;">
-                        <i class="fa-solid fa-file-pdf"></i> REKAP RW 18
-                    </a>
-                    <a href="REKAPITULASI-IURAN-SOSKEMRW19.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #2e7d32; color: #fff; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: bold;">
-                        <i class="fa-solid fa-file-pdf"></i> REKAP RW 19
-                    </a>
-                </div>
-            </div>
+<div class="wakaf-stat">
+<span>Target</span>
+<strong>100%</strong>
+</div>
 
-        </div>
-    </section>
+</div>
 
-    <section class="max-width-container" style="padding: 30px 0;">
-        <h2 class="section-title">Informasi &amp; Artikel Terkini (Recently)</h2>
+<div class="progress-wrap">
 
-        <div class="marquee-middle-box">
-            <div class="marquee-text-middle">
-                📢 JADWAL PENGAJIAN RUMASA (RUTIN MALAM SELASA) SETIAP SENIN MALAM BA'DA ISYA &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp; 📢 NGAWAYUH (NGAJI WAYAH SUBUH) SETIAP AHAD PAGI &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp; 📢 DAN MAJELIS TAKLIM IBU-IBU SETIAP HARI JUM'AT BA'DA JUM'AT
-            </div>
-        </div>
+<div class="progress-info">
+<span>Progress Pembangunan</span>
+<span>72%</span>
+</div>
 
-        <p style="text-align: center; font-size: 0.8rem; color: #666; margin-top: -10px; margin-bottom: 25px;">
-            Daftar publikasi materi dakwah, maklumat penting DKM, serta mutiara informasi terbaru agar jamaah tidak ketinggalan berita.
-        </p>
-        
-        <div class="recently-grid">
-            
-            <div class="recently-card">
-                <span class="badge-new">Artikel</span>
-                <div>
-                    <h4 style="font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 4px; font-weight: bold; padding-right: 50px;">Tiga Pilar Manajemen Langit DKM</h4>
-                    <p style="font-size: 0.7rem; color: #666; margin-bottom: 6px;"><i class="fa-solid fa-user-nib"></i> Oleh: DKM Center</p>
-                    <p style="font-size: 0.8rem; color: #444; text-align: justify;">
-                        Penerapan pelayanan khidmah profesional berbasis sistem Komunikasi Terbuka, Koordinasi Lapangan Solid, dan Transparansi laporan dana umat.
-                    </p>
-                </div>
-                <a href="artikel_indra.html" style="color: var(--dark-gold); font-weight: bold; text-decoration: none; font-size: 0.75rem; margin-top: 10px; display: inline-block;">
-                    Baca Selengkapnya <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
 
-            <div class="recently-card" style="background: #2C1A04; color: #fff; border-color: var(--primary-gold);">
-                <span class="badge-update" style="background: var(--primary-gold); color: #000;">Kajian</span>
-                <div>
-                    <h4 style="font-size: 0.95rem; color: var(--primary-gold); margin-bottom: 4px; font-weight: bold;">Riayah &amp; Keimanan Gen Z</h4>
-                    <p style="font-size: 0.7rem; color: #ccc; margin-bottom: 6px;"><i class="fa-solid fa-calendar"></i> Agenda Rutin Masjid</p>
-                    <p style="font-size: 0.8rem; color: #ddd; text-align: justify; font-style: italic;">
-                        "Tugas terbesar kita hari ini bukan sekadar memfasilitasi teknologi, melainkan memastikan generasi pemuda tumbuh kokoh bertahap dari akar pondasi keimanan."
-                    </p>
-                </div>
-                <div style="font-size: 0.7rem; color: var(--primary-gold); border-top: 1px solid rgba(215,175,55,0.2); padding-top: 6px; margin-top: 10px;">
-                    <i class="fa-solid fa-clock"></i> Senin (RUMASA) &amp; Ahad (NGAWAYUH)
-                </div>
-            </div>
+</div>
 
-            <div class="recently-card">
-                <span class="badge-new">Belajar Quran</span>
-                <div>
-                    <h4 style="font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 2px; font-weight: bold; padding-right: 80px;">Metode Kauny: Menghafal Semudah Tersenyum</h4>
-                    <p style="font-size: 0.7rem; color: #666; margin-bottom: 6px;"><i class="fa-solid fa-video"></i> Trainer: Ustadz Indra Aulia</p>
-                    <p style="font-size: 0.8rem; color: #444; text-align: justify; line-height: 1.3;">
-                        Metode menghafal Al-Qur'an kreatif secara kilat menggunakan visualisasi gerakan tangan. Simak kedua video pelatihannya di bawah ini:
-                    </p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
-                        <div style="width: 100%; height: 160px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; background: #000;">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/gEFGbtTmmao" title="Belajar Metode Kauny 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                        <div style="width: 100%; height: 160px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; background: #000;">
-                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/MsluQLz7uZk" title="Belajar Metode Kauny 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                    </div>
+<a href="#donasi-section" class="btn-wakaf">
+<i class="fa-solid fa-hand-holding-dollar"></i>
+Dukung Wakaf Sekarang
+</a>
 
-                </div>
-            </div>
+</div>
 
-        </div>
-    </section>
+</div>
+
+<div class="premium-card side-card">
+
+<h3 class="side-title">
+Informasi Renovasi
+</h3>
+
+<div class="side-item">
+
+<div class="side-icon">
+<i class="fa-solid fa-building"></i>
+</div>
+
+<div class="side-text">
+<h4>Pembangunan Bertahap</h4>
+<p>
+Dilaksanakan secara bertahap sesuai prioritas kebutuhan dan kemampuan pendanaan.
+</p>
+</div>
+
+</div>
+
+<div class="side-item">
+
+<div class="side-icon">
+<i class="fa-solid fa-chart-column"></i>
+</div>
+
+<div class="side-text">
+<h4>Laporan Transparan</h4>
+<p>
+Seluruh pemasukan dan pengeluaran dipublikasikan secara terbuka.
+</p>
+</div>
+
+</div>
+
+<div class="side-item">
+
+<div class="side-icon">
+<i class="fa-solid fa-users"></i>
+</div>
+
+<div class="side-text">
+<h4>Partisipasi Jamaah</h4>
+<p>
+Pembangunan didukung oleh jamaah, donatur, dan masyarakat sekitar.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- SOSKEM -->
+<!-- ========================================= -->
+
+<section class="soskem-premium">
+
+<div class="soskem-box">
+
+<div class="soskem-left">
+
+<h2>SOSKEM DKM Al-Ikhlash</h2>
+
+<p>
+Sistem pelayanan sosial kematian yang terorganisir untuk membantu keluarga jamaah dalam menghadapi musibah dengan cepat, amanah, dan profesional.
+</p>
+
+</div>
+
+<div class="soskem-right">
+
+<div class="soskem-feature">
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Layanan Duka 24 Jam</h4>
+<p>Koordinasi cepat saat terjadi musibah.</p>
+</div>
+</div>
+
+<div class="soskem-feature">
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Administrasi Terintegrasi</h4>
+<p>Data jamaah dan iuran tersimpan secara digital.</p>
+</div>
+</div>
+
+<div class="soskem-feature">
+<i class="fa-solid fa-check-circle"></i>
+<div>
+<h4>Dana Sosial Amanah</h4>
+<p>Pengelolaan dana yang transparan dan dapat dipertanggungjawabkan.</p>
+</div>
+</div>
+
+<a href="https://wa.me/6289530104144"
+target="_blank"
+class="btn-soskem">
+
+<i class="fa-solid fa-phone"></i>
+Hubungi Petugas SOSKEM
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- RECENT INFO / KEGIATAN -->
+<!-- ========================================= -->
+
+<section class="recent-section">
+
+<div class="recent-grid">
+
+<div class="recent-card">
+
+<div class="recent-image">
+<img src="galeri1.jpg" alt="">
+</div>
+
+<div class="recent-content">
+
+<span class="recent-tag">KEGIATAN</span>
+
+<h3>Kajian Rutin Pekanan</h3>
+
+<p>
+Kajian dan pembinaan jamaah secara rutin untuk meningkatkan kualitas keilmuan dan ukhuwah Islamiyah.
+</p>
+
+</div>
+
+</div>
+
+<div class="recent-card">
+
+<div class="recent-image">
+<img src="galeri2.jpg" alt="">
+</div>
+
+<div class="recent-content">
+
+<span class="recent-tag">PEMBANGUNAN</span>
+
+<h3>Progress Renovasi Masjid</h3>
+
+<p>
+Dokumentasi perkembangan pembangunan dan renovasi fasilitas masjid yang sedang berjalan.
+</p>
+
+</div>
+
+</div>
+
+<div class="recent-card">
+
+<div class="recent-image">
+<img src="galeri3.jpg" alt="">
+</div>
+
+<div class="recent-content">
+
+<span class="recent-tag">SOSIAL</span>
+
+<h3>Kegiatan Sosial Jamaah</h3>
+
+<p>
+Program sosial dan kemanusiaan yang melibatkan partisipasi aktif jamaah serta masyarakat sekitar.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- END TAHAP 3 -->
+<!-- ========================================= -->
 
     <section id="titip-doa-section" style="padding: 35px 5%; background: linear-gradient(180deg, #FAF8F4 0%, #F3EFE6 100%); text-align: center;">
         <div class="max-width-container">
