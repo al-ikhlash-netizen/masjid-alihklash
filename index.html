@@ -601,54 +601,469 @@
 <!-- ========================= -->
 <!-- PREMIUM NAVBAR V3 END -->
 <!-- ========================= -->
+<!-- ========================================= -->
+<!-- TAHAP 2 PREMIUM UI -->
+<!-- REPLACE SECTION:
+     1. Program Pelayanan Utama
+     2. Laporan Keuangan Real-time
+-->
+<!-- ========================================= -->
 
-    <section style="padding: 12px 0; background: var(--bg-light);">
-        <div style="max-width: 750px; margin: 0 auto; background: #fff; border-radius: 8px; border: 1px solid var(--light-gold); border-left: 4px solid var(--primary-gold); padding: 10px 15px; box-shadow: 0 2px 8px rgba(44,26,4,0.02); display: flex; align-items: flex-start; gap: 10px;">
-            <div style="font-size: 1.2rem; color: var(--primary-gold);"><i class="fa-solid fa-book-quran"></i></div>
-            <div>
-                <span style="font-size: 0.65rem; color: var(--dark-gold); font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block;" id="rohani-kategori">Mutiara Hikmah</span>
-                <p style="font-size: 0.85rem; color: var(--dark-brown); font-style: italic; font-weight: 500; margin-bottom: 2px;" id="rohani-teks">"Memuat mutiara hikmah..."</p>
-                <span style="font-size: 0.75rem; color: #666;" id="rohani-sumber">-</span>
+<style>
+
+/* =========================
+   PREMIUM SECTION
+========================= */
+
+.section-premium{
+    padding:90px 5%;
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #faf7f1 100%
+    );
+}
+
+.section-premium-title{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.section-premium-title h2{
+    font-family:'Marcellus',serif;
+    font-size:2.4rem;
+    color:#2C1A04;
+    margin-bottom:12px;
+}
+
+.section-premium-title p{
+    color:#666;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.section-premium-divider{
+    width:90px;
+    height:4px;
+    margin:18px auto 0;
+    border-radius:999px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #D4AF37,
+        transparent
+    );
+}
+
+/* =========================
+   LAPORAN REALTIME
+========================= */
+
+.financial-panel{
+    max-width:1300px;
+    margin:auto;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.08),
+    0 5px 20px rgba(0,0,0,.04);
+}
+
+.financial-header{
+    background:
+    linear-gradient(
+        135deg,
+        #064E3B,
+        #0B3B2E
+    );
+
+    padding:30px;
+    color:#fff;
+}
+
+.financial-header h3{
+    font-size:1.8rem;
+    font-family:'Marcellus',serif;
+    margin-bottom:8px;
+}
+
+.financial-header p{
+    opacity:.9;
+    line-height:1.8;
+}
+
+.financial-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(212,175,55,.12);
+
+    border:1px solid rgba(212,175,55,.25);
+
+    color:#F3E5AB;
+
+    font-size:.8rem;
+    font-weight:600;
+
+    margin-bottom:16px;
+}
+
+.financial-frame{
+    padding:20px;
+    background:#fff;
+}
+
+.financial-frame iframe{
+    width:100%;
+    height:850px;
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    background:#fff;
+}
+
+/* =========================
+   CARD PROGRAM LAYANAN
+========================= */
+
+.services-premium-grid{
+    max-width:1300px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+.service-premium-card{
+    position:relative;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(212,175,55,.15);
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.06);
+
+    transition:.4s ease;
+}
+
+.service-premium-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 35px 60px rgba(0,0,0,.10);
+}
+
+.service-premium-card::before{
+    content:'';
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #D4AF37,
+        #F3E5AB,
+        #D4AF37
+    );
+}
+
+.service-premium-icon{
+    width:78px;
+    height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(212,175,55,.15),
+        rgba(212,175,55,.05)
+    );
+
+    color:#AA7C11;
+
+    font-size:2rem;
+
+    margin-bottom:24px;
+}
+
+.service-premium-card h3{
+    font-family:'Marcellus',serif;
+    font-size:1.5rem;
+    color:#2C1A04;
+    margin-bottom:12px;
+}
+
+.service-premium-card p{
+    color:#666;
+    line-height:1.9;
+    font-size:.95rem;
+}
+
+.service-premium-footer{
+    margin-top:25px;
+}
+
+.btn-premium-danger{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #C62828,
+        #A61C1C
+    );
+
+    color:#fff;
+
+    font-weight:700;
+
+    box-shadow:
+    0 10px 25px rgba(166,28,28,.25);
+
+    transition:.3s ease;
+}
+
+.btn-premium-danger:hover{
+    transform:translateY(-2px);
+}
+
+.service-tag{
+    display:inline-block;
+
+    margin-bottom:18px;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:#faf7ef;
+
+    color:#AA7C11;
+
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+@media(max-width:768px){
+
+    .section-premium{
+        padding:65px 5%;
+    }
+
+    .section-premium-title h2{
+        font-size:2rem;
+    }
+
+    .financial-header{
+        padding:24px;
+    }
+
+    .financial-frame iframe{
+        height:700px;
+    }
+
+    .service-premium-card{
+        padding:28px;
+    }
+
+}
+
+</style>
+
+<!-- ========================================= -->
+<!-- LAPORAN KEUANGAN PREMIUM -->
+<!-- ========================================= -->
+
+<section id="laporan-realtime-embed" class="section-premium">
+
+    <div class="section-premium-title">
+        <h2>Laporan Keuangan Real-time</h2>
+        <p>
+            Transparansi keuangan masjid yang dapat dipantau secara terbuka,
+            profesional, dan terintegrasi langsung dengan sistem sekretariat.
+        </p>
+        <div class="section-premium-divider"></div>
+    </div>
+
+    <div class="financial-panel">
+
+        <div class="financial-header">
+
+            <div class="financial-badge">
+                <i class="fa-solid fa-chart-line"></i>
+                Transparansi Dana Umat
             </div>
-        </div>
-    </section>
 
-    <section id="laporan-realtime-embed" style="padding: 40px 5%; background: #fff;">
-        <h2 class="section-title">Laporan Keuangan Real-time</h2>
-        <p style="text-align: center; margin-bottom: 20px; color: #666;">Data di bawah ini terupdate otomatis dari sistem sekretariat masjid.</p>
-        <div style="width: 100%; height: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 2px solid var(--primary-gold);">
-            <iframe src="laporan-keuangan-dkm.html" width="100%" height="100%" style="border: none;"></iframe>
+            <h3>Monitoring Keuangan Masjid</h3>
+
+            <p>
+                Data pemasukan, pengeluaran, saldo, dan laporan kas diperbarui
+                secara otomatis sehingga jamaah dapat memantau perkembangan
+                keuangan masjid kapan saja.
+            </p>
+
         </div>
-    </section>
-    <section>
-        <h2 class="section-title">Program Pelayanan Utama</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"><i class="fa-solid fa-hands-holding-heart"></i></div>
-                    <h3>Unit Sosial Kematian</h3>
-                    <p>Pengurusan jenazah, serta koordinasi iuran dana sosial kematian untuk santunan keluarga duka secara cepat.</p>
-                </div>
-                <a href="https://wa.me/6289530104144" class="btn-emergency" target="_blank">
-                    <i class="fa-solid fa-phone-flip"></i> LAYANAN DUKA
+
+        <div class="financial-frame">
+            <iframe
+                src="laporan-keuangan-dkm.html"
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- PROGRAM PELAYANAN UTAMA PREMIUM -->
+<!-- ========================================= -->
+
+<section class="section-premium">
+
+    <div class="section-premium-title">
+        <h2>Program Pelayanan Utama</h2>
+        <p>
+            Pilar pelayanan Masjid Jami' Al-Ikhlash dalam melayani kebutuhan
+            ibadah, sosial kemasyarakatan, dan pembangunan berkelanjutan.
+        </p>
+        <div class="section-premium-divider"></div>
+    </div>
+
+    <div class="services-premium-grid">
+
+        <!-- SOSKEM -->
+
+        <div class="service-premium-card">
+
+            <span class="service-tag">
+                LAYANAN SOSIAL
+            </span>
+
+            <div class="service-premium-icon">
+                <i class="fa-solid fa-hands-holding-heart"></i>
+            </div>
+
+            <h3>Unit Sosial Kematian</h3>
+
+            <p>
+                Pengurusan jenazah, koordinasi pelayanan duka, serta pengelolaan
+                iuran sosial kematian untuk membantu keluarga yang tertimpa
+                musibah secara cepat dan terorganisir.
+            </p>
+
+            <div class="service-premium-footer">
+
+                <a href="https://wa.me/6289530104144"
+                   target="_blank"
+                   class="btn-premium-danger">
+
+                    <i class="fa-solid fa-phone-volume"></i>
+
+                    LAYANAN DUKA 24 JAM
+
                 </a>
+
             </div>
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3>Idarah Digital</h3>
-                    <p>Sistem informasi masjid, transparansi data iuran, dan monitor keuangan umat secara terbuka.</p>
-                </div>
-            </div>
-            <div class="service-card">
-                <div>
-                    <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
-                    <h3>Pembangunan</h3>
-                    <p>Pemeliharaan berkala infrastruktur fisik serta pengembangan jangka panjang fasilitas utama masjid.</p>
-                </div>
-            </div>
+
         </div>
-    </section>
+
+        <!-- IDARAH -->
+
+        <div class="service-premium-card">
+
+            <span class="service-tag">
+                DIGITALISASI MASJID
+            </span>
+
+            <div class="service-premium-icon">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
+
+            <h3>Idarah Digital</h3>
+
+            <p>
+                Sistem informasi masjid berbasis digital yang mendukung
+                transparansi data jamaah, laporan keuangan, administrasi
+                sekretariat, dan pelayanan publik yang modern.
+            </p>
+
+        </div>
+
+        <!-- PEMBANGUNAN -->
+
+        <div class="service-premium-card">
+
+            <span class="service-tag">
+                RIAYAH MASJID
+            </span>
+
+            <div class="service-premium-icon">
+                <i class="fa-solid fa-trowel-bricks"></i>
+            </div>
+
+            <h3>Pembangunan</h3>
+
+            <p>
+                Program pemeliharaan, renovasi, dan pengembangan infrastruktur
+                masjid untuk memastikan kenyamanan ibadah serta keberlanjutan
+                fasilitas bagi generasi mendatang.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================= -->
+<!-- END TAHAP 2 -->
+<!-- ========================================= -->
 
             <div class="box-docs-gallery" style="background: #fff; border-radius: 8px; box-shadow: 0 3px 10px rgba(44, 26, 4, 0.04); margin-bottom: 30px; overflow: hidden; border: 1px solid #eedeb7;">
                 <div class="docs-header" style="background: #fdfaf4; color: var(--dark-brown); padding: 12px 20px; font-size: 1.05rem; font-weight: bold; display: flex; align-items: center; gap: 10px; font-family: 'Marcellus', serif; border-bottom: 1.5px solid var(--primary-gold);">
