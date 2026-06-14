@@ -53,8 +53,34 @@
         .section { padding: 80px 0; }
         .bg-white { background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-        /* Top Banner */
-        .top-banner { background: var(--primary); color: #fff; font-size: 0.75rem; font-weight: 500; text-align: center; padding: 10px 24px; letter-spacing: 0.02em; }
+        /* === PREMIUM RUNNING TEXT (TOP BANNER) === */
+.top-banner { 
+    background: linear-gradient(90deg, #022c22 0%, var(--primary) 50%, #022c22 100%); 
+    color: var(--accent); /* Warna Emas */
+    font-size: 0.85rem; 
+    font-weight: 600; 
+    padding: 10px 0; 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.marquee-wrapper {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.marquee-text {
+    display: inline-block;
+    animation: marquee-premium 35s linear infinite;
+    padding-left: 100%;
+    letter-spacing: 0.05em;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+@keyframes marquee-premium { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-100%); } 
+}
 
         /* Glass Navbar (SaaS Style) */
         .navbar { position: sticky; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 16px 0; transition: all 0.3s; }
@@ -230,9 +256,12 @@
     </style>
 </head>
 <body>
-
-    <div class="top-banner">
-        ✨ Transformasi Digital Masjid Jami' Al-Ikhlash — Amanah, Transparan, Berkah
+<div class="top-banner">
+        <div class="marquee-wrapper">
+            <div class="marquee-text">
+                ✨ Selamat Datang di Website Resmi Masjid Jami' Al-Ikhlash Katapang — "Amanah, Transparan, Berkah" — Transformasi Ramah Digital Untuk Kemaslahatan Ummat ✨
+            </div>
+        </div>
     </div>
 
     <header class="navbar">
