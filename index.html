@@ -47,6 +47,9 @@
         }
         h1, h2, h3, h4, h5 { font-family: 'Marcellus', serif; color: var(--navy); }
 
+        /* SCROLL MARGIN FOR STICKY HEADER */
+        section, .box-docs-gallery, .iklan-dev-box, .box-kas-umum { scroll-margin-top: 90px; }
+
         /* --- LAYOUT --- */
         .container-keuangan-gabungan, .max-width-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         section { padding: 60px 0; }
@@ -133,6 +136,8 @@
             border: 1px solid var(--dark-gold);
         }
         .header-btn:hover { background: var(--dark-gold); box-shadow: 0 6px 16px rgba(201, 162, 39, 0.4); transform: translateY(-2px); }
+
+        .mobile-toggle { display: none; }
 
         /* HERO AREA */
         .hero { position: relative; height: 440px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 0;}
@@ -233,7 +238,15 @@
             .leader-card { width: 45%; } 
             .sholat-card-item { min-width: 30%; } 
             section { padding: 40px 0; }
-            .header-nav ul { gap: 12px; }
+            
+            /* Responsive Header Updates */
+            .header-nav { display: none; width: 100%; flex-basis: 100%; margin-top: 15px; }
+            .header-nav.active { display: block; }
+            .header-nav ul { flex-direction: column; gap: 0; }
+            .header-nav a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: block; }
+            .mobile-toggle { display: block; background: transparent; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; order: 3; }
+            .header-btn { margin-left: auto; margin-right: 15px; order: 2; }
+            .header-logo-group { order: 1; }
         }
     </style>
 </head>
@@ -251,19 +264,30 @@
             <div>AL-IKHLASH</div>
         </div>
 
-        <nav class="header-nav">
+        <button class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
+
+        <nav class="header-nav" id="mobile-menu">
             <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="artikel.html">Artikel</a></li>
-                <li><a href="belajar-quran.html">Qur'an</a></li>
+                <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
+                <li><a href="artikel.html" onclick="toggleMenu()">Artikel</a></li>
+                <li><a href="belajar-quran.html" onclick="toggleMenu()">Qur'an</a></li>
+                <li><a href="#renovation-updates" onclick="toggleMenu()">Renovation Updates</a></li>
+                <li><a href="#developer-portfolio" onclick="toggleMenu()">Developer Portfolio</a></li>
             </ul>
         </nav>
 
-        <a href="#donasi-section" class="header-btn">
+        <a href="#kas-renovasi" class="header-btn">
             <div style="font-size: 0.75rem; letter-spacing: 0.5px;">WAKAF ATAP</div>
             <div style="font-size: 0.65rem; margin-top: 2px; font-weight: 400;">Rp 250.000 / m²</div>
         </a>
     </header>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 
     <section class="hero">
         <div class="hero-overlay"></div>
@@ -334,7 +358,7 @@
     <section style="background: var(--bg-light);">
         <div class="max-width-container">
             
-            <div class="box-docs-gallery" style="background: var(--white); border-radius: 12px; box-shadow: var(--shadow-soft); margin-bottom: 40px; overflow: hidden; border: 1px solid var(--border-color);">
+            <div class="box-docs-gallery" id="renovation-updates" style="background: var(--white); border-radius: 12px; box-shadow: var(--shadow-soft); margin-bottom: 40px; overflow: hidden; border: 1px solid var(--border-color);">
                 <div class="docs-header" style="background: #F8FAFC; color: var(--navy); padding: 18px 25px; font-size: 1.15rem; display: flex; align-items: center; gap: 12px; font-family: 'Marcellus', serif; border-bottom: 1px solid var(--border-color);">
                     <i class="fa-solid fa-person-digging" style="color: var(--slate-blue);"></i> II. Implementasi Program Renovasi &amp; Legalitas
                 </div>
@@ -697,7 +721,7 @@
                 <div class="contact-item"><i class="fa-regular fa-envelope"></i><span>alikhlashmasjidjami@gmail.com</span></div>
             </div>
         </div>
-        <div class="iklan-dev-box">
+        <div class="iklan-dev-box" id="developer-portfolio">
             <p class="iklan-dev-text">
                 Website dirancang &amp; dikembangkan oleh <strong>Ade Harya Rukmana (Sekretaris DKM)</strong>. Bagi Anda yang berminat membuat aplikasi kustom seperti ini, kami siap membantu khidmah digital Anda.
             </p>
