@@ -98,69 +98,154 @@
         .marquee-middle-box { background: linear-gradient(90deg, var(--navy) 0%, var(--slate-blue) 100%); color: var(--white); padding: 12px 0; overflow: hidden; border-radius: 8px; border-left: 4px solid var(--primary-gold); margin-bottom: 30px; box-shadow: var(--shadow-soft); }
         .marquee-text-middle { display: inline-block; white-space: nowrap; animation: marquee-middle 35s linear infinite; padding-left: 100%; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px; }
         @keyframes marquee-middle { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
- /* HEADER & NAVBAR PERFECT CENTERING */
-        header { 
-            background: var(--navy); 
-            padding: 0 5%; 
-            height: 80px;
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
-            border-bottom: 3px solid var(--primary-gold);
-        }
-        .header-logo-group { 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            height: 100%;
-        }
-        .header-logo-group img { 
-            width: 52px; 
-            height: 52px; 
-            border-radius: 50%; 
-            border: 2px solid var(--primary-gold); 
-            background: var(--white); 
-            padding: 2px;
-            object-fit: cover;
-        }
-        .header-logo-group div { 
-            font-family: 'Marcellus', serif; 
-            font-size: 1.3rem; 
-            color: var(--white); 
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-        
-        .header-nav {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-        .header-nav ul { 
-            list-style: none; 
-            display: flex; 
-            gap: 25px; 
-            margin: 0; 
-            padding: 0; 
-            align-items: center;
-        }
-        .header-nav a { 
-            color: var(--white); 
-            text-decoration: none; 
-            font-size: 0.95rem; 
-            font-weight: 500; 
-            transition: color 0.3s; 
-            opacity: 0.9; 
-        }
-        .header-nav a:hover { color: var(--primary-gold); opacity: 1; }
-        .header-nav li.active a { color: var(--primary-gold); opacity: 1; font-weight: 600; }
+ /* ================= HEADER & NAVBAR PERFECT CENTERING (DESKTOP & MOBILE) ================= */
+header { 
+    background: var(--navy); 
+    padding: 0 5%; 
+    height: 80px;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+    border-bottom: 3px solid var(--primary-gold);
+}
+.header-logo-group { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    height: 100%;
+}
+.header-logo-group img { 
+    width: 52px; 
+    height: 52px; 
+    border-radius: 50%; 
+    border: 2px solid var(--primary-gold); 
+    background: var(--white); 
+    padding: 2px;
+    object-fit: cover;
+}
+.header-logo-group div { 
+    font-family: 'Marcellus', serif; 
+    font-size: 1.3rem; 
+    color: var(--white); 
+    letter-spacing: 1px;
+    font-weight: bold;
+}
 
+.header-nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.header-nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 25px; 
+    margin: 0; 
+    padding: 0; 
+    align-items: center;
+}
+.header-nav a { 
+    color: var(--white); 
+    text-decoration: none; 
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    transition: color 0.3s; 
+    opacity: 0.9; 
+}
+.header-nav a:hover { color: var(--primary-gold); opacity: 1; }
+.header-nav li.active a { color: var(--primary-gold); opacity: 1; font-weight: 600; }
 
-        .mobile-toggle { display: none; }
+.mobile-toggle { display: none; }
+
+/* Gaya Default Tombol Wakaf di Desktop */
+.btn-wakaf {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.3;
+    transition: color 0.3s;
+}
+.btn-wakaf:hover {
+    color: var(--primary-gold);
+}
+
+/* RESPONSIVE MOBILE VIEW (MAX 768PX) */
+@media (max-width: 768px) { 
+    header { 
+        height: 80px; 
+        position: relative; 
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    /* Tombol wakaf bertransformasi menjadi badge emas solid yang rapi */
+    .btn-wakaf {
+        color: var(--primary-gold) !important;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-decoration: none;
+        text-align: center;
+        line-height: 1.3;
+        border: 1px solid var(--primary-gold);
+        padding: 6px 10px;
+        border-radius: 6px;
+        margin-left: auto; 
+        margin-right: 15px;
+        background: rgba(201, 162, 39, 0.05);
+    }
+
+    /* Menu dropdown turun ke bawah dengan background navy solid (tidak menutupi logo) */
+    .header-nav { 
+        display: none; 
+        position: absolute; 
+        top: 80px; 
+        left: 0; 
+        width: 100%; 
+        background: #1F2937; 
+        padding: 15px 5%;
+        z-index: 999;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        border-bottom: 2px solid var(--primary-gold);
+        height: auto;
+    }
+    
+    .header-nav.active { 
+        display: block; 
+    }
+    
+    .header-nav ul { 
+        flex-direction: column; 
+        gap: 5px; 
+        align-items: flex-start; 
+    }
+    
+    .header-nav a { 
+        padding: 12px 0; 
+        border-bottom: 1px solid rgba(255,255,255,0.05); 
+        display: block; 
+        width: 100%;
+        color: var(--white) !important;
+    }
+    .header-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    .mobile-toggle { 
+        display: block; 
+        background: transparent; 
+        border: none; 
+        color: var(--white); 
+        font-size: 1.5rem; 
+        cursor: pointer; 
+    }
+}
 
         /* HERO AREA */
         .hero { position: relative; height: 440px; background: url('Visual%20Masjid%20(2).png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 0;}
