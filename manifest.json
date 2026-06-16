@@ -1,0 +1,20 @@
+{
+  "name": "Website Resmi Jami Al-Ikhlash",
+  "short_name": "Al-Ikhlash",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#064e3b",
+  "icons": [
+    {
+      "src": "icon-maskjid-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-maskjid-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
