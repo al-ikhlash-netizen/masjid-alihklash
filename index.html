@@ -181,77 +181,173 @@ header {
     color: var(--navy) !important;
 }
 
-/* RESPONSIVE MOBILE VIEW (MAX 768PX) */
-@media (max-width: 768px) { 
-    header { 
-        height: 80px; 
-        position: relative; 
-        padding: 0 5%;
+/* =========================================================
+   RESPONSIVE MOBILE VIEW (MAX 768PX)
+   FULL REPLACE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ==========================
+       HEADER
+    ========================== */
+    header {
+        height: 88px;
+        position: relative;
+        padding: 0 12px;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    
-    /* Penyesuaian ukuran bingkai emas tombol wakaf di layar HP */
+
+    /* ==========================
+       LOGO MASJID
+    ========================== */
+    .header-logo img,
+    .logo img,
+    .header-logo-group img {
+        width: 76px;
+        height: 76px;
+        object-fit: contain;
+        display: block;
+    }
+
+    .header-logo-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* ==========================
+       TOMBOL WAKAF
+    ========================== */
     .btn-wakaf {
         color: var(--primary-gold) !important;
-        font-size: 0.7rem;
+        font-size: 0.72rem;
         font-weight: 700;
         text-decoration: none;
         text-align: center;
         line-height: 1.3;
         border: 1px solid var(--primary-gold);
-        padding: 6px 10px;
-        border-radius: 6px;
-        margin-left: auto; 
-        margin-right: 15px;
-        background: rgba(201, 162, 39, 0.05);
+        padding: 7px 12px;
+        border-radius: 7px;
+        background: rgba(201,162,39,.05);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        white-space: nowrap;
+
+        margin-left: auto;
+        margin-right: 8px;
     }
 
-    /* Menu dropdown mobile (Tetap dipertahankan sesuai struktur asli Anda) */
-    .header-nav { 
-        display: none; 
-        position: absolute; 
-        top: 80px; 
-        left: 0; 
-        width: 100%; 
-        background: #1F2937; 
-        padding: 15px 5%;
-        z-index: 999;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
-        border-bottom: 2px solid var(--primary-gold);
-        height: auto;
-    }
-    
-    .header-nav.active { 
-        display: block; 
-    }
-    
-    .header-nav ul { 
-        flex-direction: column; 
-        gap: 5px; 
-        align-items: flex-start; 
-    }
-    
-    .header-nav a { 
-        padding: 12px 0; 
-        border-bottom: 1px solid rgba(255,255,255,0.05); 
-        display: block; 
+    /* ==========================
+       MENU DROPDOWN
+       (TIDAK DIHAPUS)
+    ========================== */
+
+    .header-nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 88px;
+
+        left: 0;
+
         width: 100%;
-        color: var(--white) !important;
-    }
-    .header-nav li:last-child a {
-        border-bottom: none;
+
+        background: #1F2937;
+
+        padding: 15px 5%;
+
+        z-index: 999;
+
+        box-shadow: 0 10px 15px rgba(0,0,0,.30);
+
+        border-bottom: 2px solid var(--primary-gold);
+
+        height: auto;
+
     }
 
-    .mobile-toggle { 
-        display: block; 
-        background: transparent; 
-        border: none; 
-        color: var(--white); 
-        font-size: 1.5rem; 
-        cursor: pointer; 
+    .header-nav.active {
+
+        display: block;
+
     }
+
+    .header-nav ul {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        align-items: flex-start;
+
+        width: 100%;
+
+    }
+
+    .header-nav li {
+
+        width: 100%;
+
+    }
+
+    .header-nav a {
+
+        display: block;
+
+        width: 100%;
+
+        padding: 12px 0;
+
+        color: var(--white) !important;
+
+        border-bottom: 1px solid rgba(255,255,255,.05);
+
+        text-decoration: none;
+
+    }
+
+    .header-nav li:last-child a {
+
+        border-bottom: none;
+
+    }
+
+    /* ==========================
+       HAMBURGER MENU
+    ========================== */
+
+    .mobile-toggle {
+
+        display: block;
+
+        background: transparent;
+
+        border: none;
+
+        color: var(--white);
+
+        font-size: 1.7rem;
+
+        cursor: pointer;
+
+        margin-left: 4px;
+
+        padding: 0;
+
+        line-height: 1;
+
+    }
+
 }
 
         /* HERO AREA */
