@@ -80,7 +80,10 @@
         }
         .header-logo-group { display: flex; align-items: center; gap: 15px; }
         .header-logo-group img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--primary-gold); background: var(--white); padding: 2px; object-fit: cover; }
-        .header-logo-group div { font-family: 'Marcellus', serif; font-size: 1.5rem; color: var(--white); font-weight: bold; letter-spacing: 1.5px; }
+        .header-text { display: flex; flex-direction: column; justify-content: center; line-height: 1.3; }
+        .nama-masjid { font-family: 'Marcellus', serif; font-size: 1.5rem; color: var(--white); font-weight: bold; letter-spacing: 1.5px; }
+        .alamat-masjid { font-size: 0.75rem; color: #E2E8F0; font-weight: 400; font-family: 'Poppins', sans-serif; }
+        .id-masjid { font-size: 0.75rem; color: var(--primary-gold); font-weight: 600; font-family: 'Poppins', sans-serif; margin-top: 2px; }
 
         .header-nav ul { list-style: none; display: flex; gap: 35px; align-items: center; }
         .header-nav a { color: var(--white); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.3s; opacity: 0.8; }
@@ -260,7 +263,9 @@
         @media (max-width: 768px) {
             header { height: 80px; padding: 0 20px; }
             .header-logo-group img { width: 45px; height: 45px; }
-            .header-logo-group div { font-size: 1.2rem; }
+            .nama-masjid { font-size: 1.1rem; }
+            .alamat-masjid { font-size: 0.6rem; line-height: 1.4; white-space: normal; }
+            .id-masjid { font-size: 0.65rem; margin-top: 2px; }
             .btn-wakaf { display: none; }
             
             .header-nav { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: var(--emerald-dark); padding: 20px; border-bottom: 2px solid var(--primary-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
@@ -289,8 +294,11 @@
     <header>
         <div class="header-logo-group">
             <img src="Logo-dkm.jpg" alt="Logo Masjid">
-            <div>AL-IKHLASH</div>
-            <div>ID SIMAS Kemenag : 01.4.13.04.07.000044</div>
+            <div class="header-text">
+                <div class="nama-masjid">AL IKHLASH</div>
+                <div class="alamat-masjid">KP. CIBORERANG, RT 001 RW 019, SANGKANHURIP, KATAPANG, KAB. BANDUNG</div>
+                <div class="id-masjid">ID MASJID KEMENAG : 01.4.13.04.07.000044</div>
+            </div>
         </div>
 
         <nav class="header-nav" id="mobile-menu">
