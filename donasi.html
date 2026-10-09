@@ -41,23 +41,25 @@
             padding-bottom: 90px;
         }
 
-        /* Banner Hero */
+        /* Banner Hero - Menggunakan Fassad_masjid.png */
         .hero-banner {
             position: relative;
             width: 100%;
-            height: 220px;
+            height: 250px;
+            background: #022C22;
         }
 
         .hero-banner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0.9;
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            background: linear-gradient(to bottom, rgba(2,44,34,0.3), rgba(2,44,34,0.75));
             padding: 16px;
             display: flex;
             align-items: flex-start;
@@ -121,7 +123,7 @@
         .progress-bar-fill {
             background: var(--primary);
             height: 100%;
-            width: 35%;
+            width: 0%;
             border-radius: 10px;
         }
 
@@ -136,9 +138,9 @@
         /* Penggalang Dana */
         .organization-card {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
-            padding: 12px 0;
+            padding: 16px 0;
             border-top: 1px solid #F1F5F9;
             border-bottom: 1px solid #F1F5F9;
             margin-bottom: 20px;
@@ -154,6 +156,7 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            flex-shrink: 0;
         }
 
         .org-info h4 {
@@ -164,6 +167,14 @@
         .org-info p {
             font-size: 12px;
             color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .npwp-img {
+            max-width: 120px;
+            border-radius: 6px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         /* Tab Navigation */
@@ -195,6 +206,24 @@
             color: #475569;
         }
 
+        /* Rekening & QRIS Box */
+        .rekening-box {
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .qris-img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 1px solid #CBD5E1;
+        }
+
         /* Sticky Action Button */
         .bottom-action {
             position: fixed;
@@ -205,6 +234,7 @@
             padding: 12px 20px;
             border-top: 1px solid #F1F5F9;
             box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            z-index: 100;
         }
 
         .btn-primary {
@@ -298,15 +328,16 @@
             border: 1px solid #CBD5E1;
             border-radius: 8px;
             font-size: 14px;
+            font-family: inherit;
         }
     </style>
 </head>
 <body>
 
 <div class="app-container">
-    <!-- Gambar Banner -->
+    <!-- Gambar Banner Menggunakan Fassad_masjid.png -->
     <div class="hero-banner">
-        <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80" alt="Masjid Jami Al Ikhlash">
+        <img src="Fassad_masjid.png" alt="Fasad Masjid Jami Al Ikhlash">
         <div class="hero-overlay">
             <span class="badge-tag">Program Wakaf & Infaq</span>
         </div>
@@ -314,17 +345,17 @@
 
     <!-- Isi Utama -->
     <div class="content-body">
-        <h1 class="campaign-title">Infaq Operasional & Pembangunan Masjid Jami Al Ikhlash</h1>
+        <h1 class="campaign-title">Infaq Operasional & Pembangunan Masjid Jami Al-Ikhlash</h1>
 
         <!-- Status Donasi -->
         <div class="progress-box">
-            <div class="amount-collected">Rp 52.500.000</div>
-            <div class="amount-target">terkumpul dari target <strong>Rp 150.000.000</strong></div>
+            <div class="amount-collected">Rp 0</div>
+            <div class="amount-target">terkumpul dari target <strong>Rp 50.000.000</strong></div>
             <div class="progress-bar-bg">
                 <div class="progress-bar-fill"></div>
             </div>
             <div class="stats-grid">
-                <span><b>184</b> Donatur</span>
+                <span><b>0</b> Donatur</span>
                 <span><b>Tidak Terbatas</b> Hari</span>
             </div>
         </div>
@@ -333,8 +364,9 @@
         <div class="organization-card">
             <div class="org-avatar">DKM</div>
             <div class="org-info">
-                <h4>DKM Masjid Jami Al Ikhlash</h4>
+                <h4>DKM Masjid Jami Al-Ikhlash</h4>
                 <p>Pengelola Resmi • Terverifikasi</p>
+                <img src="93527.jpg" alt="NPWP Masjid Jami Al Ikhlash" class="npwp-img">
             </div>
         </div>
 
@@ -345,17 +377,26 @@
         </div>
 
         <div id="tab-detail" class="tab-content">
-            <p>Mari bersama-sama mengambil bagian dalam investasi akhirat melalui infaq dan wakaf untuk <b>Masjid Jami Al Ikhlash</b>.</p><br>
+            <p>Mari bersama-sama mengambil bagian dalam investasi akhirat melalui infaq dan wakaf untuk <b>Masjid Jami Al-Ikhlash</b>.</p><br>
             <p><b>Alokasi Dana:</b></p>
             <ul style="margin-left: 20px; margin-top: 5px;">
                 <li>Pemeliharaan & Kebersihan Bangunan Masjid</li>
                 <li>Operasional Listrik & Air Ruang Shalat</li>
                 <li>Pengembangan Kegiatan Pengajian & TPQ Anak</li>
             </ul>
+
+            <div class="rekening-box">
+                <p style="font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 5px;">REKENING RESMI MASJID</p>
+                <p style="font-weight: 700; font-size: 16px; color: var(--text-dark);">BSI : 733-500-5052</p>
+                <p style="font-size: 12px;">a.n MASJID AL IKHLASH</p>
+                
+                <p style="font-size: 12px; font-weight: 600; margin-top: 15px; margin-bottom: 5px;">ATAU SCAN QRIS DI BAWAH:</p>
+                <img src="1000020134.jpg" alt="QRIS Masjid Al Ikhlash" class="qris-img">
+            </div>
         </div>
 
         <div id="tab-update" class="tab-content" style="display: none;">
-            <p><b>[1 Oktober 2026]</b> Pembaruan Karpet Utama telah selesai dipasang.</p>
+            <p><b>[Mulai Program]</b> Penggalangan dana operasional dan pembangunan mulai dibuka. Jazakumullah khairan katsiran atas partisipasi jamaah sekalian.</p>
         </div>
     </div>
 
@@ -370,7 +411,7 @@
     <div class="modal-card">
         <div class="modal-header">
             <h3>Pilih Nominal Infaq</h3>
-            <span style="cursor:pointer; font-weight:bold;" onclick="closeModal()">✕</span>
+            <span style="cursor:pointer; font-weight:bold; font-size: 20px;" onclick="closeModal()">✕</span>
         </div>
 
         <div class="nominal-options">
@@ -387,22 +428,21 @@
 
         <div class="form-group">
             <label>Metode Pembayaran</label>
-            <select class="form-control">
-                <option>QRIS (Gopay, OVO, ShopeePay, Dana)</option>
-                <option>Transfer Bank BCA</option>
-                <option>Transfer Bank Mandiri</option>
-                <option>Transfer Bank Syariah Indonesia (BSI)</option>
+            <select id="metodeBayar" class="form-control">
+                <option value="QRIS">QRIS (Gopay, OVO, ShopeePay, Dana, dll)</option>
+                <option value="Transfer Bank Syariah Indonesia (BSI)">Transfer Bank Syariah Indonesia (BSI)</option>
+                <option value="Transfer Bank Lain">Transfer Bank Lain</option>
             </select>
         </div>
 
         <div class="form-group">
             <label>Nama Lengkap (Bisa Hamba Allah)</label>
-            <input type="text" class="form-control" placeholder="Contoh: Hamba Allah">
+            <input type="text" id="namaDonatur" class="form-control" placeholder="Contoh: Hamba Allah">
         </div>
 
         <div class="form-group">
             <label>Doa / Harapan (Opsional)</label>
-            <textarea class="form-control" rows="2" placeholder="Tuliskan doa Anda di sini..."></textarea>
+            <textarea id="pesanDoa" class="form-control" rows="2" placeholder="Tuliskan doa Anda di sini..."></textarea>
         </div>
 
         <button class="btn-primary" style="margin-top: 10px;" onclick="submitDonation()">Lanjutkan Pembayaran</button>
@@ -438,7 +478,31 @@
     }
 
     function submitDonation() {
-        alert('Terima kasih! Anda akan diarahkan ke halaman instruksi pembayaran.');
+        let nominal = document.getElementById('customNominal').value;
+        
+        if(!nominal || nominal <= 0) {
+            alert('Mohon pilih atau masukkan nominal infaq terlebih dahulu.');
+            return;
+        }
+
+        let nama = document.getElementById('namaDonatur').value.trim();
+        if(nama === '') nama = 'Hamba Allah';
+        
+        let metode = document.getElementById('metodeBayar').value;
+        let doa = document.getElementById('pesanDoa').value.trim();
+        if(doa === '') doa = '-';
+
+        let nominalFormat = new Intl.NumberFormat('id-ID').format(nominal);
+        let noWhatsApp = "6288226165425"; 
+
+        let pesan = `*BISMILLAH, KONFIRMASI INFAQ/WAKAF*%0A%0A`;
+        pesan += `*Nama:* ${nama}%0A`;
+        pesan += `*Nominal:* Rp ${nominalFormat}%0A`;
+        pesan += `*Metode:* ${metode}%0A`;
+        pesan += `*Doa/Harapan:* ${doa}%0A%0A`;
+        pesan += `_Mohon kirimkan bukti transfer ke rekening BSI 733-500-5052 a.n MASJID AL IKHLASH atau bukti scan QRIS di bawah pesan ini._`;
+
+        window.open(`https://wa.me/${noWhatsApp}?text=${pesan}`, '_blank');
         closeModal();
     }
 </script>
