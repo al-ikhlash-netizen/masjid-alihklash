@@ -81,7 +81,18 @@
         .header-logo-group { display: flex; align-items: center; gap: 15px; }
         .header-logo-group img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--primary-gold); background: var(--white); padding: 2px; object-fit: cover; }
         .header-text { display: flex; flex-direction: column; justify-content: center; line-height: 1.3; }
-        .nama-masjid { font-family: 'Marcellus', serif; font-size: 1.5rem; color: var(--white); font-weight: bold; letter-spacing: 1.5px; }
+        .nama-masjid { 
+            font-family: 'Marcellus', serif; 
+            font-size: 1.6rem; 
+            font-weight: bold; 
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #FFFFFF 0%, var(--light-gold) 50%, var(--primary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            margin-bottom: 2px;
+        }
+
         .alamat-masjid { font-size: 0.75rem; color: #E2E8F0; font-weight: 400; font-family: 'Poppins', sans-serif; }
         .id-masjid { font-size: 0.75rem; color: var(--primary-gold); font-weight: 600; font-family: 'Poppins', sans-serif; margin-top: 2px; }
 
@@ -294,12 +305,14 @@
             .hero-title { font-size: 2.4rem; }
             .hikmah-card { flex-direction: column; text-align: center; padding: 30px 20px; }
             
+                        /* PENGATURAN MOBILE JADWAL SHOLAT YANG LEBIH KECIL */
             .sholat-header-wrapper { flex-direction: column; text-align: center; }
             .sholat-header-wrapper > div { text-align: center !important; }
-            .sholat-cards { gap: 6px; }
-            .sholat-card { padding: 6px 10px; min-width: 80px; }
-            .s-time { font-size: 1.1rem; }
-        }
+            .sholat-cards { gap: 5px; justify-content: center; }
+            .sholat-card { padding: 5px 4px; min-width: 62px; border-radius: 8px; }
+            .s-name { font-size: 0.6rem; letter-spacing: 0.5px; margin-bottom: 2px; }
+            .s-time { font-size: 0.95rem; }
+
     </style>
 </head>
 <body>
