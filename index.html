@@ -137,7 +137,7 @@
         .hero { 
             position: relative; 
             height: 600px; 
-            background: url('Tampakdepan.png') center/cover no-repeat fixed;
+            background: url('1000010323_2.png') center/cover no-repeat fixed;
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -222,6 +222,20 @@
         .qris-box { background: var(--white); padding: 15px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; color: var(--emerald-dark); }
         .qris-box img { width: 100%; max-width: 480px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
 
+        /* ARTIKEL CARD STYLES */
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; align-items: stretch; }
+        .article-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow-soft); transition: all 0.3s ease; border: 1px solid var(--border-color); border-top: 4px solid var(--primary-gold); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+        .article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--light-gold); }
+        .article-content { flex-grow: 1; display: flex; flex-direction: column; margin-bottom: 20px; }
+        .article-tag { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; width: fit-content; text-transform: uppercase; letter-spacing: 0.5px; }
+        .meta-info { font-size: 0.8rem; color: var(--text-soft); margin: 12px 0; display: flex; gap: 15px; flex-wrap: wrap; }
+        .meta-info span { display: flex; align-items: center; gap: 6px; }
+        .meta-info i { color: var(--primary-gold); }
+        .article-card h3 { font-size: 1.2rem; line-height: 1.4; margin: 12px 0 8px; color: var(--emerald-dark); font-weight: 600; }
+        .article-card p { font-size: 0.88rem; color: var(--text-soft); line-height: 1.6; text-align: justify; margin: 0; }
+        .btn-read-more { display: inline-flex; align-items: center; gap: 8px; background: var(--emerald-dark); color: var(--white); text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; margin-top: auto; align-self: flex-start; }
+        .btn-read-more:hover { background: var(--emerald-main); }
+
         /* GALLERY DOKUMENTASI */
         .gallery-grid-main { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .gallery-main-item { height: 260px; border-radius: var(--radius-md); overflow: hidden; position: relative; box-shadow: var(--shadow-soft); cursor: pointer; }
@@ -304,7 +318,7 @@
         <nav class="header-nav" id="mobile-menu">
             <ul>
                 <li><a href="index.html" onclick="toggleMenu()">Beranda</a></li>
-                <li><a href="Artikel_indra_aulia.html" onclick="toggleMenu()">Artikel</a></li>
+                <li><a href="artikel.html" onclick="toggleMenu()">Artikel</a></li>
                 <li><a href="belajar-quran.html" onclick="toggleMenu()">Qur'an</a></li>
                 <li><a href="#update-renovasi" onclick="toggleMenu()">Update Renovasi</a></li>
                 <li><a href="#developer-portfolio" onclick="toggleMenu()">Portfolio</a></li>
@@ -408,7 +422,6 @@
                 </div>
             </div>
             
-            <!-- KARTU IDARAH DIGITAL -->
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
                 <h3>Idarah Digital</h3>
@@ -441,6 +454,62 @@
         </div>
     </section>
 
+    <!-- ARTIKEL TERBARU - DITAMBAHKAN KEMBALI KODE DARI ARTIKEL.HTML -->
+    <section>
+        <div class="max-width-container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-subtitle">Wawasan & Informasi</span>
+                <h2 class="section-title">Artikel Terbaru</h2>
+                <p class="section-desc">
+                    Daftar publikasi materi dakwah, maklumat penting DKM, serta mutiara informasi terbaru agar jamaah tidak ketinggalan berita.
+                </p>
+            </div>
+            
+            <div class="article-grid">
+                <!-- ARTIKEL BARU INDRA -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-content">
+                        <span class="article-tag" style="background: rgba(16, 185, 129, 0.1); color: var(--emerald-main);">Opini</span>
+                        <h3>Menikah di KUA: Antara Retorika Pejabat dan Sunyinya Sosialisasi kepada Rakyat</h3>
+                        <div class="meta-info">
+                            <span><i class="fa-solid fa-user"></i> Oleh: Ade Harya Rukmana</span>
+                        </div>
+                        <p>Beberapa waktu lalu, publik sempat disegarkan oleh pernyataan lantang dari Gubernur Jawa Barat yang menyarankan para calon pengantin untuk lebih memilih menikah di Kantor Urusan Agama (KUA). Pesannya sederhana namun menohok...</p>
+                    </div>
+                    <!-- Sesuaikan href ini dengan nama file artikel Harya Anda (misal: artikel_harya.html) -->
+                    <a href="artikel_harya.html" class="btn-read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+
+                <!-- ARTIKEL 1 -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-content">
+                        <span class="article-tag" style="background: rgba(201, 162, 39, 0.1); color: var(--dark-gold);">Sorotan</span>
+                        <h3>Menyambut 1 Muharam 1448H: Merajut Ukhuwah dengan Energi Baru Dakwah yang Relevan</h3>
+                        <div class="meta-info">
+                            <span><i class="fa-solid fa-user"></i> Ust. Indra Aulia, A.Md.</span>
+                            <span><i class="fa-solid fa-calendar-days"></i> 1 Muharam 1448 H</span>
+                        </div>
+                        <p>Memasuki tahun baru Hijriyah bukan sekadar pergantian angka kalender, melainkan momentum penting melakukan evaluasi (muhasabah) dakwah secara segar, inklusif, dan adaptif terhadap gelombang modernisasi...</p>
+                    </div>
+                    <a href="post-1.html" class="btn-read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+
+                <!-- ARTIKEL 2 -->
+                <div class="article-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="article-content">
+                        <span class="article-tag" style="background: rgba(51, 65, 85, 0.1); color: var(--text-soft);">Artikel</span>
+                        <h3>Tiga Pilar Manajemen Langit DKM</h3>
+                        <div class="meta-info">
+                            <span><i class="fa-solid fa-user-nib"></i> Oleh: DKM Center</span>
+                        </div>
+                        <p>Penerapan pelayanan khidmah profesional berbasis sistem Komunikasi Terbuka, Koordinasi Lapangan Solid, dan Transparansi laporan dana umat menuju tata kelola masjid yang berkah.</p>
+                    </div>
+                    <a href="artikel_indra.html" class="btn-read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- UPDATE RENOVASI & WAKAF -->
     <section id="update-renovasi" class="renovasi-section max-width-container">
         <div class="section-header" data-aos="fade-up">
@@ -466,7 +535,7 @@
             <div id="kas-renovasi" data-aos="fade-left">
                 <div class="donasi-card">
                     <div style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--primary-gold);">Total Dana Terkumpul</div>
-                    <div class="donasi-amount">Rp 36.250.000</div>
+                    <div class="donasi-amount">Rp 37.750.000</div>
                     <p style="font-size: 1.05rem; line-height: 1.7; opacity: 0.9; margin-bottom: 30px;">
                         Pos dana khusus ini dialokasikan sepenuhnya untuk pemeliharaan fisik jangka panjang serta proyek perluasan Masjid Jami' Al-Ikhlash.
                     </p>
@@ -479,8 +548,9 @@
                         <span style="color: var(--primary-gold);">Target Phase 1 & 2</span>
                     </div>
 
+                    <!-- MENGGUNAKAN BANNER 1000022583.png SEPERTI PERMINTAAN -->
                     <div class="qris-box">
-                        <img src="Flyerdonasi.png" alt="Banner Salurkan Donasi & QRIS Masjid Al Ikhlash">
+                        <img src="1000022583.png" alt="Banner Salurkan Donasi & QRIS Masjid Al Ikhlash">
                     </div>
                 </div>
             </div>
@@ -657,7 +727,7 @@
             const nama = document.getElementById('saran-nama').value; const kontak = document.getElementById('saran-kontak').value; const pesan = document.getElementById('saran-pesan').value;
             if(!nama || !kontak || !pesan) { alert('Mohon isi semua kolom!'); return; }
             const teksFormat = `*KRITIK & SARAN JAMAAH*%0A*Nama:* ${nama}%0A*Kontak:* ${kontak}%0A*Pesan:* ${pesan}`;
-            window.open(`https://wa.me/6289530104144?text=${teksFormat}`, '_blank');
+            window.open(`https://wa.me/6288226165425?text=${teksFormat}`, '_blank');
         }
 
         const daftarHikmah = [
