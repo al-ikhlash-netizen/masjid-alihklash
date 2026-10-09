@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infaq & Wakaf - Masjid Jami Al Ikhlash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-hover: #047857;
+            --bg-light: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            min-height: 100vh;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-bottom: 90px;
+        }
+
+        /* Banner Hero */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 220px;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .badge-tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Content Body */
+        .content-body {
+            padding: 20px;
+            margin-top: -30px;
+            position: relative;
+            background: #fff;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .campaign-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        /* Progress Card */
+        .progress-box {
+            background: #F1F5F9;
+            padding: 16px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+        }
+
+        .amount-collected {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .amount-target {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .progress-bar-bg {
+            background: #E2E8F0;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar-fill {
+            background: var(--primary);
+            height: 100%;
+            width: 35%;
+            border-radius: 10px;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Penggalang Dana */
+        .organization-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-top: 1px solid #F1F5F9;
+            border-bottom: 1px solid #F1F5F9;
+            margin-bottom: 20px;
+        }
+
+        .org-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #D1FAE5;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .org-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .org-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Tab Navigation */
+        .tab-menu {
+            display: flex;
+            gap: 20px;
+            border-bottom: 2px solid #F1F5F9;
+            margin-bottom: 16px;
+        }
+
+        .tab-item {
+            padding-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-item.active {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        /* Sticky Action Button */
+        .bottom-action {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
+            background: #fff;
+            padding: 12px 20px;
+            border-top: 1px solid #F1F5F9;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Modal Formulir Donasi */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 999;
+        }
+
+        .modal-card {
+            background: #fff;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 24px 24px 0 0;
+            padding: 24px;
+            max-height: 85vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .nominal-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .nominal-btn {
+            border: 1px solid #E2E8F0;
+            padding: 12px;
+            border-radius: 10px;
+            background: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .nominal-btn:hover, .nominal-btn.selected {
+            border-color: var(--primary);
+            background: #ECFDF5;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Gambar Banner -->
+    <div class="hero-banner">
+        <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1000&q=80" alt="Masjid Jami Al Ikhlash">
+        <div class="hero-overlay">
+            <span class="badge-tag">Program Wakaf & Infaq</span>
+        </div>
+    </div>
+
+    <!-- Isi Utama -->
+    <div class="content-body">
+        <h1 class="campaign-title">Infaq Operasional & Pembangunan Masjid Jami Al Ikhlash</h1>
+
+        <!-- Status Donasi -->
+        <div class="progress-box">
+            <div class="amount-collected">Rp 52.500.000</div>
+            <div class="amount-target">terkumpul dari target <strong>Rp 150.000.000</strong></div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="stats-grid">
+                <span><b>184</b> Donatur</span>
+                <span><b>Tidak Terbatas</b> Hari</span>
+            </div>
+        </div>
+
+        <!-- Pengelola -->
+        <div class="organization-card">
+            <div class="org-avatar">DKM</div>
+            <div class="org-info">
+                <h4>DKM Masjid Jami Al Ikhlash</h4>
+                <p>Pengelola Resmi • Terverifikasi</p>
+            </div>
+        </div>
+
+        <!-- Tab Navigasi -->
+        <div class="tab-menu">
+            <div class="tab-item active" onclick="switchTab('detail')">Keterangan</div>
+            <div class="tab-item" onclick="switchTab('update')">Kabar Terbaru</div>
+        </div>
+
+        <div id="tab-detail" class="tab-content">
+            <p>Mari bersama-sama mengambil bagian dalam investasi akhirat melalui infaq dan wakaf untuk <b>Masjid Jami Al Ikhlash</b>.</p><br>
+            <p><b>Alokasi Dana:</b></p>
+            <ul style="margin-left: 20px; margin-top: 5px;">
+                <li>Pemeliharaan & Kebersihan Bangunan Masjid</li>
+                <li>Operasional Listrik & Air Ruang Shalat</li>
+                <li>Pengembangan Kegiatan Pengajian & TPQ Anak</li>
+            </ul>
+        </div>
+
+        <div id="tab-update" class="tab-content" style="display: none;">
+            <p><b>[1 Oktober 2026]</b> Pembaruan Karpet Utama telah selesai dipasang.</p>
+        </div>
+    </div>
+
+    <!-- Tombol Aksi Bawah -->
+    <div class="bottom-action">
+        <button class="btn-primary" onclick="openModal()">Infaq / Wakaf Sekarang</button>
+    </div>
+</div>
+
+<!-- Modal Formulir Pembayaran Donasi -->
+<div class="modal-overlay" id="donationModal">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3>Pilih Nominal Infaq</h3>
+            <span style="cursor:pointer; font-weight:bold;" onclick="closeModal()">✕</span>
+        </div>
+
+        <div class="nominal-options">
+            <div class="nominal-btn" onclick="selectNominal(this, '20000')">Rp 20.000</div>
+            <div class="nominal-btn" onclick="selectNominal(this, '50000')">Rp 50.000</div>
+            <div class="nominal-btn" onclick="selectNominal(this, '100000')">Rp 100.000</div>
+            <div class="nominal-btn" onclick="selectNominal(this, '500000')">Rp 500.000</div>
+        </div>
+
+        <div class="form-group">
+            <label>Atau Nominal Lain (Rp)</label>
+            <input type="number" id="customNominal" class="form-control" placeholder="Masukkan jumlah nominal">
+        </div>
+
+        <div class="form-group">
+            <label>Metode Pembayaran</label>
+            <select class="form-control">
+                <option>QRIS (Gopay, OVO, ShopeePay, Dana)</option>
+                <option>Transfer Bank BCA</option>
+                <option>Transfer Bank Mandiri</option>
+                <option>Transfer Bank Syariah Indonesia (BSI)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Nama Lengkap (Bisa Hamba Allah)</label>
+            <input type="text" class="form-control" placeholder="Contoh: Hamba Allah">
+        </div>
+
+        <div class="form-group">
+            <label>Doa / Harapan (Opsional)</label>
+            <textarea class="form-control" rows="2" placeholder="Tuliskan doa Anda di sini..."></textarea>
+        </div>
+
+        <button class="btn-primary" style="margin-top: 10px;" onclick="submitDonation()">Lanjutkan Pembayaran</button>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('donationModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('donationModal').style.display = 'none';
+    }
+
+    function selectNominal(element, value) {
+        document.querySelectorAll('.nominal-btn').forEach(btn => btn.classList.remove('selected'));
+        element.classList.add('selected');
+        document.getElementById('customNominal').value = value;
+    }
+
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+        
+        if(tabName === 'detail') {
+            event.target.classList.add('active');
+            document.getElementById('tab-detail').style.display = 'block';
+        } else {
+            event.target.classList.add('active');
+            document.getElementById('tab-update').style.display = 'block';
+        }
+    }
+
+    function submitDonation() {
+        alert('Terima kasih! Anda akan diarahkan ke halaman instruksi pembayaran.');
+        closeModal();
+    }
+</script>
+
+</body>
+</html>
