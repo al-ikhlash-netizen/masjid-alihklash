@@ -315,6 +315,25 @@
             .sholat-card { padding: 5px 4px; min-width: 62px; border-radius: 8px; }
             .s-name { font-size: 0.6rem; letter-spacing: 0.5px; margin-bottom: 2px; }
             .s-time { font-size: 0.95rem; }
+                    /* ANIMASI MENGAJAK UNTUK TOMBOL BERINFAQ */
+        @keyframes invitePulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(1.0);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .btn-animasi-ajakan {
+            animation: invitePulse 2s infinite ease-in-out;
+        }
 
     </style>
 </head>
@@ -401,11 +420,12 @@
             <p class="hero-desc" data-aos="fade-up" data-aos-delay="200">
                 Mewujudkan transparansi informasi publik masjid berbasis digital secara amanah dan terintegrasi untuk kemaslahatan bersama.
             </p>
-               <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                <a href="donasi.html" class="btn-primary" style="background: var(--emerald-main); color: var(--white); border: 2px solid var(--emerald-main);">Yuk Berinfaq 🤲</a>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="donasi.html" class="btn-primary btn-animasi-ajakan" style="background: var(--emerald-main); color: var(--white); border: 2px solid var(--emerald-main);">Yuk Berinfaq 🤲</a>
                 <a href="#kas-renovasi" class="btn-primary">Dukung Renovasi</a>
                 <a href="#laporan-realtime-embed" class="btn-secondary">Lihat Laporan</a>
-               </div>
+            </div>
+
             
         </div>
     </section>
