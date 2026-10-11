@@ -116,6 +116,36 @@
             flex-grow: 1;
         }
 
+        /* GRID POSTER KHUSUS (ALBUM MINI) */
+        .poster-grid {
+            display: grid;
+            /* Ukuran foto akan mengecil/membesar otomatis, minimal lebar 140px */
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .poster-item {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #EAEAEA;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .poster-item:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+            z-index: 2;
+            position: relative;
+        }
+
+        .poster-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* WhatsApp Button */
         .btn-wa {
             display: block;
@@ -132,6 +162,7 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
+            margin-top: auto; /* Memaksa tombol selalu di bawah */
         }
 
         .btn-wa:hover {
@@ -177,12 +208,25 @@
     <div class="container">
         <div class="grid-katalog">
             
-            <!-- Usaha 1 -->
-            <div class="card">
-                <div class="card-header">Jasa Tour & Travel</div>
+            <!-- Usaha 1 (Dibuat full-width agar 8 foto muat rapi) -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">Jasa Tour & Travel Resmi</div>
                 <div class="card-body">
-                    <h2 class="card-title">Al-Hijrah Tour & Travel</h2>
-                    <p class="card-desc">Melayani perjalanan Umroh sesuai sunnah dengan fasilitas nyaman dan pembimbing berpengalaman. Harga bersahabat untuk jama'ah Katapang.</p>
+                    <h2 class="card-title">PT. Madinah Iman Wisata</h2>
+                    <p class="card-desc">Berizin Resmi PPIU No. U215 Tahun 2021. Melayani perjalanan Umroh sesuai sunnah dengan fasilitas nyaman dan pembimbing berpengalaman. Tersedia berbagai pilihan paket keberangkatan:</p>
+                    
+                    <!-- AREA GRID 8 FOTO -->
+                    <div class="poster-grid">
+                        <div class="poster-item"><img src="1000024395.jpg" alt="Umrah Bashirah" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024396.jpg" alt="Umrah Awal Ramadhan" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024397.jpg" alt="Umrah Syawal" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024398.jpg" alt="Umrah Plus Thaif" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024399.jpg" alt="Umrah Plus Muscat" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024400.jpg" alt="Umrah Full Ramadhan" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024401.jpg" alt="Umrah Lailatul Qadar" loading="lazy"></div>
+                        <div class="poster-item"><img src="1000024402.jpg" alt="Umrah Akhir Tahun" loading="lazy"></div>
+                    </div>
+
                     <a href="https://wa.me/62895333477373" class="btn-wa" target="_blank">
                         <span class="wa-icon">💬</span> Hubungi via WhatsApp
                     </a>
