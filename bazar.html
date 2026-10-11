@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazar Jama'ah - Masjid Jami' Al-Ikhlash</title>
+    <style>
+        /* CSS Variables untuk warna tema */
+        :root {
+            --primary-green: #0F4C3A;
+            --secondary-green: #186A53;
+            --gold: #D4AF37;
+            --light-bg: #F4F7F6;
+            --wa-green: #25D366;
+            --text-dark: #333333;
+            --text-gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--primary-green);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 5px solid var(--gold);
+        }
+
+        header h1 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Grid Layout untuk Card */
+        .grid-katalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #EAEAEA;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(15, 76, 58, 0.15);
+            border-color: var(--gold);
+        }
+
+        .card-header {
+            background-color: var(--secondary-green);
+            color: var(--gold);
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            color: var(--primary-green);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* WhatsApp Button */
+        .btn-wa {
+            display: block;
+            background-color: var(--wa-green);
+            color: white;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-wa:hover {
+            background-color: #1EBE57;
+        }
+
+        /* Icon WA Sederhana menggunakan HTML Entity */
+        .wa-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Navigasi Kembali */
+        .back-nav {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .back-nav a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--primary-green);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bazar Jama'ah</h1>
+        <p>Masjid Jami' Al-Ikhlash</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Direktori Usaha dan UMKM Jama'ah. Mari saling mendukung kemandirian umat.</p>
+    </header>
+
+    <div class="container">
+        <div class="grid-katalog">
+            
+            <!-- Usaha 1 -->
+            <div class="card">
+                <div class="card-header">Jasa Tour & Travel</div>
+                <div class="card-body">
+                    <h2 class="card-title">Al-Hijrah Tour & Travel</h2>
+                    <p class="card-desc">Melayani perjalanan Umroh sesuai sunnah dengan fasilitas nyaman dan pembimbing berpengalaman. Harga bersahabat untuk jama'ah Katapang.</p>
+                    <a href="https://wa.me/62895333477373" class="btn-wa" target="_blank">
+                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Usaha 2 -->
+            <div class="card">
+                <div class="card-header">Katering & Aqiqah</div>
+                <div class="card-body">
+                    <h2 class="card-title">Katering Barokah Teh Neng</h2>
+                    <p class="card-desc">Menerima pesanan nasi box, tumpeng, dan paket aqiqah. Halal, lezat, dan higienis. Solusi praktis untuk acara syukuran keluarga Anda.</p>
+                    <a href="https://wa.me/62895338675545" class="btn-wa" target="_blank">
+                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Usaha 3 -->
+            <div class="card">
+                <div class="card-header">Pernikahan Islami</div>
+                <div class="card-body">
+                    <h2 class="card-title">Walimah Syar'i Organizer</h2>
+                    <p class="card-desc">Mewujudkan pernikahan impian yang penuh berkah tanpa melanggar syariat. Menyediakan dekorasi elegan, rias pengantin syar'i, dan dokumentasi.</p>
+                    <a href="https://wa.me/6289530104144" class="btn-wa" target="_blank">
+                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Usaha 4 -->
+            <div class="card">
+                <div class="card-header">UMKM / Toko Pakaian</div>
+                <div class="card-body">
+                    <h2 class="card-title">Busana Muslim Al-Kautsar</h2>
+                    <p class="card-desc">Pusat busana muslim pria dan wanita terlengkap di Katapang. Sedia gamis, koko, sarung, mukena, dan perlengkapan ibadah lainnya dengan harga grosir.</p>
+                    <a href="https://wa.me/6288223440328" class="btn-wa" target="_blank">
+                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="back-nav">
+            <a href="index.html">⬅ Kembali ke Beranda Utama</a>
+        </div>
+    </div>
+
+</body>
+</html>
