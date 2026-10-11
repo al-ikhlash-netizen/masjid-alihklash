@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bazar Jama'ah - Masjid Jami' Al-Ikhlash</title>
+    
+    <!-- Google Fonts untuk Tipografi Elegan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         /* CSS Variables untuk warna tema */
         :root {
@@ -20,7 +26,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif; /* Mengganti ke font elegan */
         }
 
         body {
@@ -29,74 +35,113 @@
             line-height: 1.6;
         }
 
-        /* Header Styling */
-        header {
-            background-color: var(--primary-green);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
+        h1, h2, h3, .card-header, .card-title {
+            font-family: 'Marcellus', serif; /* Font klasik elegan untuk judul */
+        }
+
+        /* HEADER DENGAN BACKGROUND & GLASSMORPHISM */
+        .bazar-header {
+            position: relative;
+            background: url('150875.png') center/cover no-repeat;
+            padding: 6rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-bottom: 5px solid var(--gold);
         }
 
-        header h1 {
-            color: var(--gold);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        /* Panel Kaca (Glassmorphism) */
+        .glass-panel {
+            background: rgba(15, 76, 58, 0.7); /* Warna hijau transparan */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.5); /* Garis tepi emas transparan */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            max-width: 750px;
+            width: 100%;
+            color: white;
+            transition: transform 0.4s ease;
         }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-panel h1 {
+            color: var(--gold);
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            letter-spacing: 2px;
+        }
+
+        .glass-panel h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            color: #F4F7F6;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .glass-panel p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: 300;
         }
 
         /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem 5rem;
         }
 
         /* Grid Layout untuk Card */
         .grid-katalog {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 2.5rem;
         }
 
         /* Card Styling */
         .card {
             background-color: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             display: flex;
             flex-direction: column;
             border: 1px solid #EAEAEA;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(15, 76, 58, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(15, 76, 58, 0.15);
             border-color: var(--gold);
         }
 
         .card-header {
             background-color: var(--secondary-green);
             color: var(--gold);
-            padding: 1rem;
+            padding: 1.2rem;
             text-align: center;
             font-weight: bold;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
         }
 
         .card-body {
-            padding: 1.5rem;
+            padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -104,40 +149,40 @@
 
         .card-title {
             color: var(--primary-green);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
         }
 
         .card-desc {
             color: var(--text-gray);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             flex-grow: 1;
         }
 
         /* GRID POSTER KHUSUS (ALBUM MINI) */
         .poster-grid {
             display: grid;
-            /* Ukuran foto akan mengecil/membesar otomatis, minimal lebar 140px */
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
         
         .poster-item {
-            border-radius: 8px;
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid #EAEAEA;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease;
         }
 
         .poster-item:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
             border-color: var(--gold);
             z-index: 2;
             position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .poster-item img {
@@ -152,63 +197,87 @@
             background-color: var(--wa-green);
             color: white;
             text-align: center;
-            padding: 0.8rem;
-            border-radius: 8px;
+            padding: 1rem;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            margin-top: auto; /* Memaksa tombol selalu di bawah */
+            gap: 10px;
+            margin-top: auto;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
         }
 
         .btn-wa:hover {
             background-color: #1EBE57;
-        }
-
-        /* Icon WA Sederhana menggunakan HTML Entity */
-        .wa-icon {
-            font-size: 1.2rem;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
         }
 
         /* Navigasi Kembali */
         .back-nav {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .back-nav a {
             color: var(--primary-green);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             border: 2px solid var(--primary-green);
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .back-nav a:hover {
             background-color: var(--primary-green);
             color: white;
+            box-shadow: 0 10px 20px rgba(15, 76, 58, 0.2);
         }
 
+        /* RESPONSIVE UNTUK HP */
+        @media (max-width: 768px) {
+            .bazar-header {
+                padding: 4rem 1rem;
+            }
+            .glass-panel {
+                padding: 2rem 1.5rem;
+            }
+            .glass-panel h1 {
+                font-size: 2.5rem;
+            }
+            .glass-panel h2 {
+                font-size: 1.1rem;
+            }
+            .glass-panel p {
+                font-size: 0.95rem;
+            }
+            .poster-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Bazar Jama'ah</h1>
-        <p>Masjid Jami' Al-Ikhlash</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">Direktori Usaha dan UMKM Jama'ah. Mari saling mendukung kemandirian umat.</p>
+    <!-- HEADER BARU: LATAR GAMBAR + EFEK KACA -->
+    <header class="bazar-header">
+        <div class="glass-panel">
+            <h1>Bazar Jama'ah</h1>
+            <h2>Masjid Jami' Al-Ikhlash</h2>
+            <p>Direktori Usaha dan UMKM Jama'ah. Mari saling mendukung dan menguatkan kemandirian ekonomi umat bersama.</p>
+        </div>
     </header>
 
     <div class="container">
         <div class="grid-katalog">
             
-            <!-- Usaha 1 (Dibuat full-width agar 8 foto muat rapi) -->
+            <!-- Usaha 1 (Full-width untuk 8 foto) -->
             <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header">Jasa Tour & Travel Resmi</div>
                 <div class="card-body">
@@ -228,7 +297,7 @@
                     </div>
 
                     <a href="https://wa.me/6281222088248" class="btn-wa" target="_blank">
-                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hubungi via WhatsApp
                     </a>
                 </div>
             </div>
@@ -239,8 +308,8 @@
                 <div class="card-body">
                     <h2 class="card-title">Katering Barokah Teh Neng</h2>
                     <p class="card-desc">Menerima pesanan nasi box, tumpeng, dan paket aqiqah. Halal, lezat, dan higienis. Solusi praktis untuk acara syukuran keluarga Anda.</p>
-                    <a href="https://wa.me/6289533867545" class="btn-wa" target="_blank">
-                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                    <a href="https://wa.me/62895338675545" class="btn-wa" target="_blank">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hubungi via WhatsApp
                     </a>
                 </div>
             </div>
@@ -252,7 +321,7 @@
                     <h2 class="card-title">Walimah Syar'i Organizer</h2>
                     <p class="card-desc">Mewujudkan pernikahan impian yang penuh berkah tanpa melanggar syariat. Menyediakan dekorasi elegan, rias pengantin syar'i, dan dokumentasi.</p>
                     <a href="https://wa.me/6289530104144" class="btn-wa" target="_blank">
-                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hubungi via WhatsApp
                     </a>
                 </div>
             </div>
@@ -263,8 +332,8 @@
                 <div class="card-body">
                     <h2 class="card-title">Busana Muslim Gampil Collection</h2>
                     <p class="card-desc">Pusat busana muslim pria dan wanita terlengkap di Katapang. Sedia gamis, koko, sarung, mukena, dan perlengkapan ibadah lainnya dengan harga grosir.</p>
-                    <a href="https://wa.me/6288223440328" class="btn-wa" target="_blank">
-                        <span class="wa-icon">💬</span> Hubungi via WhatsApp
+                    <a href="https://wa.me/628996879070" class="btn-wa" target="_blank">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Hubungi via WhatsApp
                     </a>
                 </div>
             </div>
@@ -272,9 +341,11 @@
         </div>
 
         <div class="back-nav">
-            <a href="index.html">⬅ Kembali ke Beranda Utama</a>
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda Utama</a>
         </div>
     </div>
 
+    <!-- Tambahan Font Awesome Script jika ikon WA tidak muncul di beberapa perangkat -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </body>
 </html>
