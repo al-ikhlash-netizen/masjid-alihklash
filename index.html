@@ -166,9 +166,7 @@
         .btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 16px 35px; border-radius: 10px; font-weight: 600; font-size: 1.05rem; text-decoration: none; transition: 0.3s; }
         .btn-secondary:hover { background: var(--white); color: var(--emerald-dark); transform: translateY(-5px); }
 
-        /* ==================================================== */
-        /* CSS UNTUK TICKER SPONSORSHIP PREMIUM (Hero Section)  */
-        /* ==================================================== */
+        /* TICKER SPONSORSHIP PREMIUM (Hero Section) */
         .premium-ticker-container {
             display: flex;
             align-items: center;
@@ -923,7 +921,10 @@
     <!-- FLOATING SPONSOR POP-UP (PENGGANTI WHATSAPP LAMA)    -->
     <!-- ==================================================== -->
     <a href="bazar.html" id="floating-sponsor-ad" class="floating-sponsor-container">
-        <div class="f-sponsor-header">Sponsor Kami</div>
+        <div class="f-sponsor-header">
+            <!-- TITIK LAMPU BERKEDIP -->
+            <span class="live-indicator"></span> Sponsor Kami
+        </div>
         <div class="f-sponsor-body" id="f-sponsor-content">
             <i class="fa-solid fa-kaaba" style="color: var(--primary-gold);"></i> Al-Hijrah Tour
         </div>
@@ -934,12 +935,12 @@
     <style>
         .floating-sponsor-container {
             position: fixed;
-            bottom: 30px;
+            bottom: 110px; /* Posisi Desktop: Lebih tinggi dari murottal player */
             left: 30px;
             z-index: 9999;
             background: rgba(2, 44, 34, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--primary-gold);
+            border: 2px solid var(--primary-gold); /* Garis emas lebih tegas */
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             width: 220px;
@@ -953,7 +954,7 @@
         }
         .floating-sponsor-container:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 15px rgba(212, 175, 55, 0.4);
             background: var(--emerald-dark);
         }
         .f-sponsor-header {
@@ -962,7 +963,24 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
         }
+        /* CSS LAMPU BERKEDIP MERAH */
+        .live-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #ef4444; /* Warna merah */
+            border-radius: 50%;
+            margin-right: 6px;
+            box-shadow: 0 0 5px #ef4444;
+            animation: blinker 1s linear infinite;
+        }
+        @keyframes blinker {
+            50% { opacity: 0.2; box-shadow: 0 0 2px #ef4444; }
+        }
+
         .f-sponsor-body {
             color: var(--white);
             font-size: 0.95rem;
@@ -991,11 +1009,12 @@
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* Penyesuaian jarak saat di HP (Mobile) */
+        
+        /* Penyesuaian jarak saat di HP (Mobile) - Membentuk Pola Huruf Z */
         @media (max-width: 768px) {
             .floating-sponsor-container {
                 left: 20px;
-                bottom: 20px;
+                bottom: 105px; /* Naik ke atas supaya tidak tabrakan dengan murottal yang di bawah */
                 width: 200px;
             }
         }
