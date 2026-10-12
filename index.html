@@ -16,6 +16,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Masjid Jami' Al-Ikhlash - Sangkanhurip</title>
+
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="description" content="Pusat Ibadah Modern Ramah Jama'ah. Website resmi Masjid Jami' Al-Ikhlash Sangkanhurip. Informasi jadwal sholat, kegiatan, laporan keuangan, dan layanan masjid.">
+    <meta property="og:title" content="Masjid Jami' Al-Ikhlash - Sangkanhurip">
+    <meta property="og:description" content="Pusat Ibadah Modern Ramah Jama'ah. Kunjungi website kami untuk info kegiatan, layanan, dan transparansi masjid.">
+    <!-- Ganti dengan URL gambar masjid yang sebenarnya -->
+    <meta property="og:image" content="https://al-ikhlash.online/Fassad_masjid.png"> 
+    <meta property="og:url" content="https://al-ikhlash.online">
+    <meta property="og:type" content="website">
     
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -123,7 +132,7 @@
         .sholat-header-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
         .sholat-title { color: var(--white); font-size: 1.5rem; margin-bottom: 0px; }
         
-        .clock-display { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 6px 18px; border-radius: 50px; display: inline-block; backdrop-filter: blur(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .clock-display { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 6px 18px; border-radius: 50px; display: inline-block; backdrop-filter: blur(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center;}
         .adzan-countdown { font-size: 0.9rem; font-weight: 500; color: var(--primary-gold); margin-top: 2px; }
         
         .sholat-cards { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
@@ -133,6 +142,43 @@
         .sholat-card.active-time .s-name, .sholat-card.active-time .s-time { color: var(--emerald-dark); }
         .s-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--light-gold); margin-bottom: 3px; font-weight: 600; }
         .s-time { font-size: 1.25rem; font-weight: 700; font-family: 'Marcellus', serif; }
+        
+        /* JADWAL JUMAT */
+        .jumat-info-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 15px 25px;
+            margin: 25px auto 0;
+            max-width: 600px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .jumat-info-card h4 {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .jumat-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+        .jumat-item span {
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
 
         /* HERO SECTION */
         .hero { 
@@ -308,7 +354,7 @@
         .qris-box img { width: 100%; max-width: 480px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
 
         /* ARTIKEL CARD STYLES */
-        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; align-items: stretch; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; align-items: stretch; margin-bottom: 40px; }
         .article-card { background: var(--white); border-radius: 12px; box-shadow: var(--shadow-soft); transition: all 0.3s ease; border: 1px solid var(--border-color); border-top: 4px solid var(--primary-gold); padding: 25px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
         .article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--light-gold); }
         .article-content { flex-grow: 1; display: flex; flex-direction: column; margin-bottom: 20px; }
@@ -320,6 +366,9 @@
         .article-card p { font-size: 0.88rem; color: var(--text-soft); line-height: 1.6; text-align: justify; margin: 0; }
         .btn-read-more { display: inline-flex; align-items: center; gap: 8px; background: var(--emerald-dark); color: var(--white); text-decoration: none; padding: 10px 18px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; transition: 0.3s; margin-top: auto; align-self: flex-start; }
         .btn-read-more:hover { background: var(--emerald-main); }
+        
+        .btn-lihat-semua { display: block; width: fit-content; margin: 0 auto; padding: 12px 30px; border: 2px solid var(--emerald-main); color: var(--emerald-main); border-radius: 50px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .btn-lihat-semua:hover { background: var(--emerald-main); color: var(--white); box-shadow: 0 10px 20px rgba(4, 120, 87, 0.2); }
 
         /* GALLERY DOKUMENTASI */
         .gallery-grid-main { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -345,9 +394,10 @@
         .footer-fasad { width: 100%; border-radius: 16px; border: 2px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
         .contact-list { list-style: none; }
         .contact-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; }
-        .contact-list i { color: var(--primary-gold); font-size: 1.3rem; margin-top: 4px; }
+        .contact-list i { color: var(--primary-gold); font-size: 1.3rem; margin-top: 4px; transition: 0.3s; }
         .contact-list a { color: inherit; text-decoration: none; transition: 0.3s; }
-        .contact-list a:hover { color: var(--primary-gold); }
+        .contact-list a:hover { color: var(--emerald-main); }
+        .contact-list li:hover i { color: var(--emerald-main); } /* Fitur Tambahan: Hover effect yang lebih halus di footer */
         
         .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
         .btn-dev { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border: 1px solid var(--primary-gold); border-radius: 50px; color: var(--primary-gold); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; margin-bottom: 30px; }
@@ -398,7 +448,7 @@
             .s-name { font-size: 0.55rem; letter-spacing: 0px; margin-bottom: 2px; }
             .s-time { font-size: 1rem; }
             
-            /* Penyesuaian Card Layanan (Soskem, Riayah, dll) di Mobile */
+            /* Penyesuaian Card Layanan di Mobile */
             .service-card { padding: 25px 20px; }
             .service-icon-box { width: 60px; height: 60px; font-size: 1.8rem; margin-bottom: 15px; }
             .service-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
@@ -412,6 +462,34 @@
             /* Penyesuaian Laporan Keuangan di Mobile */
             .keuangan-container { padding: 10px; border-radius: 12px; }
             .keuangan-iframe { height: 500px; border-radius: 8px; }
+        }
+        
+        /* Pengaturan Responsif Khusus Floating Element di HP Kecil (< 360px) */
+        @media (max-width: 359px) {
+            #audio-floating-box {
+                bottom: 15px !important;
+                right: 15px !important;
+                padding: 8px 15px !important;
+                gap: 10px !important;
+            }
+            #audio-floating-box select {
+                font-size: 0.8rem !important;
+                max-width: 80px;
+            }
+            #btn-audio-toggle {
+                width: 35px !important;
+                height: 35px !important;
+                font-size: 0.9rem !important;
+            }
+            .floating-sponsor-container {
+                left: 15px !important;
+                bottom: 80px !important; /* Disesuaikan agar tidak nabrak audio player */
+                width: 170px !important;
+                padding: 8px 10px !important;
+            }
+            .f-sponsor-body {
+                font-size: 0.8rem !important;
+            }
         }
         
         @keyframes invitePulse {
@@ -476,6 +554,8 @@
                 <div class="clock-display">
                     <div style="font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1px;">Waktu Saat Ini</div>
                     <div id="jam-digital" style="font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; line-height: 1.1;">00:00:00</div>
+                    <!-- Status Sinkronisasi API -->
+                    <div id="status-api" style="font-size: 0.65rem; color: rgba(255,255,255,0.6); margin-top: 3px;">Menghubungkan...</div>
                 </div>
 
                 <div style="text-align: right;">
@@ -490,6 +570,25 @@
                 <div class="sholat-card" id="card-ashar"><div class="s-name">Ashar</div><div class="s-time" id="ashar">-:-</div></div>
                 <div class="sholat-card" id="card-maghrib"><div class="s-name">Maghrib</div><div class="s-time" id="maghrib">-:-</div></div>
                 <div class="sholat-card" id="card-isya"><div class="s-name">Isya</div><div class="s-time" id="isya">-:-</div></div>
+            </div>
+
+            <!-- JADWAL KHATIB & IMAM JUMAT OTOMATIS -->
+            <div class="jumat-info-card" data-aos="fade-up" data-aos-delay="300">
+                <h4 id="jumat-minggu-ke">Jadwal Petugas Jumat (Minggu Ke-X)</h4>
+                <div class="jumat-details">
+                    <div class="jumat-item">
+                        <span>Khatib</span>
+                        <strong id="petugas-khatib">Memuat...</strong>
+                    </div>
+                    <div class="jumat-item">
+                        <span>Imam</span>
+                        <strong id="petugas-imam">Memuat...</strong>
+                    </div>
+                    <div class="jumat-item">
+                        <span>Muadzin</span>
+                        <strong id="petugas-muadzin">Memuat...</strong>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -649,6 +748,12 @@
                     <a href="artikel_indra.html" class="btn-read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
             </div>
+
+            <!-- TOMBOL LIHAT SEMUA ARTIKEL -->
+            <div data-aos="fade-up">
+                <a href="baca-artikel.html" class="btn-lihat-semua">Lihat Semua Tulisan & Berita</a>
+            </div>
+
         </div>
     </section>
 
@@ -766,7 +871,8 @@
                 <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
                     <h4>Kontak & Media</h4>
                     <ul class="contact-list">
-                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/6289530104144">0882-2626-5425 (DKM Center)</a></li>
+                        <!-- Menggunakan nama Harya sesuai request user update sebelumnya -->
+                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/6289530104144">0882-2626-5425 (Harya - DKM Center)</a></li>
                         <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/62895333477373">0895-3334-773-73 (Layanan)</a></li>
                         <li><i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/masji.djamialikhlas">@masji.djamialikhlas</a></li>
                         <li><i class="fa-regular fa-envelope"></i> <span>alikhlashmasjidjami@gmail.com</span></li>
@@ -859,18 +965,48 @@
                 const data = await response.json(); const timings = data.data.timings;
                 jadwalSholatHariIni = { 'Subuh': timings.Fajr, 'Dzuhur': timings.Dhuhr, 'Ashar': timings.Asr, 'Maghrib': timings.Maghrib, 'Isya': timings.Isha };
                 document.getElementById('subuh').innerText = timings.Fajr; document.getElementById('dzuhur').innerText = timings.Dhuhr; document.getElementById('ashar').innerText = timings.Asr; document.getElementById('maghrib').innerText = timings.Maghrib; document.getElementById('isya').innerText = timings.Isha;
+                document.getElementById('status-api').innerText = "✨ Data Tersinkronisasi";
+                document.getElementById('status-api').style.color = "var(--primary-gold)";
             } catch (error) {
                 jadwalSholatHariIni = { 'Subuh': "04:32", 'Dzuhur': "11:47", 'Ashar': "15:08", 'Maghrib': "17:39", 'Isya': "18:53" };
                 document.getElementById('subuh').innerText = "04:32"; document.getElementById('dzuhur').innerText = "11:47"; document.getElementById('ashar').innerText = "15:08"; document.getElementById('maghrib').innerText = "17:39"; document.getElementById('isya').innerText = "18:53";
+                document.getElementById('status-api').innerText = "🔴 Mode Offline (Sistem Backup)";
+                document.getElementById('status-api').style.color = "var(--danger-red)";
             }
         }
 
-        function kirimSaranWA() {
-            const nama = document.getElementById('saran-nama').value; const kontak = document.getElementById('saran-kontak').value; const pesan = document.getElementById('saran-pesan').value;
-            if(!nama || !kontak || !pesan) { alert('Mohon isi semua kolom!'); return; }
-            const teksFormat = `*KRITIK & SARAN JAMAAH*%0A*Nama:* ${nama}%0A*Kontak:* ${kontak}%0A*Pesan:* ${pesan}`;
-            window.open(`https://wa.me/6288226165425?text=${teksFormat}`, '_blank');
+                // LOGIKA JADWAL PETUGAS JUMAT (Minggu Ke-)
+        function aturJadwalJumat() {
+            // Data jadwal disesuaikan dengan Bulan Oktober 2026
+            const dataPetugasJumat = [
+                { khatib: "Ust. Ruri", imam: "Ust. Ruri", muadzin: "Petugas DKM" },               // Minggu ke-1 (Tgl 2)
+                { khatib: "Ust. Ale Hidayat", imam: "Ust. Ale Hidayat", muadzin: "Petugas DKM" }, // Minggu ke-2 (Tgl 9)
+                { khatib: "Ust. Asep Junaidi", imam: "Ust. Asep Junaidi", muadzin: "Petugas DKM" },// Minggu ke-3 (Tgl 16)
+                { khatib: "Ust. N Abd Hamid", imam: "Ust. N Abd Hamid", muadzin: "Petugas DKM" }, // Minggu ke-4 (Tgl 23)
+                { khatib: "Ust. Asep Rohidin", imam: "Ust. Asep Rohidin", muadzin: "Petugas DKM" } // Minggu ke-5 (Tgl 30)
+            ];
+
+            const hariIni = new Date();
+            // Mencari tanggal hari Jumat di minggu yang sama
+            const selisihHariKeJumat = 5 - hariIni.getDay(); // 5 adalah indeks hari Jumat
+            const tanggalJumatMingguIni = new Date(hariIni);
+            tanggalJumatMingguIni.setDate(hariIni.getDate() + selisihHariKeJumat);
+            
+            // Menentukan minggu ke berapa Jumat tersebut dalam bulan ini
+            const tanggal = tanggalJumatMingguIni.getDate();
+            const mingguKe = Math.ceil(tanggal / 7);
+
+            document.getElementById('jumat-minggu-ke').innerText = `Jadwal Petugas Jumat (Minggu Ke-${mingguKe})`;
+            
+            // Mengambil data (index array mulai dari 0)
+            const indeksData = (mingguKe - 1) % dataPetugasJumat.length; 
+            const petugas = dataPetugasJumat[indeksData];
+
+            document.getElementById('petugas-khatib').innerText = petugas.khatib;
+            document.getElementById('petugas-imam').innerText = petugas.imam;
+            document.getElementById('petugas-muadzin').innerText = petugas.muadzin;
         }
+
 
         const daftarHikmah = [
             { kat: "Ayat Al-Qur'an", teks: "“Maka sesungguhnya beserta kesulitan ada kemudahan.”", sum: "QS. Al-Insyirah: 5" },
@@ -883,7 +1019,13 @@
             document.getElementById('rohani-kategori').innerText = dataTerpilih.kat; document.getElementById('rohani-teks').innerText = dataTerpilih.teks; document.getElementById('rohani-sumber').innerText = dataTerpilih.sum;
         }
 
-        window.onload = function() { loadJadwalSholat(); updateWaktuDanCountdown(); setInterval(updateWaktuDanCountdown, 1000); acakPenyegarRohani(); };
+        window.onload = function() { 
+            loadJadwalSholat(); 
+            updateWaktuDanCountdown(); 
+            setInterval(updateWaktuDanCountdown, 1000); 
+            acakPenyegarRohani(); 
+            aturJadwalJumat();
+        };
     </script>
 
     <!-- FLOATING MUROTTAL PLAYER -->
