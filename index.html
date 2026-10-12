@@ -100,20 +100,6 @@
         .header-nav a { color: var(--white); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.3s; opacity: 0.8; }
         .header-nav a:hover { color: var(--primary-gold); opacity: 1; }
 
-        .btn-wakaf {
-            background: var(--primary-gold);
-            color: var(--emerald-dark) !important;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 700;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
-            text-align: center;
-        }
-        .btn-wakaf:hover { background: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); }
-
         .mobile-toggle { display: none; background: transparent; border: none; color: var(--white); font-size: 1.8rem; cursor: pointer; }
 
         /* RUNNING TEXT HEADER */
@@ -376,7 +362,6 @@
             .nama-masjid { font-size: 1.1rem; }
             .alamat-masjid { font-size: 0.6rem; line-height: 1.4; white-space: normal; }
             .id-masjid { font-size: 0.65rem; margin-top: 2px; }
-            .btn-wakaf { display: none; }
             
             .header-nav { display: none; position: absolute; top: 80px; left: 0; width: 100%; background: var(--emerald-dark); padding: 20px; border-bottom: 2px solid var(--primary-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
             .header-nav.active { display: block; animation: slideDown 0.3s ease-out; }
@@ -436,11 +421,9 @@
                 <li><a href="belajar-quran.html" onclick="toggleMenu()">Qur'an</a></li>
                 <li><a href="#update-renovasi" onclick="toggleMenu()">Update Renovasi</a></li>
                 <li><a href="#developer-portfolio" onclick="toggleMenu()">Portfolio</a></li>
-                <li class="mobile-wakaf-btn" style="display: none;"><a href="#kas-renovasi" style="color: var(--primary-gold); font-weight: bold;">Wakaf Atap</a></li>
+                <li><a href="donasi.html" style="color: var(--primary-gold); font-weight: bold;">Yuk Berinfaq</a></li>
             </ul>
         </nav>
-
-        <a href="donasi.html" class="btn-wakaf"><i class="fa-solid fa-hand-holding-dollar"></i> YUK BERINFAQ</a>
 
         <button class="mobile-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></button>
     </header>
@@ -456,7 +439,6 @@
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('active');
-            if(window.innerWidth <= 768) { document.querySelector('.mobile-wakaf-btn').style.display = 'block'; }
         }
     </script>
 
@@ -615,7 +597,6 @@
                         </div>
                         <p>Beberapa waktu lalu, publik sempat disegarkan oleh pernyataan lantang dari Gubernur Jawa Barat yang menyarankan para calon pengantin untuk lebih memilih menikah di Kantor Urusan Agama (KUA). Pesannya sederhana namun menohok...</p>
                     </div>
-                    <!-- Sesuaikan href ini dengan nama file artikel Harya Anda (misal: artikel_harya.html) -->
                     <a href="artikel_harya.html" class="btn-read-more">Baca Selengkapnya <i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
 
@@ -917,30 +898,26 @@
         @keyframes bounceWave { from { height: 6px; } to { height: 18px; } }
     </style>
 
-    <!-- ==================================================== -->
-    <!-- FLOATING SPONSOR POP-UP (PENGGANTI WHATSAPP LAMA)    -->
-    <!-- ==================================================== -->
+    <!-- FLOATING SPONSOR POP-UP -->
     <a href="bazar.html" id="floating-sponsor-ad" class="floating-sponsor-container">
         <div class="f-sponsor-header">
-            <!-- TITIK LAMPU BERKEDIP -->
             <span class="live-indicator"></span> Sponsor Kami
         </div>
         <div class="f-sponsor-body" id="f-sponsor-content">
-            <i class="fa-solid fa-kaaba" style="color: var(--primary-gold);"></i> Al-Hijrah Tour
+            <i class="fa-solid fa-kaaba" style="color: var(--primary-gold);"></i> UMRAH BASHIRAH
         </div>
-        <!-- Tombol silang kecil untuk menutup (opsional, tapi berguna) -->
         <div class="f-sponsor-close" onclick="event.preventDefault(); document.getElementById('floating-sponsor-ad').style.display='none';"><i class="fa-solid fa-xmark"></i></div>
     </a>
 
     <style>
         .floating-sponsor-container {
             position: fixed;
-            bottom: 110px; /* Posisi Desktop: Lebih tinggi dari murottal player */
+            bottom: 30px;
             left: 30px;
             z-index: 9999;
             background: rgba(2, 44, 34, 0.95);
             backdrop-filter: blur(10px);
-            border: 2px solid var(--primary-gold); /* Garis emas lebih tegas */
+            border: 2px solid var(--primary-gold); 
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             width: 220px;
@@ -966,12 +943,11 @@
             display: flex;
             align-items: center;
         }
-        /* CSS LAMPU BERKEDIP MERAH */
         .live-indicator {
             display: inline-block;
             width: 8px;
             height: 8px;
-            background-color: #ef4444; /* Warna merah */
+            background-color: #ef4444; 
             border-radius: 50%;
             margin-right: 6px;
             box-shadow: 0 0 5px #ef4444;
@@ -980,7 +956,6 @@
         @keyframes blinker {
             50% { opacity: 0.2; box-shadow: 0 0 2px #ef4444; }
         }
-
         .f-sponsor-body {
             color: var(--white);
             font-size: 0.95rem;
@@ -1009,19 +984,16 @@
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* Penyesuaian jarak saat di HP (Mobile) - Membentuk Pola Huruf Z */
         @media (max-width: 768px) {
             .floating-sponsor-container {
                 left: 20px;
-                bottom: 105px; /* Naik ke atas supaya tidak tabrakan dengan murottal yang di bawah */
+                bottom: 105px;
                 width: 200px;
             }
         }
     </style>
 
     <script>
-        // Array berisi daftar iklan usaha yang akan muncul bergantian
         const sponsorAds = [
             '<i class="fa-solid fa-kaaba" style="color: var(--primary-gold);"></i> UMRAH BASHIRAH',
             '<i class="fa-solid fa-utensils" style="color: var(--primary-gold);"></i> Katering Teh Neng',
@@ -1031,23 +1003,14 @@
         let currentSponsorIndex = 0;
         const sponsorContentEl = document.getElementById('f-sponsor-content');
 
-        // Fungsi berganti-ganti logo iklan setiap 4 detik
         setInterval(() => {
-            // Efek teks memudar
             sponsorContentEl.style.opacity = '0';
-            
             setTimeout(() => {
-                // Teks diganti ke urutan berikutnya
                 currentSponsorIndex = (currentSponsorIndex + 1) % sponsorAds.length;
                 sponsorContentEl.innerHTML = sponsorAds[currentSponsorIndex];
-                
-                // Efek teks muncul kembali
                 sponsorContentEl.style.opacity = '1';
-            }, 400); // Tunggu sampai animasi memudar selesai (0.4 detik)
+            }, 400);
         }, 4000); 
     </script>
-    <!-- ==================================================== -->
-    <!-- AKHIR FLOATING SPONSOR POP-UP                        -->
-    <!-- ==================================================== -->
 </body>
 </html>
