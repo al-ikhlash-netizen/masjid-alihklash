@@ -120,15 +120,7 @@
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
         /* JADWAL SHOLAT SEJADAH PREMIUM */
-        .sholat-section { 
-            background: linear-gradient(180deg, rgba(2, 44, 34, 0.98) 0%, #04392b 100%); 
-            padding: 15px 0 25px; 
-            border-bottom: 3px solid var(--primary-gold); 
-            color: var(--white); 
-            position: relative;
-            z-index: 10;
-            overflow: hidden;
-        }
+        .sholat-section { background: linear-gradient(180deg, rgba(2, 44, 34, 0.98) 0%, #04392b 100%); padding: 15px 0 25px; border-bottom: 3px solid var(--primary-gold); color: var(--white); position: relative; z-index: 10; overflow: hidden; }
         .sejadah-watermark { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%); z-index: 1; pointer-events: none; }
         .sejadah-icon-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 25rem; color: var(--primary-gold); opacity: 0.03; z-index: 1; pointer-events: none; }
 
@@ -216,25 +208,30 @@
         .scroll-hint { font-size: 0.75rem; color: var(--emerald-main); background: rgba(16, 185, 129, 0.1); padding: 6px 15px; border-radius: 20px; margin-bottom: 10px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; animation: pulseHint 2s infinite ease-in-out; }
         @keyframes pulseHint { 0% { opacity: 0.7; transform: translateY(0); } 50% { opacity: 1; transform: translateY(3px); } 100% { opacity: 0.7; transform: translateY(0); } }
 
-        /* RENOVASI & DONASI (DIUBAH AGAR PRESISI/SEJAJAR) */
+        /* RENOVASI & DONASI */
         .renovasi-section { background: var(--white); }
-        /* align-items: stretch memastikan kolom kiri dan kanan sama tingginya */
         .renovasi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch; } 
+        
+        .renovasi-title { font-size: 1.6rem; margin-bottom: 25px; color: var(--emerald-dark); }
+        .desc-renovasi { color: var(--text-soft); text-align: justify; margin-bottom: 30px; font-size: 1.05rem; line-height: 1.7; }
         
         .gallery-renovasi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         .gallery-renovasi img { width: 100%; height: 220px; object-fit: cover; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-soft); transition: transform 0.5s ease; }
         .gallery-renovasi img:hover { transform: scale(1.05); z-index: 2; position: relative; box-shadow: var(--shadow-hover); }
 
-        /* Ditambahkan height: 100% dan flex agar card memanjang penuh ke bawah */
         .donasi-card { background: var(--emerald-dark); color: var(--white); border-radius: var(--radius-lg); padding: 50px; position: relative; overflow: hidden; box-shadow: 0 25px 50px rgba(2, 44, 34, 0.25); height: 100%; display: flex; flex-direction: column; justify-content: center; }
         .donasi-card::after { content: ''; position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: var(--emerald-main); border-radius: 50%; opacity: 0.2; }
+        .title-donasi { font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--primary-gold); }
         .donasi-amount { font-size: 3.5rem; font-family: 'Marcellus', serif; color: var(--primary-gold); font-weight: bold; line-height: 1.1; margin: 20px 0; }
+        .desc-donasi { font-size: 1.05rem; line-height: 1.7; opacity: 0.9; margin-bottom: 30px; }
         
         .progress-container { width: 100%; height: 14px; background: rgba(255,255,255,0.1); border-radius: 20px; margin: 30px 0 15px; overflow: hidden; }
         .progress-bar { width: 40%; height: 100%; background: linear-gradient(90deg, var(--dark-gold), var(--primary-gold)); border-radius: 20px; position: relative; }
         .progress-bar::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); animation: shimmer 2s infinite; }
         @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
         
+        .progress-text { font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+
         .qris-box { background: var(--white); padding: 15px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; color: var(--emerald-dark); }
         .qris-box img { width: 100%; max-width: 480px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
 
@@ -332,8 +329,10 @@
             .s-name { font-size: 0.55rem; letter-spacing: 0px; margin-bottom: 2px; }
             .s-time { font-size: 1rem; }
             
-            .jumat-info-card { padding: 20px 15px; margin: 20px 10px 0; }
-            .jumat-details strong { font-size: 1.15rem; padding: 6px 15px; }
+            /* FIX: Tulisan minggu ke-X patah/turun */
+            .jumat-info-card { padding: 15px; margin: 20px 10px 0; }
+            .jumat-info-card h4 { font-size: 0.65rem; letter-spacing: 1px; }
+            .jumat-details strong { font-size: 1.1rem; padding: 6px 12px; }
             .sejadah-icon-bg { font-size: 18rem; }
             
             .service-card { padding: 25px 20px; }
@@ -344,6 +343,22 @@
             .sponsor-running-text { flex-direction: column; gap: 10px; border-radius: 16px; padding: 15px; margin-top: 35px; }
             .srt-label { width: 100%; justify-content: center; }
             .srt-scroll { width: 100%; margin-left: 0; mask-image: none; -webkit-mask-image: none;}
+
+            /* FIX: Ukuran Donasi & Renovasi di HP */
+            .renovasi-grid { gap: 30px; }
+            .renovasi-title { font-size: 1.3rem; margin-bottom: 15px; }
+            .desc-renovasi { font-size: 0.85rem; margin-bottom: 20px; }
+            
+            /* FIX: Tinggi Foto Kebesaran */
+            .gallery-renovasi { gap: 10px; }
+            .gallery-renovasi img { height: 140px; border-radius: 12px; }
+
+            /* FIX: Card Donasi melebar hingga memakan pinggir & ukuran teks raksasa */
+            .donasi-card { padding: 30px 20px; } 
+            .title-donasi { font-size: 0.8rem; letter-spacing: 1px; }
+            .donasi-amount { font-size: 2.2rem; margin: 15px 0; }
+            .desc-donasi { font-size: 0.85rem; margin-bottom: 20px; }
+            .progress-text { font-size: 0.85rem; }
 
             .form-doa { padding: 25px 20px; }
             .form-control { padding: 12px 15px; font-size: 0.9rem; margin-bottom: 15px !important; }
@@ -540,7 +555,7 @@
             </div>
         </div>
 
-        <!-- SPONSOR RUNNING TEXT (PENGGANTI FLOATING) -->
+        <!-- SPONSOR RUNNING TEXT -->
         <div class="sponsor-running-text" data-aos="fade-up" onclick="window.location.href='bazar.html'">
             <div class="srt-label"><i class="fa-solid fa-gem"></i> Sponsor Kami</div>
             <div class="srt-scroll">
@@ -549,7 +564,6 @@
                     <div class="srt-item"><i class="fa-solid fa-utensils"></i> Katering Teh Neng</div>
                     <div class="srt-item"><i class="fa-solid fa-ring"></i> Walimah Organizer</div>
                     <div class="srt-item"><i class="fa-solid fa-shirt"></i> Busana Gampil Collection</div>
-                    <!-- Duplicate for seamless loop -->
                     <div class="srt-item"><i class="fa-solid fa-kaaba"></i> UMRAH BASHIRAH</div>
                     <div class="srt-item"><i class="fa-solid fa-utensils"></i> Katering Teh Neng</div>
                     <div class="srt-item"><i class="fa-solid fa-ring"></i> Walimah Organizer</div>
@@ -648,8 +662,9 @@
 
         <div class="renovasi-grid">
             <div data-aos="fade-right">
-                <h3 style="font-size: 1.6rem; margin-bottom: 25px;"><i class="fa-solid fa-person-digging" style="color: var(--emerald-main);"></i> Dokumentasi Progress</h3>
-                <p style="color: var(--text-soft); text-align: justify; margin-bottom: 30px; font-size: 1.05rem;">
+                <!-- FIX KELAS BARU UNTUK UKURAN -->
+                <h3 class="renovasi-title"><i class="fa-solid fa-person-digging" style="color: var(--emerald-main);"></i> Dokumentasi Progress</h3>
+                <p class="desc-renovasi">
                     Bapak/Ibu Jamaah yang dirahmati Allah, berikut adalah dokumentasi dari kondisi terkini Sketsa Rencana design kubah dan progres pemasangan kubah baru yang telah kami selesaikan prosesnya. Kini kita sedang menggodok rencana renovasi phase 3 & 4 yaitu pemasangan rangka atap dan atap spandek pasir disekeliling kubah.
                 </p>
                 <div class="gallery-renovasi">
@@ -661,17 +676,18 @@
             </div>
 
             <div id="kas-renovasi" data-aos="fade-left">
+                <!-- FIX KELAS BARU UNTUK UKURAN DONASI -->
                 <div class="donasi-card">
-                    <div style="font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: var(--primary-gold);">Total Dana Terkumpul</div>
+                    <div class="title-donasi">Total Dana Terkumpul</div>
                     <div class="donasi-amount">Rp 37.750.000</div>
-                    <p style="font-size: 1.05rem; line-height: 1.7; opacity: 0.9; margin-bottom: 30px;">
+                    <p class="desc-donasi">
                         Pos dana khusus ini dialokasikan sepenuhnya untuk pemeliharaan fisik jangka panjang serta proyek perluasan Masjid Jami' Al-Ikhlash.
                     </p>
                     
                     <div class="progress-container">
                         <div class="progress-bar"></div>
                     </div>
-                    <div style="font-size: 1rem; font-weight: 600; display: flex; justify-content: space-between;">
+                    <div class="progress-text">
                         <span><i class="fa-solid fa-chart-line"></i> Terkumpul 56,41%</span>
                         <span style="color: var(--primary-gold);">Target Phase 1-9</span>
                     </div>
