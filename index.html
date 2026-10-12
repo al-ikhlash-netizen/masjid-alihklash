@@ -143,41 +143,57 @@
         .s-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--light-gold); margin-bottom: 3px; font-weight: 600; }
         .s-time { font-size: 1.25rem; font-weight: 700; font-family: 'Marcellus', serif; }
         
-        /* JADWAL JUMAT */
+        /* JADWAL JUMAT MEWAH & RINGKAS */
         .jumat-info-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(212,175,55,0.05) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 12px;
-            padding: 15px 25px;
-            margin: 25px auto 0;
-            max-width: 600px;
+            padding: 12px 15px;
+            margin: 20px auto 0;
+            max-width: 550px;
             text-align: center;
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
         }
         .jumat-info-card h4 {
             color: var(--primary-gold);
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            border-bottom: 1px dashed rgba(212,175,55,0.3);
+            padding-bottom: 6px;
+            display: inline-block;
         }
         .jumat-details {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 15px;
-            font-size: 0.95rem;
-            color: var(--white);
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .jumat-item {
+            flex: 1;
+            min-width: 100px;
         }
         .jumat-item span {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: rgba(255,255,255,0.6);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+        }
+        .jumat-item strong {
+            display: block;
+            font-family: 'Marcellus', serif; /* Font yang lebih elegan & berkelas */
+            font-size: 0.95rem;
+            text-transform: uppercase; /* HURUF KAPITAL SEMUA */
+            color: var(--white);
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            font-weight: 600;
         }
 
         /* HERO SECTION */
@@ -314,6 +330,9 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); 
             border: 1px solid rgba(212, 175, 55, 0.15); 
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .keuangan-container::before {
             content: '';
@@ -331,6 +350,25 @@
             border: 1px solid var(--border-color); 
             border-radius: 10px; 
             background: var(--white); 
+        }
+        /* PETUNJUK SCROLL UNTUK KEUANGAN */
+        .scroll-hint {
+            font-size: 0.75rem;
+            color: var(--emerald-main);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 6px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            animation: pulseHint 2s infinite ease-in-out;
+        }
+        @keyframes pulseHint {
+            0% { opacity: 0.7; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(3px); }
+            100% { opacity: 0.7; transform: translateY(0); }
         }
 
         /* RENOVASI & DONASI */
@@ -397,7 +435,7 @@
         .contact-list i { color: var(--primary-gold); font-size: 1.3rem; margin-top: 4px; transition: 0.3s; }
         .contact-list a { color: inherit; text-decoration: none; transition: 0.3s; }
         .contact-list a:hover { color: var(--emerald-main); }
-        .contact-list li:hover i { color: var(--emerald-main); } /* Fitur Tambahan: Hover effect yang lebih halus di footer */
+        .contact-list li:hover i { color: var(--emerald-main); }
         
         .footer-bottom { text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
         .btn-dev { display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; border: 1px solid var(--primary-gold); border-radius: 50px; color: var(--primary-gold); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: 0.3s; margin-bottom: 30px; }
@@ -483,7 +521,7 @@
             }
             .floating-sponsor-container {
                 left: 15px !important;
-                bottom: 80px !important; /* Disesuaikan agar tidak nabrak audio player */
+                bottom: 80px !important;
                 width: 170px !important;
                 padding: 8px 10px !important;
             }
@@ -554,7 +592,6 @@
                 <div class="clock-display">
                     <div style="font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1px;">Waktu Saat Ini</div>
                     <div id="jam-digital" style="font-size: 1.4rem; font-weight: 700; letter-spacing: 2px; line-height: 1.1;">00:00:00</div>
-                    <!-- Status Sinkronisasi API -->
                     <div id="status-api" style="font-size: 0.65rem; color: rgba(255,255,255,0.6); margin-top: 3px;">Menghubungkan...</div>
                 </div>
 
@@ -572,7 +609,7 @@
                 <div class="sholat-card" id="card-isya"><div class="s-name">Isya</div><div class="s-time" id="isya">-:-</div></div>
             </div>
 
-            <!-- JADWAL KHATIB & IMAM JUMAT OTOMATIS -->
+            <!-- JADWAL KHATIB & IMAM JUMAT OTOMATIS (Diperbarui lebih mewah) -->
             <div class="jumat-info-card" data-aos="fade-up" data-aos-delay="300">
                 <h4 id="jumat-minggu-ke">Jadwal Petugas Jumat (Minggu Ke-X)</h4>
                 <div class="jumat-details">
@@ -690,7 +727,13 @@
                 <h2 class="section-title">Laporan Keuangan Real-time</h2>
                 <p class="section-desc">Penyajian data sirkulasi kas masjid secara interaktif, akuntabel, dan transparan untuk seluruh jamaah.</p>
             </div>
+            
             <div class="keuangan-container" data-aos="zoom-in" data-aos-duration="1000">
+                <!-- Tambahan Penunjuk Scroll -->
+                <div class="scroll-hint">
+                    <i class="fa-solid fa-arrow-down-up-across-line"></i> Usap layar di dalam kotak ini untuk melihat rincian ke bawah
+                </div>
+                
                 <iframe src="laporan-keuangan-dkm.html" class="keuangan-iframe" title="Laporan Keuangan"></iframe>
             </div>
         </div>
@@ -750,8 +793,9 @@
             </div>
 
             <!-- TOMBOL LIHAT SEMUA ARTIKEL -->
+            <!-- Link diubah ke artikel.html sesuai dengan menu navigasi -->
             <div data-aos="fade-up">
-                <a href="baca-artikel.html" class="btn-lihat-semua">Lihat Semua Tulisan & Berita</a>
+                <a href="artikel.html" class="btn-lihat-semua">Lihat Semua Tulisan & Berita</a>
             </div>
 
         </div>
@@ -871,7 +915,6 @@
                 <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
                     <h4>Kontak & Media</h4>
                     <ul class="contact-list">
-                        <!-- Menggunakan nama Harya sesuai request user update sebelumnya -->
                         <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/6289530104144">0882-2626-5425 (Harya - DKM Center)</a></li>
                         <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/62895333477373">0895-3334-773-73 (Layanan)</a></li>
                         <li><i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/masji.djamialikhlas">@masji.djamialikhlas</a></li>
@@ -885,7 +928,7 @@
                         <li><i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i> <a href="Artikel_indra_aulia.html">Artikel Religi</a></li>
                         <li><i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i> <a href="kas_mei2026.html">Arsip Kas Laporan</a></li>
                         <li><i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i> <a href="post-1.html">Berita Terbaru</a></li>
-                        <li><i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i> <a href="baca-artikel.html">Indeks Tulisan</a></li>
+                        <li><i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i> <a href="artikel.html">Indeks Tulisan</a></li>
                     </ul>
                 </div>
             </div>
@@ -975,7 +1018,7 @@
             }
         }
 
-                // LOGIKA JADWAL PETUGAS JUMAT (Minggu Ke-)
+        // LOGIKA JADWAL PETUGAS JUMAT (Minggu Ke-)
         function aturJadwalJumat() {
             // Data jadwal disesuaikan dengan Bulan Oktober 2026
             const dataPetugasJumat = [
@@ -1007,6 +1050,12 @@
             document.getElementById('petugas-muadzin').innerText = petugas.muadzin;
         }
 
+        function kirimSaranWA() {
+            const nama = document.getElementById('saran-nama').value; const kontak = document.getElementById('saran-kontak').value; const pesan = document.getElementById('saran-pesan').value;
+            if(!nama || !kontak || !pesan) { alert('Mohon isi semua kolom!'); return; }
+            const teksFormat = `*KRITIK & SARAN JAMAAH*%0A*Nama:* ${nama}%0A*Kontak:* ${kontak}%0A*Pesan:* ${pesan}`;
+            window.open(`https://wa.me/6288226165425?text=${teksFormat}`, '_blank');
+        }
 
         const daftarHikmah = [
             { kat: "Ayat Al-Qur'an", teks: "“Maka sesungguhnya beserta kesulitan ada kemudahan.”", sum: "QS. Al-Insyirah: 5" },
