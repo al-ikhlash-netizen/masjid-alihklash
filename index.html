@@ -120,22 +120,39 @@
         .marquee-text-middle { display: inline-block; white-space: nowrap; animation: marquee 35s linear infinite; padding-left: 100%; font-size: 0.95rem; font-weight: 500; letter-spacing: 1px; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
 
-        /* JADWAL SHOLAT */
+        /* JADWAL SHOLAT SEJADAH PREMIUM */
         .sholat-section { 
-            background: linear-gradient(180deg, rgba(2, 44, 34, 0.98) 0%, #064E3B 100%); 
+            background: linear-gradient(180deg, rgba(2, 44, 34, 0.98) 0%, #04392b 100%); 
             padding: 15px 0 25px; 
             border-bottom: 3px solid var(--primary-gold); 
             color: var(--white); 
             position: relative;
             z-index: 10;
+            overflow: hidden;
         }
-        .sholat-header-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
-        .sholat-title { color: var(--white); font-size: 1.5rem; margin-bottom: 0px; }
+        .sejadah-watermark {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+            z-index: 1; pointer-events: none;
+        }
+        .sejadah-icon-bg {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25rem;
+            color: var(--primary-gold);
+            opacity: 0.03;
+            z-index: 1; pointer-events: none;
+        }
+
+        .sholat-header-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; position: relative; z-index: 2;}
+        .sholat-title { color: var(--white); font-size: 1.5rem; margin-bottom: 0px; display: flex; align-items: center; gap: 10px;}
         
         .clock-display { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 6px 18px; border-radius: 50px; display: inline-block; backdrop-filter: blur(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center;}
         .adzan-countdown { font-size: 0.9rem; font-weight: 500; color: var(--primary-gold); margin-top: 2px; }
         
-        .sholat-cards { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .sholat-cards { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 2;}
         .sholat-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 15px; border-radius: 10px; min-width: 105px; text-align: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(10px); }
         .sholat-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.1); }
         .sholat-card.active-time { background: var(--primary-gold); border-color: var(--primary-gold); color: var(--emerald-dark); transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 15px rgba(212, 175, 55, 0.4); }
@@ -143,57 +160,85 @@
         .s-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--light-gold); margin-bottom: 3px; font-weight: 600; }
         .s-time { font-size: 1.25rem; font-weight: 700; font-family: 'Marcellus', serif; }
         
-        /* JADWAL JUMAT MEWAH & RINGKAS */
+        /* JADWAL IMAM & KHATIB (MIMBAR PREMIUM) */
         .jumat-info-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(212,175,55,0.05) 100%);
+            background: linear-gradient(135deg, rgba(2, 44, 34, 0.4) 0%, rgba(212,175,55,0.08) 100%);
             border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 12px;
-            padding: 12px 15px;
-            margin: 20px auto 0;
-            max-width: 550px;
+            border-radius: 16px;
+            padding: 25px 20px;
+            margin: 25px auto 0;
+            max-width: 480px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15), inset 0 0 15px rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 0 20px rgba(212, 175, 55, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        /* Elemen Mimbar Kanan Bawah */
+        .jumat-watermark {
+            position: absolute;
+            bottom: -20px;
+            right: -10px;
+            font-size: 8rem;
+            color: var(--primary-gold);
+            opacity: 0.07;
+            z-index: 0;
+            transform: rotate(-10deg);
+            pointer-events: none;
+        }
+        /* Elemen Kubah Kiri Atas */
+        .jumat-info-card::before {
+            content: '\f66f'; /* fa-mosque */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 6rem;
+            color: var(--primary-gold);
+            opacity: 0.05;
+            z-index: 0;
+            transform: rotate(15deg);
+            pointer-events: none;
         }
         .jumat-info-card h4 {
-            color: var(--primary-gold);
-            font-size: 0.8rem;
-            margin-bottom: 8px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.75rem;
+            margin-bottom: 15px;
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border-bottom: 1px dashed rgba(212,175,55,0.3);
-            padding-bottom: 6px;
-            display: inline-block;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 2;
+        }
+        .jumat-info-card h4::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            margin: 10px auto 0;
         }
         .jumat-details {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 5px;
+            position: relative;
+            z-index: 2;
         }
-        .jumat-item {
-            flex: 1;
-            min-width: 100px;
-        }
-        .jumat-item span {
-            display: block;
-            font-size: 0.65rem;
-            color: rgba(255,255,255,0.6);
+        .jumat-details strong {
+            display: inline-block;
+            font-family: 'Marcellus', serif;
+            font-size: 1.35rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-        }
-        .jumat-item strong {
-            display: block;
-            font-family: 'Marcellus', serif; /* Font yang lebih elegan & berkelas */
-            font-size: 0.95rem;
-            text-transform: uppercase; /* HURUF KAPITAL SEMUA */
-            color: var(--white);
-            letter-spacing: 0.5px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-            font-weight: 600;
+            color: var(--primary-gold);
+            letter-spacing: 1.5px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            font-weight: 700;
+            padding: 8px 30px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 50px;
+            box-shadow: inset 0 0 10px rgba(212,175,55,0.05);
+            white-space: nowrap;
         }
 
         /* HERO SECTION */
@@ -486,6 +531,11 @@
             .s-name { font-size: 0.55rem; letter-spacing: 0px; margin-bottom: 2px; }
             .s-time { font-size: 1rem; }
             
+            /* Penyesuaian Elemen Premium di HP */
+            .jumat-info-card { padding: 20px 15px; margin: 20px 10px 0; }
+            .jumat-details strong { font-size: 1.15rem; padding: 6px 15px; }
+            .sejadah-icon-bg { font-size: 18rem; }
+            
             /* Penyesuaian Card Layanan di Mobile */
             .service-card { padding: 25px 20px; }
             .service-icon-box { width: 60px; height: 60px; font-size: 1.8rem; margin-bottom: 15px; }
@@ -582,10 +632,15 @@
 
     <!-- JADWAL SHOLAT -->
     <section class="sholat-section">
-        <div class="max-width-container">
+        <!-- Efek Cahaya & Sajadah Premium Background -->
+        <div class="sejadah-watermark"></div>
+        <i class="fa-solid fa-rug sejadah-icon-bg"></i>
+        
+        <div class="max-width-container" style="position: relative; z-index: 2;">
             <div class="sholat-header-wrapper" data-aos="fade-down">
                 <div style="text-align: left;">
-                    <h2 class="sholat-title">Jadwal Sholat</h2>
+                    <!-- Ikon Sajadah Emas di Samping Judul -->
+                    <h2 class="sholat-title"><i class="fa-solid fa-rug" style="color: var(--primary-gold); font-size: 1.1rem; margin-right: 10px; transform: rotate(-5deg);"></i> Jadwal Sholat</h2>
                     <p style="color: var(--primary-gold); font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;">Wilayah Katapang & Sekitarnya</p>
                 </div>
                 
@@ -609,22 +664,14 @@
                 <div class="sholat-card" id="card-isya"><div class="s-name">Isya</div><div class="s-time" id="isya">-:-</div></div>
             </div>
 
-            <!-- JADWAL KHATIB & IMAM JUMAT OTOMATIS (Diperbarui lebih mewah) -->
+            <!-- JADWAL IMAM & KHATIB (MIMBAR PREMIUM) -->
             <div class="jumat-info-card" data-aos="fade-up" data-aos-delay="300">
-                <h4 id="jumat-minggu-ke">Jadwal Petugas Jumat (Minggu Ke-X)</h4>
+                <!-- Elemen Watermark Podium/Mimbar Al-Quran -->
+                <i class="fa-solid fa-book-quran jumat-watermark"></i>
+                
+                <h4 id="jumat-minggu-ke">JADWAL IMAM & KHATIB (MINGGU KE-X)</h4>
                 <div class="jumat-details">
-                    <div class="jumat-item">
-                        <span>Khatib</span>
-                        <strong id="petugas-khatib">Memuat...</strong>
-                    </div>
-                    <div class="jumat-item">
-                        <span>Imam</span>
-                        <strong id="petugas-imam">Memuat...</strong>
-                    </div>
-                    <div class="jumat-item">
-                        <span>Muadzin</span>
-                        <strong id="petugas-muadzin">Memuat...</strong>
-                    </div>
+                    <strong id="petugas-khatib">Memuat...</strong>
                 </div>
             </div>
         </div>
@@ -793,7 +840,6 @@
             </div>
 
             <!-- TOMBOL LIHAT SEMUA ARTIKEL -->
-            <!-- Link diubah ke artikel.html sesuai dengan menu navigasi -->
             <div data-aos="fade-up">
                 <a href="artikel.html" class="btn-lihat-semua">Lihat Semua Tulisan & Berita</a>
             </div>
@@ -1018,15 +1064,15 @@
             }
         }
 
-        // LOGIKA JADWAL PETUGAS JUMAT (Minggu Ke-)
+        // LOGIKA JADWAL PETUGAS JUMAT (HANYA KHATIB/IMAM)
         function aturJadwalJumat() {
             // Data jadwal disesuaikan dengan Bulan Oktober 2026
             const dataPetugasJumat = [
-                { khatib: "Ust. Ruri", imam: "Ust. Ruri", muadzin: "Petugas DKM" },               // Minggu ke-1 (Tgl 2)
-                { khatib: "Ust. Ale Hidayat", imam: "Ust. Ale Hidayat", muadzin: "Petugas DKM" }, // Minggu ke-2 (Tgl 9)
-                { khatib: "Ust. Asep Junaidi", imam: "Ust. Asep Junaidi", muadzin: "Petugas DKM" },// Minggu ke-3 (Tgl 16)
-                { khatib: "Ust. N Abd Hamid", imam: "Ust. N Abd Hamid", muadzin: "Petugas DKM" }, // Minggu ke-4 (Tgl 23)
-                { khatib: "Ust. Asep Rohidin", imam: "Ust. Asep Rohidin", muadzin: "Petugas DKM" } // Minggu ke-5 (Tgl 30)
+                { khatib: "Ust. Ruri" },               // Minggu ke-1
+                { khatib: "Ust. Ale Hidayat" },        // Minggu ke-2
+                { khatib: "Ust. Asep Junaidi" },       // Minggu ke-3
+                { khatib: "Ust. N Abd Hamid" },        // Minggu ke-4
+                { khatib: "Ust. Asep Rohidin" }        // Minggu ke-5
             ];
 
             const hariIni = new Date();
@@ -1039,15 +1085,13 @@
             const tanggal = tanggalJumatMingguIni.getDate();
             const mingguKe = Math.ceil(tanggal / 7);
 
-            document.getElementById('jumat-minggu-ke').innerText = `Jadwal Petugas Jumat (Minggu Ke-${mingguKe})`;
+            document.getElementById('jumat-minggu-ke').innerText = `JADWAL IMAM & KHATIB (MINGGU KE-${mingguKe})`;
             
             // Mengambil data (index array mulai dari 0)
             const indeksData = (mingguKe - 1) % dataPetugasJumat.length; 
             const petugas = dataPetugasJumat[indeksData];
 
             document.getElementById('petugas-khatib').innerText = petugas.khatib;
-            document.getElementById('petugas-imam').innerText = petugas.imam;
-            document.getElementById('petugas-muadzin').innerText = petugas.muadzin;
         }
 
         function kirimSaranWA() {
