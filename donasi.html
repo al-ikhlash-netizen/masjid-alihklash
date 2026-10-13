@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infaq & Wakaf - Masjid Jami Al Ikhlash</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --primary: #059669;
@@ -98,33 +101,49 @@
             padding: 16px;
             border-radius: 16px;
             margin-bottom: 20px;
+            border: 1px solid #E2E8F0;
         }
 
         .amount-collected {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 800;
             color: var(--primary);
         }
 
         .amount-target {
             font-size: 12px;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .progress-bar-bg {
             background: #E2E8F0;
-            height: 8px;
+            height: 10px;
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 12px;
         }
 
         .progress-bar-fill {
-            background: var(--primary);
+            background: linear-gradient(90deg, #10B981, var(--primary));
             height: 100%;
-            width: 0%;
+            width: 25.16%; /* (37.750.000 / 150.000.000) * 100 */
             border-radius: 10px;
+            position: relative;
+        }
+
+        /* Efek kilauan di progress bar */
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .stats-grid {
@@ -330,6 +349,64 @@
             font-size: 14px;
             font-family: inherit;
         }
+
+        /* STYLING UNTUK POP-UP SOCIAL PROOF (DONATUR TERAKHIR) */
+        .toast-notification {
+            position: fixed;
+            bottom: 85px; /* Tepat di atas tombol Donasi */
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--primary);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.25);
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 90;
+            width: 90%;
+            max-width: 440px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            pointer-events: none;
+        }
+
+        .toast-notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            background: #D1FAE5;
+            color: var(--primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .toast-content p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .toast-content strong {
+            color: var(--primary);
+        }
+        
+        .toast-time {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
     </style>
 </head>
 <body>
@@ -347,15 +424,15 @@
     <div class="content-body">
         <h1 class="campaign-title">Infaq Operasional & Pembangunan Masjid Jami Al-Ikhlash</h1>
 
-        <!-- Status Donasi -->
+        <!-- Status Donasi (DIUPDATE SESUAI REQUEST) -->
         <div class="progress-box">
-            <div class="amount-collected">Rp 0</div>
-            <div class="amount-target">terkumpul dari target <strong>Rp 50.000.000</strong></div>
+            <div class="amount-collected">Rp 37.750.000</div>
+            <div class="amount-target">terkumpul dari target <strong>Rp 150.000.000</strong></div>
             <div class="progress-bar-bg">
                 <div class="progress-bar-fill"></div>
             </div>
             <div class="stats-grid">
-                <span><b>0</b> Donatur</span>
+                <span><b>56</b> Donatur</span>
                 <span><b>Tidak Terbatas</b> Hari</span>
             </div>
         </div>
@@ -404,6 +481,17 @@
         </div>
     </div>
 
+    <!-- POP-UP NOTIFIKASI DONATUR (SOCIAL PROOF) -->
+    <div class="toast-notification" id="donor-toast">
+        <div class="toast-icon">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+        <div class="toast-content">
+            <p id="toast-text"><strong>Hamba Allah</strong> baru saja berinfaq <strong>Rp 500.000</strong></p>
+            <div class="toast-time" id="toast-method">via Transfer • Baru saja</div>
+        </div>
+    </div>
+
     <!-- Tombol Aksi Bawah -->
     <div class="bottom-action">
         <button class="btn-primary" onclick="openModal()">Konfirmasi Infaq Anda Disini</button>
@@ -449,12 +537,58 @@
             <textarea id="pesanDoa" class="form-control" rows="2" placeholder="Tuliskan doa Anda di sini..."></textarea>
         </div>
 
-        <!-- Tombol diubah menjadi KIRIM -->
         <button class="btn-primary" style="margin-top: 10px;" onclick="submitDonation()">Kirim</button>
     </div>
 </div>
 
 <script>
+    // --- FITUR POP-UP SOCIAL PROOF (DATA DONATUR) ---
+    const recentDonors = [
+        { name: "Hamba Allah", amount: "500.000", method: "Transfer" },
+        { name: "Ai Masitoh", amount: "200.000", method: "Transfer" },
+        { name: "Asep Qodir", amount: "200.000", method: "Transfer" },
+        { name: "Hamba Allah", amount: "50.000", method: "Transfer" },
+        { name: "Orang Baik", amount: "20.000", method: "QRIS" },
+        { name: "Insan Pilihan", amount: "10.000", method: "QRIS" }
+    ];
+
+    let currentDonorIndex = 0;
+    const toast = document.getElementById('donor-toast');
+    const toastText = document.getElementById('toast-text');
+    const toastMethod = document.getElementById('toast-method');
+
+    function showNextDonor() {
+        if (recentDonors.length === 0) return;
+        
+        // Ambil data donatur
+        const donor = recentDonors[currentDonorIndex];
+        
+        // Update teks pop-up
+        toastText.innerHTML = `<strong>${donor.name}</strong> baru saja berinfaq <strong>Rp ${donor.amount}</strong>`;
+        toastMethod.innerHTML = `via ${donor.method} • Baru saja`;
+        
+        // Munculkan toast dengan animasi
+        toast.classList.add('show');
+        
+        // Sembunyikan setelah 4.5 detik
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4500);
+        
+        // Lanjut ke indeks donatur berikutnya, ulangi jika habis
+        currentDonorIndex = (currentDonorIndex + 1) % recentDonors.length;
+    }
+
+    // Jalankan rotasi pop-up (muncul otomatis setiap 7 detik)
+    window.onload = function() {
+        setTimeout(() => {
+            showNextDonor();
+            setInterval(showNextDonor, 7000);
+        }, 1500); // Penundaan awal sebelum pop-up pertama muncul
+    };
+
+
+    // --- FUNGSI BAWAAN FORMULIR ---
     function openModal() {
         document.getElementById('donationModal').style.display = 'flex';
     }
