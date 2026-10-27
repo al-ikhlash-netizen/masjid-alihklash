@@ -19,7 +19,6 @@
     <meta name="description" content="Mengenal Program Pendidikan Al-Qur'an Lanjut Usia (PAUL) di Masjid Jami' Al-Ikhlash Sangkanhurip. Inisiasi Ust. Asep E Rohidin S.H.I. yang telah berjalan 10 tahun.">
     <meta property="og:title" content="PAUL: 10 Tahun Menuntun Lansia Dekat dengan Al-Qur'an">
     <meta property="og:description" content="Program bimbingan mengaji khusus lansia dengan metode One Day One Ayat dan suasana kekeluargaan di Masjid Al-Ikhlash.">
-    <!-- PASTIKAN URL GAMBAR INI BENAR -->
     <meta property="og:image" content="https://al-ikhlash.online/1000026686.jpg">
     <meta property="og:url" content="https://al-ikhlash.online/artikel_paul.html">
     <meta property="og:type" content="article">
@@ -61,7 +60,7 @@
         }
         h1, h2, h3, h4 { font-family: 'Marcellus', serif; color: var(--emerald-dark); }
 
-        /* HEADER */
+        /* HEADER NAVIGASI */
         header { 
             background: rgba(2, 44, 34, 0.98); 
             backdrop-filter: blur(15px);
@@ -99,7 +98,7 @@
         main { padding: 60px 0 100px; }
         .max-width-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
         
-        /* FIX LAYOUT UNTUK HEADER ARTIKEL AGAR TIDAK NUMPUK */
+        /* HEADER ARTIKEL */
         .article-header { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 40px; }
         .article-category { display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--emerald-main); text-transform: uppercase; letter-spacing: 2px; padding: 6px 18px; background: rgba(16, 185, 129, 0.1); border-radius: 50px; margin-bottom: 20px; width: max-content; }
         .article-title { font-size: 2.5rem; line-height: 1.4; margin-bottom: 25px; color: var(--emerald-dark); font-weight: 700; word-wrap: break-word; }
@@ -108,7 +107,7 @@
         .article-meta span { display: flex; align-items: center; gap: 8px; }
         .article-meta i { color: var(--primary-gold); }
 
-        /* FIX BOX LOGO */
+        /* BOX LOGO */
         .featured-logo-box { text-align: center; margin-bottom: 45px; background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); border: 1px solid var(--border-color); width: 100%; display: flex; flex-direction: column; align-items: center; }
         .featured-logo-box img { max-width: 250px; width: 100%; height: auto; border-radius: 50%; border: 4px solid var(--primary-gold); padding: 5px; background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); object-fit: cover; }
         .logo-caption { margin-top: 15px; font-size: 0.85rem; color: var(--text-soft); font-style: italic; }
@@ -133,7 +132,7 @@
         /* FOOTER */
         footer { background: #022C22; color: #94A3B8; padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
         
-        /* MEDIA QUERY - FIX UNTUK HP BIAR TIDAK NUMPUK */
+        /* MEDIA QUERY */
         @media (max-width: 1024px) {
             header { padding: 0 20px; height: 85px; }
             .header-nav { display: none; position: absolute; top: 85px; left: 0; width: 100%; background: var(--emerald-dark); padding: 20px; border-bottom: 2px solid var(--primary-gold); }
@@ -150,7 +149,6 @@
             main { padding: 40px 0 60px; }
             .article-title { font-size: 1.6rem; line-height: 1.4; margin-bottom: 20px; }
             
-            /* Paksa info meta menyusun ke bawah di HP */
             .article-meta { flex-direction: column; gap: 12px; align-items: center; text-align: center; padding: 15px 10px; }
             
             .article-body { padding: 25px 20px; }
@@ -169,7 +167,6 @@
     <!-- HEADER NAVIGATION -->
     <header>
         <div class="header-logo-group">
-            <!-- PENTING: Pastikan file Logo-dkm.jpg ada di folder yang sama -->
             <img src="Logo-dkm.jpg" alt="Logo Masjid Al-Ikhlash">
             <div class="header-text">
                 <div class="nama-masjid">AL IKHLASH</div>
@@ -193,7 +190,8 @@
     <main>
         <div class="max-width-container">
             <article>
-                <header class="article-header" data-aos="fade-up">
+                <!-- TAG HEADER DIUBAH MENJADI DIV AGAR TIDAK BENTROK -->
+                <div class="article-header" data-aos="fade-up">
                     <span class="article-category">Program Unggulan DKM</span>
                     <h1 class="article-title">PAUL: 10 Tahun Menuntun Jamaah Lansia Dekat dengan Al-Qur'an</h1>
                     <div class="article-meta">
@@ -201,11 +199,10 @@
                         <span><i class="fa-solid fa-building-columns"></i> Bidang Imarah DKM</span>
                         <span><i class="fa-solid fa-clock"></i> Konsisten 10+ Tahun</span>
                     </div>
-                </header>
+                </div>
 
                 <!-- LOGO UTAMA PAUL -->
                 <div class="featured-logo-box" data-aos="zoom-in">
-                    <!-- PENTING: Ganti atribut src ini dengan nama file logo PAUL yang persis sama dengan yang Anda upload di GitHub -->
                     <img src="1000026686.jpg" alt="Logo Resmi PAUL - Pendidikan Al-Qur'an Lanjut Usia" loading="lazy">
                     <div class="logo-caption">Logo Resmi Program PAUL (Pendidikan Al-Qur'an Lanjut Usia) Masjid Jami' Al-Ikhlash Ciborerang</div>
                 </div>
@@ -240,13 +237,11 @@
                     <!-- GALERI FOTO KEGIATAN PAUL -->
                     <div class="paul-gallery-grid">
                         <div class="paul-gallery-card">
-                            <!-- PENTING: Pastikan nama file ini sesuai di GitHub -->
-                            <img src="1000026705.jpg" alt="Suasana Belajar Mengaji PAUL" loading="lazy" decoding="async">
+                            <img src="1000026704.jpg" alt="Suasana Belajar Mengaji PAUL" loading="lazy" decoding="async">
                             <div class="card-caption">Suasana bimbingan mengaji Al-Qur'an dengan mushaf majelis</div>
                         </div>
                         <div class="paul-gallery-card">
-                            <!-- PENTING: Pastikan nama file ini sesuai di GitHub -->
-                            <img src="1000026704.jpg" alt="Ramah Tamah dan Halqah Kebersamaan PAUL" loading="lazy" decoding="async">
+                            <img src="1000026705.jpg" alt="Ramah Tamah dan Halqah Kebersamaan PAUL" loading="lazy" decoding="async">
                             <div class="card-caption">Halqah silaturahmi dan kebersamaan ramah tamah antarjamaah PAUL</div>
                         </div>
                     </div>
