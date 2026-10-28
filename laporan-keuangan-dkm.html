@@ -3,44 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Keuangan Terbuka DKM - Firebase Realtime</title>
+    <title>Laporan Keuangan Terminal IHSG - DKM Al-Ikhlash</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: #0f172a; }
-        .header { background: #064e3b; color: white; padding: 30px 20px; text-align: center; }
-        .header h1 { margin: 0 0 10px 0; font-size: 24px; }
-        .header p { margin: 0; color: #a7f3d0; font-size: 14px; }
-        
-        .container { max-width: 1200px; margin: -20px auto 40px auto; padding: 0 20px; position: relative; z-index: 10; }
-        
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .card { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-top: 5px solid #064e3b; text-align: center; }
-        .card.umum { border-top-color: #0ea5e9; }
-        .card.soskem { border-top-color: #f59e0b; }
-        .card.renovasi { border-top-color: #8b5cf6; }
-        .card h3 { margin: 0 0 10px 0; font-size: 13px; color: #475569; text-transform: uppercase; font-weight: 800; }
-        .card .saldo { font-size: 26px; font-weight: 800; margin-bottom: 15px; color: #0f172a; }
-        .card .stats { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; background: #f8fafc; padding: 10px; border-radius: 8px; }
-        .txt-in { color: #10b981; } .txt-out { color: #ef4444; }
+        :root {
+            --terminal-bg: #0b1329;
+            --card-bg: #111c38;
+            --card-border: rgba(56, 189, 248, 0.15);
+            --neon-green: #10b981;
+            --neon-red: #ef4444;
+            --neon-cyan: #38bdf8;
+            --neon-gold: #f59e0b;
+        }
 
-        .section-title { font-size: 18px; font-weight: 800; color: #064e3b; margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #070b19; margin: 0; padding: 0; color: #f8fafc; }
+        .header { background: linear-gradient(135deg, #064e3b 0%, #022c22 100%); color: white; padding: 35px 20px; text-align: center; border-bottom: 2px solid rgba(16, 185, 129, 0.3); }
+        .header h1 { margin: 0 0 8px 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px; }
+        .header p { margin: 0; color: #a7f3d0; font-size: 13px; font-weight: 500; }
         
-        .box-container { background: white; padding: 25px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .container { max-width: 1200px; margin: -25px auto 40px auto; padding: 0 20px; position: relative; z-index: 10; }
+        
+        /* IHSG STOCK MARKET TICKER CARD STYLE */
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: 30px; }
+        .market-card { 
+            background: var(--card-bg); 
+            border-radius: 18px; 
+            padding: 22px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
+            border: 1px solid var(--card-border); 
+            position: relative; 
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .market-card:hover { transform: translateY(-3px); border-color: rgba(56, 189, 248, 0.4); }
+        
+        /* Top Status Bar di dalam Card */
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .card-title { font-size: 12px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; }
+        .live-badge { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: rgba(16, 185, 129, 0.15); color: var(--neon-green); display: flex; align-items: center; gap: 4px; }
+        .live-badge::before { content: ''; width: 6px; height: 6px; background: var(--neon-green); border-radius: 50%; animation: blink 1.5px infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        /* Nilai Saldo Ala Harga Saham */
+        .market-saldo { font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 800; color: #ffffff; margin-bottom: 15px; letter-spacing: -0.5px; }
+        
+        /* Baris Statistik In/Out ala Pergerakan Market */
+        .market-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: rgba(15, 23, 42, 0.6); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
+        .stat-item { display: flex; flex-direction: column; }
+        .stat-label { font-size: 10px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-bottom: 3px; }
+        .stat-val { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; }
+        
+        .txt-in { color: var(--neon-green); } 
+        .txt-out { color: var(--neon-red); }
+
+        .section-title { font-size: 16px; font-weight: 800; color: #f8fafc; margin-bottom: 15px; border-bottom: 2px solid rgba(255,255,255,0.08); padding-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: var(--neon-cyan); }
+
+        .box-container { background: var(--card-bg); padding: 25px; border-radius: 18px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); margin-bottom: 30px; border: 1px solid var(--card-border); }
 
         .charts-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-        .chart-wrapper { background: white; padding: 20px; border-radius: 16px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .chart-wrapper { background: var(--card-bg); padding: 20px; border-radius: 18px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 1px solid var(--card-border); }
 
         .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; }
-        .filter-bar select { padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; font-weight: 600; outline: none; }
+        .filter-bar select { padding: 12px 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: #0f172a; color: white; font-weight: 600; outline: none; font-family: inherit; }
 
         table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
-        th { background: #f8fafc; color: #475569; font-weight: 800; text-transform: uppercase; font-size: 11px; }
-        td { font-weight: 600; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
+        th { background: rgba(15, 23, 42, 0.8); color: #94a3b8; font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
+        td { font-weight: 600; color: #e2e8f0; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+        td:nth-child(3) { font-family: 'Plus Jakarta Sans', sans-serif; } /* Uraian tetap teks biasa */
         
-        .loading-state { text-align: center; padding: 40px; font-weight: bold; color: #64748b; }
+        .loading-state { text-align: center; padding: 40px; font-weight: bold; color: #64748b; font-family: 'Plus Jakarta Sans', sans-serif; }
         
         @media(max-width: 900px) {
             .charts-container { grid-template-columns: 1fr; }
@@ -50,54 +85,96 @@
 <body>
 
 <div class="header">
-    <h1>Laporan Keuangan Terbuka DKM</h1>
-    <p>Akuntabilitas dan Transparansi Dana Ummat Secara Real-time (Firebase Cloud)</p>
+    <h1>DKM AL-IKHLASH FINANCIAL TERMINAL</h1>
+    <p><i class="fa fa-chart-line"></i> Real-time Market Index & Transparency Dashboard</p>
 </div>
 
 <div class="container" id="main-content">
     <div class="dashboard-grid">
-        <div class="card umum">
-            <h3>Kas Umum</h3>
-            <div class="saldo" id="dash-saldo-umum">Rp 0</div>
-            <div class="stats">
-                <div><i class="fa fa-arrow-down txt-in"></i> <span id="dash-in-umum" class="txt-in">0</span></div>
-                <div><i class="fa fa-arrow-up txt-out"></i> <span id="dash-out-umum" class="txt-out">0</span></div>
+        <!-- KAS UMUM -->
+        <div class="market-card" style="border-top: 4px solid var(--neon-cyan);">
+            <div class="card-top">
+                <span class="card-title"><i class="fa fa-wallet" style="color:var(--neon-cyan)"></i> Kas Umum</span>
+                <div class="live-badge">ONLINE</div>
+            </div>
+            <div class="market-saldo" id="dash-saldo-umum">Rp 0</div>
+            <div class="market-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Inflow (Masuk)</span>
+                    <span class="stat-val txt-in" id="dash-in-umum">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Outflow (Keluar)</span>
+                    <span class="stat-val txt-out" id="dash-out-umum">0</span>
+                </div>
             </div>
         </div>
-        <div class="card soskem">
-            <h3>Kas Sosial & Kematian</h3>
-            <div class="saldo" id="dash-saldo-soskem">Rp 0</div>
-            <div class="stats">
-                <div><i class="fa fa-arrow-down txt-in"></i> <span id="dash-in-soskem" class="txt-in">0</span></div>
-                <div><i class="fa fa-arrow-up txt-out"></i> <span id="dash-out-soskem" class="txt-out">0</span></div>
+
+        <!-- KAS SOSKEM -->
+        <div class="market-card" style="border-top: 4px solid var(--neon-gold);">
+            <div class="card-top">
+                <span class="card-title"><i class="fa fa-hands-holding-child" style="color:var(--neon-gold)"></i> Kas Soskem</span>
+                <div class="live-badge">ONLINE</div>
+            </div>
+            <div class="market-saldo" id="dash-saldo-soskem">Rp 0</div>
+            <div class="market-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Inflow (Masuk)</span>
+                    <span class="stat-val txt-in" id="dash-in-soskem">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Outflow (Keluar)</span>
+                    <span class="stat-val txt-out" id="dash-out-soskem">0</span>
+                </div>
             </div>
         </div>
-        <div class="card renovasi">
-            <h3>Kas Renovasi</h3>
-            <div class="saldo" id="dash-saldo-renovasi">Rp 0</div>
-            <div class="stats">
-                <div><i class="fa fa-arrow-down txt-in"></i> <span id="dash-in-renovasi" class="txt-in">0</span></div>
-                <div><i class="fa fa-arrow-up txt-out"></i> <span id="dash-out-renovasi" class="txt-out">0</span></div>
+
+        <!-- KAS RENOVASI -->
+        <div class="market-card" style="border-top: 4px solid #a855f7;">
+            <div class="card-top">
+                <span class="card-title"><i class="fa fa-gopuram" style="color:#a855f7"></i> Kas Renovasi</span>
+                <div class="live-badge">ONLINE</div>
+            </div>
+            <div class="market-saldo" id="dash-saldo-renovasi">Rp 0</div>
+            <div class="market-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Inflow (Masuk)</span>
+                    <span class="stat-val txt-in" id="dash-in-renovasi">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Outflow (Keluar)</span>
+                    <span class="stat-val txt-out" id="dash-out-renovasi">0</span>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <h3>Total Kas DKM Keseluruhan</h3>
-            <div class="saldo" style="color: #064e3b; font-size: 30px;" id="dash-saldo-total">Rp 0</div>
-            <div style="font-size: 11px; color: #64748b; margin-top: 10px;">Update Realtime: <span id="last-update">Menghubungkan...</span></div>
+
+        <!-- TOTAL INDEX KESELURUHAN -->
+        <div class="market-card" style="border-top: 4px solid var(--neon-green);">
+            <div class="card-top">
+                <span class="card-title"><i class="fa fa-globe" style="color:var(--neon-green)"></i> Total Index Kas DKM</span>
+                <div class="live-badge" style="background: rgba(56, 189, 248, 0.15); color: var(--neon-cyan);">SECURE</div>
+            </div>
+            <div class="market-saldo" style="color: var(--neon-green);" id="dash-saldo-total">Rp 0</div>
+            <div style="font-size: 11px; color: #64748b; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+                <span>Sync Status: Active</span>
+                <span id="last-update" style="color: var(--neon-cyan);">--:--:--</span>
+            </div>
         </div>
     </div>
 
+    <!-- CHARTS SECTION -->
     <div class="charts-container">
         <div class="chart-wrapper"><canvas id="chartIn"></canvas></div>
         <div class="chart-wrapper"><canvas id="chartOut"></canvas></div>
         <div class="chart-wrapper"><canvas id="chartBalance"></canvas></div>
     </div>
 
+    <!-- TABEL RINCIAN -->
     <div class="box-container">
-        <div class="section-title">Rincian Transaksi Publik</div>
+        <div class="section-title"><i class="fa fa-list-check"></i> Terminal Rincian Transaksi Publik</div>
         <div class="filter-bar">
             <select id="filter-rek" onchange="filterTabel()">
-                <option value="Semua">Semua Rekening</option>
+                <option value="Semua">Semua Rekening (All Index)</option>
                 <option value="Umum">Kas Umum</option>
                 <option value="Soskem">Kas Soskem</option>
                 <option value="Renovasi">Kas Renovasi</option>
@@ -109,21 +186,21 @@
                     <tr>
                         <th>Tanggal</th>
                         <th>Rekening</th>
-                        <th>Keterangan</th>
-                        <th>Masuk</th>
-                        <th>Keluar</th>
-                        <th>Saldo Berjalan</th>
+                        <th>Keterangan / Uraian</th>
+                        <th>Masuk (In)</th>
+                        <th>Keluar (Out)</th>
+                        <th>Net Balance (Saldo)</th>
                     </tr>
                 </thead>
                 <tbody id="tabel-body">
-                    <tr><td colspan="6" class="loading-state">Memuat data dari Cloud Firebase...</td></tr>
+                    <tr><td colspan="6" class="loading-state">Menghubungkan ke Terminal Cloud Firebase...</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<!-- FIREBASE SDK & PUBLIC SCRIPT -->
+<!-- FIREBASE SDK & TERMINAL SCRIPT -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
@@ -147,13 +224,11 @@
 
     function formatRp(angka) { return new Intl.NumberFormat('id-ID').format(angka); }
 
-    // Realtime Listener dari Firebase Firestore
     onSnapshot(collection(db, "transaksi"), (snapshot) => {
         let dbKas = [];
         snapshot.forEach((docSnap) => {
             dbKas.push(docSnap.data());
         });
-        
         prosesDataPublik(dbKas);
     });
 
@@ -181,7 +256,6 @@
 
         summary.Total.saldo = summary.Umum.saldo + summary.Soskem.saldo + summary.Renovasi.saldo;
 
-        // Render Summary Cards
         document.getElementById('dash-saldo-umum').innerText = 'Rp ' + formatRp(summary.Umum.saldo);
         document.getElementById('dash-in-umum').innerText = formatRp(summary.Umum.masuk);
         document.getElementById('dash-out-umum').innerText = formatRp(summary.Umum.keluar);
@@ -195,9 +269,8 @@
         document.getElementById('dash-out-renovasi').innerText = formatRp(summary.Renovasi.keluar);
 
         document.getElementById('dash-saldo-total').innerText = 'Rp ' + formatRp(summary.Total.saldo);
-        document.getElementById('last-update').innerText = new Date().toLocaleTimeString('id-ID') + ' WIB';
+        document.getElementById('last-update').innerText = new Date().toLocaleTimeString('id-ID');
 
-        // Urutkan berdasarkan tanggal
         globalTransaksi = transaksi.sort((a,b) => new Date(a.tanggal) - new Date(b.tanggal));
         filterTabel();
         renderCharts(transaksi);
@@ -212,7 +285,7 @@
         let filtered = globalTransaksi.filter(tx => filter === 'Semua' || tx.rekening === filter);
         
         if (filtered.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">Tidak ada data transaksi.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px; font-family: Plus Jakarta Sans;">Tidak ada data transaksi.</td></tr>';
             return;
         }
 
@@ -223,11 +296,11 @@
             
             tbody.innerHTML += `<tr>
                 <td>${tx.tanggal}</td>
-                <td><span style="background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-size: 11px;">${tx.rekening}</span></td>
+                <td><span style="background: rgba(56,189,248,0.1); color: var(--neon-cyan); padding: 4px 8px; border-radius: 6px; font-size: 11px;">${tx.rekening}</span></td>
                 <td>${tx.uraian || tx.keterangan || '-'}</td>
                 <td class="txt-in">${isIn ? 'Rp ' + formatRp(n) : '-'}</td>
                 <td class="txt-out">${!isIn ? 'Rp ' + formatRp(n) : '-'}</td>
-                <td style="color: #0f172a;">Rp ${formatRp(saldoBerjalan)}</td>
+                <td style="color: #ffffff; font-weight: 700;">Rp ${formatRp(saldoBerjalan)}</td>
             </tr>`;
         });
     }
@@ -253,27 +326,34 @@
             return runningBal;
         });
 
-        const commonOptions = { responsive: true, plugins: { legend: { position: 'bottom' } } };
+        const terminalThemeOptions = { 
+            responsive: true, 
+            plugins: { legend: { labels: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans' } } } },
+            scales: {
+                x: { ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                y: { ticks: { color: '#64748b' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        };
 
         if(chartInInstance) chartInInstance.destroy();
         chartInInstance = new Chart(document.getElementById('chartIn'), {
             type: 'bar',
-            data: { labels: labels, datasets: [{ label: 'Pemasukan Bulanan', data: dataIn, backgroundColor: '#10b981' }] },
-            options: commonOptions
+            data: { labels: labels, datasets: [{ label: 'Inflow (Masuk)', data: dataIn, backgroundColor: '#10b981' }] },
+            options: terminalThemeOptions
         });
 
         if(chartOutInstance) chartOutInstance.destroy();
         chartOutInstance = new Chart(document.getElementById('chartOut'), {
             type: 'bar',
-            data: { labels: labels, datasets: [{ label: 'Pengeluaran Bulanan', data: dataOut, backgroundColor: '#ef4444' }] },
-            options: commonOptions
+            data: { labels: labels, datasets: [{ label: 'Outflow (Keluar)', data: dataOut, backgroundColor: '#ef4444' }] },
+            options: terminalThemeOptions
         });
 
         if(chartBalanceInstance) chartBalanceInstance.destroy();
         chartBalanceInstance = new Chart(document.getElementById('chartBalance'), {
             type: 'line',
-            data: { labels: labels, datasets: [{ label: 'Pertumbuhan Saldo', data: dataBal, borderColor: '#0ea5e9', backgroundColor: 'rgba(14, 165, 233, 0.1)', fill: true, tension: 0.4 }] },
-            options: commonOptions
+            data: { labels: labels, datasets: [{ label: 'Net Index Trend', data: dataBal, borderColor: '#38bdf8', backgroundColor: 'rgba(56, 189, 248, 0.1)', fill: true, tension: 0.4 }] },
+            options: terminalThemeOptions
         });
     }
 </script>
