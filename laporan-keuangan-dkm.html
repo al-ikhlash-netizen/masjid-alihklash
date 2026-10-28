@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Keuangan DKM Publik</title>
+    <title>Laporan Keuangan Terbuka DKM - Firebase Realtime</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; margin: 0; padding: 0; color: #0f172a; }
@@ -40,36 +40,21 @@
         th { background: #f8fafc; color: #475569; font-weight: 800; text-transform: uppercase; font-size: 11px; }
         td { font-weight: 600; }
         
-        /* Modal Setup */
-        #api-setup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); display: flex; justify-content: center; align-items: center; z-index: 1000; }
-        .setup-box { background: white; padding: 30px; border-radius: 16px; width: 400px; max-width: 90%; text-align: center; }
-        .setup-box h2 { color: #064e3b; margin-top: 0; font-size: 20px; }
-        .setup-box input { width: 100%; padding: 12px; margin-bottom: 15px; border: 2px solid #e2e8f0; border-radius: 8px; box-sizing: border-box; font-weight: 600; outline: none; }
-        .setup-box input:focus { border-color: #064e3b; }
-        .setup-box button { width: 100%; padding: 12px; background: #064e3b; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; }
-        
         .loading-state { text-align: center; padding: 40px; font-weight: bold; color: #64748b; }
+        
+        @media(max-width: 900px) {
+            .charts-container { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-<div id="api-setup">
-    <div class="setup-box">
-        <i class="fa fa-link" style="font-size: 40px; color: #064e3b; margin-bottom: 15px;"></i>
-        <h2>Koneksi Database</h2>
-        <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Masukkan konfigurasi API untuk mengambil data keuangan jamaah.</p>
-        <input type="text" id="api-url" placeholder="Google Apps Script URL">
-        <input type="password" id="api-key" placeholder="API Key (Opsional)">
-        <button onclick="saveAndFetch()"><i class="fa fa-sync"></i> Hubungkan Sistem</button>
-    </div>
-</div>
-
 <div class="header">
     <h1>Laporan Keuangan Terbuka DKM</h1>
-    <p>Akuntabilitas dan Transparansi Dana Ummat Secara Real-time</p>
+    <p>Akuntabilitas dan Transparansi Dana Ummat Secara Real-time (Firebase Cloud)</p>
 </div>
 
-<div class="container" id="main-content" style="display: none;">
+<div class="container" id="main-content">
     <div class="dashboard-grid">
         <div class="card umum">
             <h3>Kas Umum</h3>
@@ -98,7 +83,7 @@
         <div class="card">
             <h3>Total Kas DKM Keseluruhan</h3>
             <div class="saldo" style="color: #064e3b; font-size: 30px;" id="dash-saldo-total">Rp 0</div>
-            <div style="font-size: 11px; color: #64748b; margin-top: 10px;">Update Terakhir: <span id="last-update">Baru saja</span></div>
+            <div style="font-size: 11px; color: #64748b; margin-top: 10px;">Update Realtime: <span id="last-update">Menghubungkan...</span></div>
         </div>
     </div>
 
@@ -131,70 +116,72 @@
                     </tr>
                 </thead>
                 <tbody id="tabel-body">
-                    <tr><td colspan="6" style="text-align: center;">Memuat data...</td></tr>
+                    <tr><td colspan="6" class="loading-state">Memuat data dari Cloud Firebase...</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<script>
-    let globalTransaksi = [];
+<!-- FIREBASE SDK & PUBLIC SCRIPT -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    window.onload = () => {
-        let savedUrl = "https://script.google.com/macros/s/AKfycbxZ9Stzycrl4QVf2PyixppcVSt_nv0gFS7j3GefugJ9cSzg0sosdHBAiEZP_uklR_hJ/exec";
-        let savedKey = localStorage.getItem('dkm_api_key');
-        if (savedUrl) {
-            document.getElementById('api-setup').style.display = 'none';
-            fetchData(savedUrl, savedKey);
-        }
+    const firebaseConfig = {
+      apiKey: "AIzaSyBUSdGMAK1snoB8berOI2MOePu49iCWuqM",
+      authDomain: "kasmasjid-alikhlash.firebaseapp.com",
+      projectId: "kasmasjid-alikhlash",
+      storageBucket: "kasmasjid-alikhlash.firebasestorage.app",
+      messagingSenderId: "1094773543583",
+      appId: "1:1094773543583:web:39c8d2a9515d8446ce88aa"
     };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    let globalTransaksi = [];
+    let chartInInstance = null;
+    let chartOutInstance = null;
+    let chartBalanceInstance = null;
 
     function formatRp(angka) { return new Intl.NumberFormat('id-ID').format(angka); }
 
-    function saveAndFetch() {
-        let url = document.getElementById('api-url').value;
-        let key = document.getElementById('api-key').value;
-        if (!url) { alert("URL Endpoint wajib diisi!"); return; }
-        localStorage.setItem('dkm_api_url', url);
-        localStorage.setItem('dkm_api_key', key);
-        document.getElementById('api-setup').style.display = 'none';
-        fetchData(url, key);
-    }
-
-    async function fetchData(url, key) {
-        document.getElementById('main-content').style.display = 'block';
-        document.getElementById('tabel-body').innerHTML = '<tr><td colspan="6" class="loading-state">Mengambil data dari server...</td></tr>';
+    // Realtime Listener dari Firebase Firestore
+    onSnapshot(collection(db, "transaksi"), (snapshot) => {
+        let dbKas = [];
+        snapshot.forEach((docSnap) => {
+            dbKas.push(docSnap.data());
+        });
         
-        try {
-            // Asumsi Endpoint GET: url?action=getPublicData&apiKey=...
-            // Karena Apps Script CORS sering bermasalah jika fetch biasa tanpa setup, kita akan fallback ke mock data jika error (untuk demo frontend).
-            let res = await fetch(url + "?action=getPublicData&apiKey=" + encodeURIComponent(key));
-            if (!res.ok) throw new Error("Network response was not ok");
-            let data = await res.json();
-            
-            renderData(data.summary, data.transaksi);
-        } catch (e) {
-            console.log("Fetch error, fallback to mock data untuk demonstrasi layout:", e);
-            // Fallback Mock Data for Layout demonstration
-            let mockSummary = {
-                Umum: { saldo: 8500000, masuk: 10000000, keluar: 1500000 },
-                Soskem: { saldo: 4200000, masuk: 5000000, keluar: 800000 },
-                Renovasi: { saldo: 15000000, masuk: 20000000, keluar: 5000000 },
-                Total: { saldo: 27700000 }
-            };
-            let mockTx = [
-                { tanggal: "2026-06-05", rekening: "Umum", keterangan: "Infaq Jumat 1", arus: "Masuk", nominal: 1500000 },
-                { tanggal: "2026-06-08", rekening: "Soskem", keterangan: "Santunan Warga", arus: "Keluar", nominal: 500000 },
-                { tanggal: "2026-06-12", rekening: "Renovasi", keterangan: "Donasi Hamba Allah", arus: "Masuk", nominal: 5000000 },
-                { tanggal: "2026-06-15", rekening: "Umum", keterangan: "Bayar Listrik Masjid", arus: "Keluar", nominal: 450000 }
-            ];
-            renderData(mockSummary, mockTx);
-        }
-    }
+        prosesDataPublik(dbKas);
+    });
 
-    function renderData(summary, transaksi) {
-        // Render Summary
+    function prosesDataPublik(transaksi) {
+        let summary = {
+            Umum: { saldo: 0, masuk: 0, keluar: 0 },
+            Soskem: { saldo: 0, masuk: 0, keluar: 0 },
+            Renovasi: { saldo: 0, masuk: 0, keluar: 0 },
+            Total: { saldo: 0 }
+        };
+
+        transaksi.forEach(tx => {
+            let n = parseInt(tx.nominal) || 0;
+            let rek = tx.rekening;
+            if(!summary[rek]) return;
+
+            if(tx.jenis === 'Masuk') {
+                summary[rek].masuk += n;
+                summary[rek].saldo += n;
+            } else if(tx.jenis === 'Keluar') {
+                summary[rek].keluar += n;
+                summary[rek].saldo -= n;
+            }
+        });
+
+        summary.Total.saldo = summary.Umum.saldo + summary.Soskem.saldo + summary.Renovasi.saldo;
+
+        // Render Summary Cards
         document.getElementById('dash-saldo-umum').innerText = 'Rp ' + formatRp(summary.Umum.saldo);
         document.getElementById('dash-in-umum').innerText = formatRp(summary.Umum.masuk);
         document.getElementById('dash-out-umum').innerText = formatRp(summary.Umum.keluar);
@@ -208,15 +195,15 @@
         document.getElementById('dash-out-renovasi').innerText = formatRp(summary.Renovasi.keluar);
 
         document.getElementById('dash-saldo-total').innerText = 'Rp ' + formatRp(summary.Total.saldo);
-        
-        document.getElementById('last-update').innerText = new Date().toLocaleString('id-ID');
+        document.getElementById('last-update').innerText = new Date().toLocaleTimeString('id-ID') + ' WIB';
 
+        // Urutkan berdasarkan tanggal
         globalTransaksi = transaksi.sort((a,b) => new Date(a.tanggal) - new Date(b.tanggal));
         filterTabel();
         renderCharts(transaksi);
     }
 
-    function filterTabel() {
+    window.filterTabel = function() {
         let filter = document.getElementById('filter-rek').value;
         let tbody = document.getElementById('tabel-body');
         tbody.innerHTML = '';
@@ -225,19 +212,19 @@
         let filtered = globalTransaksi.filter(tx => filter === 'Semua' || tx.rekening === filter);
         
         if (filtered.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">Tidak ada data transaksi.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">Tidak ada data transaksi.</td></tr>';
             return;
         }
 
         filtered.forEach(tx => {
             let n = parseInt(tx.nominal) || 0;
-            let isIn = tx.arus === 'Masuk';
+            let isIn = tx.jenis === 'Masuk';
             isIn ? saldoBerjalan += n : saldoBerjalan -= n;
             
             tbody.innerHTML += `<tr>
                 <td>${tx.tanggal}</td>
                 <td><span style="background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-size: 11px;">${tx.rekening}</span></td>
-                <td>${tx.keterangan}</td>
+                <td>${tx.uraian || tx.keterangan || '-'}</td>
                 <td class="txt-in">${isIn ? 'Rp ' + formatRp(n) : '-'}</td>
                 <td class="txt-out">${!isIn ? 'Rp ' + formatRp(n) : '-'}</td>
                 <td style="color: #0f172a;">Rp ${formatRp(saldoBerjalan)}</td>
@@ -249,10 +236,11 @@
         let months = {};
         transaksi.forEach(tx => {
             let d = new Date(tx.tanggal);
+            if(isNaN(d)) return;
             let mLabel = d.toLocaleString('id-ID', { month: 'short', year: 'numeric' });
-            if(!months[mLabel]) months[mLabel] = { in: 0, out: 0, bal: 0 };
+            if(!months[mLabel]) months[mLabel] = { in: 0, out: 0 };
             let n = parseInt(tx.nominal) || 0;
-            tx.arus === 'Masuk' ? months[mLabel].in += n : months[mLabel].out += n;
+            tx.jenis === 'Masuk' ? months[mLabel].in += n : months[mLabel].out += n;
         });
 
         let labels = Object.keys(months);
@@ -267,19 +255,22 @@
 
         const commonOptions = { responsive: true, plugins: { legend: { position: 'bottom' } } };
 
-        new Chart(document.getElementById('chartIn'), {
+        if(chartInInstance) chartInInstance.destroy();
+        chartInInstance = new Chart(document.getElementById('chartIn'), {
             type: 'bar',
             data: { labels: labels, datasets: [{ label: 'Pemasukan Bulanan', data: dataIn, backgroundColor: '#10b981' }] },
             options: commonOptions
         });
 
-        new Chart(document.getElementById('chartOut'), {
+        if(chartOutInstance) chartOutInstance.destroy();
+        chartOutInstance = new Chart(document.getElementById('chartOut'), {
             type: 'bar',
             data: { labels: labels, datasets: [{ label: 'Pengeluaran Bulanan', data: dataOut, backgroundColor: '#ef4444' }] },
             options: commonOptions
         });
 
-        new Chart(document.getElementById('chartBalance'), {
+        if(chartBalanceInstance) chartBalanceInstance.destroy();
+        chartBalanceInstance = new Chart(document.getElementById('chartBalance'), {
             type: 'line',
             data: { labels: labels, datasets: [{ label: 'Pertumbuhan Saldo', data: dataBal, borderColor: '#0ea5e9', backgroundColor: 'rgba(14, 165, 233, 0.1)', fill: true, tension: 0.4 }] },
             options: commonOptions
